@@ -2,7 +2,7 @@ import type { Preferences } from './types';
 
 const defaultPreferences: Preferences = {
   app: {
-    accessMode: 'backend', // frontend backend
+    accessMode: 'frontend',
     authPageLayout: 'panel-right',
     checkUpdatesInterval: 1,
     colorGrayMode: false,
@@ -68,10 +68,12 @@ const defaultPreferences: Preferences = {
   sidebar: {
     autoActivateChild: false,
     collapsed: false,
+    collapsedButton: true,
     collapsedShowTitle: false,
     enable: true,
     expandOnHover: true,
     extraCollapse: false,
+    fixedButton: true,
     hidden: false,
     width: 224,
   },
