@@ -1,18 +1,18 @@
 <script lang="ts" setup>
-import type { TabDefinition } from '@vben-core/typings';
+import type { TabDefinition } from '@oh-core/typings';
 
 import type { TabConfig, TabsProps } from '../../types';
 
 import { computed } from 'vue';
 
-import { Pin, X } from '@vben-core/icons';
-import { VbenContextMenu, VbenIcon } from '@vben-core/shadcn-ui';
+import { Pin, X } from '@oh-core/icons';
+import { VbenContextMenu, VbenIcon } from '@oh-core/shadcn-ui';
 
 interface Props extends TabsProps {}
 
 defineOptions({
   name: 'VbenTabs',
-  // eslint-disable-next-line perfectionist/sort-objects
+
   inheritAttrs: false,
 });
 const props = withDefaults(defineProps<Props>(), {
@@ -47,14 +47,14 @@ const typeWithClass = computed(() => {
 
 const tabsView = computed(() => {
   return props.tabs.map((tab) => {
-    const { fullPath, meta, name, path } = tab || {};
+    const { fullPath, meta, name, path, key } = tab || {};
     const { affixTab, icon, newTabTitle, tabClosable, title } = meta || {};
     return {
       affixTab: !!affixTab,
       closable: Reflect.has(meta, 'tabClosable') ? !!tabClosable : true,
       fullPath,
       icon: icon as string,
-      key: fullPath || path,
+      key,
       meta,
       name,
       path,

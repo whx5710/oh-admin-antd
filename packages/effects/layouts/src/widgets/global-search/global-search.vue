@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { MenuRecordRaw } from '@vben/types';
+import type { MenuRecordRaw } from '@oh/types';
 
 import { nextTick, onMounted, onUnmounted, ref, watch } from 'vue';
 
@@ -9,11 +9,11 @@ import {
   CornerDownLeft,
   MdiKeyboardEsc,
   Search,
-} from '@vben/icons';
-import { $t } from '@vben/locales';
-import { isWindowsOs } from '@vben/utils';
+} from '@oh/icons';
+import { $t } from '@oh/locales';
+import { isWindowsOs } from '@oh/utils';
 
-import { useVbenModal } from '@vben-core/popup-ui';
+import { useModal } from '@oh-core/popup-ui';
 
 import { useMagicKeys, whenever } from '@vueuse/core';
 
@@ -24,7 +24,7 @@ defineOptions({
 });
 
 const props = withDefaults(
-  defineProps<{ enableShortcutKey?: boolean; menus: MenuRecordRaw[] }>(),
+  defineProps<{ enableShortcutKey?: boolean; menus?: MenuRecordRaw[] }>(),
   {
     enableShortcutKey: true,
     menus: () => [],
@@ -34,7 +34,7 @@ const props = withDefaults(
 const keyword = ref('');
 const searchInputRef = ref<HTMLInputElement>();
 
-const [Modal, modalApi] = useVbenModal({
+const [Modal, modalApi] = useModal({
   onCancel() {
     modalApi.close();
   },

@@ -1,19 +1,19 @@
 <script lang="ts" setup>
 import type { DataNode } from 'ant-design-vue/es/tree';
 
-import type { Recordable } from '@vben/types';
+import type { Recordable } from '@oh/types';
 
 import type { SystemRoleApi } from '#/api/system/role';
 
 import { computed, ref } from 'vue';
 
-import { useVbenDrawer, VbenTree } from '@vben/common-ui';
-import { IconifyIcon } from '@vben/icons';
+import { useDrawer, VbenTree } from '@oh/common-ui';
+import { IconifyIcon } from '@oh/icons';
 
 import { Spin } from 'ant-design-vue';
 
 import { useVbenForm } from '#/adapter/form';
-import { getMenuList } from '#/api/system/menu';
+import { getAllMenusApi } from '#/api/system/menu';
 import { createRole, updateRole } from '#/api/system/role';
 import { $t } from '#/locales';
 
@@ -28,11 +28,11 @@ const [Form, formApi] = useVbenForm({
   showDefaultActions: false,
 });
 
-const permissions = ref<DataNode[]>([]);
+const menuIdList = ref<DataNode[]>([]);
 const loadingPermissions = ref(false);
 
 const id = ref();
-const [Drawer, drawerApi] = useVbenDrawer({
+const [Drawer, drawerApi] = useDrawer({
   async onConfirm() {
     const { valid } = await formApi.validate();
     if (!valid) return;
@@ -59,7 +59,7 @@ const [Drawer, drawerApi] = useVbenDrawer({
         id.value = undefined;
       }
 
-      if (permissions.value.length === 0) {
+      if (menuIdList.value.length === 0) {
         loadPermissions();
       }
     }
@@ -69,8 +69,8 @@ const [Drawer, drawerApi] = useVbenDrawer({
 async function loadPermissions() {
   loadingPermissions.value = true;
   try {
-    const res = await getMenuList();
-    permissions.value = res as unknown as DataNode[];
+    const res = await getAllMenusApi({ type: 'all' });
+    menuIdList.value = res as unknown as DataNode[];
   } finally {
     loadingPermissions.value = false;
   }
@@ -85,6 +85,7 @@ const getDrawerTitle = computed(() => {
 function getNodeClass(node: Recordable<any>) {
   const classes: string[] = [];
   if (node.value?.type === 'button') {
+    // action
     classes.push('inline-flex');
     if (node.index % 3 >= 1) {
       classes.push('!pl-0');
@@ -97,10 +98,10 @@ function getNodeClass(node: Recordable<any>) {
 <template>
   <Drawer :title="getDrawerTitle">
     <Form>
-      <template #permissions="slotProps">
+      <template #menuIdList="slotProps">
         <Spin :spinning="loadingPermissions" wrapper-class-name="w-full">
           <VbenTree
-            :tree-data="permissions"
+            :tree-data="menuIdList"
             multiple
             bordered
             :default-expanded-level="2"

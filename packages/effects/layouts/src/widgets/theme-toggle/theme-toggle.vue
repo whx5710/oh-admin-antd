@@ -1,19 +1,19 @@
 <script lang="ts" setup>
-import type { ThemeModeType } from '@vben/types';
+import type { ThemeModeType } from '@oh/types';
 
-import { MoonStar, Sun, SunMoon } from '@vben/icons';
-import { $t } from '@vben/locales';
+import { MoonStar, Sun, SunMoon } from '@oh/icons';
+import { $t } from '@oh/locales';
 import {
   preferences,
   updatePreferences,
   usePreferences,
-} from '@vben/preferences';
+} from '@oh/preferences';
 
 import {
   ToggleGroup,
   ToggleGroupItem,
   VbenTooltip,
-} from '@vben-core/shadcn-ui';
+} from '@oh-core/shadcn-ui';
 
 import ThemeButton from './theme-button.vue';
 
@@ -25,7 +25,7 @@ withDefaults(defineProps<{ shouldOnHover?: boolean }>(), {
   shouldOnHover: false,
 });
 
-function handleChange(isDark: boolean) {
+function handleChange(isDark: boolean | undefined) {
   updatePreferences({
     theme: { mode: isDark ? 'dark' : 'light' },
   });

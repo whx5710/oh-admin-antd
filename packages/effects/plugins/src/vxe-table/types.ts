@@ -7,13 +7,13 @@ import type {
 
 import type { Ref } from 'vue';
 
-import type { ClassType, DeepPartial } from '@vben/types';
+import type { ClassType, DeepPartial } from '@oh/types';
 
-import type { VbenFormProps } from '@vben-core/form-ui';
+import type { VbenFormProps } from '@oh-core/form-ui';
 
 import type { VxeGridApi } from './api';
 
-import { useVbenForm } from '@vben-core/form-ui';
+import { useVbenForm } from '@oh-core/form-ui';
 
 export interface VxePaginationInfo {
   currentPage: number;

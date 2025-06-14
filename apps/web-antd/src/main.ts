@@ -1,5 +1,5 @@
-import { initPreferences } from '@vben/preferences';
-import { unmountGlobalLoading } from '@vben/utils';
+import { initPreferences } from '@oh/preferences';
+import { unmountGlobalLoading } from '@oh/utils';
 
 import { overridesPreferences } from './preferences';
 

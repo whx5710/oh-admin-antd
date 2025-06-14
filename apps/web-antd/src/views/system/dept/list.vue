@@ -1,27 +1,33 @@
 <script lang="ts" setup>
+import type { Recordable } from '@oh/types';
+
 import type {
   OnActionClickParams,
   VxeTableGridOptions,
 } from '#/adapter/vxe-table';
 import type { SystemDeptApi } from '#/api/system/dept';
 
-import { Page, useVbenModal } from '@vben/common-ui';
-import { Plus } from '@vben/icons';
+import { reactive, ref, watch } from 'vue';
 
-import { Button, message } from 'ant-design-vue';
+import { Page, useModal, VbenTree } from '@oh/common-ui';
+import { Plus } from '@oh/icons';
 
-import { useVbenVxeGrid } from '#/adapter/vxe-table';
-import { deleteDept, getDeptList } from '#/api/system/dept';
+import { Button, Card, Col, InputSearch, message, Row } from 'ant-design-vue';
+
+import { useVxeGrid } from '#/adapter/vxe-table';
+import { deleteDept, getDeptPage, getDeptTreeList } from '#/api/system/dept';
 import { $t } from '#/locales';
 
-import { useColumns } from './data';
+import { useColumns, useGridFormSchema } from './data';
 import Form from './modules/form.vue';
 
-const [FormModal, formModalApi] = useVbenModal({
+const [FormModal, formModalApi] = useModal({
   connectedComponent: Form,
   destroyOnClose: true,
 });
 
+const queryParam = ref();
+const searchValue = ref<string>('');
 /**
  * 编辑部门
  * @param row
@@ -35,14 +41,14 @@ function onEdit(row: SystemDeptApi.SystemDept) {
  * @param row
  */
 function onAppend(row: SystemDeptApi.SystemDept) {
-  formModalApi.setData({ pid: row.id }).open();
+  formModalApi.setData({ parentId: row.id }).open();
 }
 
 /**
  * 创建新部门
  */
 function onCreate() {
-  formModalApi.setData(null).open();
+  formModalApi.setData(queryParam.value).open();
 }
 
 /**
@@ -91,33 +97,51 @@ function onActionClick({
   }
 }
 
-const [Grid, gridApi] = useVbenVxeGrid({
+const [Grid, gridApi] = useVxeGrid({
   gridEvents: {},
+  showSearchForm: false, // 默认隐藏搜索表单
+  // 搜索表单
+  formOptions: {
+    fieldMappingTime: [['createTime', ['startTime', 'endTime']]],
+    schema: useGridFormSchema(),
+    submitOnChange: true,
+    showCollapseButton: false, // 是否显示展开/折叠
+  },
   gridOptions: {
     columns: useColumns(onActionClick),
     height: 'auto',
     keepSource: true,
-    pagerConfig: {
-      enabled: false,
-    },
+    // pagerConfig: {
+    //   enabled: false,
+    // },
     proxyConfig: {
       ajax: {
-        query: async (_params) => {
-          return await getDeptList();
+        query: async ({ page }, _params) => {
+          return await getDeptPage({
+            pageNum: page.currentPage,
+            pageSize: page.pageSize,
+            ..._params,
+            ...queryParam.value,
+          });
         },
       },
+    },
+    rowConfig: {
+      keyField: 'id',
+      isCurrent: true, // 高亮选中行
     },
     toolbarConfig: {
       custom: true,
       export: false,
-      refresh: { code: 'query' },
+      search: true,
+      refresh: { queryMethod: refreshGrid }, // 刷新按钮调用方法
       zoom: true,
     },
-    treeConfig: {
-      parentField: 'pid',
-      rowField: 'id',
-      transform: false,
-    },
+    // treeConfig: {
+    //   parentField: 'parentId',
+    //   rowField: 'id',
+    //   transform: false,
+    // },
   } as VxeTableGridOptions,
 });
 
@@ -125,19 +149,135 @@ const [Grid, gridApi] = useVbenVxeGrid({
  * 刷新表格
  */
 function refreshGrid() {
-  gridApi.query();
+  queryParam.value = { parentId: null };
+  gridApi.query(queryParam.value);
+  getDeptTree({});
 }
+
+const treeData = ref([]);
+// 加载树形单位信息
+const getDeptTree = (params: Recordable<any>) => {
+  getDeptTreeList(params).then((data) => {
+    const tmpData = reactive([] as any);
+    tmpData.push({
+      id: '0',
+      name: '全部',
+      children: data,
+    });
+    treeData.value = tmpData;
+    generateList(treeData.value);
+    setTimeout(() => {
+      // 展开-延迟执行
+      deptTreeRef.value.expandNodes(['0']);
+    }, 100);
+  });
+};
+getDeptTree({});
+const deptTreeRef = ref();
+// 点击左边树形列表，查询单位信息
+const getDeptById = (node: any) => {
+  queryParam.value = { parentId: node.value.id };
+  gridApi.query(queryParam.value);
+};
+
+// 转列表
+const dataList: any[] = [];
+const generateList = (data: any[]) => {
+  for (const node of data) {
+    const id = node.id;
+    const parentId = node.parentId;
+    dataList.push({ id, parentId, title: node.name });
+    if (node.children) {
+      generateList(node.children);
+    }
+  }
+};
+// 获取上级部门ID
+let expandedKeys: Array<number | string> = [];
+const getParentKey = (id: number | string): number | string | undefined => {
+  let parentId;
+  if (id) {
+    expandedKeys.push(id);
+    for (const node of dataList) {
+      if (node.parentId && node.id === id) {
+        parentId = node.parentId;
+        expandedKeys.push(parentId);
+      }
+    }
+    if (parentId) {
+      getParentKey(parentId);
+    }
+  }
+  return parentId;
+};
+
+watch(searchValue, (value) => {
+  expandedKeys = [];
+  dataList.forEach((item) => {
+    if (item.title.includes(value)) {
+      getParentKey(item.id);
+    }
+  });
+  searchValue.value = value;
+  const params = [...new Set(expandedKeys)];
+  getDeptTree({ deptIds: params });
+  deptTreeRef.value.expandNodes(params);
+});
 </script>
 <template>
-  <Page auto-content-height>
-    <FormModal @success="refreshGrid" />
-    <Grid table-title="部门列表">
-      <template #toolbar-tools>
-        <Button type="primary" @click="onCreate">
-          <Plus class="size-5" />
-          {{ $t('ui.actionTitle.create', [$t('system.dept.name')]) }}
-        </Button>
-      </template>
-    </Grid>
-  </Page>
+  <Row>
+    <Col :span="6">
+      <Page auto-content-height>
+        <Card>
+          <InputSearch
+            v-model:value="searchValue"
+            style="margin-bottom: 8px"
+            placeholder="请输入关键字"
+          />
+          <VbenTree
+            ref="deptTreeRef"
+            :tree-data="treeData"
+            bordered
+            :transition="false"
+            value-field="id"
+            label-field="name"
+            @select="getDeptById"
+          >
+            <template #node="item">
+              <span v-if="item.value.name.includes(searchValue)">
+                {{
+                  item.value.name.substring(
+                    0,
+                    item.value.name.indexOf(searchValue),
+                  )
+                }}
+                <span style="font-weight: bold; color: #f50">{{
+                  searchValue
+                }}</span>
+                {{
+                  item.value.name.substring(
+                    item.value.name.indexOf(searchValue) + searchValue.length,
+                  )
+                }}
+              </span>
+              <span v-else>{{ item.value.name }}</span>
+            </template>
+          </VbenTree>
+        </Card>
+      </Page>
+    </Col>
+    <Col :span="18">
+      <Page auto-content-height>
+        <FormModal @success="refreshGrid" />
+        <Grid table-title="部门列表">
+          <template #toolbar-tools>
+            <Button type="primary" @click="onCreate">
+              <Plus class="size-5" />
+              新增
+            </Button>
+          </template>
+        </Grid>
+      </Page>
+    </Col>
+  </Row>
 </template>

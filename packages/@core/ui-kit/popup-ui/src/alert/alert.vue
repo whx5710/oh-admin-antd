@@ -5,7 +5,7 @@ import type { AlertProps } from './alert';
 
 import { computed, h, nextTick, ref } from 'vue';
 
-import { useSimpleLocale } from '@vben-core/composables';
+import { useSimpleLocale } from '@oh-core/composables';
 import {
   CircleAlert,
   CircleCheckBig,
@@ -13,7 +13,7 @@ import {
   CircleX,
   Info,
   X,
-} from '@vben-core/icons';
+} from '@oh-core/icons';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -24,9 +24,9 @@ import {
   VbenButton,
   VbenLoading,
   VbenRenderContent,
-} from '@vben-core/shadcn-ui';
-import { globalShareState } from '@vben-core/shared/global-state';
-import { cn } from '@vben-core/shared/utils';
+} from '@oh-core/shadcn-ui';
+import { globalShareState } from '@oh-core/shared/global-state';
+import { cn } from '@oh-core/shared/utils';
 
 import { provideAlertContext } from './alert';
 
@@ -34,7 +34,6 @@ const props = withDefaults(defineProps<AlertProps>(), {
   bordered: true,
   buttonAlign: 'end',
   centered: true,
-  containerClass: 'w-[520px]',
 });
 const emits = defineEmits(['closed', 'confirm', 'opened']);
 const open = defineModel<boolean>('open', { default: false });
@@ -148,7 +147,7 @@ async function handleOpenChange(val: boolean) {
       :class="
         cn(
           containerClass,
-          'left-0 right-0 mx-auto flex max-h-[80%] flex-col p-0 duration-300 sm:rounded-[var(--radius)] md:w-[520px] md:max-w-[80%]',
+          'left-0 right-0 mx-auto flex max-h-[80%] flex-col p-0 duration-300 sm:w-[520px] sm:max-w-[80%] sm:rounded-[var(--radius)]',
           {
             'border-border border': bordered,
             'shadow-3xl': !bordered,

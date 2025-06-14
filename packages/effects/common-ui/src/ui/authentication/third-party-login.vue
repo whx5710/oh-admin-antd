@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { MdiGithub, MdiGoogle, MdiQqchat, MdiWechat } from '@vben/icons';
-import { $t } from '@vben/locales';
+import { MdiGithub, MdiGoogle, MdiQqchat, MdiWechat } from '@oh/icons';
+import { $t } from '@oh/locales';
 
-import { VbenIconButton } from '@vben-core/shadcn-ui';
+import { VbenIconButton } from '@oh-core/shadcn-ui';
 
 defineOptions({
   name: 'ThirdPartyLogin',

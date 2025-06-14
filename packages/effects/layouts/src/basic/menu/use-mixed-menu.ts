@@ -1,11 +1,11 @@
-import type { MenuRecordRaw } from '@vben/types';
+import type { MenuRecordRaw } from '@oh/types';
 
 import { computed, onBeforeMount, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 
-import { preferences, usePreferences } from '@vben/preferences';
-import { useAccessStore } from '@vben/stores';
-import { findRootMenuByPath } from '@vben/utils';
+import { preferences, usePreferences } from '@oh/preferences';
+import { useAccessStore } from '@oh/stores';
+import { findRootMenuByPath } from '@oh/utils';
 
 import { useNavigation } from './use-navigation';
 
@@ -140,7 +140,10 @@ function useMixedMenu() {
   watch(
     () => route.path,
     (path) => {
-      const currentPath = (route?.meta?.activePath as string) ?? path;
+      const currentPath = route?.meta?.activePath ?? route?.meta?.link ?? path;
+      if (willOpenedByWindow(currentPath)) {
+        return;
+      }
       calcSideMenus(currentPath);
       if (rootMenuPath.value)
         defaultSubMap.set(rootMenuPath.value, currentPath);

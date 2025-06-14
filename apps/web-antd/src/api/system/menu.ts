@@ -1,6 +1,7 @@
-import type { Recordable } from '@vben/types';
+import type { Recordable, RouteRecordStringComponent } from '@oh/types';
 
 import { requestClient } from '#/api/request';
+import { sysApi } from '#/config/env';
 
 export namespace SystemMenuApi {
   /** 徽标颜色集合 */
@@ -90,20 +91,11 @@ export namespace SystemMenuApi {
   }
 }
 
-/**
- * 获取菜单数据列表
- */
-async function getMenuList() {
-  return requestClient.get<Array<SystemMenuApi.SystemMenu>>(
-    '/system/menu/list',
-  );
-}
-
 async function isMenuNameExists(
   name: string,
   id?: SystemMenuApi.SystemMenu['id'],
 ) {
-  return requestClient.get<boolean>('/system/menu/name-exists', {
+  return requestClient.get<boolean>(`/${sysApi}/sys/menu/nameExists`, {
     params: { id, name },
   });
 }
@@ -112,7 +104,7 @@ async function isMenuPathExists(
   path: string,
   id?: SystemMenuApi.SystemMenu['id'],
 ) {
-  return requestClient.get<boolean>('/system/menu/path-exists', {
+  return requestClient.get<boolean>(`/${sysApi}/sys/menu/pathExists`, {
     params: { id, path },
   });
 }
@@ -124,7 +116,7 @@ async function isMenuPathExists(
 async function createMenu(
   data: Omit<SystemMenuApi.SystemMenu, 'children' | 'id'>,
 ) {
-  return requestClient.post('/system/menu', data);
+  return requestClient.post(`/${sysApi}/sys/menu`, data);
 }
 
 /**
@@ -137,7 +129,8 @@ async function updateMenu(
   id: string,
   data: Omit<SystemMenuApi.SystemMenu, 'children' | 'id'>,
 ) {
-  return requestClient.put(`/system/menu/${id}`, data);
+  data.id = id;
+  return requestClient.put(`/${sysApi}/sys/menu`, data);
 }
 
 /**
@@ -145,13 +138,32 @@ async function updateMenu(
  * @param id 菜单 ID
  */
 async function deleteMenu(id: string) {
-  return requestClient.delete(`/system/menu/${id}`);
+  return requestClient.delete(`/${sysApi}/sys/menu/${id}`);
+}
+
+/**
+ * 获取用户所有菜单 type in (catalog | menu | action | all)
+ */
+export async function getAllMenusApi(params: Recordable<any>) {
+  return requestClient.post<RouteRecordStringComponent[]>(
+    `/${sysApi}/sys/menu/route`,
+    params,
+  );
+}
+
+/**
+ * 获取用户所有菜单 type in (catalog | menu | action | all)
+ */
+export async function getMenuList(params: Recordable<any>) {
+  return requestClient.post<Array<SystemMenuApi.SystemMenu>>(
+    `/${sysApi}/sys/menu/route`,
+    params,
+  );
 }
 
 export {
   createMenu,
   deleteMenu,
-  getMenuList,
   isMenuNameExists,
   isMenuPathExists,
   updateMenu,

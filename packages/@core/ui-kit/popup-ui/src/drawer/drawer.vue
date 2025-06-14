@@ -7,8 +7,8 @@ import {
   useIsMobile,
   usePriorityValues,
   useSimpleLocale,
-} from '@vben-core/composables';
-import { X } from '@vben-core/icons';
+} from '@oh-core/composables';
+import { X } from '@oh-core/icons';
 import {
   Separator,
   Sheet,
@@ -23,10 +23,10 @@ import {
   VbenIconButton,
   VbenLoading,
   VisuallyHidden,
-} from '@vben-core/shadcn-ui';
-import { ELEMENT_ID_MAIN_CONTENT } from '@vben-core/shared/constants';
-import { globalShareState } from '@vben-core/shared/global-state';
-import { cn } from '@vben-core/shared/utils';
+} from '@oh-core/shadcn-ui';
+import { ELEMENT_ID_MAIN_CONTENT } from '@oh-core/shared/constants';
+import { globalShareState } from '@oh-core/shared/global-state';
+import { cn } from '@oh-core/shared/utils';
 
 interface Props extends DrawerProps {
   drawerApi?: ExtendedDrawerApi;
@@ -35,7 +35,7 @@ interface Props extends DrawerProps {
 const props = withDefaults(defineProps<Props>(), {
   appendToMain: false,
   closeIconPlacement: 'right',
-  destroyOnClose: true,
+  destroyOnClose: false,
   drawerApi: undefined,
   submitting: false,
   zIndex: 1000,
@@ -82,17 +82,17 @@ const {
   zIndex,
 } = usePriorityValues(props, state);
 
-watch(
-  () => showLoading.value,
-  (v) => {
-    if (v && wrapperRef.value) {
-      wrapperRef.value.scrollTo({
-        // behavior: 'smooth',
-        top: 0,
-      });
-    }
-  },
-);
+// watch(
+//   () => showLoading.value,
+//   (v) => {
+//     if (v && wrapperRef.value) {
+//       wrapperRef.value.scrollTo({
+//         // behavior: 'smooth',
+//         top: 0,
+//       });
+//     }
+//   },
+// );
 
 function interactOutside(e: Event) {
   if (!closeOnClickModal.value || submitting.value) {
@@ -266,19 +266,13 @@ const getForceMount = computed(() => {
         ref="wrapperRef"
         :class="
           cn('relative flex-1 overflow-y-auto p-3', contentClass, {
-            'overflow-hidden': showLoading,
+            'pointer-events-none': showLoading || submitting,
           })
         "
       >
-        <VbenLoading
-          v-if="showLoading || submitting"
-          class="size-full"
-          spinning
-        />
-
         <slot></slot>
       </div>
-
+      <VbenLoading v-if="showLoading || submitting" spinning />
       <SheetFooter
         v-if="showFooter"
         :class="

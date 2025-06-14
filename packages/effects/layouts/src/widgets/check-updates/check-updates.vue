@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue';
 
-import { $t } from '@vben/locales';
+import { $t } from '@oh/locales';
 
-import { useVbenModal } from '@vben-core/popup-ui';
+import { useModal } from '@oh-core/popup-ui';
 
 interface Props {
-  // 轮训时间，分钟
+  // 轮询时间，分钟
   checkUpdatesInterval?: number;
   // 检查更新的地址
   checkUpdateUrl?: string;
@@ -24,7 +24,7 @@ const currentVersionTag = ref('');
 const lastVersionTag = ref('');
 const timer = ref<ReturnType<typeof setInterval>>();
 
-const [UpdateNoticeModal, modalApi] = useVbenModal({
+const [UpdateNoticeModal, modalApi] = useModal({
   closable: false,
   closeOnPressEscape: false,
   closeOnClickModal: false,
@@ -46,6 +46,7 @@ async function getVersionTag() {
     const response = await fetch(props.checkUpdateUrl, {
       cache: 'no-cache',
       method: 'HEAD',
+      redirect: 'manual',
     });
 
     return (

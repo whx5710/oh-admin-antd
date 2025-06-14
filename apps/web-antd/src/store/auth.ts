@@ -1,15 +1,17 @@
-import type { Recordable, UserInfo } from '@vben/types';
+import type { Recordable, UserInfo } from '@oh/types';
 
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
-import { DEFAULT_HOME_PATH, LOGIN_PATH } from '@vben/constants';
-import { resetAllStores, useAccessStore, useUserStore } from '@vben/stores';
+import { LOGIN_PATH } from '@oh/constants';
+import { preferences } from '@oh/preferences';
+import { resetAllStores, useAccessStore, useUserStore } from '@oh/stores';
 
 import { notification } from 'ant-design-vue';
 import { defineStore } from 'pinia';
 
-import { getAccessCodesApi, getUserInfoApi, loginApi, logoutApi } from '#/api';
+import { getAccessCodesApi, loginApi, logoutApi } from '#/api/core';
+import { getUserInfoApi } from '#/api/system/user';
 import { $t } from '#/locales';
 
 export const useAuthStore = defineStore('auth', () => {
@@ -54,7 +56,9 @@ export const useAuthStore = defineStore('auth', () => {
         } else {
           onSuccess
             ? await onSuccess?.()
-            : await router.push(userInfo.homePath || DEFAULT_HOME_PATH);
+            : await router.push(
+                userInfo.homePath || preferences.app.defaultHomePath,
+              );
         }
 
         if (userInfo?.realName) {

@@ -3,14 +3,14 @@ import type { MenuItemProps } from '../types';
 
 import { computed } from 'vue';
 
-import { useNamespace } from '@vben-core/composables';
-import { ChevronDown, ChevronRight } from '@vben-core/icons';
-import { VbenIcon } from '@vben-core/shadcn-ui';
+import { useNamespace } from '@oh-core/composables';
+import { ChevronDown, ChevronRight } from '@oh-core/icons';
+import { VbenIcon } from '@oh-core/shadcn-ui';
 
 import { useMenuContext } from '../hooks';
 
 interface Props extends MenuItemProps {
-  isMenuMore: boolean;
+  isMenuMore?: boolean;
   isTopLevelMenuSubmenu: boolean;
   level?: number;
 }

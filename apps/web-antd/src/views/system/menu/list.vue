@@ -4,26 +4,32 @@ import type {
   VxeTableGridOptions,
 } from '#/adapter/vxe-table';
 
-import { Page, useVbenDrawer } from '@vben/common-ui';
-import { IconifyIcon, Plus } from '@vben/icons';
-import { $t } from '@vben/locales';
+import { Page, useDrawer } from '@oh/common-ui';
+import { IconifyIcon, Plus } from '@oh/icons';
+import { $t } from '@oh/locales';
 
-import { MenuBadge } from '@vben-core/menu-ui';
+import { MenuBadge } from '@oh-core/menu-ui';
 
 import { Button, message } from 'ant-design-vue';
 
-import { useVbenVxeGrid } from '#/adapter/vxe-table';
-import { deleteMenu, getMenuList, SystemMenuApi } from '#/api/system/menu';
+import { useVxeGrid } from '#/adapter/vxe-table';
+import { deleteMenu, getAllMenusApi, SystemMenuApi } from '#/api/system/menu';
 
-import { useColumns } from './data';
+import { useColumns, useGridFormSchema } from './data';
 import Form from './modules/form.vue';
 
-const [FormDrawer, formDrawerApi] = useVbenDrawer({
+const [FormDrawer, formDrawerApi] = useDrawer({
   connectedComponent: Form,
   destroyOnClose: true,
 });
 
-const [Grid, gridApi] = useVbenVxeGrid({
+const [Grid, gridApi] = useVxeGrid({
+  showSearchForm: false, // 默认隐藏搜索表单
+  formOptions: {
+    schema: useGridFormSchema(),
+    submitOnChange: true,
+    showCollapseButton: false, // 是否显示展开/折叠
+  },
   gridOptions: {
     columns: useColumns(onActionClick),
     height: 'auto',
@@ -33,22 +39,25 @@ const [Grid, gridApi] = useVbenVxeGrid({
     },
     proxyConfig: {
       ajax: {
-        query: async (_params) => {
-          return await getMenuList();
+        query: async ({ page }, formValues) => {
+          console.warn('分页参数', page);
+          return await getAllMenusApi({ type: 'all', ...formValues });
         },
       },
     },
     rowConfig: {
       keyField: 'id',
+      isCurrent: true, // 高亮选中行
     },
     toolbarConfig: {
       custom: true,
       export: false,
       refresh: { code: 'query' },
       zoom: true,
+      search: true,
     },
     treeConfig: {
-      parentField: 'pid',
+      parentField: 'parentId',
       rowField: 'id',
       transform: false,
     },
@@ -88,7 +97,7 @@ function onCreate() {
   formDrawerApi.setData({}).open();
 }
 function onAppend(row: SystemMenuApi.SystemMenu) {
-  formDrawerApi.setData({ pid: row.id }).open();
+  formDrawerApi.setData({ parentId: row.id }).open();
 }
 
 function onDelete(row: SystemMenuApi.SystemMenu) {

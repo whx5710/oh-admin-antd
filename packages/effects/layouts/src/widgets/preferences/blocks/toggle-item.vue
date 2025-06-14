@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import type { SelectOption } from '@vben/types';
+import type { SelectOption } from '@oh/types';
 
-import { ToggleGroup, ToggleGroupItem } from '@vben-core/shadcn-ui';
+import { ToggleGroup, ToggleGroupItem } from '@oh-core/shadcn-ui';
 
 defineOptions({
   name: 'PreferenceToggleItem',
 });
 
-withDefaults(defineProps<{ disabled?: boolean; items: SelectOption[] }>(), {
+withDefaults(defineProps<{ disabled?: boolean; items?: SelectOption[] }>(), {
   disabled: false,
   items: () => [],
 });

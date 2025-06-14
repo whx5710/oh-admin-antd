@@ -8,8 +8,8 @@ import type { HTMLAttributes } from 'vue';
 
 import { computed } from 'vue';
 
-import { GripVertical } from '@vben-core/icons';
-import { cn } from '@vben-core/shared/utils';
+import { GripVertical } from '@oh-core/icons';
+import { cn } from '@oh-core/shared/utils';
 
 import { SplitterResizeHandle, useForwardPropsEmits } from 'radix-vue';
 

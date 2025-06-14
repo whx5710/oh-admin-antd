@@ -7,8 +7,8 @@ import {
   useIsMobile,
   usePriorityValues,
   useSimpleLocale,
-} from '@vben-core/composables';
-import { Expand, Shrink } from '@vben-core/icons';
+} from '@oh-core/composables';
+import { Expand, Shrink } from '@oh-core/icons';
 import {
   Dialog,
   DialogContent,
@@ -21,10 +21,10 @@ import {
   VbenIconButton,
   VbenLoading,
   VisuallyHidden,
-} from '@vben-core/shadcn-ui';
-import { ELEMENT_ID_MAIN_CONTENT } from '@vben-core/shared/constants';
-import { globalShareState } from '@vben-core/shared/global-state';
-import { cn } from '@vben-core/shared/utils';
+} from '@oh-core/shadcn-ui';
+import { ELEMENT_ID_MAIN_CONTENT } from '@oh-core/shared/constants';
+import { globalShareState } from '@oh-core/shared/global-state';
+import { cn } from '@oh-core/shared/utils';
 
 import { useModalDraggable } from './use-modal-draggable';
 
@@ -34,7 +34,7 @@ interface Props extends ModalProps {
 
 const props = withDefaults(defineProps<Props>(), {
   appendToMain: false,
-  destroyOnClose: true,
+  destroyOnClose: false,
   modalApi: undefined,
 });
 
@@ -123,17 +123,17 @@ watch(
   { immediate: true },
 );
 
-watch(
-  () => [showLoading.value, submitting.value],
-  ([l, s]) => {
-    if ((s || l) && wrapperRef.value) {
-      wrapperRef.value.scrollTo({
-        // behavior: 'smooth',
-        top: 0,
-      });
-    }
-  },
-);
+// watch(
+//   () => [showLoading.value, submitting.value],
+//   ([l, s]) => {
+//     if ((s || l) && wrapperRef.value) {
+//       wrapperRef.value.scrollTo({
+//         // behavior: 'smooth',
+//         top: 0,
+//       });
+//     }
+//   },
+// );
 
 function handleFullscreen() {
   props.modalApi?.setState((prev) => {
@@ -274,18 +274,13 @@ function handleClosed() {
         ref="wrapperRef"
         :class="
           cn('relative min-h-40 flex-1 overflow-y-auto p-3', contentClass, {
-            'overflow-hidden': showLoading || submitting,
+            'pointer-events-none': showLoading || submitting,
           })
         "
       >
-        <VbenLoading
-          v-if="showLoading || submitting"
-          class="size-full h-auto min-h-full"
-          spinning
-        />
         <slot></slot>
       </div>
-
+      <VbenLoading v-if="showLoading || submitting" spinning />
       <VbenIconButton
         v-if="fullscreenButton"
         class="hover:bg-accent hover:text-accent-foreground text-foreground/80 flex-center absolute right-10 top-3 hidden size-6 rounded-full px-1 text-lg opacity-70 transition-opacity hover:opacity-100 focus:outline-none disabled:pointer-events-none sm:block"

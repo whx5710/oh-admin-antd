@@ -5,7 +5,7 @@ import type {
   HoverCardRootProps,
 } from 'radix-vue';
 
-import type { ClassType } from '@vben-core/typings';
+import type { ClassType } from '@oh-core/typings';
 
 import { computed } from 'vue';
 

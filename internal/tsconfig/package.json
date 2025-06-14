@@ -1,6 +1,6 @@
 {
-  "name": "@vben/tsconfig",
-  "version": "5.5.5",
+  "name": "@oh/tsconfig",
+  "version": "5.5.7",
   "private": true,
   "homepage": "https://github.com/vbenjs/vue-vben-admin",
   "bugs": "https://github.com/vbenjs/vue-vben-admin/issues",
@@ -19,7 +19,7 @@
     "web.json"
   ],
   "dependencies": {
-    "@vben/types": "workspace:*",
+    "@oh/types": "workspace:*",
     "vite": "catalog:"
   }
 }

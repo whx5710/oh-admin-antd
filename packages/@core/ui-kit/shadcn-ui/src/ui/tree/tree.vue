@@ -2,14 +2,14 @@
 import type { Arrayable } from '@vueuse/core';
 import type { FlattenedItem } from 'radix-vue';
 
-import type { ClassType, Recordable } from '@vben-core/typings';
+import type { ClassType, Recordable } from '@oh-core/typings';
 
 import type { TreeProps } from './types';
 
 import { onMounted, ref, watchEffect } from 'vue';
 
-import { ChevronRight, IconifyIcon } from '@vben-core/icons';
-import { cn, get } from '@vben-core/shared/utils';
+import { ChevronRight, IconifyIcon } from '@oh-core/icons';
+import { cn, get } from '@oh-core/shared/utils';
 
 import { TreeItem, TreeRoot } from 'radix-vue';
 
@@ -224,15 +224,20 @@ defineExpose({
         :class="
           cn('cursor-pointer', getNodeClass?.(item), {
             'data-[selected]:bg-accent': !multiple,
+            'cursor-not-allowed': disabled,
           })
         "
-        v-bind="item.bind"
+        v-bind="
+          Object.assign(item.bind, {
+            onfocus: disabled ? 'this.blur()' : undefined,
+          })
+        "
         @select="
           (event) => {
             if (event.detail.originalEvent.type === 'click') {
               event.preventDefault();
             }
-            onSelect(item, event.detail.isSelected);
+            !disabled && onSelect(item, event.detail.isSelected);
           }
         "
         @toggle="
@@ -240,7 +245,7 @@ defineExpose({
             if (event.detail.originalEvent.type === 'click') {
               event.preventDefault();
             }
-            onToggle(item);
+            !disabled && onToggle(item);
           }
         "
         class="tree-node focus:ring-grass8 my-0.5 flex items-center rounded px-2 py-1 outline-none focus:ring-2"
@@ -262,10 +267,11 @@ defineExpose({
         <Checkbox
           v-if="multiple"
           :checked="isSelected"
+          :disabled="disabled"
           :indeterminate="isIndeterminate"
           @click="
             () => {
-              handleSelect();
+              !disabled && handleSelect();
               // onSelect(item, !isSelected);
             }
           "
@@ -276,7 +282,7 @@ defineExpose({
             (_event) => {
               // $event.stopPropagation();
               // $event.preventDefault();
-              handleSelect();
+              !disabled && handleSelect();
               // onSelect(item, !isSelected);
             }
           "

@@ -1,12 +1,12 @@
 {
-  "name": "@vben-core/design",
-  "version": "5.5.5",
+  "name": "@oh-core/design",
+  "version": "5.5.7",
   "homepage": "https://github.com/vbenjs/vue-vben-admin",
   "bugs": "https://github.com/vbenjs/vue-vben-admin/issues",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vbenjs/vue-vben-admin.git",
-    "directory": "packages/@vben-core/base/design"
+    "directory": "packages/@oh-core/base/design"
   },
   "license": "MIT",
   "type": "module",
@@ -37,5 +37,8 @@
         "default": "./dist/index.mjs"
       }
     }
+  },
+  "dependencies": {
+    "@oh-core/design": "file:"
   }
 }

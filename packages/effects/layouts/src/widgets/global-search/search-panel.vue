@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import type { MenuRecordRaw } from '@vben/types';
+import type { MenuRecordRaw } from '@oh/types';
 
 import { nextTick, onMounted, ref, shallowRef, watch } from 'vue';
 import { useRouter } from 'vue-router';
 
-import { SearchX, X } from '@vben/icons';
-import { $t } from '@vben/locales';
-import { mapTree, traverseTreeValues, uniqueByField } from '@vben/utils';
+import { SearchX, X } from '@oh/icons';
+import { $t } from '@oh/locales';
+import { mapTree, traverseTreeValues, uniqueByField } from '@oh/utils';
 
-import { VbenIcon, VbenScrollbar } from '@vben-core/shadcn-ui';
-import { isHttpUrl } from '@vben-core/shared/utils';
+import { VbenIcon, VbenScrollbar } from '@oh-core/shadcn-ui';
+import { isHttpUrl } from '@oh-core/shared/utils';
 
 import { onKeyStroke, useLocalStorage, useThrottleFn } from '@vueuse/core';
 
@@ -18,7 +18,7 @@ defineOptions({
 });
 
 const props = withDefaults(
-  defineProps<{ keyword: string; menus: MenuRecordRaw[] }>(),
+  defineProps<{ keyword?: string; menus?: MenuRecordRaw[] }>(),
   {
     keyword: '',
     menus: () => [],

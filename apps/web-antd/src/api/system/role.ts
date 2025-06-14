@@ -1,25 +1,29 @@
-import type { Recordable } from '@vben/types';
+import type { Recordable } from '@oh/types';
 
 import { requestClient } from '#/api/request';
+import { sysApi } from '#/config/env';
 
 export namespace SystemRoleApi {
   export interface SystemRole {
     [key: string]: any;
     id: string;
     name: string;
-    permissions: string[];
+    menuIdList: string[];
     remark?: string;
     status: 0 | 1;
+    isSystem: 0 | 1;
   }
 }
 
 /**
  * 获取角色列表数据
  */
-async function getRoleList(params: Recordable<any>) {
+async function getRolePage(params: Recordable<any>) {
   return requestClient.get<Array<SystemRoleApi.SystemRole>>(
-    '/system/role/list',
-    { params },
+    `/${sysApi}/sys/role/page`,
+    {
+      params,
+    },
   );
 }
 
@@ -28,7 +32,7 @@ async function getRoleList(params: Recordable<any>) {
  * @param data 角色数据
  */
 async function createRole(data: Omit<SystemRoleApi.SystemRole, 'id'>) {
-  return requestClient.post('/system/role', data);
+  return requestClient.post(`/${sysApi}/sys/role`, data);
 }
 
 /**
@@ -41,7 +45,8 @@ async function updateRole(
   id: string,
   data: Omit<SystemRoleApi.SystemRole, 'id'>,
 ) {
-  return requestClient.put(`/system/role/${id}`, data);
+  data.id = id;
+  return requestClient.put(`/${sysApi}/sys/role`, data);
 }
 
 /**
@@ -49,7 +54,11 @@ async function updateRole(
  * @param id 角色 ID
  */
 async function deleteRole(id: string) {
-  return requestClient.delete(`/system/role/${id}`);
+  return requestClient.delete(`/${sysApi}/sys/role/${id}`);
 }
 
-export { createRole, deleteRole, getRoleList, updateRole };
+async function getRoleList() {
+  return requestClient.get(`/${sysApi}/sys/role/list`);
+}
+
+export { createRole, deleteRole, getRoleList, getRolePage, updateRole };

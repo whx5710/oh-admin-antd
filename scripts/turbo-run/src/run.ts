@@ -1,4 +1,4 @@
-import { execaCommand, getPackages } from '@vben/node-utils';
+import { execaCommand, getPackages } from '@oh/node-utils';
 
 import { cancel, isCancel, select } from '@clack/prompts';
 
@@ -15,7 +15,7 @@ export async function run(options: RunOptions) {
   const { packages } = await getPackages();
   // const appPkgs = await findApps(process.cwd(), packages);
   // const websitePkg = packages.find(
-  //   (item) => item.packageJson.name === '@vben/website',
+  //   (item) => item.packageJson.name === '@oh/website',
   // );
 
   // 只显示有对应命令的包
@@ -25,7 +25,7 @@ export async function run(options: RunOptions) {
 
   let selectPkg: string | symbol;
   if (selectPkgs.length > 1) {
-    selectPkg = await select<any, string>({
+    selectPkg = await select<string>({
       message: `Select the app you need to run [${command}]:`,
       options: selectPkgs.map((item) => ({
         label: item?.packageJson.name,

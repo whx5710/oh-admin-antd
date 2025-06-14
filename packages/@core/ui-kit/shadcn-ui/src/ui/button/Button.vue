@@ -3,7 +3,7 @@ import type { PrimitiveProps } from 'radix-vue';
 
 import type { ButtonVariants, ButtonVariantSize } from './types';
 
-import { cn } from '@vben-core/shared/utils';
+import { cn } from '@oh-core/shared/utils';
 
 import { Primitive } from 'radix-vue';
 

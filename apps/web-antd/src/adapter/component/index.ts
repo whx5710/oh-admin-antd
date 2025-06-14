@@ -5,8 +5,8 @@
 
 import type { Component } from 'vue';
 
-import type { BaseFormComponentType } from '@vben/common-ui';
-import type { Recordable } from '@vben/types';
+import type { BaseFormComponentType } from '@oh/common-ui';
+import type { Recordable } from '@oh/types';
 
 import {
   defineAsyncComponent,
@@ -16,8 +16,8 @@ import {
   ref,
 } from 'vue';
 
-import { ApiComponent, globalShareState, IconPicker } from '@vben/common-ui';
-import { $t } from '@vben/locales';
+import { ApiComponent, globalShareState, IconPicker } from '@oh/common-ui';
+import { $t } from '@oh/locales';
 
 import { notification } from 'ant-design-vue';
 
@@ -73,8 +73,8 @@ const withDefaultPlaceholder = <T extends Component>(
   componentProps: Recordable<any> = {},
 ) => {
   return defineComponent({
-    inheritAttrs: false,
     name: component.name,
+    inheritAttrs: false,
     setup: (props: any, { attrs, expose, slots }) => {
       const placeholder =
         props?.placeholder ||
@@ -136,21 +136,34 @@ async function initComponentAdapter() {
     // 如果你的组件体积比较大，可以使用异步加载
     // Button: () =>
     // import('xxx').then((res) => res.Button),
-
-    ApiSelect: withDefaultPlaceholder(ApiComponent, 'select', {
-      component: Select,
-      loadingSlot: 'suffixIcon',
-      modelPropName: 'value',
-      visibleEvent: 'onVisibleChange',
-    }),
-    ApiTreeSelect: withDefaultPlaceholder(ApiComponent, 'select', {
-      component: TreeSelect,
-      fieldNames: { label: 'label', value: 'value', children: 'children' },
-      loadingSlot: 'suffixIcon',
-      modelPropName: 'value',
-      optionsPropName: 'treeData',
-      visibleEvent: 'onVisibleChange',
-    }),
+    ApiSelect: withDefaultPlaceholder(
+      {
+        ...ApiComponent,
+        name: 'ApiSelect',
+      },
+      'select',
+      {
+        component: Select,
+        loadingSlot: 'suffixIcon',
+        visibleEvent: 'onDropdownVisibleChange',
+        modelPropName: 'value',
+      },
+    ),
+    ApiTreeSelect: withDefaultPlaceholder(
+      {
+        ...ApiComponent,
+        name: 'ApiTreeSelect',
+      },
+      'select',
+      {
+        component: TreeSelect,
+        fieldNames: { label: 'label', value: 'value', children: 'children' },
+        loadingSlot: 'suffixIcon',
+        modelPropName: 'value',
+        optionsPropName: 'treeData',
+        visibleEvent: 'onVisibleChange',
+      },
+    ),
     AutoComplete,
     Checkbox,
     CheckboxGroup,

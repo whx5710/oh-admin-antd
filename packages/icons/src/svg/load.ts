@@ -1,6 +1,6 @@
-import type { IconifyIconStructure } from '@vben-core/icons';
+import type { IconifyIconStructure } from '@oh-core/icons';
 
-import { addIcon } from '@vben-core/icons';
+import { addIcon } from '@oh-core/icons';
 
 let loaded = false;
 if (!loaded) {

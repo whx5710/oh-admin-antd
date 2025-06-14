@@ -1,22 +1,22 @@
 <script lang="ts" setup>
 import type { SetupContext } from 'vue';
 
-import type { MenuRecordRaw } from '@vben/types';
+import type { MenuRecordRaw } from '@oh/types';
 
 import { computed, useSlots, watch } from 'vue';
 
-import { useRefresh } from '@vben/hooks';
-import { $t, i18n } from '@vben/locales';
+import { useRefresh } from '@oh/hooks';
+import { $t, i18n } from '@oh/locales';
 import {
   preferences,
   updatePreferences,
   usePreferences,
-} from '@vben/preferences';
-import { useAccessStore } from '@vben/stores';
-import { cloneDeep, mapTree } from '@vben/utils';
+} from '@oh/preferences';
+import { useAccessStore } from '@oh/stores';
+import { cloneDeep, mapTree } from '@oh/utils';
 
-import { VbenAdminLayout } from '@vben-core/layout-ui';
-import { VbenBackTop, VbenLogo } from '@vben-core/shadcn-ui';
+import { VbenAdminLayout } from '@oh-core/layout-ui';
+import { VbenBackTop, VbenLogo } from '@oh-core/shadcn-ui';
 
 import { Breadcrumb, CheckUpdates, Preferences } from '../widgets';
 import { LayoutContent, LayoutContentSpinner } from './content';
@@ -180,8 +180,16 @@ const headerSlots = computed(() => {
   <VbenAdminLayout
     v-model:sidebar-extra-visible="sidebarExtraVisible"
     :content-compact="preferences.app.contentCompact"
+    :content-compact-width="preferences.app.contentCompactWidth"
+    :content-padding="preferences.app.contentPadding"
+    :content-padding-bottom="preferences.app.contentPaddingBottom"
+    :content-padding-left="preferences.app.contentPaddingLeft"
+    :content-padding-right="preferences.app.contentPaddingRight"
+    :content-padding-top="preferences.app.contentPaddingTop"
     :footer-enable="preferences.footer.enable"
     :footer-fixed="preferences.footer.fixed"
+    :footer-height="preferences.footer.height"
+    :header-height="preferences.header.height"
     :header-hidden="preferences.header.hidden"
     :header-mode="preferences.header.mode"
     :header-theme="headerTheme"
@@ -196,11 +204,15 @@ const headerSlots = computed(() => {
     :sidebar-fixed-button="preferences.sidebar.fixedButton"
     :sidebar-expand-on-hover="preferences.sidebar.expandOnHover"
     :sidebar-extra-collapse="preferences.sidebar.extraCollapse"
+    :sidebar-extra-collapsed-width="preferences.sidebar.extraCollapsedWidth"
     :sidebar-hidden="preferences.sidebar.hidden"
+    :sidebar-mixed-width="preferences.sidebar.mixedWidth"
     :sidebar-theme="sidebarTheme"
     :sidebar-width="preferences.sidebar.width"
+    :side-collapse-width="preferences.sidebar.collapseWidth"
     :tabbar-enable="preferences.tabbar.enable"
     :tabbar-height="preferences.tabbar.height"
+    :z-index="preferences.app.zIndex"
     @side-mouse-leave="handleSideMouseLeave"
     @toggle-sidebar="toggleSidebar"
     @update:sidebar-collapse="
@@ -222,6 +234,7 @@ const headerSlots = computed(() => {
     <template #logo>
       <VbenLogo
         v-if="preferences.logo.enable"
+        :fit="preferences.logo.fit"
         :class="logoClass"
         :collapsed="logoCollapsed"
         :src="preferences.logo.source"
@@ -312,6 +325,7 @@ const headerSlots = computed(() => {
     <template #side-extra-title>
       <VbenLogo
         v-if="preferences.logo.enable"
+        :fit="preferences.logo.fit"
         :text="preferences.app.name"
         :theme="theme"
       >

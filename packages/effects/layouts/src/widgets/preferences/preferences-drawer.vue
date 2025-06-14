@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { SupportedLanguagesType } from '@vben/locales';
+import type { SupportedLanguagesType } from '@oh/locales';
 import type {
   BreadcrumbStyleType,
   BuiltinThemeType,
@@ -10,28 +10,28 @@ import type {
   NavigationStyleType,
   PreferencesButtonPositionType,
   ThemeModeType,
-} from '@vben/types';
+} from '@oh/types';
 
-import type { SegmentedItem } from '@vben-core/shadcn-ui';
+import type { SegmentedItem } from '@oh-core/shadcn-ui';
 
 import { computed, ref } from 'vue';
 
-import { Copy, RotateCw } from '@vben/icons';
-import { $t, loadLocaleMessages } from '@vben/locales';
+import { Copy, RotateCw } from '@oh/icons';
+import { $t, loadLocaleMessages } from '@oh/locales';
 import {
   clearPreferencesCache,
   preferences,
   resetPreferences,
   usePreferences,
-} from '@vben/preferences';
+} from '@oh/preferences';
 
-import { useVbenDrawer } from '@vben-core/popup-ui';
+import { useDrawer } from '@oh-core/popup-ui';
 import {
   VbenButton,
   VbenIconButton,
   VbenSegmented,
-} from '@vben-core/shadcn-ui';
-import { globalShareState } from '@vben-core/shared/global-state';
+} from '@oh-core/shadcn-ui';
+import { globalShareState } from '@oh-core/shared/global-state';
 
 import { useClipboard } from '@vueuse/core';
 
@@ -177,7 +177,7 @@ const {
 } = usePreferences();
 const { copy } = useClipboard({ legacy: true });
 
-const [Drawer] = useVbenDrawer();
+const [Drawer] = useDrawer();
 
 const activeTab = ref('appearance');
 

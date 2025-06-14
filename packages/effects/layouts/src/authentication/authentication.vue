@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { ToolbarType } from './types';
 
-import { preferences, usePreferences } from '@vben/preferences';
+import { preferences, usePreferences } from '@oh/preferences';
 
 import { Copyright } from '../basic/copyright';
 import AuthenticationFormView from './form.vue';
@@ -38,7 +38,7 @@ const { authPanelCenter, authPanelLeft, authPanelRight, isDark } =
 
 <template>
   <div
-    :class="[isDark]"
+    :class="[isDark ? 'dark' : '']"
     class="flex min-h-full flex-1 select-none overflow-x-hidden"
   >
     <template v-if="toolbar">

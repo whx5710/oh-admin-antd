@@ -1,4 +1,7 @@
+import type { Recordable } from '@oh/types';
+
 import { requestClient } from '#/api/request';
+import { sysApi } from '#/config/env';
 
 export namespace SystemDeptApi {
   export interface SystemDept {
@@ -6,7 +9,7 @@ export namespace SystemDeptApi {
     children?: SystemDept[];
     id: string;
     name: string;
-    remark?: string;
+    note?: string;
     status: 0 | 1;
   }
 }
@@ -14,9 +17,21 @@ export namespace SystemDeptApi {
 /**
  * 获取部门列表数据
  */
-async function getDeptList() {
+async function getDeptPage(params: Recordable<any>) {
   return requestClient.get<Array<SystemDeptApi.SystemDept>>(
-    '/system/dept/list',
+    `/${sysApi}/sys/dept/page`,
+    {
+      params,
+    },
+  );
+}
+/**
+ * 获取部门树数据
+ */
+async function getDeptTreeList(params: Recordable<any>) {
+  return requestClient.post<Array<SystemDeptApi.SystemDept>>(
+    `/${sysApi}/sys/dept/list`,
+    params,
   );
 }
 
@@ -27,7 +42,7 @@ async function getDeptList() {
 async function createDept(
   data: Omit<SystemDeptApi.SystemDept, 'children' | 'id'>,
 ) {
-  return requestClient.post('/system/dept', data);
+  return requestClient.post(`/${sysApi}/sys/dept`, data);
 }
 
 /**
@@ -40,7 +55,8 @@ async function updateDept(
   id: string,
   data: Omit<SystemDeptApi.SystemDept, 'children' | 'id'>,
 ) {
-  return requestClient.put(`/system/dept/${id}`, data);
+  data.id = id;
+  return requestClient.put(`/${sysApi}/sys/dept`, data);
 }
 
 /**
@@ -48,7 +64,7 @@ async function updateDept(
  * @param id 部门 ID
  */
 async function deleteDept(id: string) {
-  return requestClient.delete(`/system/dept/${id}`);
+  return requestClient.delete(`/${sysApi}/system/dept/${id}`);
 }
 
-export { createDept, deleteDept, getDeptList, updateDept };
+export { createDept, deleteDept, getDeptPage, getDeptTreeList, updateDept };

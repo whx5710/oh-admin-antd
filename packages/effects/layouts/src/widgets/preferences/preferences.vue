@@ -1,17 +1,17 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 
-import { Settings } from '@vben/icons';
-import { $t, loadLocaleMessages } from '@vben/locales';
-import { preferences, updatePreferences } from '@vben/preferences';
-import { capitalizeFirstLetter } from '@vben/utils';
+import { Settings } from '@oh/icons';
+import { $t, loadLocaleMessages } from '@oh/locales';
+import { preferences, updatePreferences } from '@oh/preferences';
+import { capitalizeFirstLetter } from '@oh/utils';
 
-import { useVbenDrawer } from '@vben-core/popup-ui';
-import { VbenButton } from '@vben-core/shadcn-ui';
+import { useDrawer } from '@oh-core/popup-ui';
+import { VbenButton } from '@oh-core/shadcn-ui';
 
 import PreferencesDrawer from './preferences-drawer.vue';
 
-const [Drawer, drawerApi] = useVbenDrawer({
+const [Drawer, drawerApi] = useDrawer({
   connectedComponent: PreferencesDrawer,
 });
 

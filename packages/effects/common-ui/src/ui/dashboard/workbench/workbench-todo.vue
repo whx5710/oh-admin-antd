@@ -7,10 +7,10 @@ import {
   CardHeader,
   CardTitle,
   VbenCheckbox,
-} from '@vben-core/shadcn-ui';
+} from '@oh-core/shadcn-ui';
 
 interface Props {
-  items: WorkbenchTodoItem[];
+  items?: WorkbenchTodoItem[];
   title: string;
 }
 

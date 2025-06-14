@@ -3,7 +3,7 @@ import type { SystemDeptApi } from '#/api/system/dept';
 
 import { computed, ref } from 'vue';
 
-import { useVbenModal } from '@vben/common-ui';
+import { useModal } from '@oh/common-ui';
 
 import { Button } from 'ant-design-vue';
 
@@ -22,7 +22,10 @@ const getTitle = computed(() => {
 });
 
 const [Form, formApi] = useVbenForm({
-  layout: 'vertical',
+  // 垂直布局，label和input在不同行，值为vertical
+  // 水平布局，label和input在同一行
+  layout: 'horizontal',
+  // layout: 'vertical',
   schema: useSchema(),
   showDefaultActions: false,
 });
@@ -32,7 +35,7 @@ function resetForm() {
   formApi.setValues(formData.value || {});
 }
 
-const [Modal, modalApi] = useVbenModal({
+const [Modal, modalApi] = useModal({
   async onConfirm() {
     const { valid } = await formApi.validate();
     if (valid) {
@@ -53,8 +56,8 @@ const [Modal, modalApi] = useVbenModal({
     if (isOpen) {
       const data = modalApi.getData<SystemDeptApi.SystemDept>();
       if (data) {
-        if (data.pid === 0) {
-          data.pid = undefined;
+        if (data.parentId === 0) {
+          data.parentId = undefined;
         }
         formData.value = data;
         formApi.setValues(formData.value);

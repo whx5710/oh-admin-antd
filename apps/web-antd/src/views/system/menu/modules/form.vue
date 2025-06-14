@@ -1,16 +1,16 @@
 <script lang="ts" setup>
 import type { ChangeEvent } from 'ant-design-vue/es/_util/EventInterface';
 
-import type { Recordable } from '@vben/types';
+import type { Recordable } from '@oh/types';
 
 import type { VbenFormSchema } from '#/adapter/form';
 
 import { computed, h, ref } from 'vue';
 
-import { useVbenDrawer } from '@vben/common-ui';
-import { IconifyIcon } from '@vben/icons';
-import { $te } from '@vben/locales';
-import { getPopupContainer } from '@vben/utils';
+import { useDrawer } from '@oh/common-ui';
+import { IconifyIcon } from '@oh/icons';
+import { $te } from '@oh/locales';
+import { getPopupContainer } from '@oh/utils';
 
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core';
 
@@ -86,7 +86,7 @@ const schema: VbenFormSchema[] = [
       valueField: 'id',
       childrenField: 'children',
     },
-    fieldName: 'pid',
+    fieldName: 'parentId',
     label: $t('system.menu.parent'),
     renderComponentContent() {
       return {
@@ -322,6 +322,15 @@ const schema: VbenFormSchema[] = [
     label: $t('system.menu.badgeVariants'),
   },
   {
+    component: 'InputNumber',
+    fieldName: 'sort',
+    label: '排序',
+    componentProps: {
+      style: 'width: 100%',
+      defaultValue: 0,
+    },
+  },
+  {
     component: 'Divider',
     dependencies: {
       show: (values) => {
@@ -443,7 +452,7 @@ const [Form, formApi] = useVbenForm({
   wrapperClass: 'grid-cols-2 gap-x-4',
 });
 
-const [Drawer, drawerApi] = useVbenDrawer({
+const [Drawer, drawerApi] = useDrawer({
   onConfirm: onSubmit,
   onOpenChange(isOpen) {
     if (isOpen) {

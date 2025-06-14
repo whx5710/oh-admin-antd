@@ -5,27 +5,26 @@ import {
   h,
   inject,
   nextTick,
+  onDeactivated,
   provide,
   reactive,
   ref,
 } from 'vue';
 
-import { useStore } from '@vben-core/shared/store';
+import { useStore } from '@oh-core/shared/store';
 
 import { ModalApi } from './modal-api';
 import VbenModal from './modal.vue';
 
 const USER_MODAL_INJECT_KEY = Symbol('VBEN_MODAL_INJECT');
 
-const DEFAULT_MODAL_PROPS: Partial<ModalProps> = {
-  destroyOnClose: true,
-};
+const DEFAULT_MODAL_PROPS: Partial<ModalProps> = {};
 
 export function setDefaultModalProps(props: Partial<ModalProps>) {
   Object.assign(DEFAULT_MODAL_PROPS, props);
 }
 
-export function useVbenModal<TParentModalProps extends ModalProps = ModalProps>(
+export function useModal<TParentModalProps extends ModalProps = ModalProps>(
   options: ModalApiOptions = {},
 ) {
   // Modal一般会抽离出来，所以如果有传入 connectedComponent，则表示为外部调用，与内部组件进行连接
@@ -65,11 +64,20 @@ export function useVbenModal<TParentModalProps extends ModalProps = ModalProps>(
             slots,
           );
       },
+      // eslint-disable-next-line vue/one-component-per-file
       {
-        inheritAttrs: false,
         name: 'VbenParentModal',
+        inheritAttrs: false,
       },
     );
+
+    /**
+     * 在开启keepAlive情况下 直接通过浏览器按钮/手势等返回 不会关闭弹窗
+     */
+    onDeactivated(() => {
+      (extendedApi as ExtendedModalApi)?.close?.();
+    });
+
     return [Modal, extendedApi as ExtendedModalApi] as const;
   }
 
@@ -86,8 +94,9 @@ export function useVbenModal<TParentModalProps extends ModalProps = ModalProps>(
     injectData.options?.onOpenChange?.(isOpen);
   };
 
+  const onClosed = mergedOptions.onClosed;
   mergedOptions.onClosed = () => {
-    options.onClosed?.();
+    onClosed?.();
     if (mergedOptions.destroyOnClose) {
       injectData.reCreateModal?.();
     }
@@ -114,9 +123,10 @@ export function useVbenModal<TParentModalProps extends ModalProps = ModalProps>(
           slots,
         );
     },
+    // eslint-disable-next-line vue/one-component-per-file
     {
-      inheritAttrs: false,
       name: 'VbenModal',
+      inheritAttrs: false,
     },
   );
   injectData.extendApi?.(extendedApi);
@@ -141,7 +151,7 @@ async function checkProps(api: ExtendedModalApi, attrs: Record<string, any>) {
     if (stateKeys.has(attr) && !['class'].includes(attr)) {
       // connectedComponent存在时，不要传入Modal的props，会造成复杂度提升，如果你需要修改Modal的props，请使用 useModal 或者api
       console.warn(
-        `[Vben Modal]: When 'connectedComponent' exists, do not set props or slots '${attr}', which will increase complexity. If you need to modify the props of Modal, please use useVbenModal or api.`,
+        `[Vben Modal]: When 'connectedComponent' exists, do not set props or slots '${attr}', which will increase complexity. If you need to modify the props of Modal, please use useModal or api.`,
       );
     }
   }

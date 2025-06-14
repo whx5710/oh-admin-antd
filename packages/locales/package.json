@@ -1,6 +1,6 @@
 {
-  "name": "@vben/locales",
-  "version": "5.5.5",
+  "name": "@oh/locales",
+  "version": "5.5.7",
   "homepage": "https://github.com/vbenjs/vue-vben-admin",
   "bugs": "https://github.com/vbenjs/vue-vben-admin/issues",
   "repository": {
@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@intlify/core-base": "catalog:",
-    "@vben-core/composables": "workspace:*",
+    "@oh-core/composables": "workspace:*",
     "vue": "catalog:",
     "vue-i18n": "catalog:"
   }

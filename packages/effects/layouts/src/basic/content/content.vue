@@ -8,8 +8,8 @@ import type {
 import { computed } from 'vue';
 import { RouterView } from 'vue-router';
 
-import { preferences, usePreferences } from '@vben/preferences';
-import { storeToRefs, useTabbarStore } from '@vben/stores';
+import { preferences, usePreferences } from '@oh/preferences';
+import { getTabKey, storeToRefs, useTabbarStore } from '@oh/stores';
 
 import { IFrameRouterView } from '../../iframe';
 
@@ -115,13 +115,13 @@ function transformComponent(
             :is="transformComponent(Component, route)"
             v-if="renderRouteView"
             v-show="!route.meta.iframeSrc"
-            :key="route.fullPath"
+            :key="getTabKey(route)"
           />
         </KeepAlive>
         <component
           :is="Component"
           v-else-if="renderRouteView"
-          :key="route.fullPath"
+          :key="getTabKey(route)"
         />
       </Transition>
       <template v-else>
@@ -134,13 +134,13 @@ function transformComponent(
             :is="transformComponent(Component, route)"
             v-if="renderRouteView"
             v-show="!route.meta.iframeSrc"
-            :key="route.fullPath"
+            :key="getTabKey(route)"
           />
         </KeepAlive>
         <component
           :is="Component"
           v-else-if="renderRouteView"
-          :key="route.fullPath"
+          :key="getTabKey(route)"
         />
       </template>
     </RouterView>

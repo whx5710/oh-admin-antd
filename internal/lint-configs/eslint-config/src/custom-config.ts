@@ -29,6 +29,13 @@ const customConfig: Linter.Config[] = [
     },
   },
   {
+    files: ['**/**.vue'],
+    ignores: restrictedImportIgnores,
+    rules: {
+      'perfectionist/sort-objects': 'off',
+    },
+  },
+  {
     // apps内部的一些基础规则
     files: ['apps/**/**'],
     ignores: restrictedImportIgnores,
@@ -64,7 +71,7 @@ const customConfig: Linter.Config[] = [
     },
   },
   {
-    // @core内部组件，不能引入@vben/* 里面的包
+    // @core内部组件，不能引入@oh/* 里面的包
     files: ['packages/@core/**/**'],
     ignores: restrictedImportIgnores,
     rules: {
@@ -73,9 +80,9 @@ const customConfig: Linter.Config[] = [
         {
           patterns: [
             {
-              group: ['@vben/*'],
+              group: ['@oh/*'],
               message:
-                'The @core package cannot import the @vben package, please use the @core package itself',
+                'The @core package cannot import the @oh package, please use the @core package itself',
             },
           ],
         },
@@ -83,7 +90,7 @@ const customConfig: Linter.Config[] = [
     },
   },
   {
-    // @core/shared内部组件，不能引入@vben/* 或者 @vben-core/* 里面的包
+    // @core/shared内部组件，不能引入@oh/* 或者 @oh-core/* 里面的包
     files: ['packages/@core/base/**/**'],
     ignores: restrictedImportIgnores,
     rules: {
@@ -92,9 +99,9 @@ const customConfig: Linter.Config[] = [
         {
           patterns: [
             {
-              group: ['@vben/*', '@vben-core/*'],
+              group: ['@oh/*', '@oh-core/*'],
               message:
-                'The @vben-core/shared package cannot import the @vben package, please use the @core/shared package itself',
+                'The @oh-core/shared package cannot import the @oh package, please use the @core/shared package itself',
             },
           ],
         },
@@ -103,7 +110,7 @@ const customConfig: Linter.Config[] = [
   },
 
   {
-    // 不能引入@vben/*里面的包
+    // 不能引入@oh/*里面的包
     files: [
       'packages/types/**/**',
       'packages/utils/**/**',
@@ -121,9 +128,9 @@ const customConfig: Linter.Config[] = [
         {
           patterns: [
             {
-              group: ['@vben/*'],
+              group: ['@oh/*'],
               message:
-                'The @vben package cannot be imported, please use the @core package itself',
+                'The @oh package cannot be imported, please use the @core package itself',
             },
           ],
         },

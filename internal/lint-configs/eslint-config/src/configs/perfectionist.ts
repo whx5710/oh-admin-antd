@@ -24,13 +24,13 @@ export async function perfectionist(): Promise<Linter.Config[]> {
           {
             customGroups: {
               type: {
-                'vben-core-type': ['^@vben-core/.+'],
-                'vben-type': ['^@vben/.+'],
+                'vben-core-type': ['^@oh-core/.+'],
+                'vben-type': ['^@oh/.+'],
                 'vue-type': ['^vue$', '^vue-.+', '^@vue/.+'],
               },
               value: {
-                vben: ['^@vben/.+'],
-                'vben-core': ['^@vben-core/.+'],
+                vben: ['^@oh/.+'],
+                'vben-core': ['^@oh-core/.+'],
                 vue: ['^vue$', '^vue-.+', '^@vue/.+'],
               },
             },
@@ -70,7 +70,7 @@ export async function perfectionist(): Promise<Linter.Config[]> {
           },
         ],
         'perfectionist/sort-objects': [
-          'error',
+          'off',
           {
             customGroups: {
               items: 'items',

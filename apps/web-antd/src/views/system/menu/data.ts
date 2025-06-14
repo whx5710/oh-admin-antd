@@ -1,3 +1,4 @@
+import type { VbenFormSchema } from '#/adapter/form';
 import type { OnActionClickFn, VxeTableGridOptions } from '#/adapter/vxe-table';
 import type { SystemMenuApi } from '#/api/system/menu';
 
@@ -21,6 +22,19 @@ export function getMenuTypeOptions() {
   ];
 }
 
+export function useGridFormSchema(): VbenFormSchema[] {
+  return [
+    {
+      component: 'Input',
+      fieldName: 'keyWords',
+      label: '关键字搜索',
+      componentProps: {
+        allowClear: true,
+      },
+    },
+  ];
+}
+
 export function useColumns(
   onActionClick: OnActionClickFn<SystemMenuApi.SystemMenu>,
 ): VxeTableGridOptions<SystemMenuApi.SystemMenu>['columns'] {
@@ -34,23 +48,28 @@ export function useColumns(
       treeNode: true,
       width: 250,
     },
+    // {
+    //   field: 'parentName',
+    //   title: '上级菜单',
+    //   width: 230,
+    // },
     {
       align: 'center',
       cellRender: { name: 'CellTag', options: getMenuTypeOptions() },
       field: 'type',
       title: $t('system.menu.type'),
-      width: 100,
+      width: 90,
     },
     {
       field: 'authCode',
       title: $t('system.menu.authCode'),
-      width: 200,
+      width: 230,
     },
     {
       align: 'left',
       field: 'path',
       title: $t('system.menu.path'),
-      width: 200,
+      width: 170,
     },
 
     {
@@ -71,7 +90,7 @@ export function useColumns(
         }
         return '';
       },
-      minWidth: 200,
+      minWidth: 180,
       title: $t('system.menu.component'),
     },
     {
@@ -103,7 +122,7 @@ export function useColumns(
       headerAlign: 'center',
       showOverflow: false,
       title: $t('system.menu.operation'),
-      width: 200,
+      width: 180,
     },
   ];
 }

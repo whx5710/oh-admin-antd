@@ -1,18 +1,18 @@
 <script setup lang="ts">
 import type { Component } from 'vue';
 
-import type { AnyFunction } from '@vben/types';
+import type { AnyFunction } from '@oh/types';
 
 import { computed, useTemplateRef, watch } from 'vue';
 
-import { useHoverToggle } from '@vben/hooks';
-import { LockKeyhole, LogOut } from '@vben/icons';
-import { $t } from '@vben/locales';
-import { preferences, usePreferences } from '@vben/preferences';
-import { useAccessStore } from '@vben/stores';
-import { isWindowsOs } from '@vben/utils';
+import { useHoverToggle } from '@oh/hooks';
+import { LockKeyhole, LogOut } from '@oh/icons';
+import { $t } from '@oh/locales';
+import { preferences, usePreferences } from '@oh/preferences';
+import { useAccessStore } from '@oh/stores';
+import { isWindowsOs } from '@oh/utils';
 
-import { useVbenModal } from '@vben-core/popup-ui';
+import { useModal } from '@oh-core/popup-ui';
 import {
   Badge,
   DropdownMenu,
@@ -24,7 +24,7 @@ import {
   DropdownMenuTrigger,
   VbenAvatar,
   VbenIcon,
-} from '@vben-core/shadcn-ui';
+} from '@oh-core/shadcn-ui';
 
 import { useMagicKeys, whenever } from '@vueuse/core';
 
@@ -46,7 +46,11 @@ interface Props {
   /**
    * 菜单数组
    */
-  menus?: Array<{ handler: AnyFunction; icon?: Component; text: string }>;
+  menus?: Array<{
+    handler: AnyFunction;
+    icon?: Component | Function | string;
+    text: string;
+  }>;
 
   /**
    * 标签文本
@@ -83,10 +87,10 @@ const emit = defineEmits<{ logout: [] }>();
 const { globalLockScreenShortcutKey, globalLogoutShortcutKey } =
   usePreferences();
 const accessStore = useAccessStore();
-const [LockModal, lockModalApi] = useVbenModal({
+const [LockModal, lockModalApi] = useModal({
   connectedComponent: LockScreenModal,
 });
-const [LogoutModal, logoutModalApi] = useVbenModal({
+const [LogoutModal, logoutModalApi] = useModal({
   onConfirm() {
     handleSubmitLogout();
   },

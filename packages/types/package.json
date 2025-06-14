@@ -1,6 +1,6 @@
 {
-  "name": "@vben/types",
-  "version": "5.5.5",
+  "name": "@oh/types",
+  "version": "5.5.7",
   "homepage": "https://github.com/vbenjs/vue-vben-admin",
   "bugs": "https://github.com/vbenjs/vue-vben-admin/issues",
   "repository": {
@@ -20,7 +20,7 @@
     }
   },
   "dependencies": {
-    "@vben-core/typings": "workspace:*",
+    "@oh-core/typings": "workspace:*",
     "vue": "catalog:",
     "vue-router": "catalog:"
   }
