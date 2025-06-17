@@ -1,23 +1,23 @@
 <script setup lang="ts">
-import type { Recordable } from '@oh/types';
+import type { Recordable } from '@finn/types';
 
-import type { VbenFormSchema } from '@oh-core/form-ui';
+import type { FinnFormSchema } from '@finn-core/form-ui';
 
 import type { AuthenticationProps } from './types';
 
 import { computed, onMounted, reactive, ref } from 'vue';
 import { useRouter } from 'vue-router';
 
-import { $t } from '@oh/locales';
+import { $t } from '@finn/locales';
 
-import { useVbenForm } from '@oh-core/form-ui';
-import { VbenButton, VbenCheckbox } from '@oh-core/shadcn-ui';
+import { useFinnForm } from '@finn-core/form-ui';
+import { FinnButton, FinnCheckbox } from '@finn-core/shadcn-ui';
 
 import Title from './auth-title.vue';
 import ThirdPartyLogin from './third-party-login.vue';
 
 interface Props extends AuthenticationProps {
-  formSchema?: VbenFormSchema[];
+  formSchema?: FinnFormSchema[];
 }
 
 defineOptions({
@@ -46,7 +46,7 @@ const emit = defineEmits<{
   submit: [Recordable<any>];
 }>();
 
-const [Form, formApi] = useVbenForm(
+const [Form, formApi] = useFinnForm(
   reactive({
     commonConfig: {
       hideLabel: true,
@@ -115,24 +115,24 @@ defineExpose({
       class="mb-6 flex justify-between"
     >
       <div class="flex-center">
-        <VbenCheckbox
+        <FinnCheckbox
           v-if="showRememberMe"
           v-model:checked="rememberMe"
           name="rememberMe"
         >
           {{ $t('authentication.rememberMe') }}
-        </VbenCheckbox>
+        </FinnCheckbox>
       </div>
 
       <span
         v-if="showForgetPassword"
-        class="vben-link text-sm font-normal"
+        class="finn-link text-sm font-normal"
         @click="handleGo(forgetPasswordPath)"
       >
         {{ $t('authentication.forgetPassword') }}
       </span>
     </div>
-    <VbenButton
+    <FinnButton
       :class="{
         'cursor-wait': loading,
       }"
@@ -142,28 +142,28 @@ defineExpose({
       @click="handleSubmit"
     >
       {{ submitButtonText || $t('common.login') }}
-    </VbenButton>
+    </FinnButton>
 
     <div
       v-if="showCodeLogin || showQrcodeLogin"
       class="mb-2 mt-4 flex items-center justify-between"
     >
-      <VbenButton
+      <FinnButton
         v-if="showCodeLogin"
         class="w-1/2"
         variant="outline"
         @click="handleGo(codeLoginPath)"
       >
         {{ $t('authentication.mobileLogin') }}
-      </VbenButton>
-      <VbenButton
+      </FinnButton>
+      <FinnButton
         v-if="showQrcodeLogin"
         class="ml-4 w-1/2"
         variant="outline"
         @click="handleGo(qrCodeLoginPath)"
       >
         {{ $t('authentication.qrcodeLogin') }}
-      </VbenButton>
+      </FinnButton>
     </div>
 
     <!-- 第三方登录 -->
@@ -175,7 +175,7 @@ defineExpose({
       <div v-if="showRegister" class="mt-3 text-center text-sm">
         {{ $t('authentication.accountTip') }}
         <span
-          class="vben-link text-sm font-normal"
+          class="finn-link text-sm font-normal"
           @click="handleGo(registerPath)"
         >
           {{ $t('authentication.createAccount') }}

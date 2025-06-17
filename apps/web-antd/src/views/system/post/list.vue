@@ -5,8 +5,8 @@ import type {
 } from '#/adapter/vxe-table';
 import type { SystemRoleApi } from '#/api/system/role';
 
-import { Page, useModal } from '@oh/common-ui';
-import { Plus } from '@oh/icons';
+import { Page, useModal } from '@finn/common-ui';
+import { Plus } from '@finn/icons';
 
 import { Button, message } from 'ant-design-vue';
 

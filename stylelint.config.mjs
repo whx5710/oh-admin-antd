@@ -1,4 +1,4 @@
 export default {
-  extends: ['@oh/stylelint-config'],
+  extends: ['@finn/stylelint-config'],
   root: true,
 };

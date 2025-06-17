@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import type { EchartsUIType } from '@oh/plugins/echarts';
+import type { EchartsUIType } from '@finn/plugins/echarts';
 
 import { onMounted, ref } from 'vue';
 
-import { EchartsUI, useEcharts } from '@oh/plugins/echarts';
+import { EchartsUI, useEcharts } from '@finn/plugins/echarts';
 
 const chartRef = ref<EchartsUIType>();
 const { renderEcharts } = useEcharts(chartRef);

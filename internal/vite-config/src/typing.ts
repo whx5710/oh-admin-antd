@@ -55,7 +55,7 @@ interface PrintPluginOptions {
 interface NitroMockPluginOptions {
   /**
    * Mock 服务器包名
-   * @default '@ohjs/nitro-mock'
+   * @default '@finnjs/nitro-mock'
    */
   mockServerPackage?: string;
 

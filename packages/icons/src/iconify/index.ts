@@ -1,6 +1,6 @@
-import { createIconifyIcon } from '@oh-core/icons';
+import { createIconifyIcon } from '@finn-core/icons';
 
-export * from '@oh-core/icons';
+export * from '@finn-core/icons';
 
 export const MdiKeyboardEsc = createIconifyIcon('mdi:keyboard-esc');
 

@@ -4,11 +4,11 @@ import type {
   AlertDialogContentProps,
 } from 'radix-vue';
 
-import type { ClassType } from '@oh-core/typings';
+import type { ClassType } from '@finn-core/typings';
 
 import { computed, ref } from 'vue';
 
-import { cn } from '@oh-core/shared/utils';
+import { cn } from '@finn-core/shared/utils';
 
 import {
   AlertDialogContent,

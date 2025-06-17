@@ -1,4 +1,4 @@
-import type { BasicUserInfo } from '@oh-core/typings';
+import type { BasicUserInfo } from '@finn-core/typings';
 
 /** 用户信息 */
 interface UserInfo extends BasicUserInfo {

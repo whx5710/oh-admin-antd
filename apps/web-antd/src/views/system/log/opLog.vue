@@ -5,9 +5,9 @@ import type {
 } from '#/adapter/vxe-table';
 import type { SystemLogApi } from '#/api/system/log';
 
-import { Page } from '@oh/common-ui';
-import { IconifyIcon } from '@oh/icons';
-import { downloadFileFromBlob } from '@oh/utils';
+import { Page } from '@finn/common-ui';
+import { IconifyIcon } from '@finn/icons';
+import { downloadFileFromBlob } from '@finn/utils';
 
 import { Button, Popconfirm } from 'ant-design-vue';
 

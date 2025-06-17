@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import type { Recordable } from '@oh/types';
+import type { Recordable } from '@finn/types';
 
 import { computed, reactive } from 'vue';
 
-import { $t } from '@oh/locales';
+import { $t } from '@finn/locales';
 
-import { useVbenForm, z } from '@oh-core/form-ui';
-import { useModal } from '@oh-core/popup-ui';
-import { VbenAvatar, VbenButton } from '@oh-core/shadcn-ui';
+import { useFinnForm, z } from '@finn-core/form-ui';
+import { useModal } from '@finn-core/popup-ui';
+import { FinnAvatar, FinnButton } from '@finn-core/shadcn-ui';
 
 interface Props {
   avatar?: string;
@@ -27,7 +27,7 @@ const emit = defineEmits<{
   submit: [Recordable<any>];
 }>();
 
-const [Form, { resetForm, validate, getValues }] = useVbenForm(
+const [Form, { resetForm, validate, getValues }] = useFinnForm(
   reactive({
     commonConfig: {
       hideLabel: true,
@@ -35,7 +35,7 @@ const [Form, { resetForm, validate, getValues }] = useVbenForm(
     },
     schema: computed(() => [
       {
-        component: 'VbenInputPassword' as const,
+        component: 'FinnInputPassword' as const,
         componentProps: {
           placeholder: $t('ui.widgets.lockScreen.placeholder'),
         },
@@ -83,7 +83,7 @@ async function handleSubmit() {
     >
       <div class="w-full">
         <div class="ml-2 flex w-full flex-col items-center">
-          <VbenAvatar
+          <FinnAvatar
             :src="avatar"
             class="size-20"
             dot-class="bottom-0 right-1 border-2 size-4 bg-green-500"
@@ -93,9 +93,9 @@ async function handleSubmit() {
           </div>
         </div>
         <Form />
-        <VbenButton class="mt-1 w-full" @click="handleSubmit">
+        <FinnButton class="mt-1 w-full" @click="handleSubmit">
           {{ $t('ui.widgets.lockScreen.screenButton') }}
-        </VbenButton>
+        </FinnButton>
       </div>
     </div>
   </Modal>

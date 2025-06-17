@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ToggleGroup, ToggleGroupItem } from '@oh-core/shadcn-ui';
+import { ToggleGroup, ToggleGroupItem } from '@finn-core/shadcn-ui';
 
 defineOptions({
   name: 'PreferenceColorMode',

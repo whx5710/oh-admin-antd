@@ -5,8 +5,8 @@ import type {
 } from '#/adapter/vxe-table';
 import type { SystemParamsApi } from '#/api/system/params';
 
-import { Page, useDrawer } from '@oh/common-ui';
-import { Plus } from '@oh/icons';
+import { Page, useDrawer } from '@finn/common-ui';
+import { Plus } from '@finn/icons';
 
 import { Button, message } from 'ant-design-vue';
 

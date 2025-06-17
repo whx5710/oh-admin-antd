@@ -71,7 +71,7 @@ const customConfig: Linter.Config[] = [
     },
   },
   {
-    // @core内部组件，不能引入@oh/* 里面的包
+    // @core内部组件，不能引入@finn/* 里面的包
     files: ['packages/@core/**/**'],
     ignores: restrictedImportIgnores,
     rules: {
@@ -80,9 +80,9 @@ const customConfig: Linter.Config[] = [
         {
           patterns: [
             {
-              group: ['@oh/*'],
+              group: ['@finn/*'],
               message:
-                'The @core package cannot import the @oh package, please use the @core package itself',
+                'The @core package cannot import the @finn package, please use the @core package itself',
             },
           ],
         },
@@ -90,7 +90,7 @@ const customConfig: Linter.Config[] = [
     },
   },
   {
-    // @core/shared内部组件，不能引入@oh/* 或者 @oh-core/* 里面的包
+    // @core/shared内部组件，不能引入@finn/* 或者 @finn-core/* 里面的包
     files: ['packages/@core/base/**/**'],
     ignores: restrictedImportIgnores,
     rules: {
@@ -99,9 +99,9 @@ const customConfig: Linter.Config[] = [
         {
           patterns: [
             {
-              group: ['@oh/*', '@oh-core/*'],
+              group: ['@finn/*', '@finn-core/*'],
               message:
-                'The @oh-core/shared package cannot import the @oh package, please use the @core/shared package itself',
+                'The @finn-core/shared package cannot import the @finn package, please use the @core/shared package itself',
             },
           ],
         },
@@ -110,7 +110,7 @@ const customConfig: Linter.Config[] = [
   },
 
   {
-    // 不能引入@oh/*里面的包
+    // 不能引入@finn/*里面的包
     files: [
       'packages/types/**/**',
       'packages/utils/**/**',
@@ -128,9 +128,9 @@ const customConfig: Linter.Config[] = [
         {
           patterns: [
             {
-              group: ['@oh/*'],
+              group: ['@finn/*'],
               message:
-                'The @oh package cannot be imported, please use the @core package itself',
+                'The @finn package cannot be imported, please use the @core package itself',
             },
           ],
         },

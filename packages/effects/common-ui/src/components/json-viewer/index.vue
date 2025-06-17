@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { SetupContext } from 'vue';
 
-import type { Recordable } from '@oh/types';
+import type { Recordable } from '@finn/types';
 
 import type {
   JsonViewerAction,
@@ -14,9 +14,9 @@ import { computed, useAttrs } from 'vue';
 // @ts-ignore
 import VueJsonViewer from 'vue-json-viewer';
 
-import { $t } from '@oh/locales';
+import { $t } from '@finn/locales';
 
-import { isBoolean } from '@oh-core/shared/utils';
+import { isBoolean } from '@finn-core/shared/utils';
 
 defineOptions({ name: 'JsonViewer' });
 

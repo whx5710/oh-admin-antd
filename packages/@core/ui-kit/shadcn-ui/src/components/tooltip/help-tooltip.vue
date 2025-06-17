@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { cn } from '@oh-core/shared/utils';
+import { cn } from '@finn-core/shared/utils';
 
 import { CircleHelp } from 'lucide-vue-next';
 

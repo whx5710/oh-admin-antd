@@ -1,19 +1,19 @@
 import type { VxeGridInstance } from 'vxe-table';
 
-import type { ExtendedFormApi } from '@oh-core/form-ui';
+import type { ExtendedFormApi } from '@finn-core/form-ui';
 
 import type { VxeGridProps } from './types';
 
 import { toRaw } from 'vue';
 
-import { Store } from '@oh-core/shared/store';
+import { Store } from '@finn-core/shared/store';
 import {
   bindMethods,
   isBoolean,
   isFunction,
   mergeWithArrayOverride,
   StateHandler,
-} from '@oh-core/shared/utils';
+} from '@finn-core/shared/utils';
 
 function getDefaultState(): VxeGridProps {
   return {

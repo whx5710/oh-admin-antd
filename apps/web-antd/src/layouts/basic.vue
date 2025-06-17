@@ -1,21 +1,21 @@
 <script lang="ts" setup>
-import type { NotificationItem } from '@oh/layouts';
+import type { NotificationItem } from '@finn/layouts';
 
 import { computed, ref, watch } from 'vue';
 
-import { AuthenticationLoginExpiredModal } from '@oh/common-ui';
-import { VBEN_DOC_URL, VBEN_GITHUB_URL } from '@oh/constants';
-import { useWatermark } from '@oh/hooks';
-import { BookOpenText, CircleHelp, MdiGithub } from '@oh/icons';
+import { AuthenticationLoginExpiredModal } from '@finn/common-ui';
+import { FINN_DOC_URL, FINN_GITHUB_URL } from '@finn/constants';
+import { useWatermark } from '@finn/hooks';
+import { BookOpenText, CircleHelp, MdiGithub } from '@finn/icons';
 import {
   BasicLayout,
   LockScreen,
   Notification,
   UserDropdown,
-} from '@oh/layouts';
-import { preferences } from '@oh/preferences';
-import { useAccessStore, useUserStore } from '@oh/stores';
-import { openWindow } from '@oh/utils';
+} from '@finn/layouts';
+import { preferences } from '@finn/preferences';
+import { useAccessStore, useUserStore } from '@finn/stores';
+import { openWindow } from '@finn/utils';
 
 import { $t } from '#/locales';
 import { useAuthStore } from '#/store';
@@ -63,7 +63,7 @@ const showDot = computed(() =>
 const menus = computed(() => [
   {
     handler: () => {
-      openWindow(VBEN_DOC_URL, {
+      openWindow(FINN_DOC_URL, {
         target: '_blank',
       });
     },
@@ -72,7 +72,7 @@ const menus = computed(() => [
   },
   {
     handler: () => {
-      openWindow(VBEN_GITHUB_URL, {
+      openWindow(FINN_GITHUB_URL, {
         target: '_blank',
       });
     },
@@ -81,7 +81,7 @@ const menus = computed(() => [
   },
   {
     handler: () => {
-      openWindow(`${VBEN_GITHUB_URL}/issues`, {
+      openWindow(`${FINN_GITHUB_URL}/issues`, {
         target: '_blank',
       });
     },
@@ -129,7 +129,7 @@ watch(
         :avatar
         :menus
         :text="userStore.userInfo?.realName"
-        description="ann.vben@gmail.com"
+        description="whx5710@qq.com"
         tag-text="Pro"
         @logout="handleLogout"
       />

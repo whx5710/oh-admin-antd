@@ -1,4 +1,4 @@
-import { execaCommand, getPackages } from '@oh/node-utils';
+import { execaCommand, getPackages } from '@finn/node-utils';
 
 import { cancel, isCancel, select } from '@clack/prompts';
 
@@ -15,7 +15,7 @@ export async function run(options: RunOptions) {
   const { packages } = await getPackages();
   // const appPkgs = await findApps(process.cwd(), packages);
   // const websitePkg = packages.find(
-  //   (item) => item.packageJson.name === '@oh/website',
+  //   (item) => item.packageJson.name === '@finn/website',
   // );
 
   // 只显示有对应命令的包

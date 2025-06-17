@@ -1,4 +1,4 @@
-import type { Recordable, RouteRecordStringComponent } from '@oh/types';
+import type { Recordable, RouteRecordStringComponent } from '@finn/types';
 
 import { requestClient } from '#/api/request';
 import { sysApi } from '#/config/env';

@@ -3,7 +3,7 @@ import type { RadioGroupRootEmits, RadioGroupRootProps } from 'radix-vue';
 
 import { computed } from 'vue';
 
-import { cn } from '@oh-core/shared/utils';
+import { cn } from '@finn-core/shared/utils';
 
 import { RadioGroupRoot, useForwardPropsEmits } from 'radix-vue';
 

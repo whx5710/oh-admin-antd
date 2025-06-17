@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { TabOption } from '@oh/types';
+import type { TabOption } from '@finn/types';
 
 import { computed } from 'vue';
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@oh-core/shadcn-ui';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@finn-core/shadcn-ui';
 
 interface Props {
   tabs?: TabOption[];

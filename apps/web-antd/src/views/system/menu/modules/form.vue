@@ -1,20 +1,20 @@
 <script lang="ts" setup>
 import type { ChangeEvent } from 'ant-design-vue/es/_util/EventInterface';
 
-import type { Recordable } from '@oh/types';
+import type { Recordable } from '@finn/types';
 
-import type { VbenFormSchema } from '#/adapter/form';
+import type { FinnFormSchema } from '#/adapter/form';
 
 import { computed, h, ref } from 'vue';
 
-import { useDrawer } from '@oh/common-ui';
-import { IconifyIcon } from '@oh/icons';
-import { $te } from '@oh/locales';
-import { getPopupContainer } from '@oh/utils';
+import { useDrawer } from '@finn/common-ui';
+import { IconifyIcon } from '@finn/icons';
+import { $te } from '@finn/locales';
+import { getPopupContainer } from '@finn/utils';
 
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core';
 
-import { useVbenForm, z } from '#/adapter/form';
+import { useFinnForm, z } from '#/adapter/form';
 import {
   createMenu,
   getMenuList,
@@ -33,7 +33,7 @@ const emit = defineEmits<{
 }>();
 const formData = ref<SystemMenuApi.SystemMenu>();
 const titleSuffix = ref<string>();
-const schema: VbenFormSchema[] = [
+const schema: FinnFormSchema[] = [
   {
     component: 'RadioGroup',
     componentProps: {
@@ -442,7 +442,7 @@ const schema: VbenFormSchema[] = [
 const breakpoints = useBreakpoints(breakpointsTailwind);
 const isHorizontal = computed(() => breakpoints.greaterOrEqual('md').value);
 
-const [Form, formApi] = useVbenForm({
+const [Form, formApi] = useFinnForm({
   commonConfig: {
     colon: true,
     formItemClass: 'col-span-2 md:col-span-1',

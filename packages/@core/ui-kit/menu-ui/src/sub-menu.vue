@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { MenuRecordRaw } from '@oh-core/typings';
+import type { MenuRecordRaw } from '@finn-core/typings';
 
 import { computed } from 'vue';
 

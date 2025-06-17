@@ -1,4 +1,4 @@
-import { defineConfig } from '@oh/vite-config';
+import { defineConfig } from '@finn/vite-config';
 
 export default defineConfig(async () => {
   return {

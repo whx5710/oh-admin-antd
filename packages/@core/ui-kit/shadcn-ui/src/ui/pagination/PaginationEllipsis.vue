@@ -3,7 +3,7 @@ import type { PaginationEllipsisProps } from 'radix-vue';
 
 import { computed } from 'vue';
 
-import { cn } from '@oh-core/shared/utils';
+import { cn } from '@finn-core/shared/utils';
 
 import { MoreHorizontal } from 'lucide-vue-next';
 import { PaginationEllipsis } from 'radix-vue';

@@ -3,7 +3,7 @@ import type { ToolbarType } from './types';
 
 import { computed } from 'vue';
 
-import { preferences } from '@oh/preferences';
+import { preferences } from '@finn/preferences';
 
 import {
   AuthenticationColorToggle,

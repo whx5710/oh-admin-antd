@@ -3,7 +3,7 @@ import type { SelectScrollUpButtonProps } from 'radix-vue';
 
 import { computed } from 'vue';
 
-import { cn } from '@oh-core/shared/utils';
+import { cn } from '@finn-core/shared/utils';
 
 import { ChevronUp } from 'lucide-vue-next';
 import { SelectScrollUpButton, useForwardProps } from 'radix-vue';

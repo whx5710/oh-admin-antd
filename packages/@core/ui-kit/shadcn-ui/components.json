@@ -10,7 +10,7 @@
   },
   "framework": "vite",
   "aliases": {
-    "components": "@oh-core/shadcn-ui/components",
-    "utils": "@oh-core/shared/utils"
+    "components": "@finn-core/shadcn-ui/components",
+    "utils": "@finn-core/shared/utils"
   }
 }

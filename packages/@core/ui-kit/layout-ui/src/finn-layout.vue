@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { CSSProperties } from 'vue';
 
-import type { VbenLayoutProps } from './vben-layout';
+import type { FinnLayoutProps } from './finn-layout';
 
 import { computed, ref, watch } from 'vue';
 
@@ -9,10 +9,10 @@ import {
   SCROLL_FIXED_CLASS,
   useLayoutFooterStyle,
   useLayoutHeaderStyle,
-} from '@oh-core/composables';
-import { Menu } from '@oh-core/icons';
-import { VbenIconButton } from '@oh-core/shadcn-ui';
-import { ELEMENT_ID_MAIN_CONTENT } from '@oh-core/shared/constants';
+} from '@finn-core/composables';
+import { Menu } from '@finn-core/icons';
+import { FinnIconButton } from '@finn-core/shadcn-ui';
+import { ELEMENT_ID_MAIN_CONTENT } from '@finn-core/shared/constants';
 
 import { useMouse, useScroll, useThrottleFn } from '@vueuse/core';
 
@@ -25,10 +25,10 @@ import {
 } from './components';
 import { useLayout } from './hooks/use-layout';
 
-interface Props extends VbenLayoutProps {}
+interface Props extends FinnLayoutProps {}
 
 defineOptions({
-  name: 'VbenLayout',
+  name: 'FinnLayout',
 });
 
 const props = withDefaults(defineProps<Props>(), {
@@ -554,13 +554,13 @@ const idMainContent = ELEMENT_ID_MAIN_CONTENT;
           </template>
 
           <template #toggle-button>
-            <VbenIconButton
+            <FinnIconButton
               v-if="showHeaderToggleButton"
               class="my-0 mr-1 rounded-md"
               @click="handleHeaderToggle"
             >
               <Menu class="size-4" />
-            </VbenIconButton>
+            </FinnIconButton>
           </template>
           <slot name="header"></slot>
         </LayoutHeader>

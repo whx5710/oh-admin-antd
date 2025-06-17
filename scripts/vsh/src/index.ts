@@ -1,4 +1,4 @@
-import { colors, consola } from '@oh/node-utils';
+import { colors, consola } from '@finn/node-utils';
 
 import { cac } from 'cac';
 

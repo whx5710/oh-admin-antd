@@ -1,1 +1,1 @@
-export { default } from '@oh/tailwind-config/postcss';
+export { default } from '@finn/tailwind-config/postcss';

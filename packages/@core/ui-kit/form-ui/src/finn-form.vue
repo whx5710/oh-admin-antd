@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { VbenFormProps } from './types';
+import type { FinnFormProps } from './types';
 
 import { ref, watchEffect } from 'vue';
 
-import { useForwardPropsEmits } from '@oh-core/composables';
+import { useForwardPropsEmits } from '@finn-core/composables';
 
 import FormActions from './components/form-actions.vue';
 import {
@@ -15,7 +15,7 @@ import { Form } from './form-render';
 import { provideFormProps, useFormInitial } from './use-form-context';
 
 // 通过 extends 会导致热更新卡死
-interface Props extends VbenFormProps {}
+interface Props extends FinnFormProps {}
 const props = withDefaults(defineProps<Props>(), {
   actionWrapperClass: '',
   collapsed: false,

@@ -1,12 +1,12 @@
 {
-  "name": "@oh/stylelint-config",
+  "name": "@finn/stylelint-config",
   "version": "5.5.7",
   "private": true,
-  "homepage": "https://github.com/vbenjs/vue-vben-admin",
-  "bugs": "https://github.com/vbenjs/vue-vben-admin/issues",
+  "homepage": "https://github.com/finnjs/vue-finn-admin",
+  "bugs": "https://github.com/finnjs/vue-finn-admin/issues",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vbenjs/vue-vben-admin.git",
+    "url": "git+https://github.com/finnjs/vue-finn-admin.git",
     "directory": "internal/lint-configs/stylelint-config"
   },
   "license": "MIT",

@@ -1,10 +1,10 @@
 import type {
   ComponentRecordType,
   GenerateMenuAndRoutesOptions,
-} from '@oh/types';
+} from '@finn/types';
 
-import { generateAccessible } from '@oh/access';
-import { preferences } from '@oh/preferences';
+import { generateAccessible } from '@finn/access';
+import { preferences } from '@finn/preferences';
 
 import { message } from 'ant-design-vue';
 

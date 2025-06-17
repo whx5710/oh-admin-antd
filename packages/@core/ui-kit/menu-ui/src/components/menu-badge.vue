@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { MenuRecordBadgeRaw } from '@oh-core/typings';
+import type { MenuRecordBadgeRaw } from '@finn-core/typings';
 
 import { computed } from 'vue';
 
-import { isValidColor } from '@oh-core/shared/color';
+import { isValidColor } from '@finn-core/shared/color';
 
 import BadgeDot from './menu-badge-dot.vue';
 

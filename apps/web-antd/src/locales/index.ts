@@ -2,7 +2,7 @@ import type { Locale } from 'ant-design-vue/es/locale';
 
 import type { App } from 'vue';
 
-import type { LocaleSetupOptions, SupportedLanguagesType } from '@oh/locales';
+import type { LocaleSetupOptions, SupportedLanguagesType } from '@finn/locales';
 
 import { ref } from 'vue';
 
@@ -10,8 +10,8 @@ import {
   $t,
   setupI18n as coreSetup,
   loadLocalesMapFromDir,
-} from '@oh/locales';
-import { preferences } from '@oh/preferences';
+} from '@finn/locales';
+import { preferences } from '@finn/preferences';
 
 import antdEnLocale from 'ant-design-vue/es/locale/en_US';
 import antdDefaultLocale from 'ant-design-vue/es/locale/zh_CN';

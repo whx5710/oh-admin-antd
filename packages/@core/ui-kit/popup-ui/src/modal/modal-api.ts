@@ -1,7 +1,7 @@
 import type { ModalApiOptions, ModalState } from './modal';
 
-import { Store } from '@oh-core/shared/store';
-import { bindMethods, isFunction } from '@oh-core/shared/utils';
+import { Store } from '@finn-core/shared/store';
+import { bindMethods, isFunction } from '@finn-core/shared/utils';
 
 export class ModalApi {
   // 共享数据

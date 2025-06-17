@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import type { VbenFormSchema } from '@oh-core/form-ui';
+import type { FinnFormSchema } from '@finn-core/form-ui';
 
 import { computed, reactive } from 'vue';
 import { useRouter } from 'vue-router';
 
-import { $t } from '@oh/locales';
+import { $t } from '@finn/locales';
 
-import { useVbenForm } from '@oh-core/form-ui';
-import { VbenButton } from '@oh-core/shadcn-ui';
+import { useFinnForm } from '@finn-core/form-ui';
+import { FinnButton } from '@finn-core/shadcn-ui';
 
 import Title from './auth-title.vue';
 
 interface Props {
-  formSchema: VbenFormSchema[];
+  formSchema: FinnFormSchema[];
   /**
    * @zh_CN 是否处于加载处理状态
    */
@@ -51,7 +51,7 @@ const emit = defineEmits<{
   submit: [Record<string, any>];
 }>();
 
-const [Form, formApi] = useVbenForm(
+const [Form, formApi] = useFinnForm(
   reactive({
     commonConfig: {
       hideLabel: true,
@@ -96,7 +96,7 @@ defineExpose({
     <Form />
 
     <div>
-      <VbenButton
+      <FinnButton
         :class="{
           'cursor-wait': loading,
         }"
@@ -107,10 +107,10 @@ defineExpose({
         <slot name="submitButtonText">
           {{ submitButtonText || $t('authentication.sendResetLink') }}
         </slot>
-      </VbenButton>
-      <VbenButton class="mt-4 w-full" variant="outline" @click="goToLogin()">
+      </FinnButton>
+      <FinnButton class="mt-4 w-full" variant="outline" @click="goToLogin()">
         {{ $t('common.back') }}
-      </VbenButton>
+      </FinnButton>
     </div>
   </div>
 </template>

@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import type { VbenButtonProps } from './button';
+import type { FinnButtonProps } from './button';
 
 import { computed } from 'vue';
 
-import { LoaderCircle } from '@oh-core/icons';
-import { cn } from '@oh-core/shared/utils';
+import { LoaderCircle } from '@finn-core/icons';
+import { cn } from '@finn-core/shared/utils';
 
 import { Primitive } from 'radix-vue';
 
 import { buttonVariants } from '../../ui';
 
-interface Props extends VbenButtonProps {}
+interface Props extends FinnButtonProps {}
 
 const props = withDefaults(defineProps<Props>(), {
   as: 'button',

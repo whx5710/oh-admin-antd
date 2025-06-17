@@ -3,7 +3,7 @@ import type { TooltipContentProps } from 'radix-vue';
 
 import type { StyleValue } from 'vue';
 
-import type { ClassType } from '@oh-core/typings';
+import type { ClassType } from '@finn-core/typings';
 
 import {
   Tooltip,

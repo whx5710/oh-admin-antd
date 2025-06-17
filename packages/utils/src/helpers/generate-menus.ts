@@ -4,9 +4,9 @@ import type {
   ExRouteRecordRaw,
   MenuRecordRaw,
   RouteMeta,
-} from '@oh-core/typings';
+} from '@finn-core/typings';
 
-import { filterTree, mapTree } from '@oh-core/shared/utils';
+import { filterTree, mapTree } from '@finn-core/shared/utils';
 
 /**
  * 根据 routes 生成菜单列表

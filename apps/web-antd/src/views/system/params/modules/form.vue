@@ -3,9 +3,9 @@ import type { SystemParamsApi } from '#/api/system/params';
 
 import { computed, ref } from 'vue';
 
-import { useDrawer } from '@oh/common-ui';
+import { useDrawer } from '@finn/common-ui';
 
-import { useVbenForm } from '#/adapter/form';
+import { useFinnForm } from '#/adapter/form';
 import { createParams, updateParams } from '#/api/system/params';
 import { $t } from '#/locales';
 
@@ -15,7 +15,7 @@ const emits = defineEmits(['success']);
 
 const formData = ref<SystemParamsApi.SystemParam>();
 
-const [Form, formApi] = useVbenForm({
+const [Form, formApi] = useFinnForm({
   schema: useFormSchema(),
   showDefaultActions: false,
 });

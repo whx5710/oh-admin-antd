@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
-import { $t } from '@oh/locales';
-import { isWindowsOs } from '@oh/utils';
+import { $t } from '@finn/locales';
+import { isWindowsOs } from '@finn/utils';
 
 import SwitchItem from '../switch-item.vue';
 

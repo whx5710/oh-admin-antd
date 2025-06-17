@@ -5,7 +5,7 @@ import type { AlertProps } from './alert';
 
 import { computed, h, nextTick, ref } from 'vue';
 
-import { useSimpleLocale } from '@oh-core/composables';
+import { useSimpleLocale } from '@finn-core/composables';
 import {
   CircleAlert,
   CircleCheckBig,
@@ -13,7 +13,7 @@ import {
   CircleX,
   Info,
   X,
-} from '@oh-core/icons';
+} from '@finn-core/icons';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -21,12 +21,12 @@ import {
   AlertDialogContent,
   AlertDialogDescription,
   AlertDialogTitle,
-  VbenButton,
-  VbenLoading,
-  VbenRenderContent,
-} from '@oh-core/shadcn-ui';
-import { globalShareState } from '@oh-core/shared/global-state';
-import { cn } from '@oh-core/shared/utils';
+  FinnButton,
+  FinnLoading,
+  FinnRenderContent,
+} from '@finn-core/shadcn-ui';
+import { globalShareState } from '@finn-core/shared/global-state';
+import { cn } from '@finn-core/shared/utils';
 
 import { provideAlertContext } from './alert';
 
@@ -161,7 +161,7 @@ async function handleOpenChange(val: boolean) {
             <component :is="getIconRender" class="mr-2" />
             <span class="flex-auto">{{ $t(title) }}</span>
             <AlertDialogCancel v-if="showCancel" as-child>
-              <VbenButton
+              <FinnButton
                 variant="ghost"
                 size="icon"
                 class="rounded-full"
@@ -169,24 +169,24 @@ async function handleOpenChange(val: boolean) {
                 @click="handleCancel"
               >
                 <X class="text-muted-foreground size-4" />
-              </VbenButton>
+              </FinnButton>
             </AlertDialogCancel>
           </div>
         </AlertDialogTitle>
         <AlertDialogDescription>
           <div class="m-4 min-h-[30px]">
-            <VbenRenderContent :content="content" render-br />
+            <FinnRenderContent :content="content" render-br />
           </div>
-          <VbenLoading v-if="loading && contentMasking" :spinning="loading" />
+          <FinnLoading v-if="loading && contentMasking" :spinning="loading" />
         </AlertDialogDescription>
         <div
           class="flex items-center justify-end gap-x-2"
           :class="`justify-${buttonAlign}`"
         >
-          <VbenRenderContent :content="footer" />
+          <FinnRenderContent :content="footer" />
           <AlertDialogCancel v-if="showCancel" as-child>
             <component
-              :is="components.DefaultButton || VbenButton"
+              :is="components.DefaultButton || FinnButton"
               :disabled="loading"
               variant="ghost"
               @click="handleCancel"
@@ -196,7 +196,7 @@ async function handleOpenChange(val: boolean) {
           </AlertDialogCancel>
           <AlertDialogAction as-child>
             <component
-              :is="components.PrimaryButton || VbenButton"
+              :is="components.PrimaryButton || FinnButton"
               :loading="loading"
               @click="handleConfirm"
             >

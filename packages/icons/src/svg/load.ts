@@ -1,6 +1,6 @@
-import type { IconifyIconStructure } from '@oh-core/icons';
+import type { IconifyIconStructure } from '@finn-core/icons';
 
-import { addIcon } from '@oh-core/icons';
+import { addIcon } from '@finn-core/icons';
 
 let loaded = false;
 if (!loaded) {

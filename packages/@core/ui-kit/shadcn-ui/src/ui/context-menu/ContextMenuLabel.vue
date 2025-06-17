@@ -3,7 +3,7 @@ import type { ContextMenuLabelProps } from 'radix-vue';
 
 import { computed } from 'vue';
 
-import { cn } from '@oh-core/shared/utils';
+import { cn } from '@finn-core/shared/utils';
 
 import { ContextMenuLabel } from 'radix-vue';
 

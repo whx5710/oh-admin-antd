@@ -1,10 +1,10 @@
-import type { VbenFormSchema } from '#/adapter/form';
+import type { FinnFormSchema } from '#/adapter/form';
 import type { OnActionClickFn, VxeTableGridOptions } from '#/adapter/vxe-table';
 import type { SystemPostApi } from '#/api/system/post';
 
 import { h, ref } from 'vue';
 
-import { useUserStore } from '@oh/stores';
+import { useUserStore } from '@finn/stores';
 
 import { useDebounceFn } from '@vueuse/core';
 import { Spin } from 'ant-design-vue';
@@ -20,7 +20,7 @@ const userStore = useUserStore();
 /**
  * 获取编辑表单的字段配置。如果没有使用多语言，可以直接export一个数组常量
  */
-export function useSchema(): VbenFormSchema[] {
+export function useSchema(): FinnFormSchema[] {
   return [
     {
       component: 'Input',
@@ -69,7 +69,7 @@ function fetchRemoteOptions(keyWord: Record<string, any>) {
 }
 
 // 搜索表单
-export function useGridFormSchema(): VbenFormSchema[] {
+export function useGridFormSchema(): FinnFormSchema[] {
   return [
     {
       component: 'Input',

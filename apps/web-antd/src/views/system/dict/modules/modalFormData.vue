@@ -3,11 +3,11 @@ import type { SystemDictApi } from '#/api/system/dict';
 
 import { computed, ref } from 'vue';
 
-import { useModal } from '@oh/common-ui';
+import { useModal } from '@finn/common-ui';
 
 import { Button, message } from 'ant-design-vue';
 
-import { useVbenForm } from '#/adapter/form';
+import { useFinnForm } from '#/adapter/form';
 import { createDictData, updateDictData } from '#/api/system/dict';
 import { $t } from '#/locales';
 
@@ -26,7 +26,7 @@ const getTitle = computed(() => {
     : $t('ui.actionTitle.create', ['字典数据']);
 });
 
-const [Form, formApi] = useVbenForm({
+const [Form, formApi] = useFinnForm({
   // 垂直布局，label和input在不同行，值为vertical
   // 水平布局，label和input在同一行
   layout: 'horizontal',

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { About } from '@oh/common-ui';
+import { About } from '@finn/common-ui';
 
 defineOptions({ name: 'About' });
 </script>

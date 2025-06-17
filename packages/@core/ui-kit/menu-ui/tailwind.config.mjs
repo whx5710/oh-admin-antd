@@ -1,1 +1,1 @@
-export { default } from '@oh/tailwind-config';
+export { default } from '@finn/tailwind-config';

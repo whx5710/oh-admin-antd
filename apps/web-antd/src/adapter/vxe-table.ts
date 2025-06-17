@@ -1,20 +1,20 @@
-import type { Recordable } from '@oh/types';
+import type { Recordable } from '@finn/types';
 
 import { h } from 'vue';
 
-import { IconifyIcon } from '@oh/icons';
-import { $te } from '@oh/locales';
-import { setupVbenVxeTable, useVxeGrid } from '@oh/plugins/vxe-table';
-import { get, isFunction, isString } from '@oh/utils';
+import { IconifyIcon } from '@finn/icons';
+import { $te } from '@finn/locales';
+import { setupFinnVxeTable, useVxeGrid } from '@finn/plugins/vxe-table';
+import { get, isFunction, isString } from '@finn/utils';
 
 import { objectOmit } from '@vueuse/core';
 import { Button, Image, Popconfirm, Switch, Tag } from 'ant-design-vue';
 
 import { $t } from '#/locales';
 
-import { useVbenForm } from './form';
+import { useFinnForm } from './form';
 
-setupVbenVxeTable({
+setupFinnVxeTable({
   configVxeTable: (vxeUI) => {
     vxeUI.setConfig({
       grid: {
@@ -274,7 +274,7 @@ setupVbenVxeTable({
     // 这里可以自行扩展 vxe-table 的全局配置，比如自定义格式化
     // vxeUI.formats.add
   },
-  useVbenForm,
+  useFinnForm,
 });
 
 export { useVxeGrid };
@@ -285,4 +285,4 @@ export type OnActionClickParams<T = Recordable<any>> = {
 export type OnActionClickFn<T = Recordable<any>> = (
   params: OnActionClickParams<T>,
 ) => void;
-export type * from '@oh/plugins/vxe-table';
+export type * from '@finn/plugins/vxe-table';

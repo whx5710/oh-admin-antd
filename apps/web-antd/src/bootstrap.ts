@@ -1,18 +1,18 @@
 import { createApp, watchEffect } from 'vue';
 
-import { registerAccessDirective } from '@oh/access';
-import { registerLoadingDirective } from '@oh/common-ui/es/loading';
-import { preferences } from '@oh/preferences';
-import { initStores } from '@oh/stores';
-import '@oh/styles';
-import '@oh/styles/antd';
+import { registerAccessDirective } from '@finn/access';
+import { registerLoadingDirective } from '@finn/common-ui/es/loading';
+import { preferences } from '@finn/preferences';
+import { initStores } from '@finn/stores';
+import '@finn/styles';
+import '@finn/styles/antd';
 
 import { useTitle } from '@vueuse/core';
 
 import { $t, setupI18n } from '#/locales';
 
 import { initComponentAdapter } from './adapter/component';
-import { initSetupVbenForm } from './adapter/form';
+import { initSetupForm } from './adapter/form';
 import App from './app.vue';
 import { router } from './router';
 
@@ -21,7 +21,7 @@ async function bootstrap(namespace: string) {
   await initComponentAdapter();
 
   // 初始化表单组件
-  await initSetupVbenForm();
+  await initSetupForm();
 
   // // 设置弹窗的默认配置
   // setDefaultModalProps({
@@ -50,14 +50,14 @@ async function bootstrap(namespace: string) {
   registerAccessDirective(app);
 
   // 初始化 tippy
-  const { initTippy } = await import('@oh/common-ui/es/tippy');
+  const { initTippy } = await import('@finn/common-ui/es/tippy');
   initTippy(app);
 
   // 配置路由及路由守卫
   app.use(router);
 
   // 配置Motion插件
-  const { MotionPlugin } = await import('@oh/plugins/motion');
+  const { MotionPlugin } = await import('@finn/plugins/motion');
   app.use(MotionPlugin);
 
   // 动态更新标题

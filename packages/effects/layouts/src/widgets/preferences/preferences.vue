@@ -1,13 +1,13 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 
-import { Settings } from '@oh/icons';
-import { $t, loadLocaleMessages } from '@oh/locales';
-import { preferences, updatePreferences } from '@oh/preferences';
-import { capitalizeFirstLetter } from '@oh/utils';
+import { Settings } from '@finn/icons';
+import { $t, loadLocaleMessages } from '@finn/locales';
+import { preferences, updatePreferences } from '@finn/preferences';
+import { capitalizeFirstLetter } from '@finn/utils';
 
-import { useDrawer } from '@oh-core/popup-ui';
-import { VbenButton } from '@oh-core/shadcn-ui';
+import { useDrawer } from '@finn-core/popup-ui';
+import { FinnButton } from '@finn-core/shadcn-ui';
 
 import PreferencesDrawer from './preferences-drawer.vue';
 
@@ -60,12 +60,12 @@ const listen = computed(() => {
 
     <div @click="() => drawerApi.open()">
       <slot>
-        <VbenButton
+        <FinnButton
           :title="$t('preferences.title')"
           class="bg-primary flex-col-center size-10 cursor-pointer rounded-l-lg rounded-r-none border-none"
         >
           <Settings class="size-5" />
-        </VbenButton>
+        </FinnButton>
       </slot>
     </div>
   </div>

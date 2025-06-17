@@ -2,13 +2,13 @@ import type { EChartsOption } from 'echarts';
 
 import type { Ref } from 'vue';
 
-import type { Nullable } from '@oh/types';
+import type { Nullable } from '@finn/types';
 
 import type EchartsUI from './echarts-ui.vue';
 
 import { computed, nextTick, watch } from 'vue';
 
-import { usePreferences } from '@oh/preferences';
+import { usePreferences } from '@finn/preferences';
 
 import {
   tryOnUnmounted,

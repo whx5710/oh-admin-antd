@@ -11,12 +11,12 @@ import {
   ref,
 } from 'vue';
 
-import { useStore } from '@oh-core/shared/store';
+import { useStore } from '@finn-core/shared/store';
 
 import { ModalApi } from './modal-api';
-import VbenModal from './modal.vue';
+import FinnModal from './modal.vue';
 
-const USER_MODAL_INJECT_KEY = Symbol('VBEN_MODAL_INJECT');
+const USER_MODAL_INJECT_KEY = Symbol('FINN_MODAL_INJECT');
 
 const DEFAULT_MODAL_PROPS: Partial<ModalProps> = {};
 
@@ -66,7 +66,7 @@ export function useModal<TParentModalProps extends ModalProps = ModalProps>(
       },
       // eslint-disable-next-line vue/one-component-per-file
       {
-        name: 'VbenParentModal',
+        name: 'FinnParentModal',
         inheritAttrs: false,
       },
     );
@@ -114,7 +114,7 @@ export function useModal<TParentModalProps extends ModalProps = ModalProps>(
     (props: ModalProps, { attrs, slots }) => {
       return () =>
         h(
-          VbenModal,
+          FinnModal,
           {
             ...props,
             ...attrs,
@@ -125,7 +125,7 @@ export function useModal<TParentModalProps extends ModalProps = ModalProps>(
     },
     // eslint-disable-next-line vue/one-component-per-file
     {
-      name: 'VbenModal',
+      name: 'FinnModal',
       inheritAttrs: false,
     },
   );
@@ -151,7 +151,7 @@ async function checkProps(api: ExtendedModalApi, attrs: Record<string, any>) {
     if (stateKeys.has(attr) && !['class'].includes(attr)) {
       // connectedComponent存在时，不要传入Modal的props，会造成复杂度提升，如果你需要修改Modal的props，请使用 useModal 或者api
       console.warn(
-        `[Vben Modal]: When 'connectedComponent' exists, do not set props or slots '${attr}', which will increase complexity. If you need to modify the props of Modal, please use useModal or api.`,
+        `[Finn Modal]: When 'connectedComponent' exists, do not set props or slots '${attr}', which will increase complexity. If you need to modify the props of Modal, please use useModal or api.`,
       );
     }
   }

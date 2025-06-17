@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import type { Component } from 'vue';
 
-import type { LayoutType } from '@oh/types';
+import type { LayoutType } from '@finn/types';
 
 import { computed } from 'vue';
 
-import { CircleHelp } from '@oh/icons';
-import { $t } from '@oh/locales';
+import { CircleHelp } from '@finn/icons';
+import { $t } from '@finn/locales';
 
-import { VbenTooltip } from '@oh-core/shadcn-ui';
+import { FinnTooltip } from '@finn-core/shadcn-ui';
 
 import {
   FullContent,
@@ -99,12 +99,12 @@ function activeClass(theme: string): string[] {
           class="text-muted-foreground flex-center hover:text-foreground mt-2 text-center text-xs"
         >
           {{ theme.name }}
-          <VbenTooltip v-if="theme.tip" side="bottom">
+          <FinnTooltip v-if="theme.tip" side="bottom">
             <template #trigger>
               <CircleHelp class="ml-1 size-3 cursor-help" />
             </template>
             {{ theme.tip }}
-          </VbenTooltip>
+          </FinnTooltip>
         </div>
       </div>
     </template>

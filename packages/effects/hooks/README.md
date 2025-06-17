@@ -1,6 +1,6 @@
-# @oh/hooks
+# @finn/hooks
 
-用于多个 `app` 公用的 hook，继承了 `@oh/hooks` 的所有能力。业务上有通用 hooks 可以放在这里。
+用于多个 `app` 公用的 hook，继承了 `@finn/hooks` 的所有能力。业务上有通用 hooks 可以放在这里。
 
 ## 用法
 
@@ -9,11 +9,11 @@
 ```bash
 # 进入目标应用目录，例如 apps/xxxx-app
 # cd apps/xxxx-app
-pnpm add @oh/hooks
+pnpm add @finn/hooks
 ```
 
 ### 使用
 
 ```ts
-import { useNamespace } from '@oh/hooks';
+import { useNamespace } from '@finn/hooks';
 ```

@@ -1,6 +1,6 @@
 import type { Component } from 'vue';
 
-import type { BreadcrumbStyleType } from '@oh-core/typings';
+import type { BreadcrumbStyleType } from '@finn-core/typings';
 
 export interface IBreadcrumb {
   icon?: Component | string;

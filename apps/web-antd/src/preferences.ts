@@ -1,4 +1,4 @@
-import { defineOverridesPreferences } from '@oh/preferences';
+import { defineOverridesPreferences } from '@finn/preferences';
 
 /**
  * @description 项目配置文件

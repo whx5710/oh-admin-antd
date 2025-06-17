@@ -1,5 +1,5 @@
-import { initPreferences } from '@oh/preferences';
-import { unmountGlobalLoading } from '@oh/utils';
+import { initPreferences } from '@finn/preferences';
+import { unmountGlobalLoading } from '@finn/utils';
 
 import { overridesPreferences } from './preferences';
 

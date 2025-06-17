@@ -4,9 +4,9 @@ import type {
   ComponentRecordType,
   GenerateMenuAndRoutesOptions,
   RouteRecordStringComponent,
-} from '@oh-core/typings';
+} from '@finn-core/typings';
 
-import { mapTree } from '@oh-core/shared/utils';
+import { mapTree } from '@finn-core/shared/utils';
 
 /**
  * 动态生成路由 - 后端方式
@@ -80,7 +80,7 @@ function normalizeViewPath(path: string): string {
     ? normalizedPath
     : `/${normalizedPath}`;
 
-  // 这里耦合了vben-admin的目录结构
+  // 这里耦合了finn-admin的目录结构
   return viewPath.replace(/^\/views/, '');
 }
 export { generateRoutesByBackend };

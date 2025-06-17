@@ -5,8 +5,8 @@ import type { PageProps } from './types';
 
 import { computed, nextTick, onMounted, ref, useTemplateRef } from 'vue';
 
-import { CSS_VARIABLE_LAYOUT_CONTENT_HEIGHT } from '@oh-core/shared/constants';
-import { cn } from '@oh-core/shared/utils';
+import { CSS_VARIABLE_LAYOUT_CONTENT_HEIGHT } from '@finn-core/shared/constants';
+import { cn } from '@finn-core/shared/utils';
 
 defineOptions({
   name: 'Page',
@@ -86,7 +86,7 @@ onMounted(() => {
       </div>
     </div>
 
-    <div :class="cn('h-full p-4', contentClass)" :style="contentStyle">
+    <div :class="cn('h-full p-2', contentClass)" :style="contentStyle">
       <slot></slot>
     </div>
 

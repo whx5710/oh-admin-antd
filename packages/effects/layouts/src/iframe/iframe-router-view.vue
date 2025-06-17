@@ -4,10 +4,10 @@ import type { RouteLocationNormalized } from 'vue-router';
 import { computed, ref } from 'vue';
 import { useRoute } from 'vue-router';
 
-import { preferences } from '@oh/preferences';
-import { useTabbarStore } from '@oh/stores';
+import { preferences } from '@finn/preferences';
+import { useTabbarStore } from '@finn/stores';
 
-import { VbenSpinner } from '@oh-core/shadcn-ui';
+import { FinnSpinner } from '@finn-core/shadcn-ui';
 
 defineOptions({ name: 'IFrameRouterView' });
 
@@ -74,7 +74,7 @@ function showSpinning(index: number) {
         v-show="routeShow(item)"
         class="relative size-full"
       >
-        <VbenSpinner :spinning="showSpinning(index)" />
+        <FinnSpinner :spinning="showSpinning(index)" />
         <iframe
           :src="item.meta.iframeSrc as string"
           class="size-full"

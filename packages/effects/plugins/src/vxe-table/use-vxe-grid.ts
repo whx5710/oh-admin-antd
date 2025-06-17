@@ -2,7 +2,7 @@ import type { ExtendedVxeGridApi, VxeGridProps } from './types';
 
 import { defineComponent, h, onBeforeUnmount } from 'vue';
 
-import { useStore } from '@oh-core/shared/store';
+import { useStore } from '@finn-core/shared/store';
 
 import { VxeGridApi } from './api';
 import VxeGrid from './use-vxe-grid.vue';
@@ -24,7 +24,7 @@ export function useVxeGrid(options: VxeGridProps) {
       return () => h(VxeGrid, { ...props, ...attrs, api: extendedApi }, slots);
     },
     {
-      name: 'VbenVxeGrid',
+      name: 'FinnVxeGrid',
       inheritAttrs: false,
     },
   );

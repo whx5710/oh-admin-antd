@@ -1,2 +1,2 @@
 export type * from './user';
-export type * from '@oh-core/typings';
+export type * from '@finn-core/typings';

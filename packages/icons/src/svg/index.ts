@@ -1,4 +1,4 @@
-import { createIconifyIcon } from '@oh-core/icons';
+import { createIconifyIcon } from '@finn-core/icons';
 
 import './load.js';
 

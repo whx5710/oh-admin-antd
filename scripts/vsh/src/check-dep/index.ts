@@ -1,6 +1,6 @@
 import type { CAC } from 'cac';
 
-import { getPackages } from '@oh/node-utils';
+import { getPackages } from '@finn/node-utils';
 
 import depcheck from 'depcheck';
 
@@ -11,24 +11,24 @@ const DEFAULT_CONFIG = {
     'vite',
     'vitest',
     'unbuild',
-    '@oh/tsconfig',
-    '@oh/vite-config',
-    '@oh/tailwind-config',
+    '@finn/tsconfig',
+    '@finn/vite-config',
+    '@finn/tailwind-config',
     '@types/*',
-    '@oh-core/design',
+    '@finn-core/design',
   ],
   // 需要忽略的包
   ignorePackages: [
-    '@oh/backend-mock',
-    '@oh/commitlint-config',
-    '@oh/eslint-config',
-    '@oh/node-utils',
-    '@oh/prettier-config',
-    '@oh/stylelint-config',
-    '@oh/tailwind-config',
-    '@oh/tsconfig',
-    '@oh/vite-config',
-    '@oh/vsh',
+    '@finn/backend-mock',
+    '@finn/commitlint-config',
+    '@finn/eslint-config',
+    '@finn/node-utils',
+    '@finn/prettier-config',
+    '@finn/stylelint-config',
+    '@finn/tailwind-config',
+    '@finn/tsconfig',
+    '@finn/vite-config',
+    '@finn/vsh',
   ],
   // 需要忽略的文件模式
   ignorePatterns: ['dist', 'node_modules', 'public'],

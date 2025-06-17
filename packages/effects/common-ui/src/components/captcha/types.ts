@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'vue';
 
-import type { ClassType } from '@oh/types';
+import type { ClassType } from '@finn/types';
 
 export interface CaptchaData {
   /**

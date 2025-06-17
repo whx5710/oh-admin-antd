@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { SUPPORT_LANGUAGES } from '@oh/constants';
-import { $t } from '@oh/locales';
+import { SUPPORT_LANGUAGES } from '@finn/constants';
+import { $t } from '@finn/locales';
 
 import SelectItem from '../select-item.vue';
 import SwitchItem from '../switch-item.vue';

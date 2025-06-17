@@ -4,7 +4,7 @@ import type { ToggleGroupItemProps } from 'radix-vue';
 
 import { computed, inject } from 'vue';
 
-import { cn } from '@oh-core/shared/utils';
+import { cn } from '@finn-core/shared/utils';
 
 import { ToggleGroupItem, useForwardProps } from 'radix-vue';
 

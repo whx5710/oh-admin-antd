@@ -1,11 +1,11 @@
-import type { MenuRecordRaw } from '@oh/types';
+import type { MenuRecordRaw } from '@finn/types';
 
 import { computed, onBeforeMount, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 
-import { preferences, usePreferences } from '@oh/preferences';
-import { useAccessStore } from '@oh/stores';
-import { findRootMenuByPath } from '@oh/utils';
+import { preferences, usePreferences } from '@finn/preferences';
+import { useAccessStore } from '@finn/stores';
+import { findRootMenuByPath } from '@finn/utils';
 
 import { useNavigation } from './use-navigation';
 

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { MenuRecordRaw } from '@oh-core/typings';
+import type { MenuRecordRaw } from '@finn-core/typings';
 
 import type { MenuProps } from './types';
 
-import { useForwardProps } from '@oh-core/composables';
+import { useForwardProps } from '@finn-core/composables';
 
 import { Menu } from './components';
 import SubMenu from './sub-menu.vue';

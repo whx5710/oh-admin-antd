@@ -1,6 +1,6 @@
 import type { Component, Ref } from 'vue';
 
-import type { MaybePromise } from '@oh-core/typings';
+import type { MaybePromise } from '@finn-core/typings';
 
 import type { ModalApi } from './modal-api';
 

@@ -1,12 +1,12 @@
 {
-  "name": "@oh/tsconfig",
+  "name": "@finn/tsconfig",
   "version": "5.5.7",
   "private": true,
-  "homepage": "https://github.com/vbenjs/vue-vben-admin",
-  "bugs": "https://github.com/vbenjs/vue-vben-admin/issues",
+  "homepage": "https://github.com/finnjs/vue-finn-admin",
+  "bugs": "https://github.com/finnjs/vue-finn-admin/issues",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vbenjs/vue-vben-admin.git",
+    "url": "git+https://github.com/finnjs/vue-finn-admin.git",
     "directory": "internal/tsconfig"
   },
   "license": "MIT",
@@ -19,7 +19,7 @@
     "web.json"
   ],
   "dependencies": {
-    "@oh/types": "workspace:*",
+    "@finn/types": "workspace:*",
     "vite": "catalog:"
   }
 }

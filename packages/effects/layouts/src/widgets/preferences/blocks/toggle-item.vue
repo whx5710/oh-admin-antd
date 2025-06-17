@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { SelectOption } from '@oh/types';
+import type { SelectOption } from '@finn/types';
 
-import { ToggleGroup, ToggleGroupItem } from '@oh-core/shadcn-ui';
+import { ToggleGroup, ToggleGroupItem } from '@finn-core/shadcn-ui';
 
 defineOptions({
   name: 'PreferenceToggleItem',

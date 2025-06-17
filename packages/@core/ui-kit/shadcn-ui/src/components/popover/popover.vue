@@ -5,7 +5,7 @@ import type {
   PopoverRootProps,
 } from 'radix-vue';
 
-import type { ClassType } from '@oh-core/typings';
+import type { ClassType } from '@finn-core/typings';
 
 import { computed } from 'vue';
 

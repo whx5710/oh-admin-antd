@@ -1,1 +1,1 @@
-import '@oh-core/design';
+import '@finn-core/design';

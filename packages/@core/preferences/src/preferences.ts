@@ -1,11 +1,11 @@
-import type { DeepPartial } from '@oh-core/typings';
+import type { DeepPartial } from '@finn-core/typings';
 
 import type { InitialOptions, Preferences } from './types';
 
 import { markRaw, reactive, readonly, watch } from 'vue';
 
-import { StorageManager } from '@oh-core/shared/cache';
-import { isMacOs, merge } from '@oh-core/shared/utils';
+import { StorageManager } from '@finn-core/shared/cache';
+import { isMacOs, merge } from '@finn-core/shared/utils';
 
 import {
   breakpointsTailwind,

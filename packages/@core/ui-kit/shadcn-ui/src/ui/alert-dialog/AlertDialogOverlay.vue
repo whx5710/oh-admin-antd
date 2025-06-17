@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useScrollLock } from '@oh-core/composables';
+import { useScrollLock } from '@finn-core/composables';
 
 useScrollLock();
 </script>

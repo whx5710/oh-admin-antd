@@ -1,6 +1,6 @@
-# @oh/vsh
+# @finn/vsh
 
-一个 Shell 脚本工具集合，用于 Vue Vben Admin 项目的开发和管理。
+一个 Shell 脚本工具集合，用于 Vue Oh Admin 项目的开发和管理。
 
 ## 功能特性
 
@@ -14,13 +14,13 @@
 
 ```bash
 # 使用 pnpm 安装
-pnpm add -D @oh/vsh
+pnpm add -D @finn/vsh
 
 # 或者使用 npm
-npm install -D @oh/vsh
+npm install -D @finn/vsh
 
 # 或者使用 yarn
-yarn add -D @oh/vsh
+yarn add -D @finn/vsh
 ```
 
 ## 使用方法
@@ -29,7 +29,7 @@ yarn add -D @oh/vsh
 
 ```bash
 # 全局安装
-pnpm add -g @oh/vsh
+pnpm add -g @finn/vsh
 
 # 使用 vsh 命令
 vsh [command]

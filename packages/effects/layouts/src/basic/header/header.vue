@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 import { computed, useSlots } from 'vue';
 
-import { useRefresh } from '@oh/hooks';
-import { RotateCw } from '@oh/icons';
-import { preferences, usePreferences } from '@oh/preferences';
-import { useAccessStore } from '@oh/stores';
+import { useRefresh } from '@finn/hooks';
+import { RotateCw } from '@finn/icons';
+import { preferences, usePreferences } from '@finn/preferences';
+import { useAccessStore } from '@finn/stores';
 
-import { VbenFullScreen, VbenIconButton } from '@oh-core/shadcn-ui';
+import { FinnFullScreen, FinnIconButton } from '@finn-core/shadcn-ui';
 
 import {
   GlobalSearch,
@@ -119,9 +119,9 @@ function clearPreferencesAndLogout() {
   >
     <slot :name="slot.name">
       <template v-if="slot.name === 'refresh'">
-        <VbenIconButton class="my-0 mr-1 rounded-md" @click="refresh">
+        <FinnIconButton class="my-0 mr-1 rounded-md" @click="refresh">
           <RotateCw class="size-4" />
-        </VbenIconButton>
+        </FinnIconButton>
       </template>
     </slot>
   </template>
@@ -164,7 +164,7 @@ function clearPreferencesAndLogout() {
           <LanguageToggle class="mr-1" />
         </template>
         <template v-else-if="slot.name === 'fullscreen'">
-          <VbenFullScreen class="mr-1" />
+          <FinnFullScreen class="mr-1" />
         </template>
       </slot>
     </template>

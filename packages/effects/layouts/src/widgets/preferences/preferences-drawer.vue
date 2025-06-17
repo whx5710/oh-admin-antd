@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { SupportedLanguagesType } from '@oh/locales';
+import type { SupportedLanguagesType } from '@finn/locales';
 import type {
   BreadcrumbStyleType,
   BuiltinThemeType,
@@ -10,28 +10,28 @@ import type {
   NavigationStyleType,
   PreferencesButtonPositionType,
   ThemeModeType,
-} from '@oh/types';
+} from '@finn/types';
 
-import type { SegmentedItem } from '@oh-core/shadcn-ui';
+import type { SegmentedItem } from '@finn-core/shadcn-ui';
 
 import { computed, ref } from 'vue';
 
-import { Copy, RotateCw } from '@oh/icons';
-import { $t, loadLocaleMessages } from '@oh/locales';
+import { Copy, RotateCw } from '@finn/icons';
+import { $t, loadLocaleMessages } from '@finn/locales';
 import {
   clearPreferencesCache,
   preferences,
   resetPreferences,
   usePreferences,
-} from '@oh/preferences';
+} from '@finn/preferences';
 
-import { useDrawer } from '@oh-core/popup-ui';
+import { useDrawer } from '@finn-core/popup-ui';
 import {
-  VbenButton,
-  VbenIconButton,
-  VbenSegmented,
-} from '@oh-core/shadcn-ui';
-import { globalShareState } from '@oh-core/shared/global-state';
+  FinnButton,
+  FinnIconButton,
+  FinnSegmented,
+} from '@finn-core/shadcn-ui';
+import { globalShareState } from '@finn-core/shared/global-state';
 
 import { useClipboard } from '@vueuse/core';
 
@@ -244,7 +244,7 @@ async function handleReset() {
     >
       <template #extra>
         <div class="flex items-center">
-          <VbenIconButton
+          <FinnIconButton
             :disabled="!diffPreference"
             :tooltip="$t('preferences.resetTip')"
             class="relative"
@@ -254,12 +254,12 @@ async function handleReset() {
               class="bg-primary absolute right-0.5 top-0.5 h-2 w-2 rounded"
             ></span>
             <RotateCw class="size-4" @click="handleReset" />
-          </VbenIconButton>
+          </FinnIconButton>
         </div>
       </template>
 
       <div class="p-1">
-        <VbenSegmented v-model="activeTab" :tabs="tabs">
+        <FinnSegmented v-model="activeTab" :tabs="tabs">
           <template #general>
             <Block :title="$t('preferences.general')">
               <General
@@ -420,11 +420,11 @@ async function handleReset() {
               />
             </Block>
           </template>
-        </VbenSegmented>
+        </FinnSegmented>
       </div>
 
       <template #footer>
-        <VbenButton
+        <FinnButton
           :disabled="!diffPreference"
           class="mx-4 w-full"
           size="sm"
@@ -433,8 +433,8 @@ async function handleReset() {
         >
           <Copy class="mr-2 size-3" />
           {{ $t('preferences.copyPreferences') }}
-        </VbenButton>
-        <VbenButton
+        </FinnButton>
+        <FinnButton
           :disabled="!diffPreference"
           class="mr-4 w-full"
           size="sm"
@@ -442,7 +442,7 @@ async function handleReset() {
           @click="handleClearCache"
         >
           {{ $t('preferences.clearAndLogout') }}
-        </VbenButton>
+        </FinnButton>
       </template>
     </Drawer>
   </div>

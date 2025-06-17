@@ -1,20 +1,20 @@
 <script lang="ts" setup>
 import type { Arrayable } from '@vueuse/core';
 
-import type { ValueType, VbenButtonGroupProps } from './button';
+import type { FinnButtonGroupProps, ValueType } from './button';
 
 import { computed, ref, watch } from 'vue';
 
-import { Circle, CircleCheckBig, LoaderCircle } from '@oh-core/icons';
-import { cn, isFunction } from '@oh-core/shared/utils';
+import { Circle, CircleCheckBig, LoaderCircle } from '@finn-core/icons';
+import { cn, isFunction } from '@finn-core/shared/utils';
 
 import { objectOmit } from '@vueuse/core';
 
-import { VbenRenderContent } from '../render-content';
-import VbenButtonGroup from './button-group.vue';
+import { FinnRenderContent } from '../render-content';
+import FinnButtonGroup from './button-group.vue';
 import Button from './button.vue';
 
-const props = withDefaults(defineProps<VbenButtonGroupProps>(), {
+const props = withDefaults(defineProps<FinnButtonGroupProps>(), {
   gap: 0,
   multiple: false,
   showIcon: true,
@@ -105,10 +105,10 @@ async function onBtnClick(value: ValueType) {
 }
 </script>
 <template>
-  <VbenButtonGroup
+  <FinnButtonGroup
     :size="props.size"
     :gap="props.gap"
-    class="vben-check-button-group"
+    class="finn-check-button-group"
   >
     <Button
       v-for="(btn, index) in props.options"
@@ -138,13 +138,13 @@ async function onBtnClick(value: ValueType) {
         </slot>
       </div>
       <slot name="option" :label="btn.label" :value="btn.value" :data="btn">
-        <VbenRenderContent :content="btn.label" />
+        <FinnRenderContent :content="btn.label" />
       </slot>
     </Button>
-  </VbenButtonGroup>
+  </FinnButtonGroup>
 </template>
 <style lang="scss" scoped>
-.vben-check-button-group {
+.finn-check-button-group {
   display: flex;
   flex-wrap: wrap;
 

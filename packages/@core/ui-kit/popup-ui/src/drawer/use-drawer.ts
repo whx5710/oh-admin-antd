@@ -15,12 +15,12 @@ import {
   ref,
 } from 'vue';
 
-import { useStore } from '@oh-core/shared/store';
+import { useStore } from '@finn-core/shared/store';
 
 import { DrawerApi } from './drawer-api';
-import VbenDrawer from './drawer.vue';
+import FinnDrawer from './drawer.vue';
 
-const USER_DRAWER_INJECT_KEY = Symbol('VBEN_DRAWER_INJECT');
+const USER_DRAWER_INJECT_KEY = Symbol('FINN_DRAWER_INJECT');
 
 const DEFAULT_DRAWER_PROPS: Partial<DrawerProps> = {};
 
@@ -28,9 +28,9 @@ export function setDefaultDrawerProps(props: Partial<DrawerProps>) {
   Object.assign(DEFAULT_DRAWER_PROPS, props);
 }
 
-export function useDrawer<
-  TParentDrawerProps extends DrawerProps = DrawerProps,
->(options: DrawerApiOptions = {}) {
+export function useDrawer<TParentDrawerProps extends DrawerProps = DrawerProps>(
+  options: DrawerApiOptions = {},
+) {
   // Drawer一般会抽离出来，所以如果有传入 connectedComponent，则表示为外部调用，与内部组件进行连接
   // 外部的Drawer通过provide/inject传递api
 
@@ -67,7 +67,7 @@ export function useDrawer<
       },
       // eslint-disable-next-line vue/one-component-per-file
       {
-        name: 'VbenParentDrawer',
+        name: 'FinnParentDrawer',
         inheritAttrs: false,
       },
     );
@@ -113,11 +113,11 @@ export function useDrawer<
   const Drawer = defineComponent(
     (props: DrawerProps, { attrs, slots }) => {
       return () =>
-        h(VbenDrawer, { ...props, ...attrs, drawerApi: extendedApi }, slots);
+        h(FinnDrawer, { ...props, ...attrs, drawerApi: extendedApi }, slots);
     },
     // eslint-disable-next-line vue/one-component-per-file
     {
-      name: 'VbenDrawer',
+      name: 'FinnDrawer',
       inheritAttrs: false,
     },
   );
@@ -143,7 +143,7 @@ async function checkProps(api: ExtendedDrawerApi, attrs: Record<string, any>) {
     if (stateKeys.has(attr) && !['class'].includes(attr)) {
       // connectedComponent存在时，不要传入Drawer的props，会造成复杂度提升，如果你需要修改Drawer的props，请使用 useDrawer 或者api
       console.warn(
-        `[Vben Drawer]: When 'connectedComponent' exists, do not set props or slots '${attr}', which will increase complexity. If you need to modify the props of Drawer, please use useDrawer or api.`,
+        `[Finn Drawer]: When 'connectedComponent' exists, do not set props or slots '${attr}', which will increase complexity. If you need to modify the props of Drawer, please use useDrawer or api.`,
       );
     }
   }

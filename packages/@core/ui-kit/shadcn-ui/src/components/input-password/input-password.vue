@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref, useSlots } from 'vue';
 
-import { Eye, EyeOff } from '@oh-core/icons';
-import { cn } from '@oh-core/shared/utils';
+import { Eye, EyeOff } from '@finn-core/icons';
+import { cn } from '@finn-core/shared/utils';
 
 import { Input } from '../../ui';
 import PasswordStrength from './password-strength.vue';

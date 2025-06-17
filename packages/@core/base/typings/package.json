@@ -1,12 +1,12 @@
 {
-  "name": "@oh-core/typings",
+  "name": "@finn-core/typings",
   "version": "5.5.7",
-  "homepage": "https://github.com/vbenjs/vue-vben-admin",
-  "bugs": "https://github.com/vbenjs/vue-vben-admin/issues",
+  "homepage": "https://github.com/finnjs/vue-finn-admin",
+  "bugs": "https://github.com/finnjs/vue-finn-admin/issues",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vbenjs/vue-vben-admin.git",
-    "directory": "packages/@oh-core/base/typings"
+    "url": "git+https://github.com/finnjs/vue-finn-admin.git",
+    "directory": "packages/@finn-core/base/typings"
   },
   "license": "MIT",
   "type": "module",

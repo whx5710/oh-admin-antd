@@ -1,6 +1,6 @@
 import type { Component, Ref } from 'vue';
 
-import type { ClassType, MaybePromise } from '@oh-core/typings';
+import type { ClassType, MaybePromise } from '@finn-core/typings';
 
 import type { DrawerApi } from './drawer-api';
 

@@ -1,14 +1,14 @@
 <script lang="ts" setup>
-import type { BreadcrumbStyleType } from '@oh/types';
+import type { BreadcrumbStyleType } from '@finn/types';
 
-import type { IBreadcrumb } from '@oh-core/shadcn-ui';
+import type { IBreadcrumb } from '@finn-core/shadcn-ui';
 
 import { computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
-import { $t } from '@oh/locales';
+import { $t } from '@finn/locales';
 
-import { VbenBreadcrumbView } from '@oh-core/shadcn-ui';
+import { FinnBreadcrumbView } from '@finn-core/shadcn-ui';
 
 interface Props {
   hideWhenOnlyOne?: boolean;
@@ -64,7 +64,7 @@ function handleSelect(path: string) {
 }
 </script>
 <template>
-  <VbenBreadcrumbView
+  <FinnBreadcrumbView
     :breadcrumbs="breadcrumbs"
     :show-icon="showIcon"
     :style-type="type"

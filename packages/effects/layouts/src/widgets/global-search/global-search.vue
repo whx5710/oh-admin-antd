@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { MenuRecordRaw } from '@oh/types';
+import type { MenuRecordRaw } from '@finn/types';
 
 import { nextTick, onMounted, onUnmounted, ref, watch } from 'vue';
 
@@ -9,11 +9,11 @@ import {
   CornerDownLeft,
   MdiKeyboardEsc,
   Search,
-} from '@oh/icons';
-import { $t } from '@oh/locales';
-import { isWindowsOs } from '@oh/utils';
+} from '@finn/icons';
+import { $t } from '@finn/locales';
+import { isWindowsOs } from '@finn/utils';
 
-import { useModal } from '@oh-core/popup-ui';
+import { useModal } from '@finn-core/popup-ui';
 
 import { useMagicKeys, whenever } from '@vueuse/core';
 

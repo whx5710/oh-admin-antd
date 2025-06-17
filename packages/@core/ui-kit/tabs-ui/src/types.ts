@@ -1,5 +1,5 @@
-import type { IContextMenuItem } from '@oh-core/shadcn-ui';
-import type { TabDefinition, TabsStyleType } from '@oh-core/typings';
+import type { IContextMenuItem } from '@finn-core/shadcn-ui';
+import type { TabDefinition, TabsStyleType } from '@finn-core/typings';
 
 export type TabsEmits = {
   close: [string];

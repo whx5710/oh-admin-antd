@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "@oh/tsconfig/web-app.json",
+  "extends": "@finn/tsconfig/web-app.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {

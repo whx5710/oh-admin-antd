@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { AuthenticationQrCodeLogin } from '@oh/common-ui';
-import { LOGIN_PATH } from '@oh/constants';
+import { AuthenticationQrCodeLogin } from '@finn/common-ui';
+import { LOGIN_PATH } from '@finn/constants';
 
 defineOptions({ name: 'QrCodeLogin' });
 </script>

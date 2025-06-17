@@ -1,7 +1,7 @@
 import { reactive, watch } from 'vue';
 
-import { preferences, usePreferences } from '@oh/preferences';
-import { convertToRgb, updateCSSVariables } from '@oh/utils';
+import { preferences, usePreferences } from '@finn/preferences';
+import { convertToRgb, updateCSSVariables } from '@finn/utils';
 
 /**
  * 用于适配各个框架的设计系统
@@ -314,7 +314,7 @@ export function useElementPlusDesignTokens() {
         '--el-text-color-regular': getCssVariableValue('--foreground'),
       };
 
-      updateCSSVariables(variables, `__vben_design_styles__`);
+      updateCSSVariables(variables, `__finn_design_styles__`);
     },
     { immediate: true },
   );

@@ -14,7 +14,7 @@ import type {
   PreferencesButtonPositionType,
   TabsStyleType,
   ThemeModeType,
-} from '@oh-core/typings';
+} from '@finn-core/typings';
 
 type SupportedLanguagesType = 'en-US' | 'zh-CN';
 

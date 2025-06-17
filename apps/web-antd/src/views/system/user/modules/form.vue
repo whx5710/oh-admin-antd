@@ -3,11 +3,11 @@ import type { SystemUserApi } from '#/api/system/user';
 
 import { computed, ref } from 'vue';
 
-import { useModal } from '@oh/common-ui';
+import { useModal } from '@finn/common-ui';
 
 import { Button, message } from 'ant-design-vue';
 
-import { useVbenForm } from '#/adapter/form';
+import { useFinnForm } from '#/adapter/form';
 import { createUser, updateUser } from '#/api/system/user';
 import { $t } from '#/locales';
 
@@ -19,7 +19,7 @@ const getTitle = computed(() => {
   return formData.value?.id ? '修改用户' : '新增用户';
 });
 
-const [Form, formApi] = useVbenForm({
+const [Form, formApi] = useFinnForm({
   // 垂直布局，label和input在不同行，值为vertical
   // 水平布局，label和input在同一行
   layout: 'horizontal',

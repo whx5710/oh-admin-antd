@@ -1,14 +1,14 @@
 {
-  "name": "@oh-core/shadcn-ui",
+  "name": "@finn-core/shadcn-ui",
   "version": "5.5.7",
   "#main": "./dist/index.mjs",
   "#module": "./dist/index.mjs",
-  "homepage": "https://github.com/vbenjs/vue-vben-admin",
-  "bugs": "https://github.com/vbenjs/vue-vben-admin/issues",
+  "homepage": "https://github.com/finnjs/vue-finn-admin",
+  "bugs": "https://github.com/finnjs/vue-finn-admin/issues",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vbenjs/vue-vben-admin.git",
-    "directory": "packages/@oh-core/uikit/shadcn-ui"
+    "url": "git+https://github.com/finnjs/vue-finn-admin.git",
+    "directory": "packages/@finn-core/uikit/shadcn-ui"
   },
   "license": "MIT",
   "type": "module",
@@ -40,10 +40,10 @@
     }
   },
   "dependencies": {
-    "@oh-core/composables": "workspace:*",
-    "@oh-core/icons": "workspace:*",
-    "@oh-core/shared": "workspace:*",
-    "@oh-core/typings": "workspace:*",
+    "@finn-core/composables": "workspace:*",
+    "@finn-core/icons": "workspace:*",
+    "@finn-core/shared": "workspace:*",
+    "@finn-core/typings": "workspace:*",
     "@vueuse/core": "catalog:",
     "class-variance-authority": "catalog:",
     "lucide-vue-next": "catalog:",

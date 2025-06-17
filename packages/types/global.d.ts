@@ -1,4 +1,4 @@
-import type { RouteMeta as IRouteMeta } from '@oh-core/typings';
+import type { RouteMeta as IRouteMeta } from '@finn-core/typings';
 
 import 'vue-router';
 
@@ -7,7 +7,7 @@ declare module 'vue-router' {
   interface RouteMeta extends IRouteMeta {}
 }
 
-export interface VbenAdminProAppConfigRaw {
+export interface FinnAdminProAppConfigRaw {
   VITE_GLOB_API_URL: string;
 }
 
@@ -17,6 +17,6 @@ export interface ApplicationConfig {
 
 declare global {
   interface Window {
-    _VBEN_ADMIN_PRO_APP_CONF_: VbenAdminProAppConfigRaw;
+    _OH_ADMIN_PRO_APP_CONF_: FinnAdminProAppConfigRaw;
   }
 }

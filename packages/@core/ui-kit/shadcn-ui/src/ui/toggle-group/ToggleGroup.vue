@@ -6,7 +6,7 @@ import type { toggleVariants } from '../toggle';
 
 import { computed, provide } from 'vue';
 
-import { cn } from '@oh-core/shared/utils';
+import { cn } from '@finn-core/shared/utils';
 
 import { ToggleGroupRoot, useForwardPropsEmits } from 'radix-vue';
 

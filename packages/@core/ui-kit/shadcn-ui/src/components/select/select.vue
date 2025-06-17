@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { CircleX } from '@oh-core/icons';
+import { CircleX } from '@finn-core/icons';
 
 import {
   Select,

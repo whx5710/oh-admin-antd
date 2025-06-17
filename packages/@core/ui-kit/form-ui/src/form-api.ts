@@ -7,13 +7,13 @@ import type {
 
 import type { ComponentPublicInstance } from 'vue';
 
-import type { Recordable } from '@oh-core/typings';
+import type { Recordable } from '@finn-core/typings';
 
-import type { FormActions, FormSchema, VbenFormProps } from './types';
+import type { FinnFormProps, FormActions, FormSchema } from './types';
 
 import { isRef, toRaw } from 'vue';
 
-import { Store } from '@oh-core/shared/store';
+import { Store } from '@finn-core/shared/store';
 import {
   bindMethods,
   createMerge,
@@ -24,9 +24,9 @@ import {
   isObject,
   mergeWithArrayOverride,
   StateHandler,
-} from '@oh-core/shared/utils';
+} from '@finn-core/shared/utils';
 
-function getDefaultState(): VbenFormProps {
+function getDefaultState(): FinnFormProps {
   return {
     actionWrapperClass: '',
     collapsed: false,
@@ -49,14 +49,14 @@ function getDefaultState(): VbenFormProps {
 }
 
 export class FormApi {
-  // private api: Pick<VbenFormProps, 'handleReset' | 'handleSubmit'>;
+  // private api: Pick<FinnFormProps, 'handleReset' | 'handleSubmit'>;
   public form = {} as FormActions;
   isMounted = false;
 
-  public state: null | VbenFormProps = null;
+  public state: null | FinnFormProps = null;
   stateHandler: StateHandler;
 
-  public store: Store<VbenFormProps>;
+  public store: Store<FinnFormProps>;
 
   /**
    * 组件实例映射
@@ -66,14 +66,14 @@ export class FormApi {
   // 最后一次点击提交时的表单值
   private latestSubmissionValues: null | Recordable<any> = null;
 
-  private prevState: null | VbenFormProps = null;
+  private prevState: null | FinnFormProps = null;
 
-  constructor(options: VbenFormProps = {}) {
+  constructor(options: FinnFormProps = {}) {
     const { ...storeState } = options;
 
     const defaultState = getDefaultState();
 
-    this.store = new Store<VbenFormProps>(
+    this.store = new Store<FinnFormProps>(
       {
         ...defaultState,
         ...storeState,
@@ -264,8 +264,8 @@ export class FormApi {
 
   setState(
     stateOrFn:
-      | ((prev: VbenFormProps) => Partial<VbenFormProps>)
-      | Partial<VbenFormProps>,
+      | ((prev: FinnFormProps) => Partial<FinnFormProps>)
+      | Partial<FinnFormProps>,
   ) {
     if (isFunction(stateOrFn)) {
       this.store.setState((prev) => {
@@ -406,7 +406,7 @@ export class FormApi {
       await this.stateHandler.waitForCondition();
     }
     if (!this.form?.meta) {
-      throw new Error('<VbenForm /> is not mounted');
+      throw new Error('<FinnForm /> is not mounted');
     }
     return this.form;
   }

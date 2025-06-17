@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import type { DialogContentEmits, DialogContentProps } from 'radix-vue';
 
-import type { ClassType } from '@oh-core/typings';
+import type { ClassType } from '@finn-core/typings';
 
 import { computed, ref } from 'vue';
 
-import { cn } from '@oh-core/shared/utils';
+import { cn } from '@finn-core/shared/utils';
 
 import { X } from 'lucide-vue-next';
 import {

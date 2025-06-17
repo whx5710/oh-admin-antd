@@ -1,1 +1,1 @@
-export { default as VbenSpineText } from './spine-text.vue';
+export { default as FinnSpineText } from './spine-text.vue';

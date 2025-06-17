@@ -1,19 +1,19 @@
 <script lang="ts" setup>
-import type { ThemeModeType } from '@oh/types';
+import type { ThemeModeType } from '@finn/types';
 
-import { MoonStar, Sun, SunMoon } from '@oh/icons';
-import { $t } from '@oh/locales';
+import { MoonStar, Sun, SunMoon } from '@finn/icons';
+import { $t } from '@finn/locales';
 import {
   preferences,
   updatePreferences,
   usePreferences,
-} from '@oh/preferences';
+} from '@finn/preferences';
 
 import {
   ToggleGroup,
   ToggleGroupItem,
-  VbenTooltip,
-} from '@oh-core/shadcn-ui';
+  FinnTooltip,
+} from '@finn-core/shadcn-ui';
 
 import ThemeButton from './theme-button.vue';
 
@@ -53,7 +53,7 @@ const PRESETS = [
 </script>
 <template>
   <div>
-    <VbenTooltip :disabled="!shouldOnHover" side="bottom">
+    <FinnTooltip :disabled="!shouldOnHover" side="bottom">
       <template #trigger>
         <ThemeButton
           :model-value="isDark"
@@ -78,6 +78,6 @@ const PRESETS = [
           <component :is="item.icon" class="size-5" />
         </ToggleGroupItem>
       </ToggleGroup>
-    </VbenTooltip>
+    </FinnTooltip>
   </div>
 </template>

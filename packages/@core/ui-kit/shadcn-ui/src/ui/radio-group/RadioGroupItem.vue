@@ -3,7 +3,7 @@ import type { RadioGroupItemProps } from 'radix-vue';
 
 import { computed } from 'vue';
 
-import { cn } from '@oh-core/shared/utils';
+import { cn } from '@finn-core/shared/utils';
 
 import { Circle } from 'lucide-vue-next';
 import {

@@ -4,7 +4,7 @@ import type { DefineApplicationOptions } from '../typing';
 
 import path, { relative } from 'node:path';
 
-import { findMonorepoRoot } from '@oh/node-utils';
+import { findMonorepoRoot } from '@finn/node-utils';
 
 import { NodePackageImporter } from 'sass';
 import { defineConfig, loadEnv, mergeConfig } from 'vite';
@@ -44,7 +44,7 @@ function defineApplicationConfig(userConfigPromise?: DefineApplicationOptions) {
       nitroMockOptions: {},
       print: !isBuild,
       printInfoMap: {
-        'Vben Admin Docs': 'https://doc.vben.pro',
+        'Oh Admin Docs': 'https://doc.finn.pro',
       },
       pwa: true,
       pwaOptions: getDefaultPwaOptions(appTitle),
@@ -110,7 +110,7 @@ function createCssOptions(injectGlobalScss = true): CSSOptions {
               const relativePath = relative(root, filepath);
               // apps下的包注入全局样式
               if (relativePath.startsWith(`apps${path.sep}`)) {
-                return `@use "@oh/styles/global" as *;\n${content}`;
+                return `@use "@finn/styles/global" as *;\n${content}`;
               }
               return content;
             },

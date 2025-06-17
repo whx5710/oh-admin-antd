@@ -8,8 +8,8 @@ import type {
 import { computed } from 'vue';
 import { RouterView } from 'vue-router';
 
-import { preferences, usePreferences } from '@oh/preferences';
-import { getTabKey, storeToRefs, useTabbarStore } from '@oh/stores';
+import { preferences, usePreferences } from '@finn/preferences';
+import { getTabKey, storeToRefs, useTabbarStore } from '@finn/stores';
 
 import { IFrameRouterView } from '../../iframe';
 

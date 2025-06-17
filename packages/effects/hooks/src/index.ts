@@ -6,4 +6,4 @@ export * from './use-pagination';
 export * from './use-refresh';
 export * from './use-tabs';
 export * from './use-watermark';
-export * from '@oh-core/composables';
+export * from '@finn-core/composables';

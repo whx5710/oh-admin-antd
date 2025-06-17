@@ -1,9 +1,9 @@
 import type { Router } from 'vue-router';
 
-import { LOGIN_PATH } from '@oh/constants';
-import { preferences } from '@oh/preferences';
-import { useAccessStore, useUserStore } from '@oh/stores';
-import { startProgress, stopProgress } from '@oh/utils';
+import { LOGIN_PATH } from '@finn/constants';
+import { preferences } from '@finn/preferences';
+import { useAccessStore, useUserStore } from '@finn/stores';
+import { startProgress, stopProgress } from '@finn/utils';
 
 import { accessRoutes, coreRouteNames } from '#/router/routes';
 import { useAuthStore } from '#/store';

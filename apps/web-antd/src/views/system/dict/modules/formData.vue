@@ -7,8 +7,8 @@ import type { SystemDictApi } from '#/api/system/dict';
 
 import { computed, ref } from 'vue';
 
-import { useDrawer, useModal } from '@oh/common-ui';
-import { Plus } from '@oh/icons';
+import { useDrawer, useModal } from '@finn/common-ui';
+import { Plus } from '@finn/icons';
 
 import { Button, message } from 'ant-design-vue';
 

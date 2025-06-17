@@ -1,4 +1,4 @@
-import { getScrollbarWidth, needsScrollbar } from '@oh-core/shared/utils';
+import { getScrollbarWidth, needsScrollbar } from '@finn-core/shared/utils';
 
 import {
   useScrollLock as _useScrollLock,

@@ -1,4 +1,4 @@
 export * from './helpers';
-export * from '@oh-core/shared/cache';
-export * from '@oh-core/shared/color';
-export * from '@oh-core/shared/utils';
+export * from '@finn-core/shared/cache';
+export * from '@finn-core/shared/color';
+export * from '@finn-core/shared/utils';

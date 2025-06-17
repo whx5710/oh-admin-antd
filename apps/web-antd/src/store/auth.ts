@@ -1,11 +1,11 @@
-import type { Recordable, UserInfo } from '@oh/types';
+import type { Recordable, UserInfo } from '@finn/types';
 
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
-import { LOGIN_PATH } from '@oh/constants';
-import { preferences } from '@oh/preferences';
-import { resetAllStores, useAccessStore, useUserStore } from '@oh/stores';
+import { LOGIN_PATH } from '@finn/constants';
+import { preferences } from '@finn/preferences';
+import { resetAllStores, useAccessStore, useUserStore } from '@finn/stores';
 
 import { notification } from 'ant-design-vue';
 import { defineStore } from 'pinia';

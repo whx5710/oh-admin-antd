@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue';
 
-import { $t } from '@oh/locales';
+import { $t } from '@finn/locales';
 
-import { useModal } from '@oh-core/popup-ui';
+import { useModal } from '@finn-core/popup-ui';
 
 interface Props {
   // 轮询时间，分钟

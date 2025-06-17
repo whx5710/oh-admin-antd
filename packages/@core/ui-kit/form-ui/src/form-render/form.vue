@@ -11,8 +11,8 @@ import type {
 
 import { computed } from 'vue';
 
-import { Form } from '@oh-core/shadcn-ui';
-import { cn, isString, mergeWithArrayOverride } from '@oh-core/shared/utils';
+import { Form } from '@finn-core/shadcn-ui';
+import { cn, isString, mergeWithArrayOverride } from '@finn-core/shared/utils';
 
 import { provideFormRenderProps } from './context';
 import { useExpandable } from './expandable';

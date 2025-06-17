@@ -1,4 +1,4 @@
-import { updatePreferences, usePreferences } from '@oh/preferences';
+import { updatePreferences, usePreferences } from '@finn/preferences';
 /**
  * 主体区域最大化
  */

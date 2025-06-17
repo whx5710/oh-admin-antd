@@ -1,4 +1,4 @@
-import type { MenuRecordRaw } from '@oh-core/typings';
+import type { MenuRecordRaw } from '@finn-core/typings';
 
 function findMenuByPath(
   list: MenuRecordRaw[],

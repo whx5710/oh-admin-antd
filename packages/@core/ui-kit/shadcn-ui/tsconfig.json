@@ -1,10 +1,10 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "@oh/tsconfig/web.json",
+  "extends": "@finn/tsconfig/web.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@oh-core/shadcn-ui/*": ["./src/*"]
+      "@finn-core/shadcn-ui/*": ["./src/*"]
     }
   },
   "include": ["src"],

@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { MdiGithub, MdiGoogle, MdiQqchat, MdiWechat } from '@oh/icons';
-import { $t } from '@oh/locales';
+import { MdiGithub, MdiGoogle, MdiQqchat, MdiWechat } from '@finn/icons';
+import { $t } from '@finn/locales';
 
-import { VbenIconButton } from '@oh-core/shadcn-ui';
+import { FinnIconButton } from '@finn-core/shadcn-ui';
 
 defineOptions({
   name: 'ThirdPartyLogin',
@@ -20,18 +20,18 @@ defineOptions({
     </div>
 
     <div class="mt-4 flex flex-wrap justify-center">
-      <VbenIconButton class="mb-3">
+      <FinnIconButton class="mb-3">
         <MdiWechat />
-      </VbenIconButton>
-      <VbenIconButton class="mb-3">
+      </FinnIconButton>
+      <FinnIconButton class="mb-3">
         <MdiQqchat />
-      </VbenIconButton>
-      <VbenIconButton class="mb-3">
+      </FinnIconButton>
+      <FinnIconButton class="mb-3">
         <MdiGithub />
-      </VbenIconButton>
-      <VbenIconButton class="mb-3">
+      </FinnIconButton>
+      <FinnIconButton class="mb-3">
         <MdiGoogle />
-      </VbenIconButton>
+      </FinnIconButton>
     </div>
   </div>
 </template>

@@ -1,22 +1,22 @@
 <script lang="ts" setup>
-import type { TabDefinition } from '@oh-core/typings';
+import type { TabDefinition } from '@finn-core/typings';
 
 import type { TabConfig, TabsProps } from '../../types';
 
 import { computed } from 'vue';
 
-import { Pin, X } from '@oh-core/icons';
-import { VbenContextMenu, VbenIcon } from '@oh-core/shadcn-ui';
+import { Pin, X } from '@finn-core/icons';
+import { FinnContextMenu, FinnIcon } from '@finn-core/shadcn-ui';
 
 interface Props extends TabsProps {}
 
 defineOptions({
-  name: 'VbenTabs',
+  name: 'FinnTabs',
 
   inheritAttrs: false,
 });
 const props = withDefaults(defineProps<Props>(), {
-  contentClass: 'vben-tabs-content',
+  contentClass: 'finn-tabs-content',
   contextMenus: () => [],
   tabs: () => [],
 });
@@ -101,7 +101,7 @@ function onMouseDown(e: MouseEvent, tab: TabConfig) {
         @click="active = tab.key"
         @mousedown="onMouseDown($event, tab)"
       >
-        <VbenContextMenu
+        <FinnContextMenu
           :handler-data="tab"
           :menus="contextMenus"
           :modal="false"
@@ -129,7 +129,7 @@ function onMouseDown(e: MouseEvent, tab: TabConfig) {
             <div
               class="text-accent-foreground group-[.is-active]:text-primary dark:group-[.is-active]:text-accent-foreground mx-3 mr-4 flex h-full items-center overflow-hidden rounded-tl-[5px] rounded-tr-[5px] pr-3 transition-all duration-300"
             >
-              <VbenIcon
+              <FinnIcon
                 v-if="showIcon"
                 :icon="tab.icon"
                 class="mr-2 flex size-4 items-center overflow-hidden"
@@ -141,7 +141,7 @@ function onMouseDown(e: MouseEvent, tab: TabConfig) {
               </span>
             </div>
           </div>
-        </VbenContextMenu>
+        </FinnContextMenu>
       </div>
     </TransitionGroup>
   </div>

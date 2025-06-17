@@ -3,7 +3,7 @@ import type { AccordionContentProps } from 'radix-vue';
 
 import { computed } from 'vue';
 
-import { cn } from '@oh-core/shared/utils';
+import { cn } from '@finn-core/shared/utils';
 
 import { AccordionContent } from 'radix-vue';
 

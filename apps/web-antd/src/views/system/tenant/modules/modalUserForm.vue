@@ -8,7 +8,7 @@ import type { SystemUserApi } from '#/api/system/user';
 
 import { ref } from 'vue';
 
-import { useModal } from '@oh/common-ui';
+import { useModal } from '@finn/common-ui';
 
 import { message } from 'ant-design-vue';
 

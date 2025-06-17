@@ -7,13 +7,13 @@ import type {
 
 import type { Ref } from 'vue';
 
-import type { ClassType, DeepPartial } from '@oh/types';
+import type { ClassType, DeepPartial } from '@finn/types';
 
-import type { VbenFormProps } from '@oh-core/form-ui';
+import type { FinnFormProps } from '@finn-core/form-ui';
 
 import type { VxeGridApi } from './api';
 
-import { useVbenForm } from '@oh-core/form-ui';
+import { useFinnForm } from '@finn-core/form-ui';
 
 export interface VxePaginationInfo {
   currentPage: number;
@@ -63,7 +63,7 @@ export interface VxeGridProps {
   /**
    * 表单配置
    */
-  formOptions?: VbenFormProps;
+  formOptions?: FinnFormProps;
   /**
    * 显示搜索表单
    */
@@ -82,5 +82,5 @@ export type ExtendedVxeGridApi = VxeGridApi & {
 
 export interface SetupVxeTable {
   configVxeTable: (ui: VxeUIExport) => void;
-  useVbenForm: typeof useVbenForm;
+  useFinnForm: typeof useFinnForm;
 }

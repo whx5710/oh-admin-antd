@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed, toRaw, unref, watch } from 'vue';
 
-import { useSimpleLocale } from '@oh-core/composables';
-import { VbenExpandableArrow } from '@oh-core/shadcn-ui';
-import { cn, isFunction, triggerWindowResize } from '@oh-core/shared/utils';
+import { useSimpleLocale } from '@finn-core/composables';
+import { FinnExpandableArrow } from '@finn-core/shadcn-ui';
+import { cn, isFunction, triggerWindowResize } from '@finn-core/shared/utils';
 
 import { COMPONENT_MAP } from '../config';
 import { injectFormProps } from '../use-form-context';
@@ -146,13 +146,13 @@ defineExpose({
     <!-- 展开按钮前 -->
     <slot name="expand-before"></slot>
 
-    <VbenExpandableArrow
+    <FinnExpandableArrow
       v-if="rootProps.showCollapseButton"
       v-model:model-value="collapsed"
       class="ml-2"
     >
       <span>{{ collapsed ? $t('expand') : $t('collapse') }}</span>
-    </VbenExpandableArrow>
+    </FinnExpandableArrow>
 
     <!-- 展开按钮后 -->
     <slot name="expand-after"></slot>

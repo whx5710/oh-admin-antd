@@ -1,13 +1,13 @@
 <script lang="ts" setup>
 import type { Component } from 'vue';
 
-import type { AnyPromiseFunction } from '@oh/types';
+import type { AnyPromiseFunction } from '@finn/types';
 
 import { computed, ref, unref, useAttrs, watch } from 'vue';
 
-import { LoaderCircle } from '@oh/icons';
+import { LoaderCircle } from '@finn/icons';
 
-import { get, isEqual, isFunction } from '@oh-core/shared/utils';
+import { get, isEqual, isFunction } from '@finn-core/shared/utils';
 
 import { objectOmit } from '@vueuse/core';
 

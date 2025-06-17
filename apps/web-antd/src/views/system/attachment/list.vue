@@ -10,11 +10,11 @@ import type { SystemAttachApi } from '#/api/system/attachment';
 
 import { ref } from 'vue';
 
-import { Page } from '@oh/common-ui';
-import { useAppConfig } from '@oh/hooks';
-import { IconifyIcon } from '@oh/icons';
-import { useAccessStore } from '@oh/stores';
-import { downloadFileFromUrl } from '@oh/utils';
+import { Page } from '@finn/common-ui';
+import { useAppConfig } from '@finn/hooks';
+import { IconifyIcon } from '@finn/icons';
+import { useAccessStore } from '@finn/stores';
+import { downloadFileFromUrl } from '@finn/utils';
 
 import { Button, message, Popconfirm, Upload } from 'ant-design-vue';
 

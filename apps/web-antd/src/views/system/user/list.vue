@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { Recordable } from '@oh/types';
+import type { Recordable } from '@finn/types';
 
 import type {
   OnActionClickParams,
@@ -9,9 +9,9 @@ import type { SystemUserApi } from '#/api/system/user';
 
 import { reactive, ref, watch } from 'vue';
 
-import { Page, useModal, VbenTree } from '@oh/common-ui';
-import { IconifyIcon, Plus } from '@oh/icons';
-import { downloadFileFromBlob } from '@oh/utils';
+import { FinnTree, Page, useModal } from '@finn/common-ui';
+import { IconifyIcon, Plus } from '@finn/icons';
+import { downloadFileFromBlob } from '@finn/utils';
 
 import {
   Button,
@@ -263,7 +263,7 @@ function batchExport() {
             style="margin-bottom: 8px"
             placeholder="请输入关键字"
           />
-          <VbenTree
+          <FinnTree
             ref="deptTreeRef"
             :tree-data="treeData"
             bordered
@@ -291,12 +291,13 @@ function batchExport() {
               </span>
               <span v-else>{{ item.value.name }}</span>
             </template>
-          </VbenTree>
+          </FinnTree>
         </Card>
       </Page>
     </Col>
     <Col :span="18">
-      <Page auto-content-height>
+      <!-- content-class 对应tailwind样式，详情查看 https://tailwind.nodejs.cn/docs -->
+      <Page auto-content-height content-class="pl-0">
         <FormModal @success="refreshGrid" />
         <Grid table-title="用户列表">
           <template #toolbar-tools>
@@ -319,5 +320,8 @@ function batchExport() {
 <style lang="scss" scoped>
 .messageIndex {
   z-index: 99 !important;
+}
+.contentPage {
+  padding-left: 0rem !important;
 }
 </style>

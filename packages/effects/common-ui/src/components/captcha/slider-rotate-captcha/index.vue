@@ -8,7 +8,7 @@ import type {
 
 import { computed, reactive, unref, useTemplateRef, watch } from 'vue';
 
-import { $t } from '@oh/locales';
+import { $t } from '@finn/locales';
 
 import { useTimeoutFn } from '@vueuse/core';
 

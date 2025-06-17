@@ -2,14 +2,14 @@
 import type { Arrayable } from '@vueuse/core';
 import type { FlattenedItem } from 'radix-vue';
 
-import type { ClassType, Recordable } from '@oh-core/typings';
+import type { ClassType, Recordable } from '@finn-core/typings';
 
 import type { TreeProps } from './types';
 
 import { onMounted, ref, watchEffect } from 'vue';
 
-import { ChevronRight, IconifyIcon } from '@oh-core/icons';
-import { cn, get } from '@oh-core/shared/utils';
+import { ChevronRight, IconifyIcon } from '@finn-core/icons';
+import { cn, get } from '@finn-core/shared/utils';
 
 import { TreeItem, TreeRoot } from 'radix-vue';
 

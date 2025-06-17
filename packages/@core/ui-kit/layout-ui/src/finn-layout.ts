@@ -3,9 +3,9 @@ import type {
   LayoutHeaderModeType,
   LayoutType,
   ThemeModeType,
-} from '@oh-core/typings';
+} from '@finn-core/typings';
 
-interface VbenLayoutProps {
+interface FinnLayoutProps {
   /**
    * 内容区域定宽
    * @default 'wide'
@@ -172,4 +172,4 @@ interface VbenLayoutProps {
    */
   zIndex?: number;
 }
-export type { VbenLayoutProps };
+export type { FinnLayoutProps };

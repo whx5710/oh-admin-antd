@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { SelectOption } from '@oh/types';
+import type { SelectOption } from '@finn/types';
 
 import { useSlots } from 'vue';
 
-import { CircleHelp } from '@oh/icons';
+import { CircleHelp } from '@finn/icons';
 
-import { Input, VbenTooltip } from '@oh-core/shadcn-ui';
+import { Input, FinnTooltip } from '@finn-core/shadcn-ui';
 
 defineOptions({
   name: 'PreferenceSelectItem',
@@ -40,12 +40,12 @@ const slots = useSlots();
     <span class="flex items-center text-sm">
       <slot></slot>
 
-      <VbenTooltip v-if="slots.tip" side="bottom">
+      <FinnTooltip v-if="slots.tip" side="bottom">
         <template #trigger>
           <CircleHelp class="ml-1 size-3 cursor-help" />
         </template>
         <slot name="tip"></slot>
-      </VbenTooltip>
+      </FinnTooltip>
     </span>
     <Input v-model="inputValue" class="h-8 w-[165px]" />
   </div>

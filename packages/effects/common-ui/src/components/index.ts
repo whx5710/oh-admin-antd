@@ -9,24 +9,24 @@ export * from './loading';
 export * from './page';
 export * from './resize';
 export * from './tippy';
-export * from '@oh-core/form-ui';
-export * from '@oh-core/popup-ui';
+export * from '@finn-core/form-ui';
+export * from '@finn-core/popup-ui';
 
 // 给文档用
 export {
-  VbenAvatar,
-  VbenButton,
-  VbenButtonGroup,
-  VbenCheckButtonGroup,
-  VbenCountToAnimator,
-  VbenFullScreen,
-  VbenInputPassword,
-  VbenLoading,
-  VbenLogo,
-  VbenPinInput,
-  VbenSpinner,
-  VbenTree,
-} from '@oh-core/shadcn-ui';
+  FinnAvatar,
+  FinnButton,
+  FinnButtonGroup,
+  FinnCheckButtonGroup,
+  FinnCountToAnimator,
+  FinnFullScreen,
+  FinnInputPassword,
+  FinnLoading,
+  FinnLogo,
+  FinnPinInput,
+  FinnSpinner,
+  FinnTree,
+} from '@finn-core/shadcn-ui';
 
-export type { FlattenedItem } from '@oh-core/shadcn-ui';
-export { globalShareState } from '@oh-core/shared/global-state';
+export type { FlattenedItem } from '@finn-core/shadcn-ui';
+export { globalShareState } from '@finn-core/shared/global-state';

@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import type { VbenFormSchema } from '@oh/common-ui';
+import type { FinnFormSchema } from '@finn/common-ui';
 
 import { computed, markRaw } from 'vue';
 
-import { AuthenticationLogin, SliderCaptcha, z } from '@oh/common-ui';
-import { $t } from '@oh/locales';
+import { AuthenticationLogin, SliderCaptcha, z } from '@finn/common-ui';
+import { $t } from '@finn/locales';
 
 import { useAuthStore } from '#/store';
 
@@ -12,10 +12,10 @@ defineOptions({ name: 'Login' });
 
 const authStore = useAuthStore();
 
-const formSchema = computed((): VbenFormSchema[] => {
+const formSchema = computed((): FinnFormSchema[] => {
   return [
     {
-      component: 'VbenInput',
+      component: 'FinnInput',
       componentProps: {
         placeholder: $t('authentication.usernameTip'),
       },
@@ -24,7 +24,7 @@ const formSchema = computed((): VbenFormSchema[] => {
       rules: z.string().min(1, { message: $t('authentication.usernameTip') }),
     },
     {
-      component: 'VbenInputPassword',
+      component: 'FinnInputPassword',
       componentProps: {
         placeholder: $t('authentication.password'),
       },

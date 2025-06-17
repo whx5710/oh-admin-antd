@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { Recordable } from '@oh/types';
+import type { Recordable } from '@finn/types';
 
 import type {
   OnActionClickParams,
@@ -9,8 +9,8 @@ import type { SystemDeptApi } from '#/api/system/dept';
 
 import { reactive, ref, watch } from 'vue';
 
-import { Page, useModal, VbenTree } from '@oh/common-ui';
-import { Plus } from '@oh/icons';
+import { FinnTree, Page, useModal } from '@finn/common-ui';
+import { Plus } from '@finn/icons';
 
 import { Button, Card, Col, InputSearch, message, Row } from 'ant-design-vue';
 
@@ -234,7 +234,7 @@ watch(searchValue, (value) => {
             style="margin-bottom: 8px"
             placeholder="请输入关键字"
           />
-          <VbenTree
+          <FinnTree
             ref="deptTreeRef"
             :tree-data="treeData"
             bordered
@@ -262,12 +262,13 @@ watch(searchValue, (value) => {
               </span>
               <span v-else>{{ item.value.name }}</span>
             </template>
-          </VbenTree>
+          </FinnTree>
         </Card>
       </Page>
     </Col>
     <Col :span="18">
-      <Page auto-content-height>
+      <!-- content-class 对应tailwind样式，详情查看 https://tailwind.nodejs.cn/docs -->
+      <Page auto-content-height content-class="pl-0">
         <FormModal @success="refreshGrid" />
         <Grid table-title="部门列表">
           <template #toolbar-tools>

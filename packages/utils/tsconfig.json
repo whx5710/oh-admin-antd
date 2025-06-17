@@ -1,8 +1,8 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "@oh/tsconfig/library.json",
+  "extends": "@finn/tsconfig/library.json",
   "compilerOptions": {
-    "types": ["@oh-core/typings/vue-router"]
+    "types": ["@finn-core/typings/vue-router"]
   },
   "include": ["src"],
   "exclude": ["node_modules"]

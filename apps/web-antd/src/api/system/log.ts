@@ -1,5 +1,5 @@
-import type { RequestResponse } from '@oh/request';
-import type { Recordable } from '@oh/types';
+import type { RequestResponse } from '@finn/request';
+import type { Recordable } from '@finn/types';
 
 import { requestClient } from '#/api/request';
 import { sysApi } from '#/config/env';

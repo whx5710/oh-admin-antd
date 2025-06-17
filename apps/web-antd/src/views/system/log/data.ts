@@ -1,10 +1,10 @@
-import type { VbenFormSchema } from '#/adapter/form';
+import type { FinnFormSchema } from '#/adapter/form';
 import type { VxeTableGridOptions } from '#/adapter/vxe-table';
 // import type { SystemLogApi } from '#/api/system/log';
 
 import { h, ref } from 'vue';
 
-import { useUserStore } from '@oh/stores';
+import { useUserStore } from '@finn/stores';
 
 import { useDebounceFn } from '@vueuse/core';
 import { Spin } from 'ant-design-vue';
@@ -27,7 +27,7 @@ function fetchRemoteOptions(keyWord: Record<string, any>) {
 }
 
 // 搜索表单
-export function useGridFormSchema(): VbenFormSchema[] {
+export function useGridFormSchema(): FinnFormSchema[] {
   return [
     {
       component: 'Input',
@@ -88,7 +88,7 @@ export function useGridFormSchema(): VbenFormSchema[] {
   ];
 }
 // 搜索表单-操作日志
-export function useOpGridFormSchema(): VbenFormSchema[] {
+export function useOpGridFormSchema(): FinnFormSchema[] {
   return [
     {
       component: 'Input',

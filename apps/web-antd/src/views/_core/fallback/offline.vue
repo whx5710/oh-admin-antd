@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { Fallback } from '@oh/common-ui';
+import { Fallback } from '@finn/common-ui';
 
 defineOptions({ name: 'FallbackOfflineDemo' });
 </script>

@@ -1,4 +1,4 @@
-import type { BuiltinThemeType } from '@oh-core/typings';
+import type { BuiltinThemeType } from '@finn-core/typings';
 
 interface BuiltinThemePreset {
   color: string;

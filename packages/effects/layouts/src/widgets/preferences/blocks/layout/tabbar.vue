@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { SelectOption } from '@oh/types';
+import type { SelectOption } from '@finn/types';
 
 import { computed } from 'vue';
 
-import { $t } from '@oh/locales';
+import { $t } from '@finn/locales';
 
 import NumberFieldItem from '../number-field-item.vue';
 import SelectItem from '../select-item.vue';

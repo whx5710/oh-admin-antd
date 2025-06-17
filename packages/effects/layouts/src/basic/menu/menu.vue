@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import type { MenuRecordRaw } from '@oh/types';
+import type { MenuRecordRaw } from '@finn/types';
 
-import type { MenuProps } from '@oh-core/menu-ui';
+import type { MenuProps } from '@finn-core/menu-ui';
 
-import { Menu } from '@oh-core/menu-ui';
+import { Menu } from '@finn-core/menu-ui';
 
 interface Props extends MenuProps {
   menus?: MenuRecordRaw[];

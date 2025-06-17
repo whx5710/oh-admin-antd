@@ -1,2 +1,2 @@
 export * from './core';
-export * from '@oh-core/shared/constants';
+export * from '@finn-core/shared/constants';

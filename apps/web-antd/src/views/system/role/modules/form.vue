@@ -1,18 +1,18 @@
 <script lang="ts" setup>
 import type { DataNode } from 'ant-design-vue/es/tree';
 
-import type { Recordable } from '@oh/types';
+import type { Recordable } from '@finn/types';
 
 import type { SystemRoleApi } from '#/api/system/role';
 
 import { computed, ref } from 'vue';
 
-import { useDrawer, VbenTree } from '@oh/common-ui';
-import { IconifyIcon } from '@oh/icons';
+import { useDrawer, FinnTree } from '@finn/common-ui';
+import { IconifyIcon } from '@finn/icons';
 
 import { Spin } from 'ant-design-vue';
 
-import { useVbenForm } from '#/adapter/form';
+import { useFinnForm } from '#/adapter/form';
 import { getAllMenusApi } from '#/api/system/menu';
 import { createRole, updateRole } from '#/api/system/role';
 import { $t } from '#/locales';
@@ -23,7 +23,7 @@ const emits = defineEmits(['success']);
 
 const formData = ref<SystemRoleApi.SystemRole>();
 
-const [Form, formApi] = useVbenForm({
+const [Form, formApi] = useFinnForm({
   schema: useFormSchema(),
   showDefaultActions: false,
 });
@@ -100,7 +100,7 @@ function getNodeClass(node: Recordable<any>) {
     <Form>
       <template #menuIdList="slotProps">
         <Spin :spinning="loadingPermissions" wrapper-class-name="w-full">
-          <VbenTree
+          <FinnTree
             :tree-data="menuIdList"
             multiple
             bordered
@@ -115,7 +115,7 @@ function getNodeClass(node: Recordable<any>) {
               <IconifyIcon v-if="value.meta.icon" :icon="value.meta.icon" />
               {{ $t(value.meta.title) }}
             </template>
-          </VbenTree>
+          </FinnTree>
         </Spin>
       </template>
     </Form>

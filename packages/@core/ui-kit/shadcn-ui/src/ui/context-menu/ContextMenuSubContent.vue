@@ -6,7 +6,7 @@ import type {
 
 import { computed } from 'vue';
 
-import { cn } from '@oh-core/shared/utils';
+import { cn } from '@finn-core/shared/utils';
 
 import { ContextMenuSubContent, useForwardPropsEmits } from 'radix-vue';
 

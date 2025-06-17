@@ -1,6 +1,6 @@
 import type { CAC } from 'cac';
 
-import { execaCommand } from '@oh/node-utils';
+import { execaCommand } from '@finn/node-utils';
 
 interface LintCommandOptions {
   /**

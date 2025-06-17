@@ -1,21 +1,21 @@
 <script lang="ts" setup>
-import type { VbenFormSchema } from '@oh/common-ui';
-import type { Recordable } from '@oh/types';
+import type { FinnFormSchema } from '@finn/common-ui';
+import type { Recordable } from '@finn/types';
 
 import { computed, ref } from 'vue';
 
-import { AuthenticationCodeLogin, z } from '@oh/common-ui';
-import { $t } from '@oh/locales';
+import { AuthenticationCodeLogin, z } from '@finn/common-ui';
+import { $t } from '@finn/locales';
 
 defineOptions({ name: 'CodeLogin' });
 
 const loading = ref(false);
 const CODE_LENGTH = 6;
 
-const formSchema = computed((): VbenFormSchema[] => {
+const formSchema = computed((): FinnFormSchema[] => {
   return [
     {
-      component: 'VbenInput',
+      component: 'FinnInput',
       componentProps: {
         placeholder: $t('authentication.mobile'),
       },
@@ -29,7 +29,7 @@ const formSchema = computed((): VbenFormSchema[] => {
         }),
     },
     {
-      component: 'VbenPinInput',
+      component: 'FinnPinInput',
       componentProps: {
         codeLength: CODE_LENGTH,
         createText: (countdown: number) => {

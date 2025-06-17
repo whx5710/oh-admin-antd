@@ -6,8 +6,8 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-  VbenIcon,
-} from '@oh-core/shadcn-ui';
+  FinnIcon,
+} from '@finn-core/shadcn-ui';
 
 interface Props {
   items?: WorkbenchTrendItem[];
@@ -36,7 +36,7 @@ withDefaults(defineProps<Props>(), {
           class="flex justify-between gap-x-6 py-5"
         >
           <div class="flex min-w-0 items-center gap-x-4">
-            <VbenIcon
+            <FinnIcon
               :icon="item.avatar"
               alt=""
               class="size-10 flex-none rounded-full"

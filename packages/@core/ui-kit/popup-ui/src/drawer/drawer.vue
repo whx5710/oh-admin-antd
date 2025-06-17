@@ -7,9 +7,13 @@ import {
   useIsMobile,
   usePriorityValues,
   useSimpleLocale,
-} from '@oh-core/composables';
-import { X } from '@oh-core/icons';
+} from '@finn-core/composables';
+import { X } from '@finn-core/icons';
 import {
+  FinnButton,
+  FinnHelpTooltip,
+  FinnIconButton,
+  FinnLoading,
   Separator,
   Sheet,
   SheetClose,
@@ -18,15 +22,11 @@ import {
   SheetFooter,
   SheetHeader,
   SheetTitle,
-  VbenButton,
-  VbenHelpTooltip,
-  VbenIconButton,
-  VbenLoading,
   VisuallyHidden,
-} from '@oh-core/shadcn-ui';
-import { ELEMENT_ID_MAIN_CONTENT } from '@oh-core/shared/constants';
-import { globalShareState } from '@oh-core/shared/global-state';
-import { cn } from '@oh-core/shared/utils';
+} from '@finn-core/shadcn-ui';
+import { ELEMENT_ID_MAIN_CONTENT } from '@finn-core/shared/constants';
+import { globalShareState } from '@finn-core/shared/global-state';
+import { cn } from '@finn-core/shared/utils';
 
 interface Props extends DrawerProps {
   drawerApi?: ExtendedDrawerApi;
@@ -208,9 +208,9 @@ const getForceMount = computed(() => {
             class="data-[state=open]:bg-secondary ml-[2px] cursor-pointer rounded-full opacity-80 transition-opacity hover:opacity-100 focus:outline-none disabled:pointer-events-none"
           >
             <slot name="close-icon">
-              <VbenIconButton>
+              <FinnIconButton>
                 <X class="size-4" />
-              </VbenIconButton>
+              </FinnIconButton>
             </slot>
           </SheetClose>
           <Separator
@@ -223,9 +223,9 @@ const getForceMount = computed(() => {
             <slot name="title">
               {{ title }}
 
-              <VbenHelpTooltip v-if="titleTooltip" trigger-class="pb-1">
+              <FinnHelpTooltip v-if="titleTooltip" trigger-class="pb-1">
                 {{ titleTooltip }}
-              </VbenHelpTooltip>
+              </FinnHelpTooltip>
             </slot>
           </SheetTitle>
           <SheetDescription v-if="description" class="mt-1 text-xs">
@@ -249,9 +249,9 @@ const getForceMount = computed(() => {
             class="data-[state=open]:bg-secondary ml-[2px] cursor-pointer rounded-full opacity-80 transition-opacity hover:opacity-100 focus:outline-none disabled:pointer-events-none"
           >
             <slot name="close-icon">
-              <VbenIconButton>
+              <FinnIconButton>
                 <X class="size-4" />
-              </VbenIconButton>
+              </FinnIconButton>
             </slot>
           </SheetClose>
         </div>
@@ -272,7 +272,7 @@ const getForceMount = computed(() => {
       >
         <slot></slot>
       </div>
-      <VbenLoading v-if="showLoading || submitting" spinning />
+      <FinnLoading v-if="showLoading || submitting" spinning />
       <SheetFooter
         v-if="showFooter"
         :class="
@@ -285,7 +285,7 @@ const getForceMount = computed(() => {
         <slot name="prepend-footer"></slot>
         <slot name="footer">
           <component
-            :is="components.DefaultButton || VbenButton"
+            :is="components.DefaultButton || FinnButton"
             v-if="showCancelButton"
             variant="ghost"
             :disabled="submitting"
@@ -297,7 +297,7 @@ const getForceMount = computed(() => {
           </component>
           <slot name="center-footer"></slot>
           <component
-            :is="components.PrimaryButton || VbenButton"
+            :is="components.PrimaryButton || FinnButton"
             v-if="showConfirmButton"
             :loading="confirmLoading || submitting"
             @click="() => drawerApi?.onConfirm()"

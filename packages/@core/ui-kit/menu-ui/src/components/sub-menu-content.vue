@@ -3,9 +3,9 @@ import type { MenuItemProps } from '../types';
 
 import { computed } from 'vue';
 
-import { useNamespace } from '@oh-core/composables';
-import { ChevronDown, ChevronRight } from '@oh-core/icons';
-import { VbenIcon } from '@oh-core/shadcn-ui';
+import { useNamespace } from '@finn-core/composables';
+import { ChevronDown, ChevronRight } from '@finn-core/icons';
+import { FinnIcon } from '@finn-core/shadcn-ui';
 
 import { useMenuContext } from '../hooks';
 
@@ -82,7 +82,7 @@ const iconArrowStyle = computed(() => {
   >
     <slot></slot>
 
-    <VbenIcon
+    <FinnIcon
       v-if="!isMenuMore"
       :class="nsMenu.e('icon')"
       :icon="icon"

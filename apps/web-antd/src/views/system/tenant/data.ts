@@ -1,4 +1,4 @@
-import type { VbenFormSchema } from '#/adapter/form';
+import type { FinnFormSchema } from '#/adapter/form';
 import type { OnActionClickFn, VxeTableGridOptions } from '#/adapter/vxe-table';
 import type { SystemTenantApi } from '#/api/system/tenant';
 
@@ -6,7 +6,7 @@ import type { SystemTenantApi } from '#/api/system/tenant';
  * 获取编辑表单的字段配置。如果没有使用多语言，可以直接export一个数组常量
  * 新增、修改表单
  */
-export function useSchema(): VbenFormSchema[] {
+export function useSchema(): FinnFormSchema[] {
   return [
     {
       component: 'Input',
@@ -47,7 +47,7 @@ export function useSchema(): VbenFormSchema[] {
 }
 
 // 搜索表单
-export function useGridFormSchema(): VbenFormSchema[] {
+export function useGridFormSchema(): FinnFormSchema[] {
   return [
     {
       component: 'Input',

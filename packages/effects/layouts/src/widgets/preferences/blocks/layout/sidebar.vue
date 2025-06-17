@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { LayoutType } from '@oh/types';
+import type { LayoutType } from '@finn/types';
 
 import { onMounted } from 'vue';
 
-import { $t } from '@oh/locales';
+import { $t } from '@finn/locales';
 
 import CheckboxItem from '../checkbox-item.vue';
 import NumberFieldItem from '../number-field-item.vue';

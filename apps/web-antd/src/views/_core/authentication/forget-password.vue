@@ -1,20 +1,20 @@
 <script lang="ts" setup>
-import type { VbenFormSchema } from '@oh/common-ui';
-import type { Recordable } from '@oh/types';
+import type { FinnFormSchema } from '@finn/common-ui';
+import type { Recordable } from '@finn/types';
 
 import { computed, ref } from 'vue';
 
-import { AuthenticationForgetPassword, z } from '@oh/common-ui';
-import { $t } from '@oh/locales';
+import { AuthenticationForgetPassword, z } from '@finn/common-ui';
+import { $t } from '@finn/locales';
 
 defineOptions({ name: 'ForgetPassword' });
 
 const loading = ref(false);
 
-const formSchema = computed((): VbenFormSchema[] => {
+const formSchema = computed((): FinnFormSchema[] => {
   return [
     {
-      component: 'VbenInput',
+      component: 'FinnInput',
       componentProps: {
         placeholder: 'example@example.com',
       },

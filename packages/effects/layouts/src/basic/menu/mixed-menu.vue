@@ -1,14 +1,14 @@
 <script lang="ts" setup>
-import type { MenuRecordRaw } from '@oh/types';
+import type { MenuRecordRaw } from '@finn/types';
 
-import type { NormalMenuProps } from '@oh-core/menu-ui';
+import type { NormalMenuProps } from '@finn-core/menu-ui';
 
 import { onBeforeMount } from 'vue';
 import { useRoute } from 'vue-router';
 
-import { findMenuByPath } from '@oh/utils';
+import { findMenuByPath } from '@finn/utils';
 
-import { NormalMenu } from '@oh-core/menu-ui';
+import { NormalMenu } from '@finn-core/menu-ui';
 
 interface Props extends NormalMenuProps {}
 
