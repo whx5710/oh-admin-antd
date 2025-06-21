@@ -7,7 +7,7 @@ import { LOGIN_PATH } from '@finn/constants';
 import { preferences } from '@finn/preferences';
 import { resetAllStores, useAccessStore, useUserStore } from '@finn/stores';
 
-import { notification } from 'ant-design-vue';
+import { message, notification } from 'ant-design-vue';
 import { defineStore } from 'pinia';
 
 import { getAccessCodesApi, loginApi, logoutApi } from '#/api/core';
@@ -31,48 +31,59 @@ export const useAuthStore = defineStore('auth', () => {
     onSuccess?: () => Promise<void> | void,
   ) {
     // 异步处理用户登录操作并获取 accessToken
-    let userInfo: null | UserInfo = null;
     try {
       loginLoading.value = true;
-      const { accessToken } = await loginApi(params);
-
-      // 如果成功获取到 accessToken
-      if (accessToken) {
-        accessStore.setAccessToken(accessToken);
-
-        // 获取用户信息并存储到 accessStore 中
-        const [fetchUserInfoResult, accessCodes] = await Promise.all([
-          fetchUserInfo(),
-          getAccessCodesApi(),
-        ]);
-
-        userInfo = fetchUserInfoResult;
-
-        userStore.setUserInfo(userInfo);
-        accessStore.setAccessCodes(accessCodes);
-
-        if (accessStore.loginExpired) {
-          accessStore.setLoginExpired(false);
+      loginApi(params).then((res) => {
+        if (res.success && res.code === 0) {
+          return userByToken(res.data.accessToken, onSuccess);
         } else {
-          onSuccess
-            ? await onSuccess?.()
-            : await router.push(
-                userInfo.homePath || preferences.app.defaultHomePath,
-              );
+          message.error(res.msg);
         }
-
-        if (userInfo?.realName) {
-          notification.success({
-            description: `${$t('authentication.loginSuccessDesc')}:${userInfo?.realName}`,
-            duration: 3,
-            message: $t('authentication.loginSuccess'),
-          });
-        }
-      }
+      });
     } finally {
       loginLoading.value = false;
     }
+  }
+  // 获取用户信息
+  async function userByToken(
+    accessToken: string,
+    onSuccess?: () => Promise<void> | void,
+  ) {
+    // 异步处理用户登录操作并获取 accessToken
+    let userInfo: null | UserInfo = null;
+    // 如果成功获取到 accessToken
+    if (accessToken) {
+      accessStore.setAccessToken(accessToken);
 
+      // 获取用户信息并存储到 accessStore 中
+      const [fetchUserInfoResult, accessCodes] = await Promise.all([
+        fetchUserInfo(),
+        getAccessCodesApi(),
+      ]);
+
+      userInfo = fetchUserInfoResult;
+
+      userStore.setUserInfo(userInfo);
+      accessStore.setAccessCodes(accessCodes);
+
+      if (accessStore.loginExpired) {
+        accessStore.setLoginExpired(false);
+      } else {
+        onSuccess
+          ? await onSuccess?.()
+          : await router.push(
+              userInfo.homePath || preferences.app.defaultHomePath,
+            );
+      }
+
+      if (userInfo?.realName) {
+        notification.success({
+          description: `${$t('authentication.loginSuccessDesc')}:${userInfo?.realName}`,
+          duration: 3,
+          message: $t('authentication.loginSuccess'),
+        });
+      }
+    }
     return {
       userInfo,
     };
@@ -115,5 +126,6 @@ export const useAuthStore = defineStore('auth', () => {
     fetchUserInfo,
     loginLoading,
     logout,
+    userByToken,
   };
 });

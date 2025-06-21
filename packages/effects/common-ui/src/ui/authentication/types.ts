@@ -65,6 +65,11 @@ interface AuthenticationProps {
    * @zh_CN 提交按钮文本
    */
   submitButtonText?: string;
+
+  showCaptcha?: false; // 是否显示验证码
+  captchaLength?: 5; // 验证码长度
+  captchaBase64?: ''; // 验证码
+  captchaKey?: ''; // 验证码key
 }
 
 export type { AuthenticationProps };

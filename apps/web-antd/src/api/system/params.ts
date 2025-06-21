@@ -57,4 +57,18 @@ async function deleteParams(id: string) {
   return requestClient.delete(`/${sysApi}/sys/params/${id}`);
 }
 
-export { createParams, deleteParams, getParamsPage, updateParams };
+/**
+ * 获取多个参数
+ * @param keys 参数数据
+ */
+async function getParamsByKeys(keys: string[]) {
+  return requestClient.post(`/${sysApi}/sys/params/getByKeys`, keys);
+}
+
+export {
+  createParams,
+  deleteParams,
+  getParamsByKeys,
+  getParamsPage,
+  updateParams,
+};

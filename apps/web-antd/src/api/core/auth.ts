@@ -26,10 +26,16 @@ export namespace AuthApi {
  * 登录
  */
 export async function loginApi(data: AuthApi.LoginParams) {
-  return requestClient.post<AuthApi.LoginResult>(
-    `/${sysApi}/sys/auth/login`,
-    data,
-  );
+  return requestClient.post<any>(`/${sysApi}/sys/auth/login`, data, {
+    responseReturn: 'body',
+  });
+}
+
+/**
+ * 验证码
+ */
+export async function getCaptcha() {
+  return requestClient.get(`/${sysApi}/sys/auth/captcha`);
 }
 
 /**
