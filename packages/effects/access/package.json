@@ -1,0 +1,29 @@
+{
+  "name": "@finn/access",
+  "version": "5.5.7",
+  "homepage": "https://github.com/finnjs/vue-finn-admin",
+  "bugs": "https://github.com/finnjs/vue-finn-admin/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/finnjs/vue-finn-admin.git",
+    "directory": "packages/effects/permissions"
+  },
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "dependencies": {
+    "@finn/preferences": "workspace:*",
+    "@finn/stores": "workspace:*",
+    "@finn/types": "workspace:*",
+    "@finn/utils": "workspace:*",
+    "vue": "catalog:"
+  }
+}

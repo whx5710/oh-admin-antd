@@ -1,0 +1,25 @@
+{
+  "name": "@finn/tsconfig",
+  "version": "5.5.7",
+  "private": true,
+  "homepage": "https://github.com/finnjs/vue-finn-admin",
+  "bugs": "https://github.com/finnjs/vue-finn-admin/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/finnjs/vue-finn-admin.git",
+    "directory": "internal/tsconfig"
+  },
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "base.json",
+    "library.json",
+    "node.json",
+    "web-app.json",
+    "web.json"
+  ],
+  "dependencies": {
+    "@finn/types": "workspace:*",
+    "vite": "catalog:"
+  }
+}
