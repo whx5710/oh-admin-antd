@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { DialogContentEmits, DialogContentProps } from 'radix-vue';
+import type { DialogContentEmits, DialogContentProps } from 'reka-ui';
 
 import type { ClassType } from '@finn-core/typings';
 
@@ -13,7 +13,7 @@ import {
   DialogContent,
   DialogPortal,
   useForwardPropsEmits,
-} from 'radix-vue';
+} from 'reka-ui';
 
 import DialogOverlay from './DialogOverlay.vue';
 

@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { TabsIndicatorProps } from 'radix-vue';
+import type { TabsIndicatorProps } from 'reka-ui';
 
 import { computed } from 'vue';
 
 import { cn } from '@finn-core/shared/utils';
 
-import { TabsIndicator, useForwardProps } from 'radix-vue';
+import { TabsIndicator, useForwardProps } from 'reka-ui';
 
 const props = defineProps<TabsIndicatorProps & { class?: any }>();
 

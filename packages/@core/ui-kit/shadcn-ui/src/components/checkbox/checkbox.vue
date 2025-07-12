@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { CheckboxRootEmits, CheckboxRootProps } from 'radix-vue';
+import type { CheckboxRootEmits, CheckboxRootProps } from 'reka-ui';
 
 import { useId } from 'vue';
 
-import { useForwardPropsEmits } from 'radix-vue';
+import { useForwardPropsEmits } from 'reka-ui';
 
 import { Checkbox } from '../../ui/checkbox';
 

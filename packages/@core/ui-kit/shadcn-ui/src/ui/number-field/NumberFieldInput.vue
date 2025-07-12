@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { cn } from '@finn-core/shared/utils';
 
-import { NumberFieldInput } from 'radix-vue';
+import { NumberFieldInput } from 'reka-ui';
 </script>
 
 <template>
