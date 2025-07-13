@@ -322,3 +322,106 @@ export function useColumns(
     },
   ];
 }
+// 在线用户
+export function useMonitorColumns(
+  onActionClick?: OnActionClickFn<SystemUserApi.SystemUser>,
+): VxeTableGridOptions<SystemUserApi.SystemUser>['columns'] {
+  return [
+    { type: 'checkbox', width: 60 },
+    { title: '序号', type: 'seq', width: 50 },
+    {
+      align: 'left',
+      field: 'username',
+      title: '用户名',
+      width: 150,
+    },
+    {
+      align: 'left',
+      field: 'realName',
+      title: '姓名',
+      minWidth: 150,
+    },
+    {
+      align: 'left',
+      field: 'mobile',
+      title: '手机号',
+      width: 120,
+    },
+    {
+      align: 'left',
+      field: 'gender',
+      title: '性别',
+      width: 60,
+      cellRender: {
+        name: 'CellTag',
+        options: [
+          { color: 'warning', label: '男', value: 0 },
+          { color: 'success', label: '女', value: 1 },
+          { color: 'error', label: '未知', value: 2 },
+        ],
+      },
+    },
+    {
+      align: 'left',
+      field: 'tenantName',
+      title: '租户',
+      minWidth: 150,
+    },
+    {
+      align: 'left',
+      field: 'email',
+      title: '邮箱',
+      minWidth: 150,
+    },
+    {
+      align: 'left',
+      field: 'deptName',
+      title: '所属机构',
+      width: 150,
+    },
+    // {
+    //   align: 'left',
+    //   field: 'loginTime',
+    //   title: '登录时间',
+    //   width: 150,
+    // },
+    {
+      align: 'right',
+      cellRender: {
+        attrs: {
+          nameField: 'realName',
+          nameTitle: '用户',
+          onClick: onActionClick,
+        },
+        name: 'CellOperation',
+        options: [
+          'edit', // 默认的编辑按钮
+          {
+            code: 'delete', // 默认的删除按钮
+            disabled: false,
+          },
+        ],
+      },
+      field: 'operation',
+      fixed: 'right',
+      headerAlign: 'center',
+      showOverflow: false,
+      title: '操作',
+      width: 100,
+    },
+  ];
+}
+
+// 搜索表单
+export function useMonitorGridFormSchema(): FinnFormSchema[] {
+  return [
+    {
+      component: 'Input',
+      fieldName: 'keyWord',
+      label: '关键字',
+      componentProps: {
+        allowClear: true,
+      },
+    },
+  ];
+}

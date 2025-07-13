@@ -110,3 +110,16 @@ export async function userExport(params: Recordable<any>) {
     },
   );
 }
+/**
+ * 在线用户
+ * @param params 参数
+ * @returns l
+ */
+export async function onlineUserPage(params: Recordable<any>) {
+  return requestClient.get<Array<SystemUserApi.SystemUser>>(
+    `/${sysApi}/monitor/user/page`,
+    {
+      params,
+    },
+  );
+}
