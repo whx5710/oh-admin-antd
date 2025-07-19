@@ -327,7 +327,6 @@ export function useMonitorColumns(
   onActionClick?: OnActionClickFn<SystemUserApi.SystemUser>,
 ): VxeTableGridOptions<SystemUserApi.SystemUser>['columns'] {
   return [
-    { type: 'checkbox', width: 60 },
     { title: '序号', type: 'seq', width: 50 },
     {
       align: 'left',
@@ -379,12 +378,6 @@ export function useMonitorColumns(
       title: '所属机构',
       width: 150,
     },
-    // {
-    //   align: 'left',
-    //   field: 'loginTime',
-    //   title: '登录时间',
-    //   width: 150,
-    // },
     {
       align: 'right',
       cellRender: {
@@ -395,10 +388,15 @@ export function useMonitorColumns(
         },
         name: 'CellOperation',
         options: [
-          'edit', // 默认的编辑按钮
           {
-            code: 'delete', // 默认的删除按钮
-            disabled: false,
+            code: 'show', // 默认的删除按钮
+            // disabled: false,
+            text: '详情',
+          },
+          {
+            code: 'exit', // 默认的删除按钮
+            // disabled: false,
+            text: '下线',
           },
         ],
       },

@@ -123,3 +123,12 @@ export async function onlineUserPage(params: Recordable<any>) {
     },
   );
 }
+/**
+ * 下线
+ * @returns l
+ */
+export async function forceLogoutAll(userId: string) {
+  return requestClient.get<Array<SystemUserApi.SystemUser>>(
+    `/${sysApi}/monitor/user/forceLogoutAll/${userId}`,
+  );
+}
