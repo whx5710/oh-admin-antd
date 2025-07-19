@@ -109,5 +109,7 @@ function createRequestClient(baseURL: string, options?: RequestClientOptions) {
 export const requestClient = createRequestClient(apiURL, {
   responseReturn: 'data',
 });
-
+/**
+ * 不会传token
+ */
 export const baseRequestClient = new RequestClient({ baseURL: apiURL });
