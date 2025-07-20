@@ -132,3 +132,13 @@ export async function forceLogoutAll(userId: string) {
     `/${sysApi}/monitor/user/forceLogoutAll/${userId}`,
   );
 }
+/**
+ * 用户token列表
+ * @param userId 用户ID
+ * @returns s
+ */
+export async function tokenList(userId: string) {
+  return requestClient.get<Array<SystemUserApi.SystemUser>>(
+    `/${sysApi}/monitor/user/tokenList/${userId}`,
+  );
+}

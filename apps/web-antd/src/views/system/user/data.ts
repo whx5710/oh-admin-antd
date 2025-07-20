@@ -423,3 +423,54 @@ export function useMonitorGridFormSchema(): FinnFormSchema[] {
     },
   ];
 }
+
+// 在线用户token
+export function useTokenColumns(
+  onActionClick?: OnActionClickFn<SystemUserApi.SystemUser>,
+): VxeTableGridOptions<SystemUserApi.SystemUser>['columns'] {
+  return [
+    { title: '序号', type: 'seq', width: 50 },
+    {
+      align: 'left',
+      field: 'username',
+      title: '用户名',
+      width: 150,
+    },
+    {
+      align: 'left',
+      field: 'realName',
+      title: '姓名',
+      minWidth: 150,
+    },
+    {
+      align: 'left',
+      field: 'loginTime',
+      title: '登录时间',
+      minWidth: 150,
+    },
+    {
+      align: 'right',
+      cellRender: {
+        attrs: {
+          nameField: 'realName',
+          nameTitle: '用户',
+          onClick: onActionClick,
+        },
+        name: 'CellOperation',
+        options: [
+          {
+            code: 'exit', // 默认的删除按钮
+            // disabled: false,
+            text: '下线',
+          },
+        ],
+      },
+      field: 'operation',
+      fixed: 'right',
+      headerAlign: 'center',
+      showOverflow: false,
+      title: '操作',
+      width: 80,
+    },
+  ];
+}

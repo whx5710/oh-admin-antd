@@ -5,7 +5,7 @@ import type {
 } from '#/adapter/vxe-table';
 import type { SystemUserApi } from '#/api/system/user';
 
-import { Page } from '@finn/common-ui';
+import { Page, useModal } from '@finn/common-ui';
 
 import { Modal } from 'ant-design-vue';
 
@@ -13,6 +13,7 @@ import { useVxeGrid } from '#/adapter/vxe-table';
 import { forceLogoutAll, onlineUserPage } from '#/api/system/user';
 
 import { useMonitorColumns, useMonitorGridFormSchema } from './data';
+import OnlineList from './modules/onlineList.vue';
 
 const [Grid, gridApi] = useVxeGrid({
   showSearchForm: false, // 隐藏搜索表单
@@ -64,10 +65,17 @@ function onActionClick({
     }
     case 'show': {
       console.warn('详情', row);
+      showList(row);
       break;
     }
   }
 }
+// token列表弹窗
+const [FormModal, formModalApi] = useModal({
+  connectedComponent: OnlineList,
+  destroyOnClose: true,
+});
+
 // 下线
 function forceLogout(userId: string, userName: string) {
   Modal.confirm({
@@ -87,10 +95,14 @@ function forceLogout(userId: string, userName: string) {
 function onRefresh() {
   gridApi.query();
 }
+function showList(row: SystemUserApi.SystemUser) {
+  formModalApi.setData(row).open();
+}
 </script>
 
 <template>
   <Page auto-content-height>
-    <Grid table-title="附件列表" />
+    <FormModal @success="onRefresh" />
+    <Grid table-title="在线用户列表" />
   </Page>
 </template>
