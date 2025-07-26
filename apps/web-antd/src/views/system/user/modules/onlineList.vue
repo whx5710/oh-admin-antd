@@ -9,8 +9,10 @@ import { ref } from 'vue';
 
 import { useModal } from '@finn/common-ui';
 
+import { Modal as Amodal } from 'ant-design-vue';
+
 import { useVxeGrid } from '#/adapter/vxe-table';
-import { tokenList } from '#/api/system/user';
+import { forceLogout, tokenList } from '#/api/system/user';
 
 import { useTokenColumns } from '../data';
 
@@ -36,10 +38,11 @@ const [Grid, gridApi] = useVxeGrid({
       isCurrent: true, // 高亮选中行
     },
     toolbarConfig: {
+      enabled: false,
       custom: true,
       export: false,
       refresh: { code: 'query' },
-      search: true,
+      search: false,
       zoom: true,
     },
     pagerConfig: {
@@ -49,12 +52,12 @@ const [Grid, gridApi] = useVxeGrid({
 });
 
 const [Modal, modalApi] = useModal({
+  showConfirmButton: false, // 隐藏确认按钮
   async onConfirm() {},
   onOpenChange(isOpen) {
     const data = modalApi.getData<SystemUserApi.SystemUser>();
     console.warn(data);
     if (isOpen) {
-      console.warn('=========', isOpen);
       userId.value = data.id;
     }
   },
@@ -63,15 +66,28 @@ const [Modal, modalApi] = useModal({
 function onRefresh() {
   gridApi.query();
 }
+// 退出登录
+function handleForceLogout(token: string) {
+  Amodal.confirm({
+    content: '是否下线',
+    onCancel() {
+      console.warn('已取消');
+    },
+    onOk() {
+      forceLogout(token).then(() => {
+        onRefresh();
+      });
+    },
+    title: '请确认',
+  });
+}
 function onActionClick({
   code,
   row,
-}: OnActionClickParams<SystemUserApi.SystemUser>) {
+}: OnActionClickParams<SystemUserApi.UserToken>) {
   switch (code) {
     case 'exit': {
-      console.warn('退出', row);
-      // forceLogout(row.id, row.realName);
-      onRefresh();
+      handleForceLogout(row.accessToken);
       break;
     }
   }

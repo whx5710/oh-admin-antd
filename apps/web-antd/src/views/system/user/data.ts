@@ -426,8 +426,8 @@ export function useMonitorGridFormSchema(): FinnFormSchema[] {
 
 // 在线用户token
 export function useTokenColumns(
-  onActionClick?: OnActionClickFn<SystemUserApi.SystemUser>,
-): VxeTableGridOptions<SystemUserApi.SystemUser>['columns'] {
+  onActionClick?: OnActionClickFn<SystemUserApi.UserToken>,
+): VxeTableGridOptions<SystemUserApi.UserToken>['columns'] {
   return [
     { title: '序号', type: 'seq', width: 50 },
     {
