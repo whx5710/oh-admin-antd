@@ -434,18 +434,24 @@ export function useTokenColumns(
       align: 'left',
       field: 'username',
       title: '用户名',
-      width: 150,
+      width: 100,
     },
     {
       align: 'left',
       field: 'realName',
       title: '姓名',
-      minWidth: 150,
+      minWidth: 120,
     },
     {
       align: 'left',
       field: 'loginTime',
       title: '登录时间',
+      minWidth: 120,
+    },
+    {
+      align: 'left',
+      field: 'accessToken',
+      title: 'TOKEN',
       minWidth: 150,
     },
     {

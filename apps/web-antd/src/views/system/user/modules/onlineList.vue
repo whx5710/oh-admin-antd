@@ -95,7 +95,7 @@ function onActionClick({
 </script>
 
 <template>
-  <Modal title="用户token列表" class="w-[800px]">
+  <Modal title="用户token列表" class="w-[900px]">
     <Grid class="mx-4" />
   </Modal>
 </template>
