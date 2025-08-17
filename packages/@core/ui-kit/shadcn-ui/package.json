@@ -3,11 +3,11 @@
   "version": "5.5.7",
   "#main": "./dist/index.mjs",
   "#module": "./dist/index.mjs",
-  "homepage": "https://github.com/finnjs/vue-finn-admin",
-  "bugs": "https://github.com/finnjs/vue-finn-admin/issues",
+  "homepage": "https://github.com/whx5710/oh-admin-antd",
+  "bugs": "https://github.com/whx5710/oh-admin-antd/issues",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/finnjs/vue-finn-admin.git",
+    "url": "git+https://github.com/whx5710/oh-admin-antd.git",
     "directory": "packages/@finn-core/uikit/shadcn-ui"
   },
   "license": "MIT",

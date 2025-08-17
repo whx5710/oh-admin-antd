@@ -12,14 +12,14 @@
     "vue admin",
     "vue3"
   ],
-  "homepage": "https://github.com/finnjs/vue-finn-admin",
-  "bugs": "https://github.com/finnjs/vue-finn-admin/issues",
+  "homepage": "https://github.com/whx5710/oh-admin-antd",
+  "bugs": "https://github.com/whx5710/oh-admin-antd/issues",
   "repository": "finnjs/vue-finn-admin.git",
   "license": "MIT",
   "author": {
     "name": "finn",
     "email": "whx5710@qq.com",
-    "url": "https://github.com/anncwb"
+    "url": "https://github.com/whx5710"
   },
   "type": "module",
   "scripts": {

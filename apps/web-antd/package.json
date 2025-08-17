@@ -2,17 +2,17 @@
   "name": "@finn/web-antd",
   "version": "5.5.7",
   "homepage": "https://finn.pro",
-  "bugs": "https://github.com/finnjs/vue-finn-admin/issues",
+  "bugs": "https://github.com/whx5710/oh-admin-antd/issues",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/finnjs/vue-finn-admin.git",
+    "url": "git+https://github.com/whx5710/oh-admin-antd.git",
     "directory": "apps/web-antd"
   },
   "license": "MIT",
   "author": {
     "name": "finn",
     "email": "whx5710@qq.com",
-    "url": "https://github.com/anncwb"
+    "url": "https://github.com/whx5710"
   },
   "type": "module",
   "scripts": {
