@@ -58,9 +58,6 @@ export function useTabsViewScroll(props: TabsProps) {
       return;
     }
 
-    // const viewportEl = scrollbarEl?.querySelector(
-    //   'div[data-radix-scroll-area-viewport]',
-    // );
     const viewportEl = scrollbarEl?.querySelector(
       'div[data-reka-scroll-area-viewport]',
     );
