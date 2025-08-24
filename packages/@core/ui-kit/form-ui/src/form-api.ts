@@ -50,7 +50,7 @@ function getDefaultState(): FinnFormProps {
 }
 
 export class FormApi {
-  // private api: Pick<VbenFormProps, 'handleReset' | 'handleSubmit'>;
+  // private api: Pick<FinnFormProps, 'handleReset' | 'handleSubmit'>;
   public form = {} as FormActions;
   isMounted = false;
 

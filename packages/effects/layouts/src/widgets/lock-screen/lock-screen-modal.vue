@@ -6,7 +6,7 @@ import { computed, reactive } from 'vue';
 import { $t } from '@finn/locales';
 
 import { useFinnForm, z } from '@finn-core/form-ui';
-import { useModal } from '@finn-core/popup-ui';
+import { useFinnModal } from '@finn-core/popup-ui';
 import { FinnAvatar, FinnButton } from '@finn-core/shadcn-ui';
 
 interface Props {
@@ -51,7 +51,7 @@ const [Form, { resetForm, validate, getValues }] = useFinnForm(
   }),
 );
 
-const [Modal] = useModal({
+const [Modal] = useFinnModal({
   onConfirm() {
     handleSubmit();
   },
