@@ -67,7 +67,6 @@ catalog:
   archiver: ^7.0.1
   autoprefixer: ^10.4.21
   axios: ^1.9.0
-  axios-mock-adapter: ^2.1.0
   cac: ^6.7.14
   chalk: ^5.4.1
   cheerio: ^1.0.0
