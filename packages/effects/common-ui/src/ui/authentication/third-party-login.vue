@@ -1,12 +1,19 @@
 <script setup lang="ts">
+import { useAppConfig } from '@finn/hooks';
 import { MdiGithub, MdiGoogle, MdiQqchat, MdiWechat } from '@finn/icons';
 import { $t } from '@finn/locales';
 
 import { FinnIconButton } from '@finn-core/shadcn-ui';
 
+import DingdingLogin from './dingding-login.vue';
+
 defineOptions({
   name: 'ThirdPartyLogin',
 });
+
+const {
+  auth: { dingding: dingdingAuthConfig },
+} = useAppConfig(import.meta.env, import.meta.env.PROD);
 </script>
 
 <template>
@@ -20,18 +27,40 @@ defineOptions({
     </div>
 
     <div class="mt-4 flex flex-wrap justify-center">
-      <FinnIconButton class="mb-3">
+      <FinnIconButton
+        :tooltip="$t('authentication.wechatLogin')"
+        tooltip-side="top"
+        class="mb-3"
+      >
         <MdiWechat />
       </FinnIconButton>
-      <FinnIconButton class="mb-3">
+      <FinnIconButton
+        :tooltip="$t('authentication.qqLogin')"
+        tooltip-side="top"
+        class="mb-3"
+      >
         <MdiQqchat />
       </FinnIconButton>
-      <FinnIconButton class="mb-3">
+      <FinnIconButton
+        :tooltip="$t('authentication.githubLogin')"
+        tooltip-side="top"
+        class="mb-3"
+      >
         <MdiGithub />
       </FinnIconButton>
-      <FinnIconButton class="mb-3">
+      <FinnIconButton
+        :tooltip="$t('authentication.googleLogin')"
+        tooltip-side="top"
+        class="mb-3"
+      >
         <MdiGoogle />
       </FinnIconButton>
+      <DingdingLogin
+        v-if="dingdingAuthConfig"
+        :corp-id="dingdingAuthConfig.corpId"
+        :client-id="dingdingAuthConfig.clientId"
+        class="mb-3"
+      />
     </div>
   </div>
 </template>
