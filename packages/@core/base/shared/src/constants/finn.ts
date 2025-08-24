@@ -6,7 +6,7 @@ export const FINN_GITHUB_URL = 'https://github.com/whx5710/oh-admin-antd';
 /**
  * @zh_CN 文档地址
  */
-export const FINN_DOC_URL = 'https://doc.finn.pro';
+export const FINN_DOC_URL = 'https://github.com/whx5710/oh-admin-antd';
 
 /**
  * @zh_CN Finn Logo

@@ -44,7 +44,7 @@ function defineApplicationConfig(userConfigPromise?: DefineApplicationOptions) {
       nitroMockOptions: {},
       print: !isBuild,
       printInfoMap: {
-        'Oh Admin Docs': 'https://doc.finn.pro',
+        'Oh Admin Docs': 'https://github.com/whx5710/oh-admin-antd',
       },
       pwa: true,
       pwaOptions: getDefaultPwaOptions(appTitle),
