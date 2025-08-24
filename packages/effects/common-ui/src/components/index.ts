@@ -17,6 +17,7 @@ export {
   FinnAvatar,
   FinnButton,
   FinnButtonGroup,
+  FinnCheckbox,
   FinnCheckButtonGroup,
   FinnCountToAnimator,
   FinnFullScreen,
@@ -24,6 +25,7 @@ export {
   FinnLoading,
   FinnLogo,
   FinnPinInput,
+  FinnSelect,
   FinnSpinner,
   FinnTree,
 } from '@finn-core/shadcn-ui';

@@ -1,6 +1,6 @@
 {
   "name": "@finn-core/shadcn-ui",
-  "version": "5.5.7",
+  "version": "5.5.9",
   "#main": "./dist/index.mjs",
   "#module": "./dist/index.mjs",
   "homepage": "https://github.com/whx5710/oh-admin-antd",
