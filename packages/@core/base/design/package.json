@@ -1,6 +1,6 @@
 {
   "name": "@finn-core/design",
-  "version": "5.5.7",
+  "version": "5.5.9",
   "homepage": "https://github.com/whx5710/oh-admin-antd",
   "bugs": "https://github.com/whx5710/oh-admin-antd/issues",
   "repository": {
@@ -37,8 +37,5 @@
         "default": "./dist/index.mjs"
       }
     }
-  },
-  "dependencies": {
-    "@finn-core/design": "file:"
   }
 }
