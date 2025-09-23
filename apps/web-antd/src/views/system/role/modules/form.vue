@@ -7,7 +7,7 @@ import type { SystemRoleApi } from '#/api/system/role';
 
 import { computed, ref } from 'vue';
 
-import { useDrawer, FinnTree } from '@finn/common-ui';
+import { FinnTree, useFinnDrawer } from '@finn/common-ui';
 import { IconifyIcon } from '@finn/icons';
 
 import { Spin } from 'ant-design-vue';
@@ -32,7 +32,7 @@ const menuIdList = ref<DataNode[]>([]);
 const loadingPermissions = ref(false);
 
 const id = ref();
-const [Drawer, drawerApi] = useDrawer({
+const [Drawer, drawerApi] = useFinnDrawer({
   async onConfirm() {
     const { valid } = await formApi.validate();
     if (!valid) return;

@@ -1,0 +1,152 @@
+{
+  "folders": [
+    {
+      "name": "@finn/web-antd",
+      "path": "apps/web-antd",
+    },
+    {
+      "name": "@finn/commitlint-config",
+      "path": "internal/lint-configs/commitlint-config",
+    },
+    {
+      "name": "@finn/eslint-config",
+      "path": "internal/lint-configs/eslint-config",
+    },
+    {
+      "name": "@finn/prettier-config",
+      "path": "internal/lint-configs/prettier-config",
+    },
+    {
+      "name": "@finn/stylelint-config",
+      "path": "internal/lint-configs/stylelint-config",
+    },
+    {
+      "name": "@finn/node-utils",
+      "path": "internal/node-utils",
+    },
+    {
+      "name": "@finn/tailwind-config",
+      "path": "internal/tailwind-config",
+    },
+    {
+      "name": "@finn/tsconfig",
+      "path": "internal/tsconfig",
+    },
+    {
+      "name": "@finn/vite-config",
+      "path": "internal/vite-config",
+    },
+    {
+      "name": "@finn-core/design",
+      "path": "packages/@core/base/design",
+    },
+    {
+      "name": "@finn-core/icons",
+      "path": "packages/@core/base/icons",
+    },
+    {
+      "name": "@finn-core/shared",
+      "path": "packages/@core/base/shared",
+    },
+    {
+      "name": "@finn-core/typings",
+      "path": "packages/@core/base/typings",
+    },
+    {
+      "name": "@finn-core/composables",
+      "path": "packages/@core/composables",
+    },
+    {
+      "name": "@finn-core/preferences",
+      "path": "packages/@core/preferences",
+    },
+    {
+      "name": "@finn-core/form-ui",
+      "path": "packages/@core/ui-kit/form-ui",
+    },
+    {
+      "name": "@finn-core/layout-ui",
+      "path": "packages/@core/ui-kit/layout-ui",
+    },
+    {
+      "name": "@finn-core/menu-ui",
+      "path": "packages/@core/ui-kit/menu-ui",
+    },
+    {
+      "name": "@finn-core/popup-ui",
+      "path": "packages/@core/ui-kit/popup-ui",
+    },
+    {
+      "name": "@finn-core/shadcn-ui",
+      "path": "packages/@core/ui-kit/shadcn-ui",
+    },
+    {
+      "name": "@finn-core/tabs-ui",
+      "path": "packages/@core/ui-kit/tabs-ui",
+    },
+    {
+      "name": "@finn/constants",
+      "path": "packages/constants",
+    },
+    {
+      "name": "@finn/access",
+      "path": "packages/effects/access",
+    },
+    {
+      "name": "@finn/common-ui",
+      "path": "packages/effects/common-ui",
+    },
+    {
+      "name": "@finn/hooks",
+      "path": "packages/effects/hooks",
+    },
+    {
+      "name": "@finn/layouts",
+      "path": "packages/effects/layouts",
+    },
+    {
+      "name": "@finn/plugins",
+      "path": "packages/effects/plugins",
+    },
+    {
+      "name": "@finn/request",
+      "path": "packages/effects/request",
+    },
+    {
+      "name": "@finn/icons",
+      "path": "packages/icons",
+    },
+    {
+      "name": "@finn/locales",
+      "path": "packages/locales",
+    },
+    {
+      "name": "@finn/preferences",
+      "path": "packages/preferences",
+    },
+    {
+      "name": "@finn/stores",
+      "path": "packages/stores",
+    },
+    {
+      "name": "@finn/styles",
+      "path": "packages/styles",
+    },
+    {
+      "name": "@finn/types",
+      "path": "packages/types",
+    },
+    {
+      "name": "@finn/utils",
+      "path": "packages/utils",
+    },
+    {
+      "name": "@finn/turbo-run",
+      "path": "scripts/turbo-run",
+    },
+    {
+      "name": "@finn/vsh",
+      "path": "scripts/vsh",
+    },
+  ],
+}

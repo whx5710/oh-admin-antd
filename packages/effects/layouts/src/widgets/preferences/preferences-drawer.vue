@@ -25,7 +25,7 @@ import {
   usePreferences,
 } from '@finn/preferences';
 
-import { useDrawer } from '@finn-core/popup-ui';
+import { useFinnDrawer } from '@finn-core/popup-ui';
 import {
   FinnButton,
   FinnIconButton,
@@ -177,7 +177,7 @@ const {
 } = usePreferences();
 const { copy } = useClipboard({ legacy: true });
 
-const [Drawer] = useDrawer();
+const [Drawer] = useFinnDrawer();
 
 const activeTab = ref('appearance');
 

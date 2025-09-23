@@ -5,12 +5,12 @@ import type {
 } from '#/adapter/vxe-table';
 import type { SystemTenantApi } from '#/api/system/tenant';
 
-import { Page, useDrawer, useModal } from '@finn/common-ui';
+import { Page, useFinnDrawer, useFinnModal } from '@finn/common-ui';
 import { Plus } from '@finn/icons';
 
 import { Button, message } from 'ant-design-vue';
 
-import { useVxeGrid } from '#/adapter/vxe-table';
+import { useFinnVxeGrid } from '#/adapter/vxe-table';
 import { deleteTenant, getTenantPage } from '#/api/system/tenant';
 import { $t } from '#/locales';
 
@@ -18,17 +18,17 @@ import { useColumns, useGridFormSchema } from './data';
 import Form from './modules/form.vue';
 import UserForm from './modules/userForm.vue';
 
-const [FormModal, formModalApi] = useModal({
+const [FormModal, formModalApi] = useFinnModal({
   connectedComponent: Form,
   destroyOnClose: true,
 });
 
-const [FormDrawer, formDrawerApi] = useDrawer({
+const [FormDrawer, formDrawerApi] = useFinnDrawer({
   connectedComponent: UserForm,
   destroyOnClose: true,
 });
 
-const [Grid, gridApi] = useVxeGrid({
+const [Grid, gridApi] = useFinnVxeGrid({
   showSearchForm: false, // 默认隐藏搜索表单
   formOptions: {
     fieldMappingTime: [['createTime', ['startTime', 'endTime']]],

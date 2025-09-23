@@ -1,10 +1,16 @@
+import type { VxeTableGridOptions } from '@finn/plugins/vxe-table';
 import type { Recordable } from '@finn/types';
+
+import type { ComponentType } from './component';
 
 import { h } from 'vue';
 
 import { IconifyIcon } from '@finn/icons';
 import { $te } from '@finn/locales';
-import { setupFinnVxeTable, useVxeGrid } from '@finn/plugins/vxe-table';
+import {
+  setupFinnVxeTable,
+  useFinnVxeGrid as useGrid,
+} from '@finn/plugins/vxe-table';
 import { get, isFunction, isString } from '@finn/utils';
 
 import { objectOmit } from '@vueuse/core';
@@ -32,7 +38,7 @@ setupFinnVxeTable({
         proxyConfig: {
           autoLoad: true,
           response: {
-            result: 'list',
+            result: 'items',
             total: 'total',
             list: '',
           },
@@ -42,7 +48,7 @@ setupFinnVxeTable({
         round: true,
         showOverflow: true,
         size: 'small',
-      },
+      } as VxeTableGridOptions,
     });
 
     /**
@@ -277,7 +283,10 @@ setupFinnVxeTable({
   useFinnForm,
 });
 
-export { useVxeGrid };
+export const useFinnVxeGrid = <T extends Record<string, any>>(
+  ...rest: Parameters<typeof useGrid<T, ComponentType>>
+) => useGrid<T, ComponentType>(...rest);
+
 export type OnActionClickParams<T = Recordable<any>> = {
   code: string;
   row: T;

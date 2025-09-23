@@ -9,7 +9,6 @@ import {
   h,
   inject,
   nextTick,
-  onDeactivated,
   provide,
   reactive,
   ref,
@@ -28,9 +27,9 @@ export function setDefaultDrawerProps(props: Partial<DrawerProps>) {
   Object.assign(DEFAULT_DRAWER_PROPS, props);
 }
 
-export function useDrawer<TParentDrawerProps extends DrawerProps = DrawerProps>(
-  options: DrawerApiOptions = {},
-) {
+export function useFinnDrawer<
+  TParentDrawerProps extends DrawerProps = DrawerProps,
+>(options: DrawerApiOptions = {}) {
   // Drawer一般会抽离出来，所以如果有传入 connectedComponent，则表示为外部调用，与内部组件进行连接
   // 外部的Drawer通过provide/inject传递api
 
@@ -71,13 +70,6 @@ export function useDrawer<TParentDrawerProps extends DrawerProps = DrawerProps>(
         inheritAttrs: false,
       },
     );
-
-    /**
-     * 在开启keepAlive情况下 直接通过浏览器按钮/手势等返回 不会关闭弹窗
-     */
-    onDeactivated(() => {
-      (extendedApi as ExtendedDrawerApi)?.close?.();
-    });
 
     return [Drawer, extendedApi as ExtendedDrawerApi] as const;
   }
@@ -141,9 +133,9 @@ async function checkProps(api: ExtendedDrawerApi, attrs: Record<string, any>) {
 
   for (const attr of Object.keys(attrs)) {
     if (stateKeys.has(attr) && !['class'].includes(attr)) {
-      // connectedComponent存在时，不要传入Drawer的props，会造成复杂度提升，如果你需要修改Drawer的props，请使用 useDrawer 或者api
+      // connectedComponent存在时，不要传入Drawer的props，会造成复杂度提升，如果你需要修改Drawer的props，请使用 useFinnDrawer 或者api
       console.warn(
-        `[Finn Drawer]: When 'connectedComponent' exists, do not set props or slots '${attr}', which will increase complexity. If you need to modify the props of Drawer, please use useDrawer or api.`,
+        `[Finn Drawer]: When 'connectedComponent' exists, do not set props or slots '${attr}', which will increase complexity. If you need to modify the props of Drawer, please use useFinnDrawer or api.`,
       );
     }
   }

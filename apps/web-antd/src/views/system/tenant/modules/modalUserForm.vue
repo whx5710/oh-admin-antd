@@ -8,11 +8,11 @@ import type { SystemUserApi } from '#/api/system/user';
 
 import { ref } from 'vue';
 
-import { useModal } from '@finn/common-ui';
+import { useFinnModal } from '@finn/common-ui';
 
 import { message } from 'ant-design-vue';
 
-import { useVxeGrid } from '#/adapter/vxe-table';
+import { useFinnVxeGrid } from '#/adapter/vxe-table';
 import { getUserPage, tenantUser } from '#/api/system/user';
 
 import { useCheckUserColumns } from '../data';
@@ -22,7 +22,7 @@ const userGridRef = ref();
 const userMap = new Map();
 const tenantId = ref('');
 
-const [Modal, modalApi] = useModal({
+const [Modal, modalApi] = useFinnModal({
   // 保存租户用户
   async onConfirm() {
     modalApi.lock();
@@ -84,7 +84,7 @@ const gridEvents: VxeGridListeners<SystemUserApi.SystemUser> = {
 };
 
 // gridApi 租户用户
-const [Grid, gridApi] = useVxeGrid({
+const [Grid, gridApi] = useFinnVxeGrid({
   gridEvents,
   gridOptions: {
     columns: useCheckUserColumns(),

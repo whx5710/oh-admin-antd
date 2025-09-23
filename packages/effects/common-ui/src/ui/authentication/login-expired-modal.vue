@@ -3,8 +3,10 @@ import type { AuthenticationProps } from './types';
 
 import { computed, watch } from 'vue';
 
-import { useModal } from '@finn-core/popup-ui';
-import { Slot, FinnAvatar } from '@finn-core/shadcn-ui';
+import { $t } from '@finn/locales';
+
+import { useFinnModal } from '@finn-core/popup-ui';
+import { FinnAvatar, Slot } from '@finn-core/shadcn-ui';
 
 interface Props extends AuthenticationProps {
   avatar?: string;
@@ -22,7 +24,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const open = defineModel<boolean>('open');
 
-const [Modal, modalApi] = useModal();
+const [Modal, modalApi] = useFinnModal();
 
 watch(
   () => open.value,

@@ -5,24 +5,24 @@ import type {
 } from '#/adapter/vxe-table';
 import type { SystemRoleApi } from '#/api/system/role';
 
-import { Page, useDrawer } from '@finn/common-ui';
+import { Page, useFinnDrawer } from '@finn/common-ui';
 import { Plus } from '@finn/icons';
 
 import { Button, message } from 'ant-design-vue';
 
-import { useVxeGrid } from '#/adapter/vxe-table';
+import { useFinnVxeGrid } from '#/adapter/vxe-table';
 import { deleteRole, getRolePage } from '#/api/system/role';
 import { $t } from '#/locales';
 
 import { useColumns, useGridFormSchema } from './data';
 import Form from './modules/form.vue';
 
-const [FormDrawer, formDrawerApi] = useDrawer({
+const [FormDrawer, formDrawerApi] = useFinnDrawer({
   connectedComponent: Form,
   destroyOnClose: true,
 });
 
-const [Grid, gridApi] = useVxeGrid({
+const [Grid, gridApi] = useFinnVxeGrid({
   showSearchForm: false, // 默认隐藏搜索表单
   formOptions: {
     // fieldMappingTime: [['createTime', ['startTime', 'endTime']]],

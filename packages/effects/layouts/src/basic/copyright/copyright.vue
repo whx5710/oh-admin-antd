@@ -12,7 +12,7 @@ defineOptions({
 });
 
 withDefaults(defineProps<Props>(), {
-  companyName: 'Oh Admin',
+  companyName: 'Finn Admin',
   companySiteLink: '',
   date: '2024',
   icp: '',

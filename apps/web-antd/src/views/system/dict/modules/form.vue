@@ -3,7 +3,7 @@ import type { SystemDictApi } from '#/api/system/dict';
 
 import { computed, ref } from 'vue';
 
-import { useModal } from '@finn/common-ui';
+import { useFinnModal } from '@finn/common-ui';
 
 import { Button } from 'ant-design-vue';
 
@@ -37,7 +37,7 @@ function resetForm() {
   formApi.setValues(formData.value || {});
 }
 
-const [Modal, modalApi] = useModal({
+const [Modal, modalApi] = useFinnModal({
   async onConfirm() {
     const { valid } = await formApi.validate();
     if (valid) {

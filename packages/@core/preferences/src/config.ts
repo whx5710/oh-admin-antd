@@ -2,7 +2,7 @@ import type { Preferences } from './types';
 
 const defaultPreferences: Preferences = {
   app: {
-    accessMode: 'backend', // frontend backend
+    accessMode: 'backend', // 'backend' | 'frontend'
     authPageLayout: 'panel-right',
     checkUpdatesInterval: 1,
     colorGrayMode: false,
@@ -26,7 +26,7 @@ const defaultPreferences: Preferences = {
     layout: 'sidebar-nav',
     locale: 'zh-CN',
     loginExpiredMode: 'page',
-    name: 'Oh Admin',
+    name: 'Finn Admin',
     preferencesButtonPosition: 'auto',
     watermark: false,
     zIndex: 200,
@@ -63,7 +63,7 @@ const defaultPreferences: Preferences = {
   logo: {
     enable: true,
     fit: 'contain',
-    source: '/favicon.ico',
+    source: 'https://unpkg.com/@finnjs/static-source@0.1.7/source/logo-v1.webp',
   },
   navigation: {
     accordion: true,

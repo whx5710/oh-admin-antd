@@ -6,12 +6,12 @@ import { $t, loadLocaleMessages } from '@finn/locales';
 import { preferences, updatePreferences } from '@finn/preferences';
 import { capitalizeFirstLetter } from '@finn/utils';
 
-import { useDrawer } from '@finn-core/popup-ui';
+import { useFinnDrawer } from '@finn-core/popup-ui';
 import { FinnButton } from '@finn-core/shadcn-ui';
 
 import PreferencesDrawer from './preferences-drawer.vue';
 
-const [Drawer, drawerApi] = useDrawer({
+const [Drawer, drawerApi] = useFinnDrawer({
   connectedComponent: PreferencesDrawer,
 });
 

@@ -8,7 +8,7 @@ import type { ComponentType } from './component';
 import { setupFinnForm, useFinnForm as useForm, z } from '@finn/common-ui';
 import { $t } from '@finn/locales';
 
-async function initSetupForm() {
+async function initSetupFinnForm() {
   setupFinnForm<ComponentType>({
     config: {
       // ant design vue组件库默认都是 v-model:value
@@ -43,7 +43,7 @@ async function initSetupForm() {
 
 const useFinnForm = useForm<ComponentType>;
 
-export { initSetupForm, useFinnForm, z };
+export { initSetupFinnForm, useFinnForm, z };
 
 export type FinnFormSchema = FormSchema<ComponentType>;
 export type { FinnFormProps };

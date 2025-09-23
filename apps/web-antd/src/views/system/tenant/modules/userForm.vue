@@ -7,12 +7,12 @@ import type { SystemUserApi } from '#/api/system/user';
 
 import { ref } from 'vue';
 
-import { useDrawer, useModal } from '@finn/common-ui';
+import { useFinnDrawer, useFinnModal } from '@finn/common-ui';
 import { Plus } from '@finn/icons';
 
 import { Button, message } from 'ant-design-vue';
 
-import { useVxeGrid } from '#/adapter/vxe-table';
+import { useFinnVxeGrid } from '#/adapter/vxe-table';
 import { getUserPage, tenantUser } from '#/api/system/user';
 import { $t } from '#/locales';
 
@@ -21,14 +21,14 @@ import ModalUserForm from './modalUserForm.vue';
 /**
  * 数据字典-数据列表（抽屉）。
  */
-const [FormModal, formModalApi] = useModal({
+const [FormModal, formModalApi] = useFinnModal({
   connectedComponent: ModalUserForm,
   destroyOnClose: true,
 });
 
 const tenantId = ref();
 // drawerApi
-const [Drawer, drawerApi] = useDrawer({
+const [Drawer, drawerApi] = useFinnDrawer({
   showConfirmButton: false,
   async onConfirm() {
     console.warn('------------------onConfirm');
@@ -59,7 +59,7 @@ function onDataDelete(row: SystemUserApi.SystemUser) {
 }
 
 // gridApi 租户用户
-const [Grid, gridApi] = useVxeGrid({
+const [Grid, gridApi] = useFinnVxeGrid({
   gridOptions: {
     columns: useUserColumns(onActionClick),
     height: 'auto',

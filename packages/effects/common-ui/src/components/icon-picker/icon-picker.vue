@@ -9,6 +9,9 @@ import { $t } from '@finn/locales';
 
 import {
   Button,
+  FinnIcon,
+  FinnIconButton,
+  FinnPopover,
   Input,
   Pagination,
   PaginationEllipsis,
@@ -18,9 +21,6 @@ import {
   PaginationListItem,
   PaginationNext,
   PaginationPrev,
-  FinnIcon,
-  FinnIconButton,
-  FinnPopover,
 } from '@finn-core/shadcn-ui';
 import { isFunction } from '@finn-core/shared/utils';
 
@@ -75,6 +75,12 @@ const currentPage = ref(1);
 const keyword = ref('');
 const keywordDebounce = refDebounced(keyword, 300);
 const innerIcons = ref<string[]>([]);
+
+/* 当检索关键词变化时，重置分页 */
+watch(keywordDebounce, () => {
+  currentPage.value = 1;
+  setCurrentPage(1);
+});
 
 watchDebounced(
   () => props.prefix,

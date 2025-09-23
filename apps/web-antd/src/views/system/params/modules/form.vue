@@ -3,7 +3,7 @@ import type { SystemParamsApi } from '#/api/system/params';
 
 import { computed, ref } from 'vue';
 
-import { useDrawer } from '@finn/common-ui';
+import { useFinnDrawer } from '@finn/common-ui';
 
 import { useFinnForm } from '#/adapter/form';
 import { createParams, updateParams } from '#/api/system/params';
@@ -21,7 +21,7 @@ const [Form, formApi] = useFinnForm({
 });
 
 const id = ref();
-const [Drawer, drawerApi] = useDrawer({
+const [Drawer, drawerApi] = useFinnDrawer({
   async onConfirm() {
     const { valid } = await formApi.validate();
     if (!valid) return;

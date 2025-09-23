@@ -9,19 +9,19 @@ import type { SystemDeptApi } from '#/api/system/dept';
 
 import { reactive, ref, watch } from 'vue';
 
-import { FinnTree, Page, useModal } from '@finn/common-ui';
+import { FinnTree, Page, useFinnModal } from '@finn/common-ui';
 import { Plus } from '@finn/icons';
 
 import { Button, Card, Col, InputSearch, message, Row } from 'ant-design-vue';
 
-import { useVxeGrid } from '#/adapter/vxe-table';
+import { useFinnVxeGrid } from '#/adapter/vxe-table';
 import { deleteDept, getDeptPage, getDeptTreeList } from '#/api/system/dept';
 import { $t } from '#/locales';
 
 import { useColumns, useGridFormSchema } from './data';
 import Form from './modules/form.vue';
 
-const [FormModal, formModalApi] = useModal({
+const [FormModal, formModalApi] = useFinnModal({
   connectedComponent: Form,
   destroyOnClose: true,
 });
@@ -97,7 +97,7 @@ function onActionClick({
   }
 }
 
-const [Grid, gridApi] = useVxeGrid({
+const [Grid, gridApi] = useFinnVxeGrid({
   gridEvents: {},
   showSearchForm: false, // 默认隐藏搜索表单
   // 搜索表单

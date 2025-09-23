@@ -1,6 +1,6 @@
 /**
  * 通用组件共同的使用的基础组件，原先放在 adapter/form 内部，限制了使用范围，这里提取出来，方便其他地方使用
- * 可用于 -form、-modal、-drawer 等组件使用,
+ * 可用于 finn-form、finn-modal、finn-drawer 等组件使用,
  */
 
 import type { Component } from 'vue';
@@ -8,13 +8,7 @@ import type { Component } from 'vue';
 import type { BaseFormComponentType } from '@finn/common-ui';
 import type { Recordable } from '@finn/types';
 
-import {
-  defineAsyncComponent,
-  defineComponent,
-  getCurrentInstance,
-  h,
-  ref,
-} from 'vue';
+import { defineAsyncComponent, defineComponent, h, ref } from 'vue';
 
 import { ApiComponent, globalShareState, IconPicker } from '@finn/common-ui';
 import { $t } from '@finn/locales';
@@ -82,16 +76,15 @@ const withDefaultPlaceholder = <T extends Component>(
         $t(`ui.placeholder.${type}`);
       // 透传组件暴露的方法
       const innerRef = ref();
-      const publicApi: Recordable<any> = {};
-      expose(publicApi);
-      const instance = getCurrentInstance();
-      instance?.proxy?.$nextTick(() => {
-        for (const key in innerRef.value) {
-          if (typeof innerRef.value[key] === 'function') {
-            publicApi[key] = innerRef.value[key];
-          }
-        }
-      });
+      expose(
+        new Proxy(
+          {},
+          {
+            get: (_target, key) => innerRef.value?.[key],
+            has: (_target, key) => key in (innerRef.value || {}),
+          },
+        ),
+      );
       return () =>
         h(
           component,

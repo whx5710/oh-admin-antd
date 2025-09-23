@@ -11,7 +11,7 @@ import { downloadFileFromBlob } from '@finn/utils';
 
 import { Button, Popconfirm } from 'ant-design-vue';
 
-import { useVxeGrid } from '#/adapter/vxe-table';
+import { useFinnVxeGrid } from '#/adapter/vxe-table';
 import { getLoginLogPage, loginLogExport } from '#/api/system/log';
 // import { sysApi } from '#/config/env';
 
@@ -45,7 +45,7 @@ const gridEvents: VxeGridListeners<SystemLogApi.SysLoginLog> = {
   },
 };
 
-const [Grid, gridApi] = useVxeGrid({
+const [Grid, gridApi] = useFinnVxeGrid({
   gridEvents,
   showSearchForm: false, // 隐藏搜索表单
   formOptions: {

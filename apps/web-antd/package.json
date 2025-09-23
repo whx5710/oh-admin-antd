@@ -1,6 +1,6 @@
 {
   "name": "@finn/web-antd",
-  "version": "5.5.7",
+  "version": "5.5.9",
   "homepage": "https://finn.pro",
   "bugs": "https://github.com/finnjs/vue-finn-admin/issues",
   "repository": {
@@ -11,7 +11,7 @@
   "license": "MIT",
   "author": {
     "name": "finn",
-    "email": "whx5710@qq.com",
+    "email": "ann.finn@gmail.com",
     "url": "https://github.com/anncwb"
   },
   "type": "module",

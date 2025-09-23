@@ -13,7 +13,7 @@ import {
 import { $t } from '@finn/locales';
 import { isWindowsOs } from '@finn/utils';
 
-import { useModal } from '@finn-core/popup-ui';
+import { useFinnModal } from '@finn-core/popup-ui';
 
 import { useMagicKeys, whenever } from '@vueuse/core';
 
@@ -34,7 +34,7 @@ const props = withDefaults(
 const keyword = ref('');
 const searchInputRef = ref<HTMLInputElement>();
 
-const [Modal, modalApi] = useModal({
+const [Modal, modalApi] = useFinnModal({
   onCancel() {
     modalApi.close();
   },

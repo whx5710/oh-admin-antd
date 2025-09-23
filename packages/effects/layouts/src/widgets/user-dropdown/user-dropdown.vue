@@ -12,7 +12,7 @@ import { preferences, usePreferences } from '@finn/preferences';
 import { useAccessStore } from '@finn/stores';
 import { isWindowsOs } from '@finn/utils';
 
-import { useModal } from '@finn-core/popup-ui';
+import { useFinnModal } from '@finn-core/popup-ui';
 import {
   Badge,
   DropdownMenu,
@@ -87,10 +87,10 @@ const emit = defineEmits<{ logout: [] }>();
 const { globalLockScreenShortcutKey, globalLogoutShortcutKey } =
   usePreferences();
 const accessStore = useAccessStore();
-const [LockModal, lockModalApi] = useModal({
+const [LockModal, lockModalApi] = useFinnModal({
   connectedComponent: LockScreenModal,
 });
-const [LogoutModal, logoutModalApi] = useModal({
+const [LogoutModal, logoutModalApi] = useFinnModal({
   onConfirm() {
     handleSubmitLogout();
   },

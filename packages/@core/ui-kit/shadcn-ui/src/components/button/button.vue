@@ -6,7 +6,7 @@ import { computed } from 'vue';
 import { LoaderCircle } from '@finn-core/icons';
 import { cn } from '@finn-core/shared/utils';
 
-import { Primitive } from 'radix-vue';
+import { Primitive } from 'reka-ui';
 
 import { buttonVariants } from '../../ui';
 

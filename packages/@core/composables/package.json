@@ -1,6 +1,6 @@
 {
   "name": "@finn-core/composables",
-  "version": "5.5.7",
+  "version": "5.5.9",
   "homepage": "https://github.com/finnjs/vue-finn-admin",
   "bugs": "https://github.com/finnjs/vue-finn-admin/issues",
   "repository": {
@@ -37,7 +37,7 @@
   "dependencies": {
     "@finn-core/shared": "workspace:*",
     "@vueuse/core": "catalog:",
-    "radix-vue": "catalog:",
+    "reka-ui": "catalog:",
     "sortablejs": "catalog:",
     "vue": "catalog:"
   },

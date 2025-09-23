@@ -129,7 +129,7 @@ watch(
         :avatar
         :menus
         :text="userStore.userInfo?.realName"
-        description="whx5710@qq.com"
+        description="ann.finn@gmail.com"
         tag-text="Pro"
         @logout="handleLogout"
       />

@@ -7,7 +7,7 @@ import type { FinnFormSchema } from '#/adapter/form';
 
 import { computed, h, ref } from 'vue';
 
-import { useDrawer } from '@finn/common-ui';
+import { useFinnDrawer } from '@finn/common-ui';
 import { IconifyIcon } from '@finn/icons';
 import { $te } from '@finn/locales';
 import { getPopupContainer } from '@finn/utils';
@@ -452,7 +452,7 @@ const [Form, formApi] = useFinnForm({
   wrapperClass: 'grid-cols-2 gap-x-4',
 });
 
-const [Drawer, drawerApi] = useDrawer({
+const [Drawer, drawerApi] = useFinnDrawer({
   onConfirm: onSubmit,
   onOpenChange(isOpen) {
     if (isOpen) {

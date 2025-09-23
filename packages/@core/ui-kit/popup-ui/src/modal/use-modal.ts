@@ -5,7 +5,6 @@ import {
   h,
   inject,
   nextTick,
-  onDeactivated,
   provide,
   reactive,
   ref,
@@ -24,7 +23,7 @@ export function setDefaultModalProps(props: Partial<ModalProps>) {
   Object.assign(DEFAULT_MODAL_PROPS, props);
 }
 
-export function useModal<TParentModalProps extends ModalProps = ModalProps>(
+export function useFinnModal<TParentModalProps extends ModalProps = ModalProps>(
   options: ModalApiOptions = {},
 ) {
   // Modal一般会抽离出来，所以如果有传入 connectedComponent，则表示为外部调用，与内部组件进行连接
@@ -70,13 +69,6 @@ export function useModal<TParentModalProps extends ModalProps = ModalProps>(
         inheritAttrs: false,
       },
     );
-
-    /**
-     * 在开启keepAlive情况下 直接通过浏览器按钮/手势等返回 不会关闭弹窗
-     */
-    onDeactivated(() => {
-      (extendedApi as ExtendedModalApi)?.close?.();
-    });
 
     return [Modal, extendedApi as ExtendedModalApi] as const;
   }
@@ -130,6 +122,7 @@ export function useModal<TParentModalProps extends ModalProps = ModalProps>(
     },
   );
   injectData.extendApi?.(extendedApi);
+
   return [Modal, extendedApi] as const;
 }
 
@@ -149,9 +142,9 @@ async function checkProps(api: ExtendedModalApi, attrs: Record<string, any>) {
 
   for (const attr of Object.keys(attrs)) {
     if (stateKeys.has(attr) && !['class'].includes(attr)) {
-      // connectedComponent存在时，不要传入Modal的props，会造成复杂度提升，如果你需要修改Modal的props，请使用 useModal 或者api
+      // connectedComponent存在时，不要传入Modal的props，会造成复杂度提升，如果你需要修改Modal的props，请使用 useFinnModal 或者api
       console.warn(
-        `[Finn Modal]: When 'connectedComponent' exists, do not set props or slots '${attr}', which will increase complexity. If you need to modify the props of Modal, please use useModal or api.`,
+        `[Finn Modal]: When 'connectedComponent' exists, do not set props or slots '${attr}', which will increase complexity. If you need to modify the props of Modal, please use useFinnModal or api.`,
       );
     }
   }

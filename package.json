@@ -1,15 +1,17 @@
 {
   "name": "finn-admin-monorepo",
-  "version": "5.5.7",
+  "version": "5.5.9",
   "private": true,
   "keywords": [
     "monorepo",
     "turbo",
-    "oh",
-    "oh admin",
-    "oh pro",
+    "finn",
+    "finn admin",
+    "finn pro",
     "vue",
     "vue admin",
+    "vue finn admin",
+    "vue finn admin pro",
     "vue3"
   ],
   "homepage": "https://github.com/finnjs/vue-finn-admin",
@@ -18,7 +20,7 @@
   "license": "MIT",
   "author": {
     "name": "finn",
-    "email": "whx5710@qq.com",
+    "email": "ann.finn@gmail.com",
     "url": "https://github.com/anncwb"
   },
   "type": "module",
@@ -53,6 +55,8 @@
   "devDependencies": {
     "@changesets/changelog-github": "catalog:",
     "@changesets/cli": "catalog:",
+    "@playwright/test": "catalog:",
+    "@types/node": "catalog:",
     "@finn/commitlint-config": "workspace:*",
     "@finn/eslint-config": "workspace:*",
     "@finn/prettier-config": "workspace:*",
@@ -62,8 +66,6 @@
     "@finn/turbo-run": "workspace:*",
     "@finn/vite-config": "workspace:*",
     "@finn/vsh": "workspace:*",
-    "@playwright/test": "catalog:",
-    "@types/node": "catalog:",
     "@vitejs/plugin-vue": "catalog:",
     "@vitejs/plugin-vue-jsx": "catalog:",
     "@vue/test-utils": "catalog:",
@@ -88,7 +90,7 @@
     "node": ">=20.10.0",
     "pnpm": ">=9.12.0"
   },
-  "packageManager": "pnpm@10.10.0",
+  "packageManager": "pnpm@10.12.4",
   "pnpm": {
     "peerDependencyRules": {
       "allowedVersions": {

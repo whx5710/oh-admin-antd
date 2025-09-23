@@ -1,6 +1,10 @@
 import type { PluginOption } from 'vite';
 
-import { colors, generatorContentHash, readPackageJSON } from '@finn/node-utils';
+import {
+  colors,
+  generatorContentHash,
+  readPackageJSON,
+} from '@finn/node-utils';
 
 import { loadEnv } from '../utils/env';
 
@@ -10,7 +14,7 @@ interface PluginOptions {
 }
 
 const GLOBAL_CONFIG_FILE_NAME = '_app.config.js';
-const OH_ADMIN_PRO_APP_CONF = '_OH_ADMIN_PRO_APP_CONF_';
+const FINN_ADMIN_PRO_APP_CONF = '_FINN_ADMIN_PRO_APP_CONF_';
 
 /**
  * 用于将配置文件抽离出来并注入到项目中
@@ -68,12 +72,12 @@ async function viteExtraAppConfigPlugin({
 
 async function getConfigSource() {
   const config = await loadEnv();
-  const windowVariable = `window.${OH_ADMIN_PRO_APP_CONF}`;
+  const windowVariable = `window.${FINN_ADMIN_PRO_APP_CONF}`;
   // 确保变量不会被修改
   let source = `${windowVariable}=${JSON.stringify(config)};`;
   source += `
     Object.freeze(${windowVariable});
-    Object.defineProperty(window, "${OH_ADMIN_PRO_APP_CONF}", {
+    Object.defineProperty(window, "${FINN_ADMIN_PRO_APP_CONF}", {
       configurable: false,
       writable: false,
     });

@@ -9,7 +9,7 @@ import type { SystemUserApi } from '#/api/system/user';
 
 import { reactive, ref, watch } from 'vue';
 
-import { FinnTree, Page, useModal } from '@finn/common-ui';
+import { FinnTree, Page, useFinnModal } from '@finn/common-ui';
 import { IconifyIcon, Plus } from '@finn/icons';
 import { downloadFileFromBlob } from '@finn/utils';
 
@@ -23,7 +23,7 @@ import {
   Row,
 } from 'ant-design-vue';
 
-import { useVxeGrid } from '#/adapter/vxe-table';
+import { useFinnVxeGrid } from '#/adapter/vxe-table';
 import { getDeptTreeList } from '#/api/system/dept';
 import {
   deleteUser,
@@ -38,7 +38,7 @@ import Form from './modules/form.vue';
 
 // 获取上级部门ID
 let expandedKeys: Array<number | string> = [];
-const [FormModal, formModalApi] = useModal({
+const [FormModal, formModalApi] = useFinnModal({
   connectedComponent: Form,
   destroyOnClose: true,
 });
@@ -108,7 +108,7 @@ function onActionClick({
   }
 }
 
-const [Grid, gridApi] = useVxeGrid({
+const [Grid, gridApi] = useFinnVxeGrid({
   showSearchForm: false, // 默认隐藏搜索表单
   gridEvents: {},
   // 搜索表单
@@ -321,7 +321,8 @@ function batchExport() {
 .messageIndex {
   z-index: 99 !important;
 }
+
 .contentPage {
-  padding-left: 0rem !important;
+  padding-left: 0 !important;
 }
 </style>

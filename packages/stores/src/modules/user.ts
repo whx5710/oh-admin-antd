@@ -15,10 +15,6 @@ interface BasicUserInfo {
    */
   roles?: string[];
   /**
-   * 租户
-   */
-  tenantId?: string;
-  /**
    * 用户id
    */
   userId: string;

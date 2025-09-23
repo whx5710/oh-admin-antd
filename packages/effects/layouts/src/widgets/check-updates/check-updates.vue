@@ -3,7 +3,7 @@ import { onMounted, onUnmounted, ref } from 'vue';
 
 import { $t } from '@finn/locales';
 
-import { useModal } from '@finn-core/popup-ui';
+import { useFinnModal } from '@finn-core/popup-ui';
 
 interface Props {
   // 轮询时间，分钟
@@ -24,7 +24,7 @@ const currentVersionTag = ref('');
 const lastVersionTag = ref('');
 const timer = ref<ReturnType<typeof setInterval>>();
 
-const [UpdateNoticeModal, modalApi] = useModal({
+const [UpdateNoticeModal, modalApi] = useFinnModal({
   closable: false,
   closeOnPressEscape: false,
   closeOnClickModal: false,
