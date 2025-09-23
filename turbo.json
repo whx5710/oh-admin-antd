@@ -31,11 +31,6 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },
-    "@finn/backend-mock#build": {
-      "dependsOn": ["^build"],
-      "outputs": [".nitro/**", ".output/**"]
-    },
-    "test:e2e": {},
     "dev": {
       "dependsOn": [],
       "outputs": [],

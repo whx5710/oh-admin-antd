@@ -19,7 +19,6 @@ const DEFAULT_CONFIG = {
   ],
   // 需要忽略的包
   ignorePackages: [
-    '@finn/backend-mock',
     '@finn/commitlint-config',
     '@finn/eslint-config',
     '@finn/node-utils',

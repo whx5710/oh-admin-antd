@@ -100,11 +100,11 @@ function getNodeClass(node: Recordable<any>) {
     <Form>
       <template #menuIdList="slotProps">
         <Spin :spinning="loadingPermissions" wrapper-class-name="w-full">
+          <!-- 默认展开层级与勾选有冲突，暂时屏蔽 :default-expanded-level="2" -->
           <FinnTree
             :tree-data="menuIdList"
             multiple
             bordered
-            :default-expanded-level="2"
             :get-node-class="getNodeClass"
             v-bind="slotProps"
             value-field="id"

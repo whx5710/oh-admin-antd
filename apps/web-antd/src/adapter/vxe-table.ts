@@ -38,7 +38,7 @@ setupFinnVxeTable({
         proxyConfig: {
           autoLoad: true,
           response: {
-            result: 'items',
+            result: 'list',
             total: 'total',
             list: '',
           },

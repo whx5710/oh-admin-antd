@@ -26,7 +26,6 @@
     "qs": "catalog:"
   },
   "devDependencies": {
-    "@types/qs": "catalog:",
-    "axios-mock-adapter": "catalog:"
+    "@types/qs": "catalog:"
   }
 }
