@@ -3,7 +3,7 @@ import type {
   AvatarFallbackProps,
   AvatarImageProps,
   AvatarRootProps,
-} from 'reka-ui';
+} from 'radix-vue';
 
 import type { CSSProperties } from 'vue';
 

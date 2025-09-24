@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { DropdownMenuSeparatorProps } from 'reka-ui';
+import type { DropdownMenuSeparatorProps } from 'radix-vue';
 
 import { computed } from 'vue';
 
 import { cn } from '@finn-core/shared/utils';
 
-import { DropdownMenuSeparator } from 'reka-ui';
+import { DropdownMenuSeparator } from 'radix-vue';
 
 const props = defineProps<
   DropdownMenuSeparatorProps & {

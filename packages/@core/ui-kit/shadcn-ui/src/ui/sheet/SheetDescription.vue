@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { DialogDescriptionProps } from 'reka-ui';
+import type { DialogDescriptionProps } from 'radix-vue';
 
 import { computed } from 'vue';
 
 import { cn } from '@finn-core/shared/utils';
 
-import { DialogDescription } from 'reka-ui';
+import { DialogDescription } from 'radix-vue';
 
 const props = defineProps<DialogDescriptionProps & { class?: any }>();
 

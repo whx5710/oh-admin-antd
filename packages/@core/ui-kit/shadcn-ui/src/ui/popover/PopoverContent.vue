@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { PopoverContentEmits, PopoverContentProps } from 'reka-ui';
+import type { PopoverContentEmits, PopoverContentProps } from 'radix-vue';
 
 import { computed } from 'vue';
 
 import { cn } from '@finn-core/shared/utils';
 
-import { PopoverContent, PopoverPortal, useForwardPropsEmits } from 'reka-ui';
+import { PopoverContent, PopoverPortal, useForwardPropsEmits } from 'radix-vue';
 
 defineOptions({
   inheritAttrs: false,

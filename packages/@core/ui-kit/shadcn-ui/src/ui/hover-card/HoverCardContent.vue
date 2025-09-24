@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { HoverCardContentProps } from 'reka-ui';
+import type { HoverCardContentProps } from 'radix-vue';
 
 import { computed } from 'vue';
 
 import { cn } from '@finn-core/shared/utils';
 
-import { HoverCardContent, HoverCardPortal, useForwardProps } from 'reka-ui';
+import { HoverCardContent, HoverCardPortal, useForwardProps } from 'radix-vue';
 
 const props = withDefaults(
   defineProps<HoverCardContentProps & { class?: any }>(),

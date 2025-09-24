@@ -10,9 +10,9 @@ import {
 } from '@finn/preferences';
 
 import {
+  FinnTooltip,
   ToggleGroup,
   ToggleGroupItem,
-  FinnTooltip,
 } from '@finn-core/shadcn-ui';
 
 import ThemeButton from './theme-button.vue';

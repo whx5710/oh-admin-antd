@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { AccordionContentProps } from 'reka-ui';
+import type { AccordionContentProps } from 'radix-vue';
 
 import { computed } from 'vue';
 
 import { cn } from '@finn-core/shared/utils';
 
-import { AccordionContent } from 'reka-ui';
+import { AccordionContent } from 'radix-vue';
 
 const props = defineProps<AccordionContentProps & { class?: any }>();
 

@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import type { AlertDialogDescriptionProps } from 'reka-ui';
+import type { AlertDialogDescriptionProps } from 'radix-vue';
 
 import { computed } from 'vue';
 
 import { cn } from '@finn-core/shared/utils';
 
-import { AlertDialogDescription, useForwardProps } from 'reka-ui';
+import { AlertDialogDescription, useForwardProps } from 'radix-vue';
 
 const props = defineProps<AlertDialogDescriptionProps & { class?: any }>();
 

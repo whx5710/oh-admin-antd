@@ -105,6 +105,7 @@ function getNodeClass(node: Recordable<any>) {
             :tree-data="menuIdList"
             multiple
             bordered
+            :default-expanded-level="2"
             :get-node-class="getNodeClass"
             v-bind="slotProps"
             value-field="id"

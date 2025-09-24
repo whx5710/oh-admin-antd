@@ -2,7 +2,7 @@
 import type {
   SplitterResizeHandleEmits,
   SplitterResizeHandleProps,
-} from 'reka-ui';
+} from 'radix-vue';
 
 import type { HTMLAttributes } from 'vue';
 
@@ -11,7 +11,7 @@ import { computed } from 'vue';
 import { GripVertical } from '@finn-core/icons';
 import { cn } from '@finn-core/shared/utils';
 
-import { SplitterResizeHandle, useForwardPropsEmits } from 'reka-ui';
+import { SplitterResizeHandle, useForwardPropsEmits } from 'radix-vue';
 
 const props = defineProps<
   SplitterResizeHandleProps & {

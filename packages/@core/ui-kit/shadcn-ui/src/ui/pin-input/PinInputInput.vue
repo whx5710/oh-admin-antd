@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { PinInputInputProps } from 'reka-ui';
+import type { PinInputInputProps } from 'radix-vue';
 
 import { computed } from 'vue';
 
 import { cn } from '@finn-core/shared/utils';
 
-import { PinInputInput, useForwardProps } from 'reka-ui';
+import { PinInputInput, useForwardProps } from 'radix-vue';
 
 const props = defineProps<PinInputInputProps & { class?: any }>();
 

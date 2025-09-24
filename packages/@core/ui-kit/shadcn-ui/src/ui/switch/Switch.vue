@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { SwitchRootEmits, SwitchRootProps } from 'reka-ui';
+import type { SwitchRootEmits, SwitchRootProps } from 'radix-vue';
 
 import { computed } from 'vue';
 
 import { cn } from '@finn-core/shared/utils';
 
-import { SwitchRoot, SwitchThumb, useForwardPropsEmits } from 'reka-ui';
+import { SwitchRoot, SwitchThumb, useForwardPropsEmits } from 'radix-vue';
 
 const props = defineProps<SwitchRootProps & { class?: any }>();
 

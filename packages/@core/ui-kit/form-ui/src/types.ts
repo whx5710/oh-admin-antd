@@ -12,12 +12,12 @@ export type FormLayout = 'horizontal' | 'vertical';
 
 export type BaseFormComponentType =
   | 'DefaultButton'
-  | 'PrimaryButton'
   | 'FinnCheckbox'
   | 'FinnInput'
   | 'FinnInputPassword'
   | 'FinnPinInput'
   | 'FinnSelect'
+  | 'PrimaryButton'
   | (Record<never, never> & string);
 
 type Breakpoints = '2xl:' | '3xl:' | '' | 'lg:' | 'md:' | 'sm:' | 'xl:';

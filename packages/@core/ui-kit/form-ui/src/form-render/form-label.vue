@@ -2,9 +2,9 @@
 import type { CustomRenderType } from '../types';
 
 import {
-  FormLabel,
   FinnHelpTooltip,
   FinnRenderContent,
+  FormLabel,
 } from '@finn-core/shadcn-ui';
 import { cn } from '@finn-core/shared/utils';
 

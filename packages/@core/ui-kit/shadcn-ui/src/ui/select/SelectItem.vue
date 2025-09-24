@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { SelectItemProps } from 'reka-ui';
+import type { SelectItemProps } from 'radix-vue';
 
 import { computed } from 'vue';
 
@@ -11,7 +11,7 @@ import {
   SelectItemIndicator,
   SelectItemText,
   useForwardProps,
-} from 'reka-ui';
+} from 'radix-vue';
 
 const props = defineProps<SelectItemProps & { class?: any }>();
 

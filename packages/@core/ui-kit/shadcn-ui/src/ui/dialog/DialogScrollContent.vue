@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { DialogContentEmits, DialogContentProps } from 'reka-ui';
+import type { DialogContentEmits, DialogContentProps } from 'radix-vue';
 
 import { computed } from 'vue';
 
@@ -12,7 +12,7 @@ import {
   DialogOverlay,
   DialogPortal,
   useForwardPropsEmits,
-} from 'reka-ui';
+} from 'radix-vue';
 
 const props = withDefaults(
   defineProps<DialogContentProps & { class?: any; zIndex?: number }>(),

@@ -3,7 +3,7 @@ import { useSlots } from 'vue';
 
 import { CircleHelp } from '@finn/icons';
 
-import { Switch, FinnTooltip } from '@finn-core/shadcn-ui';
+import { FinnTooltip, Switch } from '@finn-core/shadcn-ui';
 
 defineOptions({
   name: 'PreferenceSwitchItem',

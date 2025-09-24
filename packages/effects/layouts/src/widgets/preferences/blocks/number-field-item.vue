@@ -6,12 +6,12 @@ import { useSlots } from 'vue';
 import { CircleHelp } from '@finn/icons';
 
 import {
+  FinnTooltip,
   NumberField,
   NumberFieldContent,
   NumberFieldDecrement,
   NumberFieldIncrement,
   NumberFieldInput,
-  FinnTooltip,
 } from '@finn-core/shadcn-ui';
 
 defineOptions({

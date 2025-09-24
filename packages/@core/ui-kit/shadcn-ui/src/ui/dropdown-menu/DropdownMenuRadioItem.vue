@@ -2,7 +2,7 @@
 import type {
   DropdownMenuRadioItemEmits,
   DropdownMenuRadioItemProps,
-} from 'reka-ui';
+} from 'radix-vue';
 
 import { computed } from 'vue';
 
@@ -13,7 +13,7 @@ import {
   DropdownMenuItemIndicator,
   DropdownMenuRadioItem,
   useForwardPropsEmits,
-} from 'reka-ui';
+} from 'radix-vue';
 
 const props = defineProps<DropdownMenuRadioItemProps & { class?: any }>();
 

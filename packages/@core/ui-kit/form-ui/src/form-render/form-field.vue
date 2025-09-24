@@ -7,13 +7,13 @@ import { computed, nextTick, onUnmounted, useTemplateRef, watch } from 'vue';
 
 import { CircleAlert } from '@finn-core/icons';
 import {
+  FinnRenderContent,
+  FinnTooltip,
   FormControl,
   FormDescription,
   FormField,
   FormItem,
   FormMessage,
-  FinnRenderContent,
-  FinnTooltip,
 } from '@finn-core/shadcn-ui';
 import { cn, isFunction, isObject, isString } from '@finn-core/shared/utils';
 

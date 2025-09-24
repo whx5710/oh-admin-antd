@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import type { SelectTriggerProps } from 'reka-ui';
+import type { SelectTriggerProps } from 'radix-vue';
 
 import { computed } from 'vue';
 
 import { cn } from '@finn-core/shared/utils';
 
 import { ChevronDown } from 'lucide-vue-next';
-import { SelectIcon, SelectTrigger, useForwardProps } from 'reka-ui';
+import { SelectIcon, SelectTrigger, useForwardProps } from 'radix-vue';
 
 const props = defineProps<SelectTriggerProps & { class?: any }>();
 

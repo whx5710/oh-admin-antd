@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { ContextMenuItemEmits, ContextMenuItemProps } from 'reka-ui';
+import type { ContextMenuItemEmits, ContextMenuItemProps } from 'radix-vue';
 
 import { computed } from 'vue';
 
 import { cn } from '@finn-core/shared/utils';
 
-import { ContextMenuItem, useForwardPropsEmits } from 'reka-ui';
+import { ContextMenuItem, useForwardPropsEmits } from 'radix-vue';
 
 const props = defineProps<
   ContextMenuItemProps & { class?: any; inset?: boolean }

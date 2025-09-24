@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { AccordionItemProps } from 'reka-ui';
+import type { AccordionItemProps } from 'radix-vue';
 
 import { computed } from 'vue';
 
 import { cn } from '@finn-core/shared/utils';
 
-import { AccordionItem, useForwardProps } from 'reka-ui';
+import { AccordionItem, useForwardProps } from 'radix-vue';
 
 const props = defineProps<AccordionItemProps & { class?: any }>();
 

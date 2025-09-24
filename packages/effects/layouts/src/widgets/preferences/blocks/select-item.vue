@@ -6,12 +6,12 @@ import { useSlots } from 'vue';
 import { CircleHelp } from '@finn/icons';
 
 import {
+  FinnTooltip,
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-  FinnTooltip,
 } from '@finn-core/shadcn-ui';
 
 defineOptions({

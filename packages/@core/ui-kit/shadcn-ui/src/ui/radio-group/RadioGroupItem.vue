@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { RadioGroupItemProps } from 'reka-ui';
+import type { RadioGroupItemProps } from 'radix-vue';
 
 import { computed } from 'vue';
 
@@ -10,7 +10,7 @@ import {
   RadioGroupIndicator,
   RadioGroupItem,
   useForwardProps,
-} from 'reka-ui';
+} from 'radix-vue';
 
 const props = defineProps<RadioGroupItemProps & { class?: any }>();
 

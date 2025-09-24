@@ -3,7 +3,7 @@ import type { AvatarVariants } from './avatar';
 
 import { cn } from '@finn-core/shared/utils';
 
-import { AvatarRoot } from 'reka-ui';
+import { AvatarRoot } from 'radix-vue';
 
 import { avatarVariant } from './avatar';
 

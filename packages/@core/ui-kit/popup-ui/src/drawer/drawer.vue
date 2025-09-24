@@ -18,6 +18,10 @@ import {
 } from '@finn-core/composables';
 import { X } from '@finn-core/icons';
 import {
+  FinnButton,
+  FinnHelpTooltip,
+  FinnIconButton,
+  FinnLoading,
   Separator,
   Sheet,
   SheetClose,
@@ -26,10 +30,6 @@ import {
   SheetFooter,
   SheetHeader,
   SheetTitle,
-  FinnButton,
-  FinnHelpTooltip,
-  FinnIconButton,
-  FinnLoading,
   VisuallyHidden,
 } from '@finn-core/shadcn-ui';
 import { ELEMENT_ID_MAIN_CONTENT } from '@finn-core/shared/constants';

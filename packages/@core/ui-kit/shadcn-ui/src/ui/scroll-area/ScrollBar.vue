@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { ScrollAreaScrollbarProps } from 'reka-ui';
+import type { ScrollAreaScrollbarProps } from 'radix-vue';
 
 import { computed } from 'vue';
 
 import { cn } from '@finn-core/shared/utils';
 
-import { ScrollAreaScrollbar, ScrollAreaThumb } from 'reka-ui';
+import { ScrollAreaScrollbar, ScrollAreaThumb } from 'radix-vue';
 
 const props = withDefaults(
   defineProps<ScrollAreaScrollbarProps & { class?: any }>(),

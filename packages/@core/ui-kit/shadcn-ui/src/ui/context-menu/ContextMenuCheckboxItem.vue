@@ -2,7 +2,7 @@
 import type {
   ContextMenuCheckboxItemEmits,
   ContextMenuCheckboxItemProps,
-} from 'reka-ui';
+} from 'radix-vue';
 
 import { computed } from 'vue';
 
@@ -13,7 +13,7 @@ import {
   ContextMenuCheckboxItem,
   ContextMenuItemIndicator,
   useForwardPropsEmits,
-} from 'reka-ui';
+} from 'radix-vue';
 
 const props = defineProps<ContextMenuCheckboxItemProps & { class?: any }>();
 const emits = defineEmits<ContextMenuCheckboxItemEmits>();

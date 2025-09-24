@@ -9,7 +9,7 @@ import type { ComponentPublicInstance } from 'vue';
 
 import type { Recordable } from '@finn-core/typings';
 
-import type { FormActions, FormSchema, FinnFormProps } from './types';
+import type { FinnFormProps, FormActions, FormSchema } from './types';
 
 import { isRef, toRaw } from 'vue';
 
@@ -54,7 +54,7 @@ export class FormApi {
   public form = {} as FormActions;
   isMounted = false;
 
-  public state: null | FinnFormProps = null;
+  public state: FinnFormProps | null = null;
   stateHandler: StateHandler;
 
   public store: Store<FinnFormProps>;
@@ -67,7 +67,7 @@ export class FormApi {
   // 最后一次点击提交时的表单值
   private latestSubmissionValues: null | Recordable<any> = null;
 
-  private prevState: null | FinnFormProps = null;
+  private prevState: FinnFormProps | null = null;
 
   constructor(options: FinnFormProps = {}) {
     const { ...storeState } = options;

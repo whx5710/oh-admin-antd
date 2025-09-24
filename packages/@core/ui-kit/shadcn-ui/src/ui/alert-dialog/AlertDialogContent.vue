@@ -2,7 +2,7 @@
 import type {
   AlertDialogContentEmits,
   AlertDialogContentProps,
-} from 'reka-ui';
+} from 'radix-vue';
 
 import type { ClassType } from '@finn-core/typings';
 
@@ -14,7 +14,7 @@ import {
   AlertDialogContent,
   AlertDialogPortal,
   useForwardPropsEmits,
-} from 'reka-ui';
+} from 'radix-vue';
 
 import AlertDialogOverlay from './AlertDialogOverlay.vue';
 

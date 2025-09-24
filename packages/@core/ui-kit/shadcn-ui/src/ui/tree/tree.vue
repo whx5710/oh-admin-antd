@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { Arrayable } from '@vueuse/core';
-import type { FlattenedItem } from 'reka-ui';
+import type { FlattenedItem } from 'radix-vue';
 
 import type { ClassType, Recordable } from '@finn-core/typings';
 
@@ -11,7 +11,7 @@ import { onMounted, ref, watchEffect } from 'vue';
 import { ChevronRight, IconifyIcon } from '@finn-core/icons';
 import { cn, get } from '@finn-core/shared/utils';
 
-import { TreeItem, TreeRoot } from 'reka-ui';
+import { TreeItem, TreeRoot } from 'radix-vue';
 
 import { Checkbox } from '../checkbox';
 
@@ -96,45 +96,34 @@ function getItemByValue(value: number | string) {
     (item) => get(item.value, props.valueField) === value,
   )?.value;
 }
-// 复选框未生效
-// function updateTreeValue() {
-//   const val = modelValue.value;
-//   if (val === undefined) {
-//     treeValue.value = undefined;
-//   } else {
-//     if (Array.isArray(val)) {
-//       const filteredValues = val.filter((v) => {
-//         const item = getItemByValue(v);
-//         return item && !get(item, props.disabledField);
-//       });
-//       if(filteredValues && filteredValues.length > 0){
-//         treeValue.value = filteredValues.map((v) => getItemByValue(v));
-//         if (filteredValues.length !== val.length) {
-//           modelValue.value = filteredValues;
-//         }
-//       }else{
-//         treeValue.value = val.map((v) => getItemByValue(v));
-//       }
-      
-//     } else {
-//       const item = getItemByValue(val);
-//       if (item && !get(item, props.disabledField)) {
-//         treeValue.value = item;
-//       } else {
-//         treeValue.value = undefined;
-//         modelValue.value = undefined;
-//       }
-//     }
-//   }
-// }
+
 function updateTreeValue() {
   const val = modelValue.value;
   if (val === undefined) {
     treeValue.value = undefined;
   } else {
-    treeValue.value = Array.isArray(val)
-      ? val.map((v) => getItemByValue(v))
-      : getItemByValue(val);
+    if (Array.isArray(val)) {
+      const filteredValues = val.filter((v) => {
+        const item = getItemByValue(v);
+        return item && !get(item, props.disabledField);
+      });
+      if (filteredValues && filteredValues.length > 0) {
+        treeValue.value = filteredValues.map((v) => getItemByValue(v));
+        if (filteredValues.length !== val.length) {
+          modelValue.value = filteredValues;
+        }
+      } else {
+        treeValue.value = val.map((v) => getItemByValue(v));
+      }
+    } else {
+      const item = getItemByValue(val);
+      if (item && !get(item, props.disabledField)) {
+        treeValue.value = item;
+      } else {
+        treeValue.value = undefined;
+        modelValue.value = undefined;
+      }
+    }
   }
 }
 

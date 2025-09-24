@@ -5,7 +5,7 @@ import { useSlots } from 'vue';
 
 import { CircleHelp } from '@finn/icons';
 
-import { Input, FinnTooltip } from '@finn-core/shadcn-ui';
+import { FinnTooltip, Input } from '@finn-core/shadcn-ui';
 
 defineOptions({
   name: 'PreferenceSelectItem',

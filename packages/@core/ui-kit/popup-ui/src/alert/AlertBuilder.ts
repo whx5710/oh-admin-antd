@@ -7,7 +7,7 @@ import type { AlertProps, BeforeCloseScope, PromptProps } from './alert';
 import { h, nextTick, ref, render } from 'vue';
 
 import { useSimpleLocale } from '@finn-core/composables';
-import { Input, FinnRenderContent } from '@finn-core/shadcn-ui';
+import { FinnRenderContent, Input } from '@finn-core/shadcn-ui';
 import { isFunction, isString } from '@finn-core/shared/utils';
 
 import Alert from './alert.vue';

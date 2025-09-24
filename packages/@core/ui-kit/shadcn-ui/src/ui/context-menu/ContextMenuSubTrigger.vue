@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import type { ContextMenuSubTriggerProps } from 'reka-ui';
+import type { ContextMenuSubTriggerProps } from 'radix-vue';
 
 import { computed } from 'vue';
 
 import { cn } from '@finn-core/shared/utils';
 
 import { ChevronRight } from 'lucide-vue-next';
-import { ContextMenuSubTrigger, useForwardProps } from 'reka-ui';
+import { ContextMenuSubTrigger, useForwardProps } from 'radix-vue';
 
 const props = defineProps<
   ContextMenuSubTriggerProps & {

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { CheckboxRootEmits, CheckboxRootProps } from 'reka-ui';
+import type { CheckboxRootEmits, CheckboxRootProps } from 'radix-vue';
 
 import { computed } from 'vue';
 
@@ -10,7 +10,7 @@ import {
   CheckboxIndicator,
   CheckboxRoot,
   useForwardPropsEmits,
-} from 'reka-ui';
+} from 'radix-vue';
 
 const props = defineProps<
   CheckboxRootProps & { class?: any; indeterminate?: boolean }

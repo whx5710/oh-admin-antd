@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import type { PrimitiveProps } from 'reka-ui';
+import type { PrimitiveProps } from 'radix-vue';
 
 import { cn } from '@finn-core/shared/utils';
 
-import { Primitive } from 'reka-ui';
+import { Primitive } from 'radix-vue';
 
 const props = withDefaults(defineProps<PrimitiveProps & { class?: any }>(), {
   as: 'a',

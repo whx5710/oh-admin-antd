@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { SelectSeparatorProps } from 'reka-ui';
+import type { SelectSeparatorProps } from 'radix-vue';
 
 import { computed } from 'vue';
 
 import { cn } from '@finn-core/shared/utils';
 
-import { SelectSeparator } from 'reka-ui';
+import { SelectSeparator } from 'radix-vue';
 
 const props = defineProps<SelectSeparatorProps & { class?: any }>();
 

@@ -60,7 +60,7 @@ class RequestClient {
       },
       responseReturn: 'raw',
       // 默认超时时间
-      timeout: 60_000,
+      timeout: 10_000,
     };
     const { ...axiosConfig } = options;
     const requestConfig = merge(axiosConfig, defaultConfig);
@@ -91,10 +91,9 @@ class RequestClient {
    */
   public delete<T = any>(
     url: string,
-    data?: any,
     config?: RequestClientConfig,
   ): Promise<T> {
-    return this.request<T>(url, { ...config, data, method: 'DELETE' });
+    return this.request<T>(url, { ...config, method: 'DELETE' });
   }
 
   /**

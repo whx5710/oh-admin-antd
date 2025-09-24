@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { ContextMenuSeparatorProps } from 'reka-ui';
+import type { ContextMenuSeparatorProps } from 'radix-vue';
 
 import { computed } from 'vue';
 
 import { cn } from '@finn-core/shared/utils';
 
-import { ContextMenuSeparator } from 'reka-ui';
+import { ContextMenuSeparator } from 'radix-vue';
 
 const props = defineProps<ContextMenuSeparatorProps & { class?: any }>();
 

@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { TabsTriggerProps } from 'reka-ui';
+import type { TabsTriggerProps } from 'radix-vue';
 
 import { computed } from 'vue';
 
 import { cn } from '@finn-core/shared/utils';
 
-import { TabsTrigger, useForwardProps } from 'reka-ui';
+import { TabsTrigger, useForwardProps } from 'radix-vue';
 
 const props = defineProps<TabsTriggerProps & { class?: any }>();
 

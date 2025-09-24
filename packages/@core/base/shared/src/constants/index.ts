@@ -1,2 +1,2 @@
-export * from './globals';
 export * from './finn';
+export * from './globals';
