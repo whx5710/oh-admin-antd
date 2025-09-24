@@ -6,7 +6,11 @@ import { computed } from 'vue';
 import { cn } from '@finn-core/shared/utils';
 
 import { Circle } from 'lucide-vue-next';
-import { RadioGroupIndicator, RadioGroupItem, useForwardProps } from 'reka-ui';
+import {
+  RadioGroupIndicator,
+  RadioGroupItem,
+  useForwardProps,
+} from 'reka-ui';
 
 const props = defineProps<RadioGroupItemProps & { class?: any }>();
 

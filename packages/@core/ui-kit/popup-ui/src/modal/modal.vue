@@ -35,7 +35,7 @@ import { ELEMENT_ID_MAIN_CONTENT } from '@finn-core/shared/constants';
 import { globalShareState } from '@finn-core/shared/global-state';
 import { cn } from '@finn-core/shared/utils';
 
-import { useFinnModalDraggable } from './use-modal-draggable';
+import { useModalDraggable } from './use-modal-draggable';
 
 interface Props extends ModalProps {
   modalApi?: ExtendedModalApi;
@@ -110,7 +110,7 @@ const getAppendTo = computed(() => {
     : undefined;
 });
 
-const { dragging, transform } = useFinnModalDraggable(
+const { dragging, transform } = useModalDraggable(
   dialogRef,
   headerRef,
   shouldDraggable,

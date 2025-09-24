@@ -51,7 +51,7 @@ function createRequestClient(baseURL: string, options?: RequestClientOptions) {
   async function doRefreshToken() {
     const accessStore = useAccessStore();
     const resp = await refreshTokenApi();
-    const newToken = resp.data;
+    const newToken = resp.accessToken;
     accessStore.setAccessToken(newToken);
     return newToken;
   }
@@ -109,5 +109,7 @@ function createRequestClient(baseURL: string, options?: RequestClientOptions) {
 export const requestClient = createRequestClient(apiURL, {
   responseReturn: 'data',
 });
-
+/**
+ * 不会传token
+ */
 export const baseRequestClient = new RequestClient({ baseURL: apiURL });

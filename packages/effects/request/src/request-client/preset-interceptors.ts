@@ -21,13 +21,14 @@ export const defaultResponseInterceptor = ({
   return {
     fulfilled: (response) => {
       const { config, data: responseData, status } = response;
-
+      // responseReturn 配置成 raw，返回完整的接口数据，否则只返回data
       if (config.responseReturn === 'raw') {
         return response;
       }
 
       if (status >= 200 && status < 400) {
         if (config.responseReturn === 'body') {
+          // 返回body数据
           return responseData;
         } else if (
           isFunction(successCode)
@@ -59,9 +60,9 @@ export const authenticateResponseInterceptor = ({
 }): ResponseInterceptorConfig => {
   return {
     rejected: async (error) => {
-      const { config, response } = error;
+      const { config, data } = error;
       // 如果不是 401 错误，直接抛出异常
-      if (response?.status !== 401) {
+      if (data?.code !== 401) {
         throw error;
       }
       // 判断是否启用了 refreshToken 功能
@@ -132,34 +133,37 @@ export const errorMessageResponseInterceptor = (
 
       let errorMessage = '';
       const status = error?.response?.status;
-
-      switch (status) {
-        case 400: {
-          errorMessage = $t('ui.fallback.http.badRequest');
-          break;
+      if (status) {
+        switch (status) {
+          case 400: {
+            errorMessage = $t('ui.fallback.http.badRequest');
+            break;
+          }
+          case 401: {
+            errorMessage = $t('ui.fallback.http.unauthorized');
+            break;
+          }
+          case 403: {
+            errorMessage = $t('ui.fallback.http.forbidden');
+            break;
+          }
+          case 404: {
+            errorMessage = $t('ui.fallback.http.notFound');
+            break;
+          }
+          case 408: {
+            errorMessage = $t('ui.fallback.http.requestTimeout');
+            break;
+          }
+          default: {
+            errorMessage = $t('ui.fallback.http.internalServerError');
+          }
         }
-        case 401: {
-          errorMessage = $t('ui.fallback.http.unauthorized');
-          break;
-        }
-        case 403: {
-          errorMessage = $t('ui.fallback.http.forbidden');
-          break;
-        }
-        case 404: {
-          errorMessage = $t('ui.fallback.http.notFound');
-          break;
-        }
-        case 408: {
-          errorMessage = $t('ui.fallback.http.requestTimeout');
-          break;
-        }
-        default: {
-          errorMessage = $t('ui.fallback.http.internalServerError');
-        }
+        makeErrorMessage?.(errorMessage, error);
+        return Promise.reject(error);
+      } else {
+        console.warn('未知的异常！', error);
       }
-      makeErrorMessage?.(errorMessage, error);
-      return Promise.reject(error);
     },
   };
 };

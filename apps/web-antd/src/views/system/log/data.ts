@@ -151,6 +151,7 @@ export function useOpGridFormSchema(): FinnFormSchema[] {
 // 登录日志
 export function useLoginColumns(): VxeTableGridOptions['columns'] {
   return [
+    { type: 'checkbox', width: 60 },
     { title: '序号', type: 'seq', width: 50 },
     {
       field: 'id',
@@ -174,9 +175,16 @@ export function useLoginColumns(): VxeTableGridOptions['columns'] {
       minWidth: 180,
     },
     {
-      field: 'status',
+      field: 'status', // 登录状态  0：失败   1：成功
       width: 120,
       title: '登录状态',
+      cellRender: {
+        name: 'CellTag',
+        options: [
+          { color: 'warning', label: '失败', value: 0 },
+          { color: 'success', label: '成功', value: 1 },
+        ],
+      },
     },
     {
       field: 'ip',
@@ -188,11 +196,11 @@ export function useLoginColumns(): VxeTableGridOptions['columns'] {
       minWidth: 120,
       title: 'User Agent',
     },
-    {
-      field: 'statusLabel',
-      minWidth: 120,
-      title: '登录状态',
-    },
+    // {
+    //   field: 'statusLabel',
+    //   minWidth: 120,
+    //   title: '登录状态',
+    // },
     {
       field: 'operationLabel',
       minWidth: 120,
@@ -230,6 +238,7 @@ export function useLoginColumns(): VxeTableGridOptions['columns'] {
 // 操作日志
 export function useOpColumns(): VxeTableGridOptions['columns'] {
   return [
+    { type: 'checkbox', width: 60 },
     { title: '序号', type: 'seq', width: 50 },
     {
       field: 'id',
@@ -288,7 +297,7 @@ export function useOpColumns(): VxeTableGridOptions['columns'] {
       title: 'User Agent',
     },
     {
-      field: 'operateType',
+      field: 'operateTypeLabel',
       minWidth: 120,
       title: '操作类型',
     },
@@ -301,6 +310,13 @@ export function useOpColumns(): VxeTableGridOptions['columns'] {
       field: 'status',
       minWidth: 120,
       title: '操作状态',
+      cellRender: {
+        name: 'CellTag',
+        options: [
+          { color: 'warning', label: '失败', value: 0 },
+          { color: 'success', label: '成功', value: 1 },
+        ],
+      },
     },
     {
       field: 'resultMsg',

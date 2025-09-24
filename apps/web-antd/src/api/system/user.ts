@@ -22,6 +22,13 @@ export namespace SystemUserApi {
     roleIdList: string[];
     postIdList: string[];
   }
+  export interface UserToken {
+    id: string;
+    username: string;
+    realName: string;
+    accessToken: string;
+    loginTime: string;
+  }
 }
 
 /**
@@ -108,5 +115,46 @@ export async function userExport(params: Recordable<any>) {
       params,
       responseReturn: 'raw',
     },
+  );
+}
+/**
+ * 在线用户
+ * @param params 参数
+ * @returns l
+ */
+export async function onlineUserPage(params: Recordable<any>) {
+  return requestClient.get<Array<SystemUserApi.SystemUser>>(
+    `/${sysApi}/monitor/user/page`,
+    {
+      params,
+    },
+  );
+}
+/**
+ * 下线用户所有token
+ * @returns l
+ */
+export async function forceLogoutAll(userId: string) {
+  return requestClient.get<Array<SystemUserApi.SystemUser>>(
+    `/${sysApi}/monitor/user/forceLogoutAll/${userId}`,
+  );
+}
+/**
+ * 下线token
+ * @returns l
+ */
+export async function forceLogout(accessToken: string) {
+  return requestClient.get<Array<SystemUserApi.SystemUser>>(
+    `/${sysApi}/monitor/user/forceLogout/${accessToken}`,
+  );
+}
+/**
+ * 用户token列表
+ * @param userId 用户ID
+ * @returns s
+ */
+export async function tokenList(userId: string) {
+  return requestClient.get<Array<SystemUserApi.SystemUser>>(
+    `/${sysApi}/monitor/user/tokenList/${userId}`,
   );
 }

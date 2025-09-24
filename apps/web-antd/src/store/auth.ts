@@ -35,7 +35,11 @@ export const useAuthStore = defineStore('auth', () => {
       loginLoading.value = true;
       loginApi(params).then((res) => {
         if (res.success && res.code === 0) {
-          return userByToken(res.data.accessToken, onSuccess);
+          return userByToken(
+            res.data.accessToken,
+            res.data.refreshToken,
+            onSuccess,
+          );
         } else {
           message.error(res.msg);
         }
@@ -47,6 +51,7 @@ export const useAuthStore = defineStore('auth', () => {
   // 获取用户信息
   async function userByToken(
     accessToken: string,
+    refreshToken: string,
     onSuccess?: () => Promise<void> | void,
   ) {
     // 异步处理用户登录操作并获取 accessToken
@@ -54,7 +59,10 @@ export const useAuthStore = defineStore('auth', () => {
     // 如果成功获取到 accessToken
     if (accessToken) {
       accessStore.setAccessToken(accessToken);
-
+      // 刷新token
+      if (refreshToken) {
+        accessStore.setRefreshToken(refreshToken);
+      }
       // 获取用户信息并存储到 accessStore 中
       const [fetchUserInfoResult, accessCodes] = await Promise.all([
         fetchUserInfo(),

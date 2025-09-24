@@ -3,7 +3,7 @@ import type {
   VxeGridListeners,
   VxeTableGridOptions,
 } from '#/adapter/vxe-table';
-import type { SystemLogApi } from '#/api/system/log';
+import type { SystemAppApi } from '#/api/system/app';
 
 import { Page } from '@finn/common-ui';
 import { IconifyIcon } from '@finn/icons';
@@ -22,18 +22,18 @@ import dayjs from 'dayjs';
 
 import { useFinnVxeGrid } from '#/adapter/vxe-table';
 import {
-  deleteLoginByDate,
-  deleteLoginLog,
-  getLoginLogPage,
-  loginLogExport,
-} from '#/api/system/log';
+  deleteByDate,
+  deleteLog,
+  getLogPage,
+  logExport,
+} from '#/api/system/app';
 
-import { useGridFormSchema, useLoginColumns } from './data';
+import { useLogColumns, useLogGridFormSchema } from './data';
 
 const fileMap = new Map();
 
 // 表格事件
-const gridEvents: VxeGridListeners<SystemLogApi.SysLoginLog> = {
+const gridEvents: VxeGridListeners<SystemAppApi.Log> = {
   // 勾选
   checkboxChange: ({ checked, row }) => {
     // console.warn(checked, '选择数据', row);
@@ -62,25 +62,25 @@ const [Grid, gridApi] = useFinnVxeGrid({
   gridEvents,
   showSearchForm: false, // 隐藏搜索表单
   formOptions: {
-    fieldMappingTime: [['createTime', ['startTime', 'endTime']]],
-    schema: useGridFormSchema(),
+    fieldMappingTime: [['createTime', ['startDate', 'endDate']]],
+    schema: useLogGridFormSchema(),
     submitOnChange: true,
     showCollapseButton: false, // 是否显示展开/折叠
   },
   gridOptions: {
-    columns: useLoginColumns(),
+    columns: useLogColumns(),
     height: 'auto',
     keepSource: true,
     proxyConfig: {
       ajax: {
         query: async ({ page }, formValues) => {
-          if (formValues.startTime) {
-            formValues.startTime = `${formValues.startTime} 00:00:00`;
+          if (formValues.startDate) {
+            formValues.startDate = `${formValues.startDate} 00:00:00`;
           }
-          if (formValues.endTime) {
-            formValues.endTime = `${formValues.endTime} 23:59:59`;
+          if (formValues.endDate) {
+            formValues.endDate = `${formValues.endDate} 23:59:59`;
           }
-          return await getLoginLogPage({
+          return await getLogPage({
             pageNum: page.currentPage,
             pageSize: page.pageSize,
             ...formValues,
@@ -100,7 +100,7 @@ const [Grid, gridApi] = useFinnVxeGrid({
       search: true,
       zoom: true,
     },
-  } as VxeTableGridOptions<SystemLogApi.SysLoginLog>,
+  } as VxeTableGridOptions<SystemAppApi.Log>,
 });
 
 // 批量导出
@@ -113,7 +113,7 @@ function batchExport() {
     if (res.endTime) {
       params.endTime = `${res.endTime} 23:59:59`;
     }
-    loginLogExport(params).then((res) => {
+    logExport(params).then((res) => {
       const disposition = res.headers['content-disposition'];
       const filename = disposition.replaceAll('attachment;filename=', '');
       downloadFileFromBlob({
@@ -123,6 +123,7 @@ function batchExport() {
     });
   });
 }
+
 // 批量删除
 function batchDelete() {
   const logIds: string[] = [];
@@ -141,7 +142,7 @@ function batchDelete() {
     duration: 0,
     key: 'action_process_msg',
   });
-  deleteLoginLog(logIds)
+  deleteLog(logIds)
     .then(() => {
       message.success({
         content: '批量删除成功',
@@ -175,7 +176,7 @@ function deleteLogs(value: any) {
         const date = new Date();
         date.setDate(date.getDate() - value.key);
         const formattedDate = dayjs(date).format('YYYY-MM-DD HH:mm:ss');
-        deleteLoginByDate(formattedDate).then(() => {
+        deleteByDate(formattedDate).then(() => {
           message.success({
             content: '删除成功',
             key: 'action_process_msg',
@@ -200,10 +201,10 @@ function deleteLogs(value: any) {
         </Popconfirm>
         <Popconfirm title="确定删除？" @confirm="batchDelete">
           <Button
+            v-access:code="['sys:app:delete']"
             class="mr-2"
             type="primary"
             danger
-            v-access:code="['sys:log:login:delete']"
           >
             <IconifyIcon icon="carbon:row-delete" /> 删除
           </Button>

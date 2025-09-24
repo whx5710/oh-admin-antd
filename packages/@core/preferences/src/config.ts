@@ -2,7 +2,7 @@ import type { Preferences } from './types';
 
 const defaultPreferences: Preferences = {
   app: {
-    accessMode: 'backend', // 'backend' | 'frontend'
+    accessMode: 'backend', // 'backend' | 'frontend' | 'mixed'
     authPageLayout: 'panel-right',
     checkUpdatesInterval: 1,
     colorGrayMode: false,
@@ -63,7 +63,7 @@ const defaultPreferences: Preferences = {
   logo: {
     enable: true,
     fit: 'contain',
-    source: 'https://unpkg.com/@finnjs/static-source@0.1.7/source/logo-v1.webp',
+    source: '/favicon.ico',
   },
   navigation: {
     accordion: true,

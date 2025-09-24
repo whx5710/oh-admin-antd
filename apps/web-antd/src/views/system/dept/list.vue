@@ -232,7 +232,7 @@ watch(searchValue, (value) => {
           <InputSearch
             v-model:value="searchValue"
             style="margin-bottom: 8px"
-            placeholder="请输入关键字"
+            placeholder="请输入部门名称"
           />
           <FinnTree
             ref="deptTreeRef"

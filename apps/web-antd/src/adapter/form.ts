@@ -1,6 +1,6 @@
 import type {
-  FinnFormProps,
   FinnFormSchema as FormSchema,
+  FinnFormProps,
 } from '@finn/common-ui';
 
 import type { ComponentType } from './component';
@@ -13,7 +13,6 @@ async function initSetupFinnForm() {
     config: {
       // ant design vue组件库默认都是 v-model:value
       baseModelPropName: 'value',
-
       // 一些组件是 v-model:checked 或者 v-model:fileList
       modelPropNameMap: {
         Checkbox: 'checked',
@@ -44,6 +43,5 @@ async function initSetupFinnForm() {
 const useFinnForm = useForm<ComponentType>;
 
 export { initSetupFinnForm, useFinnForm, z };
-
 export type FinnFormSchema = FormSchema<ComponentType>;
 export type { FinnFormProps };

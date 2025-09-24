@@ -12,20 +12,6 @@ export function useFormSchema(): FinnFormSchema[] {
       label: $t('system.role.roleName'),
       rules: 'required',
     },
-    // {
-    //   component: 'RadioGroup',
-    //   componentProps: {
-    //     buttonStyle: 'solid',
-    //     options: [
-    //       { label: $t('common.enabled'), value: 1 },
-    //       { label: $t('common.disabled'), value: 0 },
-    //     ],
-    //     optionType: 'button',
-    //   },
-    //   defaultValue: 1,
-    //   fieldName: 'status',
-    //   label: $t('system.role.status'),
-    // },
     {
       component: 'Textarea',
       fieldName: 'remark',
@@ -51,27 +37,6 @@ export function useGridFormSchema(): FinnFormSchema[] {
         allowClear: true,
       },
     },
-    // { component: 'Input', fieldName: 'id', label: $t('system.role.id') },
-    // {
-    //   component: 'Select',
-    //   componentProps: {
-    //     allowClear: true,
-    //     options: [
-    //       { label: $t('common.enabled'), value: 1 },
-    //       { label: $t('common.disabled'), value: 0 },
-    //     ],
-    //   },
-    //   fieldName: 'status',
-    //   label: $t('system.role.status'),
-    // },
-    // {
-    //   component: 'Input',
-    //   fieldName: 'tenantId',
-    //   label: '租户ID',
-    //   componentProps: {
-    //     allowClear: true,
-    //   },
-    // },
     {
       component: 'Input',
       fieldName: 'tenantName',
@@ -80,19 +45,6 @@ export function useGridFormSchema(): FinnFormSchema[] {
         allowClear: true,
       },
     },
-    // {
-    //   component: 'Input',
-    //   fieldName: 'remark',
-    //   label: $t('system.role.remark'),
-    //   componentProps: {
-    //     allowClear: true,
-    //   },
-    // },
-    // {
-    //   component: 'RangePicker',
-    //   fieldName: 'createTime',
-    //   label: $t('system.role.createTime'),
-    // },
   ];
 }
 
@@ -113,15 +65,6 @@ export function useColumns<T = SystemRoleApi.SystemRole>(
       title: $t('system.role.roleName'),
       width: 200,
     },
-    // {
-    //   cellRender: {
-    //     attrs: { beforeChange: onStatusChange },
-    //     name: onStatusChange ? 'CellSwitch' : 'CellTag',
-    //   },
-    //   field: 'status',
-    //   title: $t('system.role.status'),
-    //   width: 100,
-    // },
     {
       cellRender: {
         name: 'CellTag',

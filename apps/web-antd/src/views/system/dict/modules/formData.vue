@@ -30,9 +30,6 @@ const dictTypeId = ref();
 // drawerApi
 const [Drawer, drawerApi] = useFinnDrawer({
   showConfirmButton: false,
-  async onConfirm() {
-    console.warn('------------------onConfirm');
-  },
   onOpenChange() {
     const data = drawerApi.getData<SystemDictApi.SystemType>();
     dictTypeId.value = data.id;

@@ -87,4 +87,24 @@ async function opLogExport(params: Recordable<any>) {
   );
 }
 
-export { getLoginLogPage, getOpLogPage, loginLogExport, opLogExport };
+/**
+ * 删除日志
+ * @param ids 日志 ID
+ */
+async function deleteLoginLog(ids: string[]) {
+  return requestClient.delete(`/${sysApi}/sys/log/login/delete`, ids);
+}
+
+// 按日期删除登录日志
+async function deleteLoginByDate(date: string) {
+  return requestClient.get(`/${sysApi}/sys/log/login/deleteByDate/${date}`);
+}
+
+export {
+  deleteLoginByDate,
+  deleteLoginLog,
+  getLoginLogPage,
+  getOpLogPage,
+  loginLogExport,
+  opLogExport,
+};

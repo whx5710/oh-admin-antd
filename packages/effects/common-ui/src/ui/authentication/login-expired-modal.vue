@@ -6,7 +6,7 @@ import { computed, watch } from 'vue';
 import { $t } from '@finn/locales';
 
 import { useFinnModal } from '@finn-core/popup-ui';
-import { FinnAvatar, Slot } from '@finn-core/shadcn-ui';
+import { Slot, FinnAvatar } from '@finn-core/shadcn-ui';
 
 interface Props extends AuthenticationProps {
   avatar?: string;

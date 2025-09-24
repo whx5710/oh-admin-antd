@@ -8,8 +8,8 @@ import { defineComponent, h, isReactive, onBeforeUnmount, watch } from 'vue';
 
 import { useStore } from '@finn-core/shared/store';
 
-import FinnUseForm from './finn-use-form.vue';
 import { FormApi } from './form-api';
+import FinnUseForm from './finn-use-form.vue';
 
 export function useFinnForm<
   T extends BaseFormComponentType = BaseFormComponentType,

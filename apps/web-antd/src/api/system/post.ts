@@ -63,7 +63,7 @@ async function updatePost(
  * @param id 岗位 ID
  */
 async function deletePost(id: string) {
-  return requestClient.delete(`/${sysApi}/sys/post/${id}`);
+  return requestClient.delete(`/${sysApi}/sys/post`, [id]);
 }
 
 export { createPost, deletePost, getPostList, getPostPage, updatePost };

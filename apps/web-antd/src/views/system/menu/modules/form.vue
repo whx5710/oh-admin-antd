@@ -205,6 +205,7 @@ const schema: FinnFormSchema[] = [
   },
   {
     component: 'AutoComplete',
+    help: '页面组件路径',
     componentProps: {
       allowClear: true,
       class: 'w-full',
@@ -214,9 +215,9 @@ const schema: FinnFormSchema[] = [
       options: componentKeys.map((v) => ({ value: v })),
     },
     dependencies: {
-      rules: (values) => {
-        return values.type === 'menu' ? 'required' : null;
-      },
+      // rules: (values) => {
+      //   return values.type === 'menu' ? 'required' : null;
+      // },
       show: (values) => {
         return values.type === 'menu';
       },

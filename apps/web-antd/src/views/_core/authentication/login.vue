@@ -59,7 +59,11 @@ async function authLogin(
     loginLoading.value = true;
     loginApi(params).then((res) => {
       if (res.success && res.code === 0) {
-        return authStore.userByToken(res.data.accessToken, onSuccess);
+        return authStore.userByToken(
+          res.data.accessToken,
+          res.data.refreshToken,
+          onSuccess,
+        );
       } else {
         message.error(res.msg);
         onCaptcha();

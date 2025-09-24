@@ -21,13 +21,20 @@ export function useSchema(): FinnFormSchema[] {
   return [
     {
       component: 'Input',
+      fieldName: 'id',
+      componentProps: () => {
+        return { class: 'hidden' };
+      },
+    },
+    {
+      component: 'Input',
       fieldName: 'dictType',
       label: '字典类型',
       componentProps: (values) => {
         return {
           allowClear: true,
           class: 'w-full',
-          disabled: values?.dictType !== undefined,
+          disabled: values?.dictType !== undefined && values?.id !== undefined,
         };
       },
     },
@@ -35,15 +42,6 @@ export function useSchema(): FinnFormSchema[] {
       component: 'Input',
       fieldName: 'dictName',
       label: '字典名称',
-    },
-    {
-      component: 'InputNumber',
-      fieldName: 'sort',
-      label: '排序',
-      componentProps: {
-        style: 'width: 100%',
-        defaultValue: 0,
-      },
     },
     {
       component: 'RadioGroup',
@@ -68,6 +66,26 @@ export function useSchema(): FinnFormSchema[] {
           allowClear: true,
           class: 'w-full',
           disabled: values?.dictSource === 0,
+        };
+      },
+    },
+    {
+      component: 'InputNumber',
+      fieldName: 'sort',
+      label: '排序',
+      componentProps: {
+        style: 'width: 100%',
+        defaultValue: 0,
+      },
+    },
+    {
+      component: 'Textarea',
+      fieldName: 'remark',
+      label: '备注',
+      componentProps: () => {
+        return {
+          allowClear: true,
+          class: 'w-full',
         };
       },
     },

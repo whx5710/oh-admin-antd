@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { SystemPostApi } from '#/api/system/post';
+import type { SystemAppApi } from '#/api/system/app';
 
 import { computed, ref } from 'vue';
 
@@ -8,15 +8,15 @@ import { useFinnModal } from '@finn/common-ui';
 import { Button } from 'ant-design-vue';
 
 import { useFinnForm } from '#/adapter/form';
-import { createPost, updatePost } from '#/api/system/post';
+import { createFunc, updateFunc } from '#/api/system/app';
 import { $t } from '#/locales';
 
-import { useSchema } from '../data';
+import { useFuncSchema } from '../data';
 
 const emit = defineEmits(['success']);
-const formData = ref<SystemPostApi.SystemPost>();
+const formData = ref<SystemAppApi.Func>();
 const getTitle = computed(() => {
-  return formData.value?.id ? '修改岗位' : '新增岗位';
+  return formData.value?.id ? '修改接口' : '新增接口';
 });
 
 const [Form, formApi] = useFinnForm({
@@ -24,7 +24,7 @@ const [Form, formApi] = useFinnForm({
   // 水平布局，label和input在同一行
   layout: 'horizontal',
   // layout: 'vertical',
-  schema: useSchema(),
+  schema: useFuncSchema(),
   showDefaultActions: false,
 });
 
@@ -41,8 +41,8 @@ const [Modal, modalApi] = useFinnModal({
       const data = await formApi.getValues();
       try {
         await (formData.value?.id
-          ? updatePost(formData.value.id, data)
-          : createPost(data));
+          ? updateFunc(formData.value.id, data)
+          : createFunc(data));
         modalApi.close();
         emit('success');
       } finally {
@@ -52,7 +52,7 @@ const [Modal, modalApi] = useFinnModal({
   },
   onOpenChange(isOpen) {
     if (isOpen) {
-      const data = modalApi.getData<SystemPostApi.SystemPost>();
+      const data = modalApi.getData<SystemAppApi.Func>();
       if (data) {
         formData.value = data;
         formApi.setValues(formData.value);

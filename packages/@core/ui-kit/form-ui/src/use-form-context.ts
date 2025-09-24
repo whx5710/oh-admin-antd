@@ -2,7 +2,7 @@ import type { ZodRawShape } from 'zod';
 
 import type { ComputedRef } from 'vue';
 
-import type { ExtendedFormApi, FinnFormProps, FormActions } from './types';
+import type { ExtendedFormApi, FormActions, FinnFormProps } from './types';
 
 import { computed, unref, useSlots } from 'vue';
 

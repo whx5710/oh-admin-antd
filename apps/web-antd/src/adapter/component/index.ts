@@ -76,6 +76,7 @@ const withDefaultPlaceholder = <T extends Component>(
         $t(`ui.placeholder.${type}`);
       // 透传组件暴露的方法
       const innerRef = ref();
+      // const publicApi: Recordable<any> = {};
       expose(
         new Proxy(
           {},
@@ -85,6 +86,14 @@ const withDefaultPlaceholder = <T extends Component>(
           },
         ),
       );
+      // const instance = getCurrentInstance();
+      // instance?.proxy?.$nextTick(() => {
+      //   for (const key in innerRef.value) {
+      //     if (typeof innerRef.value[key] === 'function') {
+      //       publicApi[key] = innerRef.value[key];
+      //     }
+      //   }
+      // });
       return () =>
         h(
           component,
@@ -129,34 +138,21 @@ async function initComponentAdapter() {
     // 如果你的组件体积比较大，可以使用异步加载
     // Button: () =>
     // import('xxx').then((res) => res.Button),
-    ApiSelect: withDefaultPlaceholder(
-      {
-        ...ApiComponent,
-        name: 'ApiSelect',
-      },
-      'select',
-      {
-        component: Select,
-        loadingSlot: 'suffixIcon',
-        visibleEvent: 'onDropdownVisibleChange',
-        modelPropName: 'value',
-      },
-    ),
-    ApiTreeSelect: withDefaultPlaceholder(
-      {
-        ...ApiComponent,
-        name: 'ApiTreeSelect',
-      },
-      'select',
-      {
-        component: TreeSelect,
-        fieldNames: { label: 'label', value: 'value', children: 'children' },
-        loadingSlot: 'suffixIcon',
-        modelPropName: 'value',
-        optionsPropName: 'treeData',
-        visibleEvent: 'onVisibleChange',
-      },
-    ),
+
+    ApiSelect: withDefaultPlaceholder(ApiComponent, 'select', {
+      component: Select,
+      loadingSlot: 'suffixIcon',
+      modelPropName: 'value',
+      visibleEvent: 'onVisibleChange',
+    }),
+    ApiTreeSelect: withDefaultPlaceholder(ApiComponent, 'select', {
+      component: TreeSelect,
+      fieldNames: { label: 'label', value: 'value', children: 'children' },
+      loadingSlot: 'suffixIcon',
+      modelPropName: 'value',
+      optionsPropName: 'treeData',
+      visibleEvent: 'onVisibleChange',
+    }),
     AutoComplete,
     Checkbox,
     CheckboxGroup,

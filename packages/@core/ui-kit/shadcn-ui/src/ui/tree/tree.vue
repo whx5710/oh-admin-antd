@@ -96,31 +96,45 @@ function getItemByValue(value: number | string) {
     (item) => get(item.value, props.valueField) === value,
   )?.value;
 }
-
+// 复选框未生效
+// function updateTreeValue() {
+//   const val = modelValue.value;
+//   if (val === undefined) {
+//     treeValue.value = undefined;
+//   } else {
+//     if (Array.isArray(val)) {
+//       const filteredValues = val.filter((v) => {
+//         const item = getItemByValue(v);
+//         return item && !get(item, props.disabledField);
+//       });
+//       if(filteredValues && filteredValues.length > 0){
+//         treeValue.value = filteredValues.map((v) => getItemByValue(v));
+//         if (filteredValues.length !== val.length) {
+//           modelValue.value = filteredValues;
+//         }
+//       }else{
+//         treeValue.value = val.map((v) => getItemByValue(v));
+//       }
+      
+//     } else {
+//       const item = getItemByValue(val);
+//       if (item && !get(item, props.disabledField)) {
+//         treeValue.value = item;
+//       } else {
+//         treeValue.value = undefined;
+//         modelValue.value = undefined;
+//       }
+//     }
+//   }
+// }
 function updateTreeValue() {
   const val = modelValue.value;
   if (val === undefined) {
     treeValue.value = undefined;
   } else {
-    if (Array.isArray(val)) {
-      const filteredValues = val.filter((v) => {
-        const item = getItemByValue(v);
-        return item && !get(item, props.disabledField);
-      });
-      treeValue.value = filteredValues.map((v) => getItemByValue(v));
-
-      if (filteredValues.length !== val.length) {
-        modelValue.value = filteredValues;
-      }
-    } else {
-      const item = getItemByValue(val);
-      if (item && !get(item, props.disabledField)) {
-        treeValue.value = item;
-      } else {
-        treeValue.value = undefined;
-        modelValue.value = undefined;
-      }
-    }
+    treeValue.value = Array.isArray(val)
+      ? val.map((v) => getItemByValue(v))
+      : getItemByValue(val);
   }
 }
 

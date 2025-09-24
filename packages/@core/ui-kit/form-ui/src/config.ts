@@ -2,8 +2,8 @@ import type { Component } from 'vue';
 
 import type {
   BaseFormComponentType,
-  FinnFormAdapterOptions,
   FormCommonConfig,
+  FinnFormAdapterOptions,
 } from './types';
 
 import { h } from 'vue';

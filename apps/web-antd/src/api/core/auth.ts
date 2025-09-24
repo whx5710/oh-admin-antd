@@ -1,6 +1,6 @@
 import { useAccessStore } from '@finn/stores';
 
-import { baseRequestClient, requestClient } from '#/api/request';
+import { requestClient } from '#/api/request';
 import { sysApi } from '#/config/env';
 
 export namespace AuthApi {
@@ -42,11 +42,9 @@ export async function getCaptcha() {
  * 刷新accessToken
  */
 export async function refreshTokenApi() {
-  return baseRequestClient.post<AuthApi.RefreshTokenResult>(
-    `/${sysApi}/sys/auth/refresh`,
-    {
-      withCredentials: true,
-    },
+  const accessStore = useAccessStore();
+  return requestClient.post<AuthApi.LoginResult>(
+    `/${sysApi}/sys/auth/refresh?refreshToken=${accessStore.refreshToken}`,
   );
 }
 
@@ -55,7 +53,7 @@ export async function refreshTokenApi() {
  */
 export async function logoutApi() {
   const accessStore = useAccessStore();
-  return baseRequestClient.post(
+  return requestClient.post(
     `/${sysApi}/sys/auth/logout?refreshToken=${accessStore.refreshToken}`,
     {
       withCredentials: true,

@@ -9,9 +9,6 @@ import { $t } from '@finn/locales';
 
 import {
   Button,
-  FinnIcon,
-  FinnIconButton,
-  FinnPopover,
   Input,
   Pagination,
   PaginationEllipsis,
@@ -21,6 +18,9 @@ import {
   PaginationListItem,
   PaginationNext,
   PaginationPrev,
+  FinnIcon,
+  FinnIconButton,
+  FinnPopover,
 } from '@finn-core/shadcn-ui';
 import { isFunction } from '@finn-core/shared/utils';
 
