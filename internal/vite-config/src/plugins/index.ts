@@ -103,8 +103,6 @@ async function loadApplicationPlugins(
     importmapOptions,
     injectAppLoading,
     license,
-    nitroMock,
-    nitroMockOptions,
     print,
     printInfoMap,
     pwa,

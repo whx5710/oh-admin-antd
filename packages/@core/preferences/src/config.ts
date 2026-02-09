@@ -2,7 +2,7 @@ import type { Preferences } from './types';
 
 const defaultPreferences: Preferences = {
   app: {
-    accessMode: 'backend', // 'backend' | 'frontend' | 'mixed'
+    accessMode: 'frontend',
     authPageLayout: 'panel-right',
     checkUpdatesInterval: 1,
     colorGrayMode: false,
@@ -22,6 +22,7 @@ const defaultPreferences: Preferences = {
     enableCheckUpdates: true,
     enablePreferences: true,
     enableRefreshToken: false,
+    enableStickyPreferencesNavigationBar: true,
     isMobile: false,
     layout: 'sidebar-nav',
     locale: 'zh-CN',
@@ -29,6 +30,7 @@ const defaultPreferences: Preferences = {
     name: 'Vben Admin',
     preferencesButtonPosition: 'auto',
     watermark: false,
+    watermarkContent: '',
     zIndex: 200,
   },
   breadcrumb: {
@@ -63,7 +65,7 @@ const defaultPreferences: Preferences = {
   logo: {
     enable: true,
     fit: 'contain',
-    source: '/favicon.ico',
+    source: 'https://unpkg.com/@vbenjs/static-source@0.1.7/source/logo-v1.webp',
   },
   navigation: {
     accordion: true,
@@ -104,6 +106,7 @@ const defaultPreferences: Preferences = {
     showMaximize: true,
     showMore: true,
     styleType: 'chrome',
+    visitHistory: true,
     wheelable: true,
   },
   theme: {
@@ -114,6 +117,7 @@ const defaultPreferences: Preferences = {
     colorWarning: 'hsl(42 84% 61%)',
     mode: 'dark',
     radius: '0.5',
+    fontSize: 16,
     semiDarkHeader: false,
     semiDarkSidebar: false,
   },
@@ -132,6 +136,7 @@ const defaultPreferences: Preferences = {
     refresh: true,
     sidebarToggle: true,
     themeToggle: true,
+    timezone: true,
   },
 };
 
