@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { SelectOption } from '@finn/types';
+import type { SelectOption } from '@vben/types';
 
-import { ToggleGroup, ToggleGroupItem } from '@finn-core/shadcn-ui';
+import { ToggleGroup, ToggleGroupItem } from '@vben-core/shadcn-ui';
 
 defineOptions({
   name: 'PreferenceToggleItem',

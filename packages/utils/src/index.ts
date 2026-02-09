@@ -1,4 +1,4 @@
 export * from './helpers';
-export * from '@finn-core/shared/cache';
-export * from '@finn-core/shared/color';
-export * from '@finn-core/shared/utils';
+export * from '@vben-core/shared/cache';
+export * from '@vben-core/shared/color';
+export * from '@vben-core/shared/utils';

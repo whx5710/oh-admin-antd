@@ -3,8 +3,8 @@ import type { ZodTypeAny } from 'zod';
 
 import type { Component, HtmlHTMLAttributes, Ref } from 'vue';
 
-import type { FinnButtonProps } from '@finn-core/shadcn-ui';
-import type { ClassType, MaybeComputedRef } from '@finn-core/typings';
+import type { VbenButtonProps } from '@vben-core/shadcn-ui';
+import type { ClassType, MaybeComputedRef } from '@vben-core/typings';
 
 import type { FormApi } from './form-api';
 
@@ -13,11 +13,11 @@ export type FormLayout = 'horizontal' | 'vertical';
 export type BaseFormComponentType =
   | 'DefaultButton'
   | 'PrimaryButton'
-  | 'FinnCheckbox'
-  | 'FinnInput'
-  | 'FinnInputPassword'
-  | 'FinnPinInput'
-  | 'FinnSelect'
+  | 'VbenCheckbox'
+  | 'VbenInput'
+  | 'VbenInputPassword'
+  | 'VbenPinInput'
+  | 'VbenSelect'
   | (Record<never, never> & string);
 
 type Breakpoints = '2xl:' | '3xl:' | '' | 'lg:' | 'md:' | 'sm:' | 'xl:';
@@ -338,13 +338,13 @@ export interface FormRenderProps<
   wrapperClass?: WrapperClassType;
 }
 
-export interface ActionButtonOptions extends FinnButtonProps {
+export interface ActionButtonOptions extends VbenButtonProps {
   [key: string]: any;
   content?: MaybeComputedRef<string>;
   show?: boolean;
 }
 
-export interface FinnFormProps<
+export interface VbenFormProps<
   T extends BaseFormComponentType = BaseFormComponentType,
 > extends Omit<
     FormRenderProps<T>,
@@ -427,12 +427,12 @@ export interface FinnFormProps<
 }
 
 export type ExtendedFormApi = FormApi & {
-  useStore: <T = NoInfer<FinnFormProps>>(
-    selector?: (state: NoInfer<FinnFormProps>) => T,
+  useStore: <T = NoInfer<VbenFormProps>>(
+    selector?: (state: NoInfer<VbenFormProps>) => T,
   ) => Readonly<Ref<T>>;
 };
 
-export interface FinnFormAdapterOptions<
+export interface VbenFormAdapterOptions<
   T extends BaseFormComponentType = BaseFormComponentType,
 > {
   config?: {

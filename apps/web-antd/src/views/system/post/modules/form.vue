@@ -3,11 +3,11 @@ import type { SystemPostApi } from '#/api/system/post';
 
 import { computed, ref } from 'vue';
 
-import { useFinnModal } from '@finn/common-ui';
+import { useVbenModal } from '@vben/common-ui';
 
 import { Button } from 'ant-design-vue';
 
-import { useFinnForm } from '#/adapter/form';
+import { useVbenForm } from '#/adapter/form';
 import { createPost, updatePost } from '#/api/system/post';
 import { $t } from '#/locales';
 
@@ -19,7 +19,7 @@ const getTitle = computed(() => {
   return formData.value?.id ? '修改岗位' : '新增岗位';
 });
 
-const [Form, formApi] = useFinnForm({
+const [Form, formApi] = useVbenForm({
   // 垂直布局，label和input在不同行，值为vertical
   // 水平布局，label和input在同一行
   layout: 'horizontal',
@@ -33,7 +33,7 @@ function resetForm() {
   formApi.setValues(formData.value || {});
 }
 
-const [Modal, modalApi] = useFinnModal({
+const [Modal, modalApi] = useVbenModal({
   async onConfirm() {
     const { valid } = await formApi.validate();
     if (valid) {

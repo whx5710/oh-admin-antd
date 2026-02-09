@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { Recordable } from '@finn/types';
+import type { Recordable } from '@vben/types';
 
 import type {
   OnActionClickParams,
@@ -9,9 +9,9 @@ import type { SystemUserApi } from '#/api/system/user';
 
 import { reactive, ref, watch } from 'vue';
 
-import { FinnTree, Page, useFinnModal } from '@finn/common-ui';
-import { IconifyIcon, Plus } from '@finn/icons';
-import { downloadFileFromBlob } from '@finn/utils';
+import { VbenTree, Page, useVbenModal } from '@vben/common-ui';
+import { IconifyIcon, Plus } from '@vben/icons';
+import { downloadFileFromBlob } from '@vben/utils';
 
 import {
   Button,
@@ -23,7 +23,7 @@ import {
   Row,
 } from 'ant-design-vue';
 
-import { useFinnVxeGrid } from '#/adapter/vxe-table';
+import { useVbenVxeGrid } from '#/adapter/vxe-table';
 import { getDeptTreeList } from '#/api/system/dept';
 import {
   deleteUser,
@@ -38,7 +38,7 @@ import Form from './modules/form.vue';
 
 // 获取上级部门ID
 let expandedKeys: Array<number | string> = [];
-const [FormModal, formModalApi] = useFinnModal({
+const [FormModal, formModalApi] = useVbenModal({
   connectedComponent: Form,
   destroyOnClose: true,
 });
@@ -108,7 +108,7 @@ function onActionClick({
   }
 }
 
-const [Grid, gridApi] = useFinnVxeGrid({
+const [Grid, gridApi] = useVbenVxeGrid({
   showSearchForm: false, // 默认隐藏搜索表单
   gridEvents: {},
   // 搜索表单
@@ -263,7 +263,7 @@ function batchExport() {
             style="margin-bottom: 8px"
             placeholder="请输入关键字"
           />
-          <FinnTree
+          <VbenTree
             ref="deptTreeRef"
             :tree-data="treeData"
             bordered
@@ -291,7 +291,7 @@ function batchExport() {
               </span>
               <span v-else>{{ item.value.name }}</span>
             </template>
-          </FinnTree>
+          </VbenTree>
         </Card>
       </Page>
     </Col>

@@ -1,6 +1,6 @@
 import type { CAC } from 'cac';
 
-import { getPackages } from '@finn/node-utils';
+import { getPackages } from '@vben/node-utils';
 
 import depcheck from 'depcheck';
 
@@ -11,23 +11,23 @@ const DEFAULT_CONFIG = {
     'vite',
     'vitest',
     'unbuild',
-    '@finn/tsconfig',
-    '@finn/vite-config',
-    '@finn/tailwind-config',
+    '@vben/tsconfig',
+    '@vben/vite-config',
+    '@vben/tailwind-config',
     '@types/*',
-    '@finn-core/design',
+    '@vben-core/design',
   ],
   // 需要忽略的包
   ignorePackages: [
-    '@finn/commitlint-config',
-    '@finn/eslint-config',
-    '@finn/node-utils',
-    '@finn/prettier-config',
-    '@finn/stylelint-config',
-    '@finn/tailwind-config',
-    '@finn/tsconfig',
-    '@finn/vite-config',
-    '@finn/vsh',
+    '@vben/commitlint-config',
+    '@vben/eslint-config',
+    '@vben/node-utils',
+    '@vben/prettier-config',
+    '@vben/stylelint-config',
+    '@vben/tailwind-config',
+    '@vben/tsconfig',
+    '@vben/vite-config',
+    '@vben/vsh',
   ],
   // 需要忽略的文件模式
   ignorePatterns: ['dist', 'node_modules', 'public'],

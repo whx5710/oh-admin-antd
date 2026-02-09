@@ -1,4 +1,4 @@
-import type { BuiltinThemeType } from '@finn-core/typings';
+import type { BuiltinThemeType } from '@vben-core/typings';
 
 interface BuiltinThemePreset {
   color: string;

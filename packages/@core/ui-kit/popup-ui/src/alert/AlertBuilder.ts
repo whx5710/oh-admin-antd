@@ -1,14 +1,14 @@
 import type { Component, VNode } from 'vue';
 
-import type { Recordable } from '@finn-core/typings';
+import type { Recordable } from '@vben-core/typings';
 
 import type { AlertProps, BeforeCloseScope, PromptProps } from './alert';
 
 import { h, nextTick, ref, render } from 'vue';
 
-import { useSimpleLocale } from '@finn-core/composables';
-import { Input, FinnRenderContent } from '@finn-core/shadcn-ui';
-import { isFunction, isString } from '@finn-core/shared/utils';
+import { useSimpleLocale } from '@vben-core/composables';
+import { Input, VbenRenderContent } from '@vben-core/shadcn-ui';
+import { isFunction, isString } from '@vben-core/shared/utils';
 
 import Alert from './alert.vue';
 
@@ -16,18 +16,18 @@ const alerts = ref<Array<{ container: HTMLElement; instance: Component }>>([]);
 
 const { $t } = useSimpleLocale();
 
-export function finnAlert(options: AlertProps): Promise<void>;
-export function finnAlert(
+export function vbenAlert(options: AlertProps): Promise<void>;
+export function vbenAlert(
   message: string,
   options?: Partial<AlertProps>,
 ): Promise<void>;
-export function finnAlert(
+export function vbenAlert(
   message: string,
   title?: string,
   options?: Partial<AlertProps>,
 ): Promise<void>;
 
-export function finnAlert(
+export function vbenAlert(
   arg0: AlertProps | string,
   arg1?: Partial<AlertProps> | string,
   arg2?: Partial<AlertProps>,
@@ -95,18 +95,18 @@ export function finnAlert(
   });
 }
 
-export function finnConfirm(options: AlertProps): Promise<void>;
-export function finnConfirm(
+export function vbenConfirm(options: AlertProps): Promise<void>;
+export function vbenConfirm(
   message: string,
   options?: Partial<AlertProps>,
 ): Promise<void>;
-export function finnConfirm(
+export function vbenConfirm(
   message: string,
   title?: string,
   options?: Partial<AlertProps>,
 ): Promise<void>;
 
-export function finnConfirm(
+export function vbenConfirm(
   arg0: AlertProps | string,
   arg1?: Partial<AlertProps> | string,
   arg2?: Partial<AlertProps>,
@@ -116,20 +116,20 @@ export function finnConfirm(
   };
   if (!arg1) {
     return isString(arg0)
-      ? finnAlert(arg0, defaultProps)
-      : finnAlert({ ...defaultProps, ...arg0 });
+      ? vbenAlert(arg0, defaultProps)
+      : vbenAlert({ ...defaultProps, ...arg0 });
   } else if (!arg2) {
     return isString(arg1)
-      ? finnAlert(arg0 as string, arg1, defaultProps)
-      : finnAlert(arg0 as string, { ...defaultProps, ...arg1 });
+      ? vbenAlert(arg0 as string, arg1, defaultProps)
+      : vbenAlert(arg0 as string, { ...defaultProps, ...arg1 });
   }
-  return finnAlert(arg0 as string, arg1 as string, {
+  return vbenAlert(arg0 as string, arg1 as string, {
     ...defaultProps,
     ...arg2,
   });
 }
 
-export async function finnPrompt<T = any>(
+export async function vbenPrompt<T = any>(
   options: PromptProps<T>,
 ): Promise<T | undefined> {
   const {
@@ -146,7 +146,7 @@ export async function finnPrompt<T = any>(
   const inputComponentRef = ref<null | VNode>(null);
   const staticContents: Component[] = [];
 
-  staticContents.push(h(FinnRenderContent, { content, renderBr: true }));
+  staticContents.push(h(VbenRenderContent, { content, renderBr: true }));
 
   const modelPropName = _modelPropName || 'modelValue';
   const componentProps = { ..._componentProps };
@@ -228,7 +228,7 @@ export async function finnPrompt<T = any>(
     },
   };
 
-  await finnConfirm(props);
+  await vbenConfirm(props);
   return modelValue.value;
 }
 

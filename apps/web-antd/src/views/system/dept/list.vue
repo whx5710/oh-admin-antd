@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { Recordable } from '@finn/types';
+import type { Recordable } from '@vben/types';
 
 import type {
   OnActionClickParams,
@@ -9,19 +9,19 @@ import type { SystemDeptApi } from '#/api/system/dept';
 
 import { reactive, ref, watch } from 'vue';
 
-import { FinnTree, Page, useFinnModal } from '@finn/common-ui';
-import { Plus } from '@finn/icons';
+import { VbenTree, Page, useVbenModal } from '@vben/common-ui';
+import { Plus } from '@vben/icons';
 
 import { Button, Card, Col, InputSearch, message, Row } from 'ant-design-vue';
 
-import { useFinnVxeGrid } from '#/adapter/vxe-table';
+import { useVbenVxeGrid } from '#/adapter/vxe-table';
 import { deleteDept, getDeptPage, getDeptTreeList } from '#/api/system/dept';
 import { $t } from '#/locales';
 
 import { useColumns, useGridFormSchema } from './data';
 import Form from './modules/form.vue';
 
-const [FormModal, formModalApi] = useFinnModal({
+const [FormModal, formModalApi] = useVbenModal({
   connectedComponent: Form,
   destroyOnClose: true,
 });
@@ -97,7 +97,7 @@ function onActionClick({
   }
 }
 
-const [Grid, gridApi] = useFinnVxeGrid({
+const [Grid, gridApi] = useVbenVxeGrid({
   gridEvents: {},
   showSearchForm: false, // 默认隐藏搜索表单
   // 搜索表单
@@ -234,7 +234,7 @@ watch(searchValue, (value) => {
             style="margin-bottom: 8px"
             placeholder="请输入部门名称"
           />
-          <FinnTree
+          <VbenTree
             ref="deptTreeRef"
             :tree-data="treeData"
             bordered
@@ -262,7 +262,7 @@ watch(searchValue, (value) => {
               </span>
               <span v-else>{{ item.value.name }}</span>
             </template>
-          </FinnTree>
+          </VbenTree>
         </Card>
       </Page>
     </Col>

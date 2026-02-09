@@ -16,8 +16,8 @@ import {
   useIsMobile,
   usePriorityValues,
   useSimpleLocale,
-} from '@finn-core/composables';
-import { Expand, Shrink } from '@finn-core/icons';
+} from '@vben-core/composables';
+import { Expand, Shrink } from '@vben-core/icons';
 import {
   Dialog,
   DialogContent,
@@ -25,15 +25,15 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-  FinnButton,
-  FinnHelpTooltip,
-  FinnIconButton,
-  FinnLoading,
+  VbenButton,
+  VbenHelpTooltip,
+  VbenIconButton,
+  VbenLoading,
   VisuallyHidden,
-} from '@finn-core/shadcn-ui';
-import { ELEMENT_ID_MAIN_CONTENT } from '@finn-core/shared/constants';
-import { globalShareState } from '@finn-core/shared/global-state';
-import { cn } from '@finn-core/shared/utils';
+} from '@vben-core/shadcn-ui';
+import { ELEMENT_ID_MAIN_CONTENT } from '@vben-core/shared/constants';
+import { globalShareState } from '@vben-core/shared/global-state';
+import { cn } from '@vben-core/shared/utils';
 
 import { useModalDraggable } from './use-modal-draggable';
 
@@ -276,9 +276,9 @@ function handleClosed() {
             {{ title }}
 
             <slot v-if="titleTooltip" name="titleTooltip">
-              <FinnHelpTooltip trigger-class="pb-1">
+              <VbenHelpTooltip trigger-class="pb-1">
                 {{ titleTooltip }}
-              </FinnHelpTooltip>
+              </VbenHelpTooltip>
             </slot>
           </slot>
         </DialogTitle>
@@ -302,15 +302,15 @@ function handleClosed() {
       >
         <slot></slot>
       </div>
-      <FinnLoading v-if="showLoading || submitting" spinning />
-      <FinnIconButton
+      <VbenLoading v-if="showLoading || submitting" spinning />
+      <VbenIconButton
         v-if="fullscreenButton"
         class="hover:bg-accent hover:text-accent-foreground text-foreground/80 flex-center absolute right-10 top-3 hidden size-6 rounded-full px-1 text-lg opacity-70 transition-opacity hover:opacity-100 focus:outline-none disabled:pointer-events-none sm:block"
         @click="handleFullscreen"
       >
         <Shrink v-if="fullscreen" class="size-3.5" />
         <Expand v-else class="size-3.5" />
-      </FinnIconButton>
+      </VbenIconButton>
 
       <DialogFooter
         v-if="showFooter"
@@ -328,7 +328,7 @@ function handleClosed() {
         <slot name="prepend-footer"></slot>
         <slot name="footer">
           <component
-            :is="components.DefaultButton || FinnButton"
+            :is="components.DefaultButton || VbenButton"
             v-if="showCancelButton"
             variant="ghost"
             :disabled="submitting"
@@ -340,7 +340,7 @@ function handleClosed() {
           </component>
           <slot name="center-footer"></slot>
           <component
-            :is="components.PrimaryButton || FinnButton"
+            :is="components.PrimaryButton || VbenButton"
             v-if="showConfirmButton"
             :disabled="confirmDisabled"
             :loading="confirmLoading || submitting"

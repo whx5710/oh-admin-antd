@@ -1,10 +1,10 @@
-import type { FinnFormSchema } from '#/adapter/form';
+import type { VbenFormSchema } from '#/adapter/form';
 import type { OnActionClickFn, VxeTableGridOptions } from '#/adapter/vxe-table';
 import type { SystemRoleApi } from '#/api/system/role';
 
 import { $t } from '#/locales';
 
-export function useFormSchema(): FinnFormSchema[] {
+export function useFormSchema(): VbenFormSchema[] {
   return [
     {
       component: 'Input',
@@ -27,7 +27,7 @@ export function useFormSchema(): FinnFormSchema[] {
   ];
 }
 // 搜索表单
-export function useGridFormSchema(): FinnFormSchema[] {
+export function useGridFormSchema(): VbenFormSchema[] {
   return [
     {
       component: 'Input',

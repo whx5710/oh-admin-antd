@@ -1,4 +1,4 @@
-import type { RouteMeta as IRouteMeta } from '@finn-core/typings';
+import type { RouteMeta as IRouteMeta } from '@vben-core/typings';
 
 import 'vue-router';
 
@@ -7,7 +7,7 @@ declare module 'vue-router' {
   interface RouteMeta extends IRouteMeta {}
 }
 
-export interface FinnAdminProAppConfigRaw {
+export interface VbenAdminProAppConfigRaw {
   VITE_GLOB_API_URL: string;
   VITE_GLOB_AUTH_DINGDING_CLIENT_ID: string;
   VITE_GLOB_AUTH_DINGDING_CORP_ID: string;
@@ -27,6 +27,6 @@ export interface ApplicationConfig {
 
 declare global {
   interface Window {
-    _FINN_ADMIN_PRO_APP_CONF_: FinnAdminProAppConfigRaw;
+    _VBEN_ADMIN_PRO_APP_CONF_: VbenAdminProAppConfigRaw;
   }
 }

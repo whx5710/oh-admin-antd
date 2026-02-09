@@ -1,5 +1,5 @@
-import { initPreferences } from '@finn/preferences';
-import { unmountGlobalLoading } from '@finn/utils';
+import { initPreferences } from '@vben/preferences';
+import { unmountGlobalLoading } from '@vben/utils';
 
 import { overridesPreferences } from './preferences';
 

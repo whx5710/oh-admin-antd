@@ -3,7 +3,7 @@ import type { SystemAppApi } from '#/api/system/app';
 
 import { computed, reactive, ref } from 'vue';
 
-import { useFinnModal } from '@finn/common-ui';
+import { useVbenModal } from '@vben/common-ui';
 
 import {
   Button,
@@ -49,7 +49,7 @@ function randomKey() {
   formState.secretKey = uuid;
 }
 
-const [Modal, modalApi] = useFinnModal({
+const [Modal, modalApi] = useVbenModal({
   async onConfirm() {
     addOrUpdate.value.validate().then(async () => {
       try {

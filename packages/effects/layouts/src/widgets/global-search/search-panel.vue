@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import type { MenuRecordRaw } from '@finn/types';
+import type { MenuRecordRaw } from '@vben/types';
 
 import { nextTick, onMounted, ref, shallowRef, watch } from 'vue';
 import { useRouter } from 'vue-router';
 
-import { SearchX, X } from '@finn/icons';
-import { $t } from '@finn/locales';
-import { mapTree, traverseTreeValues, uniqueByField } from '@finn/utils';
+import { SearchX, X } from '@vben/icons';
+import { $t } from '@vben/locales';
+import { mapTree, traverseTreeValues, uniqueByField } from '@vben/utils';
 
-import { FinnIcon, FinnScrollbar } from '@finn-core/shadcn-ui';
-import { isHttpUrl } from '@finn-core/shared/utils';
+import { VbenIcon, VbenScrollbar } from '@vben-core/shadcn-ui';
+import { isHttpUrl } from '@vben-core/shared/utils';
 
 import { onKeyStroke, useLocalStorage, useThrottleFn } from '@vueuse/core';
 
@@ -222,7 +222,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <FinnScrollbar>
+  <VbenScrollbar>
     <div class="!flex h-full justify-center px-2 sm:max-h-[450px]">
       <!-- 无搜索结果 -->
       <div
@@ -268,7 +268,7 @@ onMounted(() => {
           @click="handleEnter"
           @mouseenter="handleMouseenter"
         >
-          <FinnIcon
+          <VbenIcon
             :icon="item.icon"
             class="mr-2 size-5 flex-shrink-0"
             fallback
@@ -284,5 +284,5 @@ onMounted(() => {
         </li>
       </ul>
     </div>
-  </FinnScrollbar>
+  </VbenScrollbar>
 </template>

@@ -1,2 +1,2 @@
-export { default as FinnHoverCard } from './hover-card.vue';
+export { default as VbenHoverCard } from './hover-card.vue';
 export type { HoverCardContentProps } from 'reka-ui';

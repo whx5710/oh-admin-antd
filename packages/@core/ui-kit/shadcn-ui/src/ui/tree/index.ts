@@ -1,2 +1,2 @@
-export { default as FinnTree } from './tree.vue';
+export { default as VbenTree } from './tree.vue';
 export type { FlattenedItem } from 'reka-ui';

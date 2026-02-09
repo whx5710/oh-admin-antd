@@ -1,11 +1,11 @@
 {
-  "name": "@finn-core/preferences",
+  "name": "@vben-core/preferences",
   "version": "5.5.9",
-  "homepage": "https://github.com/finnjs/vue-finn-admin",
-  "bugs": "https://github.com/finnjs/vue-finn-admin/issues",
+  "homepage": "https://github.com/vbenjs/vue-vben-admin",
+  "bugs": "https://github.com/vbenjs/vue-vben-admin/issues",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/finnjs/vue-finn-admin.git",
+    "url": "git+https://github.com/vbenjs/vue-vben-admin.git",
     "directory": "packages/@core/preferences"
   },
   "license": "MIT",
@@ -29,8 +29,8 @@
     }
   },
   "dependencies": {
-    "@finn-core/shared": "workspace:*",
-    "@finn-core/typings": "workspace:*",
+    "@vben-core/shared": "workspace:*",
+    "@vben-core/typings": "workspace:*",
     "@vueuse/core": "catalog:",
     "vue": "catalog:"
   }

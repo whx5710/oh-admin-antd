@@ -1,1 +1,1 @@
-export { default as FinnRenderContent } from './render-content.vue';
+export { default as VbenRenderContent } from './render-content.vue';

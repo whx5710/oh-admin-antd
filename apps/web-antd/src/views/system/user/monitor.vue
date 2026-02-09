@@ -5,17 +5,17 @@ import type {
 } from '#/adapter/vxe-table';
 import type { SystemUserApi } from '#/api/system/user';
 
-import { Page, useFinnModal } from '@finn/common-ui';
+import { Page, useVbenModal } from '@vben/common-ui';
 
 import { Modal } from 'ant-design-vue';
 
-import { useFinnVxeGrid } from '#/adapter/vxe-table';
+import { useVbenVxeGrid } from '#/adapter/vxe-table';
 import { forceLogoutAll, onlineUserPage } from '#/api/system/user';
 
 import { useMonitorColumns, useMonitorGridFormSchema } from './data';
 import OnlineList from './modules/onlineList.vue';
 
-const [Grid, gridApi] = useFinnVxeGrid({
+const [Grid, gridApi] = useVbenVxeGrid({
   showSearchForm: false, // 隐藏搜索表单
   formOptions: {
     fieldMappingTime: [['createTime', ['startTime', 'endTime']]],
@@ -71,7 +71,7 @@ function onActionClick({
   }
 }
 // token列表弹窗
-const [FormModal, formModalApi] = useFinnModal({
+const [FormModal, formModalApi] = useVbenModal({
   connectedComponent: OnlineList,
   destroyOnClose: true,
 });

@@ -1,1 +1,1 @@
-import '@finn-core/design';
+import '@vben-core/design';

@@ -5,17 +5,17 @@ import type { FormSchema, MaybeComponentProps } from '../types';
 
 import { computed, nextTick, onUnmounted, useTemplateRef, watch } from 'vue';
 
-import { CircleAlert } from '@finn-core/icons';
+import { CircleAlert } from '@vben-core/icons';
 import {
   FormControl,
   FormDescription,
   FormField,
   FormItem,
   FormMessage,
-  FinnRenderContent,
-  FinnTooltip,
-} from '@finn-core/shadcn-ui';
-import { cn, isFunction, isObject, isString } from '@finn-core/shared/utils';
+  VbenRenderContent,
+  VbenTooltip,
+} from '@vben-core/shadcn-ui';
+import { cn, isFunction, isObject, isString } from '@vben-core/shared/utils';
 
 import { toTypedSchema } from '@vee-validate/zod';
 import { useFieldError, useFormValues } from 'vee-validate';
@@ -320,7 +320,7 @@ onUnmounted(() => {
         :style="labelStyle"
       >
         <template v-if="label">
-          <FinnRenderContent :content="label" />
+          <VbenRenderContent :content="label" />
         </template>
       </FormLabel>
       <div class="flex-auto overflow-hidden p-[1px]">
@@ -349,14 +349,14 @@ onUnmounted(() => {
                   :key="name"
                   #[name]="renderSlotProps"
                 >
-                  <FinnRenderContent
+                  <VbenRenderContent
                     :content="customContentRender[name]"
                     v-bind="{ ...renderSlotProps, formContext: slotProps }"
                   />
                 </template>
                 <!-- <slot></slot> -->
               </component>
-              <FinnTooltip
+              <VbenTooltip
                 v-if="compact && isInValid"
                 :delay-duration="300"
                 side="left"
@@ -373,15 +373,15 @@ onUnmounted(() => {
                   </slot>
                 </template>
                 <FormMessage />
-              </FinnTooltip>
+              </VbenTooltip>
             </slot>
           </FormControl>
           <!-- 自定义后缀 -->
           <div v-if="suffix" class="ml-1">
-            <FinnRenderContent :content="suffix" />
+            <VbenRenderContent :content="suffix" />
           </div>
           <FormDescription v-if="description" class="ml-1">
-            <FinnRenderContent :content="description" />
+            <VbenRenderContent :content="description" />
           </FormDescription>
         </div>
 

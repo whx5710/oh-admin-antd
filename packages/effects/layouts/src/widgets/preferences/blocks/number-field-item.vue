@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { SelectOption } from '@finn/types';
+import type { SelectOption } from '@vben/types';
 
 import { useSlots } from 'vue';
 
-import { CircleHelp } from '@finn/icons';
+import { CircleHelp } from '@vben/icons';
 
 import {
   NumberField,
@@ -11,8 +11,8 @@ import {
   NumberFieldDecrement,
   NumberFieldIncrement,
   NumberFieldInput,
-  FinnTooltip,
-} from '@finn-core/shadcn-ui';
+  VbenTooltip,
+} from '@vben-core/shadcn-ui';
 
 defineOptions({
   name: 'PreferenceSelectItem',
@@ -49,7 +49,7 @@ const slots = useSlots();
     <span class="flex items-center text-sm">
       <slot></slot>
 
-      <FinnTooltip v-if="slots.tip || tip" side="bottom">
+      <VbenTooltip v-if="slots.tip || tip" side="bottom">
         <template #trigger>
           <CircleHelp class="ml-1 size-3 cursor-help" />
         </template>
@@ -60,7 +60,7 @@ const slots = useSlots();
             </p>
           </template>
         </slot>
-      </FinnTooltip>
+      </VbenTooltip>
     </span>
 
     <NumberField v-model="inputValue" v-bind="$attrs" class="w-[165px]">

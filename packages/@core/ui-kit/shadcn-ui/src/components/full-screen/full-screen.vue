@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import { Maximize, Minimize } from '@finn-core/icons';
+import { Maximize, Minimize } from '@vben-core/icons';
 
 import { useFullscreen } from '@vueuse/core';
 
-import { FinnIconButton } from '../button';
+import { VbenIconButton } from '../button';
 
 defineOptions({ name: 'FullScreen' });
 
@@ -21,8 +21,8 @@ isFullscreen.value = !!(
 );
 </script>
 <template>
-  <FinnIconButton @click="toggle">
+  <VbenIconButton @click="toggle">
     <Minimize v-if="isFullscreen" class="text-foreground size-4" />
     <Maximize v-else class="text-foreground size-4" />
-  </FinnIconButton>
+  </VbenIconButton>
 </template>

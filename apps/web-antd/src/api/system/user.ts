@@ -1,5 +1,5 @@
-import type { RequestResponse } from '@finn/request';
-import type { Recordable, UserInfo } from '@finn/types';
+import type { RequestResponse } from '@vben/request';
+import type { Recordable, UserInfo } from '@vben/types';
 
 import { requestClient } from '#/api/request';
 import { sysApi } from '#/config/env';

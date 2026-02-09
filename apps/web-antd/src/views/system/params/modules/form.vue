@@ -3,9 +3,9 @@ import type { SystemParamsApi } from '#/api/system/params';
 
 import { computed, ref } from 'vue';
 
-import { useFinnDrawer } from '@finn/common-ui';
+import { useVbenDrawer } from '@vben/common-ui';
 
-import { useFinnForm } from '#/adapter/form';
+import { useVbenForm } from '#/adapter/form';
 import { createParams, updateParams } from '#/api/system/params';
 import { $t } from '#/locales';
 
@@ -15,13 +15,13 @@ const emits = defineEmits(['success']);
 
 const formData = ref<SystemParamsApi.SystemParam>();
 
-const [Form, formApi] = useFinnForm({
+const [Form, formApi] = useVbenForm({
   schema: useFormSchema(),
   showDefaultActions: false,
 });
 
 const id = ref();
-const [Drawer, drawerApi] = useFinnDrawer({
+const [Drawer, drawerApi] = useVbenDrawer({
   async onConfirm() {
     const { valid } = await formApi.validate();
     if (!valid) return;

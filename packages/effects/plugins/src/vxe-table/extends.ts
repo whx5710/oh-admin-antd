@@ -1,10 +1,10 @@
 import type { VxeGridProps, VxeUIExport } from 'vxe-table';
 
-import type { Recordable } from '@finn/types';
+import type { Recordable } from '@vben/types';
 
 import type { VxeGridApi } from './api';
 
-import { formatDate, formatDateTime, isFunction } from '@finn/utils';
+import { formatDate, formatDateTime, isFunction } from '@vben/utils';
 
 export function extendProxyOptions(
   api: VxeGridApi,

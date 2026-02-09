@@ -1,15 +1,15 @@
 import type {
-  FinnFormSchema as FormSchema,
-  FinnFormProps,
-} from '@finn/common-ui';
+  VbenFormSchema as FormSchema,
+  VbenFormProps,
+} from '@vben/common-ui';
 
 import type { ComponentType } from './component';
 
-import { setupFinnForm, useFinnForm as useForm, z } from '@finn/common-ui';
-import { $t } from '@finn/locales';
+import { setupVbenForm, useVbenForm as useForm, z } from '@vben/common-ui';
+import { $t } from '@vben/locales';
 
-async function initSetupFinnForm() {
-  setupFinnForm<ComponentType>({
+async function initSetupVbenForm() {
+  setupVbenForm<ComponentType>({
     config: {
       // ant design vue组件库默认都是 v-model:value
       baseModelPropName: 'value',
@@ -40,8 +40,8 @@ async function initSetupFinnForm() {
   });
 }
 
-const useFinnForm = useForm<ComponentType>;
+const useVbenForm = useForm<ComponentType>;
 
-export { initSetupFinnForm, useFinnForm, z };
-export type FinnFormSchema = FormSchema<ComponentType>;
-export type { FinnFormProps };
+export { initSetupVbenForm, useVbenForm, z };
+export type VbenFormSchema = FormSchema<ComponentType>;
+export type { VbenFormProps };

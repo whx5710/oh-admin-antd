@@ -1,8 +1,8 @@
-import type { FinnFormSchema } from '#/adapter/form';
+import type { VbenFormSchema } from '#/adapter/form';
 import type { OnActionClickFn, VxeTableGridOptions } from '#/adapter/vxe-table';
 import type { SystemParamsApi } from '#/api/system/params';
 
-export function useFormSchema(): FinnFormSchema[] {
+export function useFormSchema(): VbenFormSchema[] {
   return [
     {
       component: 'Input',
@@ -44,7 +44,7 @@ export function useFormSchema(): FinnFormSchema[] {
   ];
 }
 
-export function useGridFormSchema(): FinnFormSchema[] {
+export function useGridFormSchema(): VbenFormSchema[] {
   return [
     {
       component: 'Input',

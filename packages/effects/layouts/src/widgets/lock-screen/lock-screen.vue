@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue';
 
-import { LockKeyhole } from '@finn/icons';
-import { $t, useI18n } from '@finn/locales';
-import { storeToRefs, useAccessStore } from '@finn/stores';
+import { LockKeyhole } from '@vben/icons';
+import { $t, useI18n } from '@vben/locales';
+import { storeToRefs, useAccessStore } from '@vben/stores';
 
-import { useScrollLock } from '@finn-core/composables';
-import { useFinnForm, z } from '@finn-core/form-ui';
-import { FinnAvatar, FinnButton } from '@finn-core/shadcn-ui';
+import { useScrollLock } from '@vben-core/composables';
+import { useVbenForm, z } from '@vben-core/form-ui';
+import { VbenAvatar, VbenButton } from '@vben-core/shadcn-ui';
 
 import { useDateFormat, useNow } from '@vueuse/core';
 
@@ -37,7 +37,7 @@ const date = useDateFormat(now, 'YYYY-MM-DD dddd', { locales: locale.value });
 const showUnlockForm = ref(false);
 const { lockScreenPassword } = storeToRefs(accessStore);
 
-const [Form, { form, validate }] = useFinnForm(
+const [Form, { form, validate }] = useVbenForm(
   reactive({
     commonConfig: {
       hideLabel: true,
@@ -45,7 +45,7 @@ const [Form, { form, validate }] = useFinnForm(
     },
     schema: computed(() => [
       {
-        component: 'FinnInputPassword' as const,
+        component: 'VbenInputPassword' as const,
         componentProps: {
           placeholder: $t('ui.widgets.lockScreen.placeholder'),
         },
@@ -122,27 +122,27 @@ useScrollLock();
         @keydown.enter.prevent="handleSubmit"
       >
         <div class="flex-col-center mb-10 w-[90%] max-w-[300px] px-4">
-          <FinnAvatar :src="avatar" class="enter-x mb-6 size-20" />
+          <VbenAvatar :src="avatar" class="enter-x mb-6 size-20" />
           <div class="enter-x mb-2 w-full items-center">
             <Form />
           </div>
-          <FinnButton class="enter-x w-full" @click="handleSubmit">
+          <VbenButton class="enter-x w-full" @click="handleSubmit">
             {{ $t('ui.widgets.lockScreen.entry') }}
-          </FinnButton>
-          <FinnButton
+          </VbenButton>
+          <VbenButton
             class="enter-x my-2 w-full"
             variant="ghost"
             @click="$emit('toLogin')"
           >
             {{ $t('ui.widgets.lockScreen.backToLogin') }}
-          </FinnButton>
-          <FinnButton
+          </VbenButton>
+          <VbenButton
             class="enter-x mr-2 w-full"
             variant="ghost"
             @click="toggleUnlockForm"
           >
             {{ $t('common.back') }}
-          </FinnButton>
+          </VbenButton>
         </div>
       </div>
     </transition>

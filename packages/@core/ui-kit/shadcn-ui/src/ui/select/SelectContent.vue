@@ -3,7 +3,7 @@ import type { SelectContentEmits, SelectContentProps } from 'reka-ui';
 
 import { computed } from 'vue';
 
-import { cn } from '@finn-core/shared/utils';
+import { cn } from '@vben-core/shared/utils';
 
 import {
   SelectContent,

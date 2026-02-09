@@ -1,25 +1,25 @@
 <script setup lang="ts">
-import type { AuthPageLayoutType } from '@finn/types';
+import type { AuthPageLayoutType } from '@vben/types';
 
-import type { FinnDropdownMenuItem } from '@finn-core/shadcn-ui';
+import type { VbenDropdownMenuItem } from '@vben-core/shadcn-ui';
 
 import { computed } from 'vue';
 
-import { InspectionPanel, PanelLeft, PanelRight } from '@finn/icons';
-import { $t } from '@finn/locales';
+import { InspectionPanel, PanelLeft, PanelRight } from '@vben/icons';
+import { $t } from '@vben/locales';
 import {
   preferences,
   updatePreferences,
   usePreferences,
-} from '@finn/preferences';
+} from '@vben/preferences';
 
-import { FinnDropdownRadioMenu, FinnIconButton } from '@finn-core/shadcn-ui';
+import { VbenDropdownRadioMenu, VbenIconButton } from '@vben-core/shadcn-ui';
 
 defineOptions({
   name: 'AuthenticationLayoutToggle',
 });
 
-const menus = computed((): FinnDropdownMenuItem[] => [
+const menus = computed((): VbenDropdownMenuItem[] => [
   {
     icon: PanelLeft,
     label: $t('authentication.layout.alignLeft'),
@@ -50,15 +50,15 @@ function handleUpdate(value: string | undefined) {
 </script>
 
 <template>
-  <FinnDropdownRadioMenu
+  <VbenDropdownRadioMenu
     :menus="menus"
     :model-value="preferences.app.authPageLayout"
     @update:model-value="handleUpdate"
   >
-    <FinnIconButton>
+    <VbenIconButton>
       <PanelRight v-if="authPanelRight" class="size-4" />
       <PanelLeft v-if="authPanelLeft" class="size-4" />
       <InspectionPanel v-if="authPanelCenter" class="size-4" />
-    </FinnIconButton>
-  </FinnDropdownRadioMenu>
+    </VbenIconButton>
+  </VbenDropdownRadioMenu>
 </template>

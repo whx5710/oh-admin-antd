@@ -1,20 +1,20 @@
 <script lang="ts" setup>
-import type { FinnFormSchema } from '@finn/common-ui';
-import type { Recordable } from '@finn/types';
+import type { VbenFormSchema } from '@vben/common-ui';
+import type { Recordable } from '@vben/types';
 
 import { computed, h, ref } from 'vue';
 
-import { AuthenticationRegister, z } from '@finn/common-ui';
-import { $t } from '@finn/locales';
+import { AuthenticationRegister, z } from '@vben/common-ui';
+import { $t } from '@vben/locales';
 
 defineOptions({ name: 'Register' });
 
 const loading = ref(false);
 
-const formSchema = computed((): FinnFormSchema[] => {
+const formSchema = computed((): VbenFormSchema[] => {
   return [
     {
-      component: 'FinnInput',
+      component: 'VbenInput',
       componentProps: {
         placeholder: $t('authentication.usernameTip'),
       },
@@ -23,7 +23,7 @@ const formSchema = computed((): FinnFormSchema[] => {
       rules: z.string().min(1, { message: $t('authentication.usernameTip') }),
     },
     {
-      component: 'FinnInputPassword',
+      component: 'VbenInputPassword',
       componentProps: {
         passwordStrength: true,
         placeholder: $t('authentication.password'),
@@ -38,7 +38,7 @@ const formSchema = computed((): FinnFormSchema[] => {
       rules: z.string().min(1, { message: $t('authentication.passwordTip') }),
     },
     {
-      component: 'FinnInputPassword',
+      component: 'VbenInputPassword',
       componentProps: {
         placeholder: $t('authentication.confirmPassword'),
       },
@@ -58,7 +58,7 @@ const formSchema = computed((): FinnFormSchema[] => {
       label: $t('authentication.confirmPassword'),
     },
     {
-      component: 'FinnCheckbox',
+      component: 'VbenCheckbox',
       fieldName: 'agreePolicy',
       renderComponentContent: () => ({
         default: () =>
@@ -67,7 +67,7 @@ const formSchema = computed((): FinnFormSchema[] => {
             h(
               'a',
               {
-                class: 'finn-link ml-1 ',
+                class: 'vben-link ml-1 ',
                 href: '',
               },
               `${$t('authentication.privacyPolicy')} & ${$t('authentication.terms')}`,

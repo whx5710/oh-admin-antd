@@ -1,6 +1,6 @@
-import type { IconifyIconStructure } from '@finn-core/icons';
+import type { IconifyIconStructure } from '@vben-core/icons';
 
-import { addIcon } from '@finn-core/icons';
+import { addIcon } from '@vben-core/icons';
 
 let loaded = false;
 if (!loaded) {

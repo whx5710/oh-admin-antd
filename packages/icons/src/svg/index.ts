@@ -1,4 +1,4 @@
-import { createIconifyIcon } from '@finn-core/icons';
+import { createIconifyIcon } from '@vben-core/icons';
 
 import './load.js';
 

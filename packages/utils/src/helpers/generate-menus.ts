@@ -4,9 +4,9 @@ import type {
   ExRouteRecordRaw,
   MenuRecordRaw,
   RouteMeta,
-} from '@finn-core/typings';
+} from '@vben-core/typings';
 
-import { filterTree, mapTree } from '@finn-core/shared/utils';
+import { filterTree, mapTree } from '@vben-core/shared/utils';
 
 /**
  * 根据 routes 生成菜单列表

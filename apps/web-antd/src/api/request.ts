@@ -1,17 +1,17 @@
 /**
  * 该文件可自行根据业务逻辑进行调整
  */
-import type { RequestClientOptions } from '@finn/request';
+import type { RequestClientOptions } from '@vben/request';
 
-import { useAppConfig } from '@finn/hooks';
-import { preferences } from '@finn/preferences';
+import { useAppConfig } from '@vben/hooks';
+import { preferences } from '@vben/preferences';
 import {
   authenticateResponseInterceptor,
   defaultResponseInterceptor,
   errorMessageResponseInterceptor,
   RequestClient,
-} from '@finn/request';
-import { useAccessStore } from '@finn/stores';
+} from '@vben/request';
+import { useAccessStore } from '@vben/stores';
 
 import { message } from 'ant-design-vue';
 

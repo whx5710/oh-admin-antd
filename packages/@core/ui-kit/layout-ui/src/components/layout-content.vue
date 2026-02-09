@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import type { CSSProperties } from 'vue';
 
-import type { ContentCompactType } from '@finn-core/typings';
+import type { ContentCompactType } from '@vben-core/typings';
 
 import { computed } from 'vue';
 
-import { useLayoutContentStyle } from '@finn-core/composables';
-import { Slot } from '@finn-core/shadcn-ui';
+import { useLayoutContentStyle } from '@vben-core/composables';
+import { Slot } from '@vben-core/shadcn-ui';
 
 interface Props {
   /**

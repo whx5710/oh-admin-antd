@@ -1,12 +1,12 @@
 {
-  "name": "@finn/tailwind-config",
+  "name": "@vben/tailwind-config",
   "version": "5.5.9",
   "private": true,
-  "homepage": "https://github.com/finnjs/vue-finn-admin",
-  "bugs": "https://github.com/finnjs/vue-finn-admin/issues",
+  "homepage": "https://github.com/vbenjs/vue-vben-admin",
+  "bugs": "https://github.com/vbenjs/vue-vben-admin/issues",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/finnjs/vue-finn-admin.git",
+    "url": "git+https://github.com/vbenjs/vue-vben-admin.git",
     "directory": "internal/tailwind-config"
   },
   "license": "MIT",

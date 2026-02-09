@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { Settings } from '@finn/icons';
+import { Settings } from '@vben/icons';
 
-import { FinnIconButton } from '@finn-core/shadcn-ui';
+import { VbenIconButton } from '@vben-core/shadcn-ui';
 
 import Preferences from './preferences.vue';
 
@@ -13,8 +13,8 @@ function clearPreferencesAndLogout() {
 </script>
 <template>
   <Preferences @clear-preferences-and-logout="clearPreferencesAndLogout">
-    <FinnIconButton>
+    <VbenIconButton>
       <Settings class="text-foreground size-4" />
-    </FinnIconButton>
+    </VbenIconButton>
   </Preferences>
 </template>

@@ -1,6 +1,6 @@
-import type { VxeTableGridOptions } from '@finn/plugins/vxe-table';
+import type { VxeTableGridOptions } from '@vben/plugins/vxe-table';
 
-import type { FinnFormSchema } from '#/adapter/form';
+import type { VbenFormSchema } from '#/adapter/form';
 import type { OnActionClickFn } from '#/adapter/vxe-table';
 import type { SystemDeptApi } from '#/api/system/dept';
 
@@ -11,7 +11,7 @@ import { $t } from '#/locales';
 /**
  * 获取编辑表单的字段配置。如果没有使用多语言，可以直接export一个数组常量
  */
-export function useSchema(): FinnFormSchema[] {
+export function useSchema(): VbenFormSchema[] {
   return [
     {
       component: 'Input',
@@ -79,7 +79,7 @@ export function useSchema(): FinnFormSchema[] {
   ];
 }
 // 搜索表单
-export function useGridFormSchema(): FinnFormSchema[] {
+export function useGridFormSchema(): VbenFormSchema[] {
   return [
     {
       component: 'Input',

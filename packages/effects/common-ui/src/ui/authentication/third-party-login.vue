@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { useAppConfig } from '@finn/hooks';
-import { MdiGithub, MdiGoogle, MdiQqchat, MdiWechat } from '@finn/icons';
-import { $t } from '@finn/locales';
+import { useAppConfig } from '@vben/hooks';
+import { MdiGithub, MdiGoogle, MdiQqchat, MdiWechat } from '@vben/icons';
+import { $t } from '@vben/locales';
 
-import { FinnIconButton } from '@finn-core/shadcn-ui';
+import { VbenIconButton } from '@vben-core/shadcn-ui';
 
 import DingdingLogin from './dingding-login.vue';
 
@@ -27,34 +27,34 @@ const {
     </div>
 
     <div class="mt-4 flex flex-wrap justify-center">
-      <FinnIconButton
+      <VbenIconButton
         :tooltip="$t('authentication.wechatLogin')"
         tooltip-side="top"
         class="mb-3"
       >
         <MdiWechat />
-      </FinnIconButton>
-      <FinnIconButton
+      </VbenIconButton>
+      <VbenIconButton
         :tooltip="$t('authentication.qqLogin')"
         tooltip-side="top"
         class="mb-3"
       >
         <MdiQqchat />
-      </FinnIconButton>
-      <FinnIconButton
+      </VbenIconButton>
+      <VbenIconButton
         :tooltip="$t('authentication.githubLogin')"
         tooltip-side="top"
         class="mb-3"
       >
         <MdiGithub />
-      </FinnIconButton>
-      <FinnIconButton
+      </VbenIconButton>
+      <VbenIconButton
         :tooltip="$t('authentication.googleLogin')"
         tooltip-side="top"
         class="mb-3"
       >
         <MdiGoogle />
-      </FinnIconButton>
+      </VbenIconButton>
       <DingdingLogin
         v-if="dingdingAuthConfig"
         :corp-id="dingdingAuthConfig.corpId"

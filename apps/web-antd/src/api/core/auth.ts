@@ -1,4 +1,4 @@
-import { useAccessStore } from '@finn/stores';
+import { useAccessStore } from '@vben/stores';
 
 import { requestClient } from '#/api/request';
 import { sysApi } from '#/config/env';

@@ -1,17 +1,17 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 
-import { Settings } from '@finn/icons';
-import { $t, loadLocaleMessages } from '@finn/locales';
-import { preferences, updatePreferences } from '@finn/preferences';
-import { capitalizeFirstLetter } from '@finn/utils';
+import { Settings } from '@vben/icons';
+import { $t, loadLocaleMessages } from '@vben/locales';
+import { preferences, updatePreferences } from '@vben/preferences';
+import { capitalizeFirstLetter } from '@vben/utils';
 
-import { useFinnDrawer } from '@finn-core/popup-ui';
-import { FinnButton } from '@finn-core/shadcn-ui';
+import { useVbenDrawer } from '@vben-core/popup-ui';
+import { VbenButton } from '@vben-core/shadcn-ui';
 
 import PreferencesDrawer from './preferences-drawer.vue';
 
-const [Drawer, drawerApi] = useFinnDrawer({
+const [Drawer, drawerApi] = useVbenDrawer({
   connectedComponent: PreferencesDrawer,
 });
 
@@ -60,12 +60,12 @@ const listen = computed(() => {
 
     <div @click="() => drawerApi.open()">
       <slot>
-        <FinnButton
+        <VbenButton
           :title="$t('preferences.title')"
           class="bg-primary flex-col-center size-10 cursor-pointer rounded-l-lg rounded-r-none border-none"
         >
           <Settings class="size-5" />
-        </FinnButton>
+        </VbenButton>
       </slot>
     </div>
   </div>

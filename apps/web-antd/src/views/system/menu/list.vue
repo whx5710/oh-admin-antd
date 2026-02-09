@@ -4,26 +4,26 @@ import type {
   VxeTableGridOptions,
 } from '#/adapter/vxe-table';
 
-import { Page, useFinnDrawer } from '@finn/common-ui';
-import { IconifyIcon, Plus } from '@finn/icons';
-import { $t } from '@finn/locales';
+import { Page, useVbenDrawer } from '@vben/common-ui';
+import { IconifyIcon, Plus } from '@vben/icons';
+import { $t } from '@vben/locales';
 
-import { MenuBadge } from '@finn-core/menu-ui';
+import { MenuBadge } from '@vben-core/menu-ui';
 
 import { Button, message } from 'ant-design-vue';
 
-import { useFinnVxeGrid } from '#/adapter/vxe-table';
+import { useVbenVxeGrid } from '#/adapter/vxe-table';
 import { deleteMenu, getAllMenusApi, SystemMenuApi } from '#/api/system/menu';
 
 import { useColumns, useGridFormSchema } from './data';
 import Form from './modules/form.vue';
 
-const [FormDrawer, formDrawerApi] = useFinnDrawer({
+const [FormDrawer, formDrawerApi] = useVbenDrawer({
   connectedComponent: Form,
   destroyOnClose: true,
 });
 
-const [Grid, gridApi] = useFinnVxeGrid({
+const [Grid, gridApi] = useVbenVxeGrid({
   showSearchForm: false, // 默认隐藏搜索表单
   formOptions: {
     schema: useGridFormSchema(),

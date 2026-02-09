@@ -3,7 +3,7 @@ import type { DropdownMenuItemProps } from 'reka-ui';
 
 import { computed } from 'vue';
 
-import { cn } from '@finn-core/shared/utils';
+import { cn } from '@vben-core/shared/utils';
 
 import { DropdownMenuItem, useForwardProps } from 'reka-ui';
 

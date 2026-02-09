@@ -2,9 +2,9 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
-import { $t } from '@finn/locales';
+import { $t } from '@vben/locales';
 
-import { FinnButton } from '@finn-core/shadcn-ui';
+import { VbenButton } from '@vben-core/shadcn-ui';
 
 import { useQRCode } from '@vueuse/integrations/useQRCode';
 
@@ -52,7 +52,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const router = useRouter();
 
-const text = ref('https://finn.vvbin.cn');
+const text = ref('https://vben.vvbin.cn');
 
 const qrcode = useQRCode(text, {
   errorCorrectionLevel: 'H',
@@ -88,8 +88,8 @@ function goToLogin() {
       </p>
     </div>
 
-    <FinnButton class="mt-4 w-full" variant="outline" @click="goToLogin()">
+    <VbenButton class="mt-4 w-full" variant="outline" @click="goToLogin()">
       {{ $t('common.back') }}
-    </FinnButton>
+    </VbenButton>
   </div>
 </template>

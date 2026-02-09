@@ -5,13 +5,13 @@ import type {
 } from '#/adapter/vxe-table';
 import type { SystemLogApi } from '#/api/system/log';
 
-import { Page } from '@finn/common-ui';
-import { IconifyIcon } from '@finn/icons';
-import { downloadFileFromBlob } from '@finn/utils';
+import { Page } from '@vben/common-ui';
+import { IconifyIcon } from '@vben/icons';
+import { downloadFileFromBlob } from '@vben/utils';
 
 import { Button, Popconfirm } from 'ant-design-vue';
 
-import { useFinnVxeGrid } from '#/adapter/vxe-table';
+import { useVbenVxeGrid } from '#/adapter/vxe-table';
 import { getOpLogPage, opLogExport } from '#/api/system/log';
 // import { sysApi } from '#/config/env';
 
@@ -45,7 +45,7 @@ const gridEvents: VxeGridListeners<SystemLogApi.SysLoginLog> = {
   },
 };
 
-const [Grid, gridApi] = useFinnVxeGrid({
+const [Grid, gridApi] = useVbenVxeGrid({
   gridEvents,
   formOptions: {
     fieldMappingTime: [['createTime', ['startTime', 'endTime']]],

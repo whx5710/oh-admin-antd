@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 
-import { AuthPageLayout } from '@finn/layouts';
-import { preferences } from '@finn/preferences';
+import { AuthPageLayout } from '@vben/layouts';
+import { preferences } from '@vben/preferences';
 
 import { $t } from '#/locales';
 

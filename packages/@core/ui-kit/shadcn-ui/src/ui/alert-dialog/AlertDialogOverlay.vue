@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useScrollLock } from '@finn-core/composables';
+import { useScrollLock } from '@vben-core/composables';
 
 useScrollLock();
 </script>

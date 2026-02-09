@@ -4,19 +4,19 @@ import type { SystemAppApi } from '#/api/system/app';
 
 import { ref } from 'vue';
 
-import { useFinnDrawer } from '@finn/common-ui';
+import { useVbenDrawer } from '@vben/common-ui';
 
 import { message, Switch } from 'ant-design-vue';
 
-import { useFinnForm } from '#/adapter/form';
-import { useFinnVxeGrid } from '#/adapter/vxe-table';
+import { useVbenForm } from '#/adapter/form';
+import { useVbenVxeGrid } from '#/adapter/vxe-table';
 import { authority, pageByClientId } from '#/api/system/app';
 
 import { useFormSchema, useFuncColumns } from '../data';
 
 const formData = ref<SystemAppApi.App>();
 // 新增修改弹窗
-const [Form, formApi] = useFinnForm({
+const [Form, formApi] = useVbenForm({
   schema: useFormSchema(),
   showDefaultActions: false,
 });
@@ -24,7 +24,7 @@ const [Form, formApi] = useFinnForm({
 const clientId = ref('');
 
 // 抽屉
-const [Drawer, drawerApi] = useFinnDrawer({
+const [Drawer, drawerApi] = useVbenDrawer({
   showConfirmButton: false,
   onOpenChange(isOpen) {
     if (isOpen) {
@@ -40,7 +40,7 @@ const [Drawer, drawerApi] = useFinnDrawer({
 });
 
 // gridApi 客户端数据
-const [Grid] = useFinnVxeGrid({
+const [Grid] = useVbenVxeGrid({
   gridOptions: {
     columns: useFuncColumns(),
     height: 'auto',

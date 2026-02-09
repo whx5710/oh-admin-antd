@@ -10,15 +10,15 @@ import type { SystemAttachApi } from '#/api/system/attachment';
 
 import { ref } from 'vue';
 
-import { Page } from '@finn/common-ui';
-import { useAppConfig } from '@finn/hooks';
-import { IconifyIcon } from '@finn/icons';
-import { useAccessStore } from '@finn/stores';
-import { downloadFileFromUrl } from '@finn/utils';
+import { Page } from '@vben/common-ui';
+import { useAppConfig } from '@vben/hooks';
+import { IconifyIcon } from '@vben/icons';
+import { useAccessStore } from '@vben/stores';
+import { downloadFileFromUrl } from '@vben/utils';
 
 import { Button, message, Popconfirm, Upload } from 'ant-design-vue';
 
-import { useFinnVxeGrid } from '#/adapter/vxe-table';
+import { useVbenVxeGrid } from '#/adapter/vxe-table';
 import { deleteAttach, getAttachPage } from '#/api/system/attachment';
 import { sysApi } from '#/config/env';
 import { $t } from '#/locales';
@@ -53,7 +53,7 @@ const gridEvents: VxeGridListeners<SystemAttachApi.SysAttach> = {
   },
 };
 
-const [Grid, gridApi] = useFinnVxeGrid({
+const [Grid, gridApi] = useVbenVxeGrid({
   gridEvents,
   showSearchForm: false, // 隐藏搜索表单
   formOptions: {

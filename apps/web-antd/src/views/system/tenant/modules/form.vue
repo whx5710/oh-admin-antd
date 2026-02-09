@@ -3,11 +3,11 @@ import type { SystemTenantApi } from '#/api/system/tenant';
 
 import { computed, ref } from 'vue';
 
-import { useFinnModal } from '@finn/common-ui';
+import { useVbenModal } from '@vben/common-ui';
 
 import { Button } from 'ant-design-vue';
 
-import { useFinnForm } from '#/adapter/form';
+import { useVbenForm } from '#/adapter/form';
 import { createTenant, updateTenant } from '#/api/system/tenant';
 import { $t } from '#/locales';
 
@@ -21,7 +21,7 @@ const getTitle = computed(() => {
     : $t('ui.actionTitle.create', ['租户']);
 });
 
-const [Form, formApi] = useFinnForm({
+const [Form, formApi] = useVbenForm({
   // 垂直布局，label和input在不同行，值为vertical
   // 水平布局，label和input在同一行
   layout: 'horizontal',
@@ -35,7 +35,7 @@ function resetForm() {
   formApi.setValues(formData.value || {});
 }
 
-const [Modal, modalApi] = useFinnModal({
+const [Modal, modalApi] = useVbenModal({
   async onConfirm() {
     const { valid } = await formApi.validate();
     if (valid) {

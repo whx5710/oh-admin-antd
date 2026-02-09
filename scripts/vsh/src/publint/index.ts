@@ -13,7 +13,7 @@ import {
   outputJSON,
   readJSON,
   UNICODE,
-} from '@finn/node-utils';
+} from '@vben/node-utils';
 
 import { publint } from 'publint';
 import { formatMessage } from 'publint/utils';

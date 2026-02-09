@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { TabsEmits, TabsProps } from './types';
 
-import { useForwardPropsEmits } from '@finn-core/composables';
-import { ChevronLeft, ChevronRight } from '@finn-core/icons';
-import { FinnScrollbar } from '@finn-core/shadcn-ui';
+import { useForwardPropsEmits } from '@vben-core/composables';
+import { ChevronLeft, ChevronRight } from '@vben-core/icons';
+import { VbenScrollbar } from '@vben-core/shadcn-ui';
 
 import { Tabs, TabsChrome } from './components';
 import { useTabsDrag } from './use-tabs-drag';
@@ -16,7 +16,7 @@ defineOptions({
 });
 
 const props = withDefaults(defineProps<Props>(), {
-  contentClass: 'finn-tabs-content',
+  contentClass: 'vben-tabs-content',
   draggable: true,
   styleType: 'chrome',
   wheelable: true,
@@ -68,7 +68,7 @@ useTabsDrag(props, emit);
       }"
       class="size-full flex-1 overflow-hidden"
     >
-      <FinnScrollbar
+      <VbenScrollbar
         ref="scrollbarRef"
         :shadow-bottom="false"
         :shadow-top="false"
@@ -87,7 +87,7 @@ useTabsDrag(props, emit);
         />
 
         <Tabs v-else v-bind="{ ...forward, ...$attrs, ...$props }" />
-      </FinnScrollbar>
+      </VbenScrollbar>
     </div>
 
     <!-- 右侧滚动按钮 -->

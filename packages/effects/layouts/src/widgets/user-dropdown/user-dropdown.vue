@@ -1,18 +1,18 @@
 <script setup lang="ts">
 import type { Component } from 'vue';
 
-import type { AnyFunction } from '@finn/types';
+import type { AnyFunction } from '@vben/types';
 
 import { computed, useTemplateRef, watch } from 'vue';
 
-import { useHoverToggle } from '@finn/hooks';
-import { LockKeyhole, LogOut } from '@finn/icons';
-import { $t } from '@finn/locales';
-import { preferences, usePreferences } from '@finn/preferences';
-import { useAccessStore } from '@finn/stores';
-import { isWindowsOs } from '@finn/utils';
+import { useHoverToggle } from '@vben/hooks';
+import { LockKeyhole, LogOut } from '@vben/icons';
+import { $t } from '@vben/locales';
+import { preferences, usePreferences } from '@vben/preferences';
+import { useAccessStore } from '@vben/stores';
+import { isWindowsOs } from '@vben/utils';
 
-import { useFinnModal } from '@finn-core/popup-ui';
+import { useVbenModal } from '@vben-core/popup-ui';
 import {
   Badge,
   DropdownMenu,
@@ -22,9 +22,9 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-  FinnAvatar,
-  FinnIcon,
-} from '@finn-core/shadcn-ui';
+  VbenAvatar,
+  VbenIcon,
+} from '@vben-core/shadcn-ui';
 
 import { useMagicKeys, whenever } from '@vueuse/core';
 
@@ -87,10 +87,10 @@ const emit = defineEmits<{ logout: [] }>();
 const { globalLockScreenShortcutKey, globalLogoutShortcutKey } =
   usePreferences();
 const accessStore = useAccessStore();
-const [LockModal, lockModalApi] = useFinnModal({
+const [LockModal, lockModalApi] = useVbenModal({
   connectedComponent: LockScreenModal,
 });
-const [LogoutModal, logoutModalApi] = useFinnModal({
+const [LogoutModal, logoutModalApi] = useVbenModal({
   onConfirm() {
     handleSubmitLogout();
   },
@@ -192,14 +192,14 @@ if (enableShortcutKey.value) {
     <DropdownMenuTrigger ref="refTrigger" :disabled="props.trigger === 'hover'">
       <div class="hover:bg-accent ml-1 mr-2 cursor-pointer rounded-full p-1.5">
         <div class="hover:text-accent-foreground flex-center">
-          <FinnAvatar :alt="text" :src="avatar" class="size-8" dot />
+          <VbenAvatar :alt="text" :src="avatar" class="size-8" dot />
         </div>
       </div>
     </DropdownMenuTrigger>
     <DropdownMenuContent class="mr-2 min-w-[240px] p-0 pb-1">
       <div ref="refContent">
         <DropdownMenuLabel class="flex items-center p-3">
-          <FinnAvatar
+          <VbenAvatar
             :alt="text"
             :src="avatar"
             class="size-12"
@@ -230,7 +230,7 @@ if (enableShortcutKey.value) {
           class="mx-1 flex cursor-pointer items-center rounded-sm py-1 leading-8"
           @click="menu.handler"
         >
-          <FinnIcon :icon="menu.icon" class="mr-2 size-4" />
+          <VbenIcon :icon="menu.icon" class="mr-2 size-4" />
           {{ menu.text }}
         </DropdownMenuItem>
         <DropdownMenuSeparator />

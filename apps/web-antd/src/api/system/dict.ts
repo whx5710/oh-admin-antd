@@ -1,4 +1,4 @@
-import type { Recordable } from '@finn/types';
+import type { Recordable } from '@vben/types';
 
 import { requestClient } from '#/api/request';
 import { sysApi } from '#/config/env';

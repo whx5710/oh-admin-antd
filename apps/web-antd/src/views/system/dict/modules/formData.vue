@@ -7,12 +7,12 @@ import type { SystemDictApi } from '#/api/system/dict';
 
 import { computed, ref } from 'vue';
 
-import { useFinnDrawer, useFinnModal } from '@finn/common-ui';
-import { Plus } from '@finn/icons';
+import { useVbenDrawer, useVbenModal } from '@vben/common-ui';
+import { Plus } from '@vben/icons';
 
 import { Button, message } from 'ant-design-vue';
 
-import { useFinnVxeGrid } from '#/adapter/vxe-table';
+import { useVbenVxeGrid } from '#/adapter/vxe-table';
 import { deleteDictData, getDictDataPage } from '#/api/system/dict';
 import { $t } from '#/locales';
 
@@ -21,14 +21,14 @@ import ModalFormData from './modalFormData.vue';
 /**
  * 数据字典-数据列表（抽屉）。
  */
-const [FormModal, formModalApi] = useFinnModal({
+const [FormModal, formModalApi] = useVbenModal({
   connectedComponent: ModalFormData,
   destroyOnClose: true,
 });
 
 const dictTypeId = ref();
 // drawerApi
-const [Drawer, drawerApi] = useFinnDrawer({
+const [Drawer, drawerApi] = useVbenDrawer({
   showConfirmButton: false,
   onOpenChange() {
     const data = drawerApi.getData<SystemDictApi.SystemType>();
@@ -64,7 +64,7 @@ const getDrawerTitle = computed(() => {
 });
 
 // gridApi 字典数据
-const [Grid, gridApi] = useFinnVxeGrid({
+const [Grid, gridApi] = useVbenVxeGrid({
   gridOptions: {
     columns: useDictDataColumns(onActionClick),
     height: 'auto',

@@ -1,10 +1,10 @@
-import type { LayoutType } from '@finn-core/typings';
+import type { LayoutType } from '@vben-core/typings';
 
-import type { FinnLayoutProps } from '../finn-layout';
+import type { VbenLayoutProps } from '../vben-layout';
 
 import { computed } from 'vue';
 
-export function useLayout(props: FinnLayoutProps) {
+export function useLayout(props: VbenLayoutProps) {
   const currentLayout = computed(() =>
     props.isMobile ? 'sidebar-nav' : (props.layout as LayoutType),
   );

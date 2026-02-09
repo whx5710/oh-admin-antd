@@ -2,10 +2,10 @@
   "$schema": "https://unpkg.com/@changesets/config@3.0.0/schema.json",
   "changelog": [
     "@changesets/changelog-github",
-    { "repo": "finnjs/vue-finn-admin" }
+    { "repo": "vbenjs/vue-vben-admin" }
   ],
   "commit": false,
-  "fixed": [["@finn-core/*", "@finn/*"]],
+  "fixed": [["@vben-core/*", "@vben/*"]],
   "snapshot": {
     "prereleaseTemplate": "{tag}-{datetime}"
   },

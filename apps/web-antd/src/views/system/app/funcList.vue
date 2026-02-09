@@ -5,24 +5,24 @@ import type {
 } from '#/adapter/vxe-table';
 import type { SystemAppApi } from '#/api/system/app';
 
-import { Page, useFinnModal } from '@finn/common-ui';
-import { Plus } from '@finn/icons';
+import { Page, useVbenModal } from '@vben/common-ui';
+import { Plus } from '@vben/icons';
 
 import { Button, message } from 'ant-design-vue';
 
-import { useFinnVxeGrid } from '#/adapter/vxe-table';
+import { useVbenVxeGrid } from '#/adapter/vxe-table';
 import { deleteFunc, getFuncPage } from '#/api/system/app';
 import { $t } from '#/locales';
 
 import { useFuncListColumns, useGridFormSchema } from './data';
 import FuncForm from './modules/funcForm.vue';
 
-const [FormModal, formModalApi] = useFinnModal({
+const [FormModal, formModalApi] = useVbenModal({
   connectedComponent: FuncForm,
   destroyOnClose: true,
 });
 
-const [Grid, gridApi] = useFinnVxeGrid({
+const [Grid, gridApi] = useVbenVxeGrid({
   showSearchForm: false, // 默认隐藏搜索表单
   formOptions: {
     fieldMappingTime: [['createTime', ['startTime', 'endTime']]],

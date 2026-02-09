@@ -1,20 +1,20 @@
 <script lang="ts" setup>
 import type { ChangeEvent } from 'ant-design-vue/es/_util/EventInterface';
 
-import type { Recordable } from '@finn/types';
+import type { Recordable } from '@vben/types';
 
-import type { FinnFormSchema } from '#/adapter/form';
+import type { VbenFormSchema } from '#/adapter/form';
 
 import { computed, h, ref } from 'vue';
 
-import { useFinnDrawer } from '@finn/common-ui';
-import { IconifyIcon } from '@finn/icons';
-import { $te } from '@finn/locales';
-import { getPopupContainer } from '@finn/utils';
+import { useVbenDrawer } from '@vben/common-ui';
+import { IconifyIcon } from '@vben/icons';
+import { $te } from '@vben/locales';
+import { getPopupContainer } from '@vben/utils';
 
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core';
 
-import { useFinnForm, z } from '#/adapter/form';
+import { useVbenForm, z } from '#/adapter/form';
 import {
   createMenu,
   getMenuList,
@@ -33,7 +33,7 @@ const emit = defineEmits<{
 }>();
 const formData = ref<SystemMenuApi.SystemMenu>();
 const titleSuffix = ref<string>();
-const schema: FinnFormSchema[] = [
+const schema: VbenFormSchema[] = [
   {
     component: 'RadioGroup',
     componentProps: {
@@ -443,7 +443,7 @@ const schema: FinnFormSchema[] = [
 const breakpoints = useBreakpoints(breakpointsTailwind);
 const isHorizontal = computed(() => breakpoints.greaterOrEqual('md').value);
 
-const [Form, formApi] = useFinnForm({
+const [Form, formApi] = useVbenForm({
   commonConfig: {
     colon: true,
     formItemClass: 'col-span-2 md:col-span-1',
@@ -453,7 +453,7 @@ const [Form, formApi] = useFinnForm({
   wrapperClass: 'grid-cols-2 gap-x-4',
 });
 
-const [Drawer, drawerApi] = useFinnDrawer({
+const [Drawer, drawerApi] = useVbenDrawer({
   onConfirm: onSubmit,
   onOpenChange(isOpen) {
     if (isOpen) {

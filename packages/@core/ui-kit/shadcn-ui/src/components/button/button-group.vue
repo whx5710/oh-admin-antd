@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { cn } from '@finn-core/shared/utils';
+import { cn } from '@vben-core/shared/utils';
 
-defineOptions({ name: 'FinnButtonGroup' });
+defineOptions({ name: 'VbenButtonGroup' });
 
 withDefaults(
   defineProps<{
@@ -16,7 +16,7 @@ withDefaults(
   <div
     :class="
       cn(
-        'finn-button-group rounded-md',
+        'vben-button-group rounded-md',
         `size-${size}`,
         gap ? 'with-gap' : 'no-gap',
         $attrs.class as string,
@@ -29,7 +29,7 @@ withDefaults(
 </template>
 
 <style lang="scss" scoped>
-.finn-button-group {
+.vben-button-group {
   display: inline-flex;
 
   &.size-large :deep(button) {

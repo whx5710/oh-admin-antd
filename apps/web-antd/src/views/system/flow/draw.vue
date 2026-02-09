@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { Page } from '@finn/common-ui';
+import { Page } from '@vben/common-ui';
 </script>
 
 <template>

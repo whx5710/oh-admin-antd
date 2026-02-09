@@ -5,9 +5,9 @@ import type {
 } from '#/adapter/vxe-table';
 import type { SystemAppApi } from '#/api/system/app';
 
-import { Page } from '@finn/common-ui';
-import { IconifyIcon } from '@finn/icons';
-import { downloadFileFromBlob } from '@finn/utils';
+import { Page } from '@vben/common-ui';
+import { IconifyIcon } from '@vben/icons';
+import { downloadFileFromBlob } from '@vben/utils';
 
 import {
   Button,
@@ -20,7 +20,7 @@ import {
 } from 'ant-design-vue';
 import dayjs from 'dayjs';
 
-import { useFinnVxeGrid } from '#/adapter/vxe-table';
+import { useVbenVxeGrid } from '#/adapter/vxe-table';
 import {
   deleteByDate,
   deleteLog,
@@ -58,7 +58,7 @@ const gridEvents: VxeGridListeners<SystemAppApi.Log> = {
   },
 };
 
-const [Grid, gridApi] = useFinnVxeGrid({
+const [Grid, gridApi] = useVbenVxeGrid({
   gridEvents,
   showSearchForm: false, // 隐藏搜索表单
   formOptions: {

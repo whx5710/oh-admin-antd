@@ -24,13 +24,13 @@ export async function perfectionist(): Promise<Linter.Config[]> {
           {
             customGroups: {
               type: {
-                'finn-core-type': ['^@finn-core/.+'],
-                'finn-type': ['^@finn/.+'],
+                'vben-core-type': ['^@vben-core/.+'],
+                'vben-type': ['^@vben/.+'],
                 'vue-type': ['^vue$', '^vue-.+', '^@vue/.+'],
               },
               value: {
-                finn: ['^@finn/.+'],
-                'finn-core': ['^@finn-core/.+'],
+                vben: ['^@vben/.+'],
+                'vben-core': ['^@vben-core/.+'],
                 vue: ['^vue$', '^vue-.+', '^@vue/.+'],
               },
             },
@@ -38,14 +38,14 @@ export async function perfectionist(): Promise<Linter.Config[]> {
             groups: [
               ['external-type', 'builtin-type', 'type'],
               'vue-type',
-              'finn-type',
-              'finn-core-type',
+              'vben-type',
+              'vben-core-type',
               ['parent-type', 'sibling-type', 'index-type'],
               ['internal-type'],
               'builtin',
               'vue',
-              'finn',
-              'finn-core',
+              'vben',
+              'vben-core',
               'external',
               'internal',
               ['parent', 'sibling', 'index'],

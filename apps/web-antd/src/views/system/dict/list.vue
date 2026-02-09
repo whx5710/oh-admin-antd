@@ -5,12 +5,12 @@ import type {
 } from '#/adapter/vxe-table';
 import type { SystemDictApi } from '#/api/system/dict';
 
-import { Page, useFinnDrawer, useFinnModal } from '@finn/common-ui';
-import { Plus } from '@finn/icons';
+import { Page, useVbenDrawer, useVbenModal } from '@vben/common-ui';
+import { Plus } from '@vben/icons';
 
 import { Button, message } from 'ant-design-vue';
 
-import { useFinnVxeGrid } from '#/adapter/vxe-table';
+import { useVbenVxeGrid } from '#/adapter/vxe-table';
 import { deleteDictType, getDictPage } from '#/api/system/dict';
 import { $t } from '#/locales';
 
@@ -20,17 +20,17 @@ import FormData from './modules/formData.vue';
 /**
  * 数据字典管理
  */
-const [FormModal, formModalApi] = useFinnModal({
+const [FormModal, formModalApi] = useVbenModal({
   connectedComponent: Form,
   destroyOnClose: true,
 });
 
-const [FormDrawer, formDrawerApi] = useFinnDrawer({
+const [FormDrawer, formDrawerApi] = useVbenDrawer({
   connectedComponent: FormData,
   destroyOnClose: true,
 });
 
-const [Grid, gridApi] = useFinnVxeGrid({
+const [Grid, gridApi] = useVbenVxeGrid({
   showSearchForm: false, // 默认隐藏搜索表单
   formOptions: {
     fieldMappingTime: [['createTime', ['startTime', 'endTime']]],

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ref, watch } from 'vue';
 
-import { cn } from '@finn-core/shared/utils';
+import { cn } from '@vben-core/shared/utils';
 
 interface Props {
   class?: string;
@@ -22,7 +22,7 @@ interface Props {
 }
 
 defineOptions({
-  name: 'FinnLoading',
+  name: 'VbenLoading',
 });
 
 const props = withDefaults(defineProps<Props>(), {

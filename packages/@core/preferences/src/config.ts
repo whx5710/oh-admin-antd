@@ -16,7 +16,7 @@ const defaultPreferences: Preferences = {
     contentPaddingRight: 0,
     contentPaddingTop: 0,
     defaultAvatar:
-      'https://unpkg.com/@finnjs/static-source@0.1.7/source/avatar-v1.webp',
+      'https://unpkg.com/@vbenjs/static-source@0.1.7/source/avatar-v1.webp',
     defaultHomePath: '/analytics',
     dynamicTitle: true,
     enableCheckUpdates: true,
@@ -26,7 +26,7 @@ const defaultPreferences: Preferences = {
     layout: 'sidebar-nav',
     locale: 'zh-CN',
     loginExpiredMode: 'page',
-    name: 'Finn Admin',
+    name: 'Vben Admin',
     preferencesButtonPosition: 'auto',
     watermark: false,
     zIndex: 200,
@@ -39,8 +39,8 @@ const defaultPreferences: Preferences = {
     styleType: 'normal',
   },
   copyright: {
-    companyName: 'Finn',
-    companySiteLink: 'https://www.finn.pro',
+    companyName: 'Vben',
+    companySiteLink: 'https://www.vben.pro',
     date: '2024',
     enable: true,
     icp: '',

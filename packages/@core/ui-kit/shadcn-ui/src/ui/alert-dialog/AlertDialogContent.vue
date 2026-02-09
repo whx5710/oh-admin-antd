@@ -4,11 +4,11 @@ import type {
   AlertDialogContentProps,
 } from 'reka-ui';
 
-import type { ClassType } from '@finn-core/typings';
+import type { ClassType } from '@vben-core/typings';
 
 import { computed, ref } from 'vue';
 
-import { cn } from '@finn-core/shared/utils';
+import { cn } from '@vben-core/shared/utils';
 
 import {
   AlertDialogContent,

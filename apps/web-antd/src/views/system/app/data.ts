@@ -1,10 +1,10 @@
-import type { FinnFormSchema } from '#/adapter/form';
+import type { VbenFormSchema } from '#/adapter/form';
 import type { OnActionClickFn, VxeTableGridOptions } from '#/adapter/vxe-table';
 import type { SystemAppApi } from '#/api/system/app';
 
 import { z } from '#/adapter/form';
 
-export function useFormSchema(): FinnFormSchema[] {
+export function useFormSchema(): VbenFormSchema[] {
   return [
     {
       component: 'Input',
@@ -41,7 +41,7 @@ export function useFormSchema(): FinnFormSchema[] {
   ];
 }
 // 搜索表单
-export function useGridFormSchema(): FinnFormSchema[] {
+export function useGridFormSchema(): VbenFormSchema[] {
   return [
     {
       component: 'Input',
@@ -56,7 +56,7 @@ export function useGridFormSchema(): FinnFormSchema[] {
 }
 
 // 日志搜索表单
-export function useLogGridFormSchema(): FinnFormSchema[] {
+export function useLogGridFormSchema(): VbenFormSchema[] {
   return [
     {
       component: 'Input',
@@ -169,7 +169,7 @@ export function useColumns<T = SystemAppApi.App>(
 /**
  * 获取编辑表单的字段配置。如果没有使用多语言，可以直接export一个数组常量
  */
-export function useSchema(): FinnFormSchema[] {
+export function useSchema(): VbenFormSchema[] {
   return [
     {
       component: 'Input',
@@ -207,7 +207,7 @@ export function useSchema(): FinnFormSchema[] {
  * 接口列表
  * 获取编辑表单的字段配置。如果没有使用多语言，可以直接export一个数组常量
  */
-export function useFuncSchema(): FinnFormSchema[] {
+export function useFuncSchema(): VbenFormSchema[] {
   return [
     {
       component: 'Input',

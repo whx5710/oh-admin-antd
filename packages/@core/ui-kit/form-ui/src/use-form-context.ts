@@ -2,29 +2,29 @@ import type { ZodRawShape } from 'zod';
 
 import type { ComputedRef } from 'vue';
 
-import type { ExtendedFormApi, FormActions, FinnFormProps } from './types';
+import type { ExtendedFormApi, FormActions, VbenFormProps } from './types';
 
 import { computed, unref, useSlots } from 'vue';
 
-import { createContext } from '@finn-core/shadcn-ui';
-import { isString, mergeWithArrayOverride, set } from '@finn-core/shared/utils';
+import { createContext } from '@vben-core/shadcn-ui';
+import { isString, mergeWithArrayOverride, set } from '@vben-core/shared/utils';
 
 import { useForm } from 'vee-validate';
 import { object, ZodIntersection, ZodNumber, ZodObject, ZodString } from 'zod';
 import { getDefaultsForSchema } from 'zod-defaults';
 
-type ExtendFormProps = FinnFormProps & { formApi: ExtendedFormApi };
+type ExtendFormProps = VbenFormProps & { formApi: ExtendedFormApi };
 
 export const [injectFormProps, provideFormProps] =
   createContext<[ComputedRef<ExtendFormProps> | ExtendFormProps, FormActions]>(
-    'FinnFormProps',
+    'VbenFormProps',
   );
 
 export const [injectComponentRefMap, provideComponentRefMap] =
   createContext<Map<string, unknown>>('ComponentRefMap');
 
 export function useFormInitial(
-  props: ComputedRef<FinnFormProps> | FinnFormProps,
+  props: ComputedRef<VbenFormProps> | VbenFormProps,
 ) {
   const slots = useSlots();
   const initialValues = generateInitialValues();

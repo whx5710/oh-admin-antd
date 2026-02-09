@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
 
-import { RiDingding } from '@finn/icons';
-import { $t } from '@finn/locales';
+import { RiDingding } from '@vben/icons';
+import { $t } from '@vben/locales';
 
-import { alert, useFinnModal } from '@finn-core/popup-ui';
-import { FinnIconButton } from '@finn-core/shadcn-ui';
-import { loadScript } from '@finn-core/shared/utils';
+import { alert, useVbenModal } from '@vben-core/popup-ui';
+import { VbenIconButton } from '@vben-core/shadcn-ui';
+import { loadScript } from '@vben-core/shared/utils';
 
 interface Props {
   clientId: string;
@@ -21,7 +21,7 @@ const props = defineProps<Props>();
 
 const route = useRoute();
 
-const [Modal, modalApi] = useFinnModal({
+const [Modal, modalApi] = useVbenModal({
   header: false,
   footer: false,
   fullscreenButton: false,
@@ -91,13 +91,13 @@ const handleLogin = () => {
 
 <template>
   <div>
-    <FinnIconButton
+    <VbenIconButton
       @click="handleLogin"
       :tooltip="$t('authentication.dingdingLogin')"
       tooltip-side="top"
     >
       <RiDingding />
-    </FinnIconButton>
+    </VbenIconButton>
     <Modal>
       <div id="dingding_qrcode_login_element"></div>
     </Modal>

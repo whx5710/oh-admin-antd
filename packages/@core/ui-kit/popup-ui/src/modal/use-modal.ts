@@ -10,12 +10,12 @@ import {
   ref,
 } from 'vue';
 
-import { useStore } from '@finn-core/shared/store';
+import { useStore } from '@vben-core/shared/store';
 
 import { ModalApi } from './modal-api';
-import FinnModal from './modal.vue';
+import VbenModal from './modal.vue';
 
-const USER_MODAL_INJECT_KEY = Symbol('FINN_MODAL_INJECT');
+const USER_MODAL_INJECT_KEY = Symbol('VBEN_MODAL_INJECT');
 
 const DEFAULT_MODAL_PROPS: Partial<ModalProps> = {};
 
@@ -23,7 +23,7 @@ export function setDefaultModalProps(props: Partial<ModalProps>) {
   Object.assign(DEFAULT_MODAL_PROPS, props);
 }
 
-export function useFinnModal<TParentModalProps extends ModalProps = ModalProps>(
+export function useVbenModal<TParentModalProps extends ModalProps = ModalProps>(
   options: ModalApiOptions = {},
 ) {
   // Modal一般会抽离出来，所以如果有传入 connectedComponent，则表示为外部调用，与内部组件进行连接
@@ -65,7 +65,7 @@ export function useFinnModal<TParentModalProps extends ModalProps = ModalProps>(
       },
       // eslint-disable-next-line vue/one-component-per-file
       {
-        name: 'FinnParentModal',
+        name: 'VbenParentModal',
         inheritAttrs: false,
       },
     );
@@ -106,7 +106,7 @@ export function useFinnModal<TParentModalProps extends ModalProps = ModalProps>(
     (props: ModalProps, { attrs, slots }) => {
       return () =>
         h(
-          FinnModal,
+          VbenModal,
           {
             ...props,
             ...attrs,
@@ -117,7 +117,7 @@ export function useFinnModal<TParentModalProps extends ModalProps = ModalProps>(
     },
     // eslint-disable-next-line vue/one-component-per-file
     {
-      name: 'FinnModal',
+      name: 'VbenModal',
       inheritAttrs: false,
     },
   );
@@ -142,9 +142,9 @@ async function checkProps(api: ExtendedModalApi, attrs: Record<string, any>) {
 
   for (const attr of Object.keys(attrs)) {
     if (stateKeys.has(attr) && !['class'].includes(attr)) {
-      // connectedComponent存在时，不要传入Modal的props，会造成复杂度提升，如果你需要修改Modal的props，请使用 useFinnModal 或者api
+      // connectedComponent存在时，不要传入Modal的props，会造成复杂度提升，如果你需要修改Modal的props，请使用 useVbenModal 或者api
       console.warn(
-        `[Finn Modal]: When 'connectedComponent' exists, do not set props or slots '${attr}', which will increase complexity. If you need to modify the props of Modal, please use useFinnModal or api.`,
+        `[Vben Modal]: When 'connectedComponent' exists, do not set props or slots '${attr}', which will increase complexity. If you need to modify the props of Modal, please use useVbenModal or api.`,
       );
     }
   }

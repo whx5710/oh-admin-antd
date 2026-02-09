@@ -3,9 +3,9 @@ import type { VNode } from 'vue';
 
 import { computed, ref, useAttrs, watch, watchEffect } from 'vue';
 
-import { usePagination } from '@finn/hooks';
-import { EmptyIcon, Grip, listIcons } from '@finn/icons';
-import { $t } from '@finn/locales';
+import { usePagination } from '@vben/hooks';
+import { EmptyIcon, Grip, listIcons } from '@vben/icons';
+import { $t } from '@vben/locales';
 
 import {
   Button,
@@ -18,11 +18,11 @@ import {
   PaginationListItem,
   PaginationNext,
   PaginationPrev,
-  FinnIcon,
-  FinnIconButton,
-  FinnPopover,
-} from '@finn-core/shadcn-ui';
-import { isFunction } from '@finn-core/shared/utils';
+  VbenIcon,
+  VbenIconButton,
+  VbenPopover,
+} from '@vben-core/shadcn-ui';
+import { isFunction } from '@vben-core/shared/utils';
 
 import { objectOmit, refDebounced, watchDebounced } from '@vueuse/core';
 
@@ -188,7 +188,7 @@ const getBindAttrs = computed(() => {
 defineExpose({ toggleOpenState, open, close });
 </script>
 <template>
-  <FinnPopover
+  <VbenPopover
     v-model:open="visible"
     :content-props="{ align: 'end', alignOffset: -11, sideOffset: 8 }"
     content-class="p-0 pt-3 w-full"
@@ -208,7 +208,7 @@ defineExpose({ toggleOpenState, open, close });
           v-bind="getBindAttrs"
         >
           <template #[iconSlot]>
-            <FinnIcon
+            <VbenIcon
               :icon="currentSelect || Grip"
               class="size-4"
               aria-hidden="true"
@@ -225,14 +225,14 @@ defineExpose({ toggleOpenState, open, close });
             :aria-label="$t('ui.iconPicker.placeholder')"
             aria-expanded="visible"
           />
-          <FinnIcon
+          <VbenIcon
             :icon="currentSelect || Grip"
             class="absolute right-1 top-1 size-6"
             aria-hidden="true"
           />
         </div>
       </template>
-      <FinnIcon
+      <VbenIcon
         :icon="currentSelect || Grip"
         v-else
         class="size-4"
@@ -255,20 +255,20 @@ defineExpose({ toggleOpenState, open, close });
 
     <template v-if="paginationList.length > 0">
       <div class="grid max-h-[360px] w-full grid-cols-6 justify-items-center">
-        <FinnIconButton
+        <VbenIconButton
           v-for="(item, index) in paginationList"
           :key="index"
           :tooltip="item"
           tooltip-side="top"
           @click="handleClick(item)"
         >
-          <FinnIcon
+          <VbenIcon
             :class="{
               'text-primary transition-all': currentSelect === item,
             }"
             :icon="item"
           />
-        </FinnIconButton>
+        </VbenIconButton>
       </div>
       <div
         v-if="total >= pageSize"
@@ -322,5 +322,5 @@ defineExpose({ toggleOpenState, open, close });
         <div class="mt-1 text-sm">{{ $t('common.noData') }}</div>
       </div>
     </template>
-  </FinnPopover>
+  </VbenPopover>
 </template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { MenuRecordRaw } from '@finn/types';
+import type { MenuRecordRaw } from '@vben/types';
 
 import { nextTick, onMounted, onUnmounted, ref, watch } from 'vue';
 
@@ -9,11 +9,11 @@ import {
   CornerDownLeft,
   MdiKeyboardEsc,
   Search,
-} from '@finn/icons';
-import { $t } from '@finn/locales';
-import { isWindowsOs } from '@finn/utils';
+} from '@vben/icons';
+import { $t } from '@vben/locales';
+import { isWindowsOs } from '@vben/utils';
 
-import { useFinnModal } from '@finn-core/popup-ui';
+import { useVbenModal } from '@vben-core/popup-ui';
 
 import { useMagicKeys, whenever } from '@vueuse/core';
 
@@ -34,7 +34,7 @@ const props = withDefaults(
 const keyword = ref('');
 const searchInputRef = ref<HTMLInputElement>();
 
-const [Modal, modalApi] = useFinnModal({
+const [Modal, modalApi] = useVbenModal({
   onCancel() {
     modalApi.close();
   },

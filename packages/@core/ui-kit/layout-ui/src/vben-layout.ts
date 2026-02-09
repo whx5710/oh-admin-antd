@@ -3,9 +3,9 @@ import type {
   LayoutHeaderModeType,
   LayoutType,
   ThemeModeType,
-} from '@finn-core/typings';
+} from '@vben-core/typings';
 
-interface FinnLayoutProps {
+interface VbenLayoutProps {
   /**
    * 内容区域定宽
    * @default 'wide'
@@ -172,4 +172,4 @@ interface FinnLayoutProps {
    */
   zIndex?: number;
 }
-export type { FinnLayoutProps };
+export type { VbenLayoutProps };

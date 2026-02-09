@@ -1,18 +1,18 @@
 <script lang="ts" setup>
 import type { DataNode } from 'ant-design-vue/es/tree';
 
-import type { Recordable } from '@finn/types';
+import type { Recordable } from '@vben/types';
 
 import type { SystemRoleApi } from '#/api/system/role';
 
 import { computed, ref } from 'vue';
 
-import { FinnTree, useFinnDrawer } from '@finn/common-ui';
-import { IconifyIcon } from '@finn/icons';
+import { VbenTree, useVbenDrawer } from '@vben/common-ui';
+import { IconifyIcon } from '@vben/icons';
 
 import { Spin } from 'ant-design-vue';
 
-import { useFinnForm } from '#/adapter/form';
+import { useVbenForm } from '#/adapter/form';
 import { getAllMenusApi } from '#/api/system/menu';
 import { createRole, updateRole } from '#/api/system/role';
 import { $t } from '#/locales';
@@ -23,7 +23,7 @@ const emits = defineEmits(['success']);
 
 const formData = ref<SystemRoleApi.SystemRole>();
 
-const [Form, formApi] = useFinnForm({
+const [Form, formApi] = useVbenForm({
   schema: useFormSchema(),
   showDefaultActions: false,
 });
@@ -32,7 +32,7 @@ const menuIdList = ref<DataNode[]>([]);
 const loadingPermissions = ref(false);
 
 const id = ref();
-const [Drawer, drawerApi] = useFinnDrawer({
+const [Drawer, drawerApi] = useVbenDrawer({
   async onConfirm() {
     const { valid } = await formApi.validate();
     if (!valid) return;
@@ -101,7 +101,7 @@ function getNodeClass(node: Recordable<any>) {
       <template #menuIdList="slotProps">
         <Spin :spinning="loadingPermissions" wrapper-class-name="w-full">
           <!-- 不能勾选复选框，暂时去掉 :default-expanded-level="2" -->
-          <FinnTree
+          <VbenTree
             :tree-data="menuIdList"
             multiple
             bordered
@@ -115,7 +115,7 @@ function getNodeClass(node: Recordable<any>) {
               <IconifyIcon v-if="value.meta.icon" :icon="value.meta.icon" />
               {{ $t(value.meta.title) }}
             </template>
-          </FinnTree>
+          </VbenTree>
         </Spin>
       </template>
     </Form>

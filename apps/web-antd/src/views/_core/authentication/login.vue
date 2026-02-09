@@ -1,13 +1,13 @@
 <script lang="ts" setup>
-import type { FinnFormSchema } from '@finn/common-ui';
-import type { Recordable } from '@finn/types';
+import type { VbenFormSchema } from '@vben/common-ui';
+import type { Recordable } from '@vben/types';
 
 // markRaw
 import { computed, ref } from 'vue';
 
 // SliderCaptcha
-import { AuthenticationLogin, z } from '@finn/common-ui';
-import { $t } from '@finn/locales';
+import { AuthenticationLogin, z } from '@vben/common-ui';
+import { $t } from '@vben/locales';
 
 import { message } from 'ant-design-vue';
 
@@ -74,10 +74,10 @@ async function authLogin(
   }
 }
 
-const formSchema = computed((): FinnFormSchema[] => {
+const formSchema = computed((): VbenFormSchema[] => {
   return [
     {
-      component: 'FinnInput',
+      component: 'VbenInput',
       componentProps: {
         placeholder: $t('authentication.usernameTip'),
       },
@@ -87,7 +87,7 @@ const formSchema = computed((): FinnFormSchema[] => {
     },
     // 密码
     {
-      component: 'FinnInputPassword',
+      component: 'VbenInputPassword',
       componentProps: {
         placeholder: $t('authentication.password'),
       },

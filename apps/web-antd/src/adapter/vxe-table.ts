@@ -1,26 +1,26 @@
-import type { VxeTableGridOptions } from '@finn/plugins/vxe-table';
-import type { Recordable } from '@finn/types';
+import type { VxeTableGridOptions } from '@vben/plugins/vxe-table';
+import type { Recordable } from '@vben/types';
 
 import type { ComponentType } from './component';
 
 import { h } from 'vue';
 
-import { IconifyIcon } from '@finn/icons';
-import { $te } from '@finn/locales';
+import { IconifyIcon } from '@vben/icons';
+import { $te } from '@vben/locales';
 import {
-  setupFinnVxeTable,
-  useFinnVxeGrid as useGrid,
-} from '@finn/plugins/vxe-table';
-import { get, isFunction, isString } from '@finn/utils';
+  setupVbenVxeTable,
+  useVbenVxeGrid as useGrid,
+} from '@vben/plugins/vxe-table';
+import { get, isFunction, isString } from '@vben/utils';
 
 import { objectOmit } from '@vueuse/core';
 import { Button, Image, Popconfirm, Switch, Tag } from 'ant-design-vue';
 
 import { $t } from '#/locales';
 
-import { useFinnForm } from './form';
+import { useVbenForm } from './form';
 
-setupFinnVxeTable({
+setupVbenVxeTable({
   configVxeTable: (vxeUI) => {
     vxeUI.setConfig({
       grid: {
@@ -280,10 +280,10 @@ setupFinnVxeTable({
     // 这里可以自行扩展 vxe-table 的全局配置，比如自定义格式化
     // vxeUI.formats.add
   },
-  useFinnForm,
+  useVbenForm,
 });
 
-export const useFinnVxeGrid = <T extends Record<string, any>>(
+export const useVbenVxeGrid = <T extends Record<string, any>>(
   ...rest: Parameters<typeof useGrid<T, ComponentType>>
 ) => useGrid<T, ComponentType>(...rest);
 
@@ -294,4 +294,4 @@ export type OnActionClickParams<T = Recordable<any>> = {
 export type OnActionClickFn<T = Recordable<any>> = (
   params: OnActionClickParams<T>,
 ) => void;
-export type * from '@finn/plugins/vxe-table';
+export type * from '@vben/plugins/vxe-table';

@@ -1,6 +1,6 @@
 import type { Component } from 'vue';
 
-interface FinnDropdownMenuItem {
+interface VbenDropdownMenuItem {
   disabled?: boolean;
   /**
    * @zh_CN 点击事件处理
@@ -26,7 +26,7 @@ interface FinnDropdownMenuItem {
 }
 
 interface DropdownMenuProps {
-  menus: FinnDropdownMenuItem[];
+  menus: VbenDropdownMenuItem[];
 }
 
-export type { DropdownMenuProps, FinnDropdownMenuItem };
+export type { DropdownMenuProps, VbenDropdownMenuItem };

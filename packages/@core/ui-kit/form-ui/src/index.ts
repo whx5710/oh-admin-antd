@@ -1,12 +1,12 @@
-export { setupFinnForm } from './config';
+export { setupVbenForm } from './config';
 
 export type {
   BaseFormComponentType,
   ExtendedFormApi,
-  FinnFormProps,
-  FormSchema as FinnFormSchema,
+  VbenFormProps,
+  FormSchema as VbenFormSchema,
 } from './types';
 
-export * from './use-finn-form';
-// export { default as FinnForm } from './finn-form.vue';
+export * from './use-vben-form';
+// export { default as VbenForm } from './vben-form.vue';
 export * as z from 'zod';

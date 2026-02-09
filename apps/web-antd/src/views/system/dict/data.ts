@@ -1,4 +1,4 @@
-import type { FinnFormSchema } from '#/adapter/form';
+import type { VbenFormSchema } from '#/adapter/form';
 import type { OnActionClickFn, VxeTableGridOptions } from '#/adapter/vxe-table';
 import type { SystemDictApi } from '#/api/system/dict';
 
@@ -17,7 +17,7 @@ export function getDictClassOptions() {
  * 获取编辑表单的字段配置。如果没有使用多语言，可以直接export一个数组常量
  * 字典类型弹窗新增、修改表单
  */
-export function useSchema(): FinnFormSchema[] {
+export function useSchema(): VbenFormSchema[] {
   return [
     {
       component: 'Input',
@@ -96,7 +96,7 @@ export function useSchema(): FinnFormSchema[] {
  * 获取编辑表单的字段配置。如果没有使用多语言，可以直接export一个数组常量
  * 字典数据表单；维护字典中的数据信息
  */
-export function useDataSchema(): FinnFormSchema[] {
+export function useDataSchema(): VbenFormSchema[] {
   return [
     {
       component: 'Input',
@@ -143,7 +143,7 @@ export function useDataSchema(): FinnFormSchema[] {
 }
 
 // 搜索表单
-export function useGridFormSchema(): FinnFormSchema[] {
+export function useGridFormSchema(): VbenFormSchema[] {
   return [
     {
       component: 'Input',

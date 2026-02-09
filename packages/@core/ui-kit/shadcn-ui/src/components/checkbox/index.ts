@@ -1,1 +1,1 @@
-export { default as FinnCheckbox } from './checkbox.vue';
+export { default as VbenCheckbox } from './checkbox.vue';

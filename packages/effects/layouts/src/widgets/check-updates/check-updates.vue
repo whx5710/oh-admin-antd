@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue';
 
-import { $t } from '@finn/locales';
+import { $t } from '@vben/locales';
 
-import { useFinnModal } from '@finn-core/popup-ui';
+import { useVbenModal } from '@vben-core/popup-ui';
 
 interface Props {
   // 轮询时间，分钟
@@ -24,7 +24,7 @@ const currentVersionTag = ref('');
 const lastVersionTag = ref('');
 const timer = ref<ReturnType<typeof setInterval>>();
 
-const [UpdateNoticeModal, modalApi] = useFinnModal({
+const [UpdateNoticeModal, modalApi] = useVbenModal({
   closable: false,
   closeOnPressEscape: false,
   closeOnClickModal: false,

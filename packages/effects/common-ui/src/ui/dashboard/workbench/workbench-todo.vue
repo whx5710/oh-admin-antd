@@ -6,8 +6,8 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-  FinnCheckbox,
-} from '@finn-core/shadcn-ui';
+  VbenCheckbox,
+} from '@vben-core/shadcn-ui';
 
 interface Props {
   items?: WorkbenchTodoItem[];
@@ -39,7 +39,7 @@ withDefaults(defineProps<Props>(), {
           class="flex cursor-pointer justify-between gap-x-6 py-5"
         >
           <div class="flex min-w-0 items-center gap-x-4">
-            <FinnCheckbox v-model:checked="item.completed" name="completed" />
+            <VbenCheckbox v-model:checked="item.completed" name="completed" />
             <div class="min-w-0 flex-auto">
               <p class="text-foreground text-sm font-semibold leading-6">
                 {{ item.title }}

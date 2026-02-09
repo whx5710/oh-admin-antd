@@ -3,20 +3,20 @@ import type { Component } from 'vue';
 import type {
   BaseFormComponentType,
   FormCommonConfig,
-  FinnFormAdapterOptions,
+  VbenFormAdapterOptions,
 } from './types';
 
 import { h } from 'vue';
 
 import {
-  FinnButton,
-  FinnCheckbox,
-  Input as FinnInput,
-  FinnInputPassword,
-  FinnPinInput,
-  FinnSelect,
-} from '@finn-core/shadcn-ui';
-import { globalShareState } from '@finn-core/shared/global-state';
+  VbenButton,
+  VbenCheckbox,
+  Input as VbenInput,
+  VbenInputPassword,
+  VbenPinInput,
+  VbenSelect,
+} from '@vben-core/shadcn-ui';
+import { globalShareState } from '@vben-core/shared/global-state';
 
 import { defineRule } from 'vee-validate';
 
@@ -25,24 +25,24 @@ const DEFAULT_MODEL_PROP_NAME = 'modelValue';
 export const DEFAULT_FORM_COMMON_CONFIG: FormCommonConfig = {};
 
 export const COMPONENT_MAP: Record<BaseFormComponentType, Component> = {
-  DefaultButton: h(FinnButton, { size: 'sm', variant: 'outline' }),
-  PrimaryButton: h(FinnButton, { size: 'sm', variant: 'default' }),
-  FinnCheckbox,
-  FinnInput,
-  FinnInputPassword,
-  FinnPinInput,
-  FinnSelect,
+  DefaultButton: h(VbenButton, { size: 'sm', variant: 'outline' }),
+  PrimaryButton: h(VbenButton, { size: 'sm', variant: 'default' }),
+  VbenCheckbox,
+  VbenInput,
+  VbenInputPassword,
+  VbenPinInput,
+  VbenSelect,
 };
 
 export const COMPONENT_BIND_EVENT_MAP: Partial<
   Record<BaseFormComponentType, string>
 > = {
-  FinnCheckbox: 'checked',
+  VbenCheckbox: 'checked',
 };
 
-export function setupFinnForm<
+export function setupVbenForm<
   T extends BaseFormComponentType = BaseFormComponentType,
->(options: FinnFormAdapterOptions<T>) {
+>(options: VbenFormAdapterOptions<T>) {
   const { config, defineRules } = options;
 
   const {

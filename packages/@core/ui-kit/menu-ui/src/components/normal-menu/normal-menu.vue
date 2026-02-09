@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { MenuRecordRaw } from '@finn-core/typings';
+import type { MenuRecordRaw } from '@vben-core/typings';
 
 import type { NormalMenuProps } from './normal-menu';
 
-import { useNamespace } from '@finn-core/composables';
-import { FinnIcon } from '@finn-core/shadcn-ui';
+import { useNamespace } from '@vben-core/composables';
+import { VbenIcon } from '@vben-core/shadcn-ui';
 
 interface Props extends NormalMenuProps {}
 
@@ -50,7 +50,7 @@ function menuIcon(menu: MenuRecordRaw) {
         @click="() => emit('select', menu)"
         @mouseenter="() => emit('enter', menu)"
       >
-        <FinnIcon :class="e('icon')" :icon="menuIcon(menu)" fallback />
+        <VbenIcon :class="e('icon')" :icon="menuIcon(menu)" fallback />
 
         <span :class="e('name')" class="truncate"> {{ menu.name }}</span>
       </li>
@@ -58,7 +58,7 @@ function menuIcon(menu: MenuRecordRaw) {
   </ul>
 </template>
 <style lang="scss" scoped>
-$namespace: finn;
+$namespace: vben;
 
 .#{$namespace}-normal-menu {
   --menu-item-margin-y: 4px;

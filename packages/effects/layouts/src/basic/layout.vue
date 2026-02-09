@@ -2,23 +2,23 @@
 import type { SetupContext } from 'vue';
 import type { RouteLocationNormalizedLoaded } from 'vue-router';
 
-import type { MenuRecordRaw } from '@finn/types';
+import type { MenuRecordRaw } from '@vben/types';
 
 import { computed, onMounted, useSlots, watch } from 'vue';
 import { useRoute } from 'vue-router';
 
-import { useRefresh } from '@finn/hooks';
-import { $t, i18n } from '@finn/locales';
+import { useRefresh } from '@vben/hooks';
+import { $t, i18n } from '@vben/locales';
 import {
   preferences,
   updatePreferences,
   usePreferences,
-} from '@finn/preferences';
-import { useAccessStore } from '@finn/stores';
-import { cloneDeep, mapTree } from '@finn/utils';
+} from '@vben/preferences';
+import { useAccessStore } from '@vben/stores';
+import { cloneDeep, mapTree } from '@vben/utils';
 
-import { FinnAdminLayout } from '@finn-core/layout-ui';
-import { FinnBackTop, FinnLogo } from '@finn-core/shadcn-ui';
+import { VbenAdminLayout } from '@vben-core/layout-ui';
+import { VbenBackTop, VbenLogo } from '@vben-core/shadcn-ui';
 
 import { Breadcrumb, CheckUpdates, Preferences } from '../widgets';
 import { LayoutContent, LayoutContentSpinner } from './content';
@@ -196,7 +196,7 @@ const headerSlots = computed(() => {
 </script>
 
 <template>
-  <FinnAdminLayout
+  <VbenAdminLayout
     v-model:sidebar-extra-visible="sidebarExtraVisible"
     :content-compact="preferences.app.contentCompact"
     :content-compact-width="preferences.app.contentCompactWidth"
@@ -251,7 +251,7 @@ const headerSlots = computed(() => {
   >
     <!-- logo -->
     <template #logo>
-      <FinnLogo
+      <VbenLogo
         v-if="preferences.logo.enable"
         :fit="preferences.logo.fit"
         :class="logoClass"
@@ -264,7 +264,7 @@ const headerSlots = computed(() => {
         <template v-if="$slots['logo-text']" #text>
           <slot name="logo-text"></slot>
         </template>
-      </FinnLogo>
+      </VbenLogo>
     </template>
     <!-- 头部区域 -->
     <template #header>
@@ -342,7 +342,7 @@ const headerSlots = computed(() => {
       />
     </template>
     <template #side-extra-title>
-      <FinnLogo
+      <VbenLogo
         v-if="preferences.logo.enable"
         :fit="preferences.logo.fit"
         :text="preferences.app.name"
@@ -351,7 +351,7 @@ const headerSlots = computed(() => {
         <template v-if="$slots['logo-text']" #text>
           <slot name="logo-text"></slot>
         </template>
-      </FinnLogo>
+      </VbenLogo>
     </template>
 
     <template #tabbar>
@@ -398,7 +398,7 @@ const headerSlots = computed(() => {
           @clear-preferences-and-logout="clearPreferencesAndLogout"
         />
       </template>
-      <FinnBackTop />
+      <VbenBackTop />
     </template>
-  </FinnAdminLayout>
+  </VbenAdminLayout>
 </template>

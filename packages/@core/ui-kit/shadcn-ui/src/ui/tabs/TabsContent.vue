@@ -3,7 +3,7 @@ import type { TabsContentProps } from 'reka-ui';
 
 import { computed } from 'vue';
 
-import { cn } from '@finn-core/shared/utils';
+import { cn } from '@vben-core/shared/utils';
 
 import { TabsContent } from 'reka-ui';
 

@@ -3,7 +3,7 @@ import type { RadioGroupItemProps } from 'reka-ui';
 
 import { computed } from 'vue';
 
-import { cn } from '@finn-core/shared/utils';
+import { cn } from '@vben-core/shared/utils';
 
 import { Circle } from 'lucide-vue-next';
 import {

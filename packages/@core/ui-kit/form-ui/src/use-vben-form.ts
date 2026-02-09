@@ -1,19 +1,19 @@
 import type {
   BaseFormComponentType,
   ExtendedFormApi,
-  FinnFormProps,
+  VbenFormProps,
 } from './types';
 
 import { defineComponent, h, isReactive, onBeforeUnmount, watch } from 'vue';
 
-import { useStore } from '@finn-core/shared/store';
+import { useStore } from '@vben-core/shared/store';
 
 import { FormApi } from './form-api';
-import FinnUseForm from './finn-use-form.vue';
+import VbenUseForm from './vben-use-form.vue';
 
-export function useFinnForm<
+export function useVbenForm<
   T extends BaseFormComponentType = BaseFormComponentType,
->(options: FinnFormProps<T>) {
+>(options: VbenFormProps<T>) {
   const IS_REACTIVE = isReactive(options);
   const api = new FormApi(options);
   const extendedApi: ExtendedFormApi = api as never;
@@ -22,16 +22,16 @@ export function useFinnForm<
   };
 
   const Form = defineComponent(
-    (props: FinnFormProps, { attrs, slots }) => {
+    (props: VbenFormProps, { attrs, slots }) => {
       onBeforeUnmount(() => {
         api.unmount();
       });
       api.setState({ ...props, ...attrs });
       return () =>
-        h(FinnUseForm, { ...props, ...attrs, formApi: extendedApi }, slots);
+        h(VbenUseForm, { ...props, ...attrs, formApi: extendedApi }, slots);
     },
     {
-      name: 'FinnUseForm',
+      name: 'VbenUseForm',
       inheritAttrs: false,
     },
   );

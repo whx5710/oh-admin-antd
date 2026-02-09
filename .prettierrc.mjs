@@ -1,1 +1,1 @@
-export { default } from '@finn/prettier-config';
+export { default } from '@vben/prettier-config';

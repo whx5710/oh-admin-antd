@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import type { SupportedLanguagesType } from '@finn/locales';
+import type { SupportedLanguagesType } from '@vben/locales';
 
-import { SUPPORT_LANGUAGES } from '@finn/constants';
-import { Languages } from '@finn/icons';
-import { loadLocaleMessages } from '@finn/locales';
-import { preferences, updatePreferences } from '@finn/preferences';
+import { SUPPORT_LANGUAGES } from '@vben/constants';
+import { Languages } from '@vben/icons';
+import { loadLocaleMessages } from '@vben/locales';
+import { preferences, updatePreferences } from '@vben/preferences';
 
-import { FinnDropdownRadioMenu, FinnIconButton } from '@finn-core/shadcn-ui';
+import { VbenDropdownRadioMenu, VbenIconButton } from '@vben-core/shadcn-ui';
 
 defineOptions({
   name: 'LanguageToggle',
@@ -26,14 +26,14 @@ async function handleUpdate(value: string | undefined) {
 
 <template>
   <div>
-    <FinnDropdownRadioMenu
+    <VbenDropdownRadioMenu
       :menus="SUPPORT_LANGUAGES"
       :model-value="preferences.app.locale"
       @update:model-value="handleUpdate"
     >
-      <FinnIconButton>
+      <VbenIconButton>
         <Languages class="text-foreground size-4" />
-      </FinnIconButton>
-    </FinnDropdownRadioMenu>
+      </VbenIconButton>
+    </VbenDropdownRadioMenu>
   </div>
 </template>

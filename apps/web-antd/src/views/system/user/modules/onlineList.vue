@@ -7,18 +7,18 @@ import type { SystemUserApi } from '#/api/system/user';
 
 import { ref } from 'vue';
 
-import { useFinnModal } from '@finn/common-ui';
+import { useVbenModal } from '@vben/common-ui';
 
 import { Modal as Amodal } from 'ant-design-vue';
 
-import { useFinnVxeGrid } from '#/adapter/vxe-table';
+import { useVbenVxeGrid } from '#/adapter/vxe-table';
 import { forceLogout, tokenList } from '#/api/system/user';
 
 import { useTokenColumns } from '../data';
 
 const userId = ref();
 
-const [Grid, gridApi] = useFinnVxeGrid({
+const [Grid, gridApi] = useVbenVxeGrid({
   showSearchForm: false, // 隐藏搜索表单
   formOptions: {},
   gridOptions: {
@@ -51,7 +51,7 @@ const [Grid, gridApi] = useFinnVxeGrid({
   } as VxeTableGridOptions<SystemUserApi.SystemUser>,
 });
 
-const [Modal, modalApi] = useFinnModal({
+const [Modal, modalApi] = useVbenModal({
   showConfirmButton: false, // 隐藏确认按钮
   async onConfirm() {},
   onOpenChange(isOpen) {

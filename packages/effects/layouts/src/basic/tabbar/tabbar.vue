@@ -2,11 +2,11 @@
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 
-import { useContentMaximize, useTabs } from '@finn/hooks';
-import { preferences } from '@finn/preferences';
-import { useTabbarStore } from '@finn/stores';
+import { useContentMaximize, useTabs } from '@vben/hooks';
+import { preferences } from '@vben/preferences';
+import { useTabbarStore } from '@vben/stores';
 
-import { TabsToolMore, TabsToolScreen, TabsView } from '@finn-core/tabs-ui';
+import { TabsToolMore, TabsToolScreen, TabsView } from '@vben-core/tabs-ui';
 
 import { useTabbar } from './use-tabbar';
 

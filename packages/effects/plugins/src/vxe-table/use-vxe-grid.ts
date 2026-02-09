@@ -2,13 +2,13 @@ import type { VxeGridSlots, VxeGridSlotTypes } from 'vxe-table';
 
 import type { SlotsType } from 'vue';
 
-import type { BaseFormComponentType } from '@finn-core/form-ui';
+import type { BaseFormComponentType } from '@vben-core/form-ui';
 
 import type { ExtendedVxeGridApi, VxeGridProps } from './types';
 
 import { defineComponent, h, onBeforeUnmount } from 'vue';
 
-import { useStore } from '@finn-core/shared/store';
+import { useStore } from '@vben-core/shared/store';
 
 import { VxeGridApi } from './api';
 import VxeGrid from './use-vxe-grid.vue';
@@ -19,7 +19,7 @@ type FilteredSlots<T> = {
     : K]: VxeGridSlots<T>[K];
 };
 
-export function useFinnVxeGrid<
+export function useVbenVxeGrid<
   T extends Record<string, any> = any,
   D extends BaseFormComponentType = BaseFormComponentType,
 >(options: VxeGridProps<T, D>) {
@@ -39,7 +39,7 @@ export function useFinnVxeGrid<
       return () => h(VxeGrid, { ...props, ...attrs, api: extendedApi }, slots);
     },
     {
-      name: 'FinnVxeGrid',
+      name: 'VbenVxeGrid',
       inheritAttrs: false,
       slots: Object as SlotsType<
         {
@@ -67,4 +67,4 @@ export function useFinnVxeGrid<
   return [Grid, extendedApi] as const;
 }
 
-export type UseFinnVxeGrid = typeof useFinnVxeGrid;
+export type UseVbenVxeGrid = typeof useVbenVxeGrid;

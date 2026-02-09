@@ -6,8 +6,8 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-  FinnIcon,
-} from '@finn-core/shadcn-ui';
+  VbenIcon,
+} from '@vben-core/shadcn-ui';
 
 interface Props {
   items?: WorkbenchQuickNavItem[];
@@ -43,7 +43,7 @@ defineEmits(['click']);
           class="flex-col-center border-border group w-1/3 cursor-pointer border-r border-t py-8 hover:shadow-xl"
           @click="$emit('click', item)"
         >
-          <FinnIcon
+          <VbenIcon
             :color="item.color"
             :icon="item.icon"
             class="size-7 transition-all duration-300 group-hover:scale-125"

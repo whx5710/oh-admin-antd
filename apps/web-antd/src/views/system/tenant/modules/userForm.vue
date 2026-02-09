@@ -7,12 +7,12 @@ import type { SystemUserApi } from '#/api/system/user';
 
 import { ref } from 'vue';
 
-import { useFinnDrawer, useFinnModal } from '@finn/common-ui';
-import { Plus } from '@finn/icons';
+import { useVbenDrawer, useVbenModal } from '@vben/common-ui';
+import { Plus } from '@vben/icons';
 
 import { Button, message } from 'ant-design-vue';
 
-import { useFinnVxeGrid } from '#/adapter/vxe-table';
+import { useVbenVxeGrid } from '#/adapter/vxe-table';
 import { getUserPage, tenantUser } from '#/api/system/user';
 import { $t } from '#/locales';
 
@@ -21,14 +21,14 @@ import ModalUserForm from './modalUserForm.vue';
 /**
  * 数据字典-数据列表（抽屉）。
  */
-const [FormModal, formModalApi] = useFinnModal({
+const [FormModal, formModalApi] = useVbenModal({
   connectedComponent: ModalUserForm,
   destroyOnClose: true,
 });
 
 const tenantId = ref();
 // drawerApi
-const [Drawer, drawerApi] = useFinnDrawer({
+const [Drawer, drawerApi] = useVbenDrawer({
   showConfirmButton: false,
   async onConfirm() {
     console.warn('------------------onConfirm');
@@ -59,7 +59,7 @@ function onDataDelete(row: SystemUserApi.SystemUser) {
 }
 
 // gridApi 租户用户
-const [Grid, gridApi] = useFinnVxeGrid({
+const [Grid, gridApi] = useVbenVxeGrid({
   gridOptions: {
     columns: useUserColumns(onActionClick),
     height: 'auto',

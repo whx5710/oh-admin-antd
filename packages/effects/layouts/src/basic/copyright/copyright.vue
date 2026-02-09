@@ -12,7 +12,7 @@ defineOptions({
 });
 
 withDefaults(defineProps<Props>(), {
-  companyName: 'Finn Admin',
+  companyName: 'Vben Admin',
   companySiteLink: '',
   date: '2024',
   icp: '',
