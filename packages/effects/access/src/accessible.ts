@@ -80,8 +80,8 @@ async function generateRoutes(
   mode: AccessModeType,
   options: GenerateMenuAndRoutesOptions,
 ) {
+  console.warn('==============================', mode);
   const { forbiddenComponent, roles, routes } = options;
-
   let resultRoutes: RouteRecordRaw[] = routes;
   switch (mode) {
     case 'backend': {
